@@ -102,6 +102,7 @@ public class Edge {
 
     @Override
     public String toString() {
+
         return src + "-[" + rel + "]->" + dest;
     }
     

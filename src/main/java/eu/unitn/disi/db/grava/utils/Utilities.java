@@ -18,6 +18,8 @@
 package eu.unitn.disi.db.grava.utils;
 
 import eu.unitn.disi.db.grava.exceptions.ParseException;
+import eu.unitn.disi.db.grava.graphs.MappedNode;
+
 import java.io.BufferedInputStream;
 import java.io.BufferedReader;
 import java.io.Closeable;
@@ -34,6 +36,7 @@ import java.sql.Statement;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Comparator;
+import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.ExecutorService;
@@ -60,7 +63,19 @@ public final class Utilities {
 
     private Utilities() {
     }
-
+    
+    public static Set<MappedNode> nodesToMappedNodes(Collection<Long> collection){
+    	Set<MappedNode> mappedNodes = new HashSet<MappedNode>();
+    	MappedNode mn = null;
+    	for(Long node : collection){
+    		mn = new MappedNode();
+    		mn.setNodeID(node);
+    		mappedNodes.add(mn);
+    	}
+    	
+    	return mappedNodes;
+    }
+    
     public static <A, B> String mapToString(Map<A, B> m) {
         StringBuilder sb = new StringBuilder();
         Set<A> keys = m.keySet();

@@ -18,13 +18,16 @@
 package eu.unitn.disi.db.grava.graphs;
 
 import eu.unitn.disi.db.grava.exceptions.ParseException;
+import eu.unitn.disi.db.grava.utils.StdOut;
 import eu.unitn.disi.db.grava.utils.Utilities;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
@@ -48,6 +51,8 @@ public class BigMultigraph implements Multigraph, Iterable<Long>  {
     private int[] lastOutBounds;
     private int nodeNumber;
     private Set<Edge> edgeSet;
+    private boolean calLabelFreq;
+    private HashMap<Long, LabelContainer> labelFreq;
     private enum separator {space , tab, unknown };
 
     public BigMultigraph() {
@@ -70,21 +75,31 @@ public class BigMultigraph implements Multigraph, Iterable<Long>  {
         lastInBounds = new int[2];
         lastOutBounds = new int[2];
         edgeSet = null;
-
+        calLabelFreq = true;
+        labelFreq = new HashMap<Long, LabelContainer>();
         if (edges == -1) {
             edges = Utilities.countLines(inFile);
         }
-
+//        System.out.println("edge number: " + edges);
         //TODO: Add a check on different sizes.
         inEdges = new long[edges][];
         outEdges = new long[edges][];
         loadEdges(inFile, true);
         loadEdges(outFile, false);
-
+        
         if (sort) {
             Utilities.binaryTableSort(inEdges);
             Utilities.binaryTableSort(outEdges);
         }
+//        System.out.println("inEdges:");
+//        for(int i =0; i < inEdges.length; i++){	
+//        	System.out.println(inEdges[i][0] + " "+inEdges[i][1] + " "+inEdges[i][2]);
+//        }
+//        System.out.println("outEdges:");
+//        for(int i =0; i < outEdges.length; i++){
+//        	System.out.println(outEdges[i][0] + " "+outEdges[i][1] + " "+outEdges[i][2]);
+//        }
+        
     }
 
         /**
@@ -108,6 +123,7 @@ public class BigMultigraph implements Multigraph, Iterable<Long>  {
         this(inFile, outFile, -1, sort);
     }
 
+
     private void loadEdges(String edgeFile, boolean incoming) throws ParseException, IOException {
         try {
             File file = new File(edgeFile);
@@ -120,8 +136,9 @@ public class BigMultigraph implements Multigraph, Iterable<Long>  {
             String line;
             String[] tokens;
             int count = 0;
-            separator splitting = separator.unknown;
+            separator splitting = separator.space;
             while((line = in.readLine()) != null) {
+//            	System.out.println(count + " " + line);
                 line = line.trim();
                 if (!"".equals(line) && !line.startsWith("#")) { //Comment
                     switch (splitting) {
@@ -142,19 +159,31 @@ public class BigMultigraph implements Multigraph, Iterable<Long>  {
                     if (tokens.length != 3) {
                         throw new ParseException("Line[" + (count + 1) +  "]: " + line + " is malformed, num tokens " + tokens.length);
                     }
-
+                   
                     source = Long.parseLong(tokens[0]);
                     dest = Long.parseLong(tokens[1]);
                     label = Long.parseLong(tokens[2]);
+                    
+//                    System.out.println(source + " " + dest + " " + label);
                     if (incoming) {
+                    	LabelContainer lc = null;
+                        if(labelFreq.containsKey(label)){
+                        	lc = labelFreq.get(label);
+                        }else{
+                        	lc = new LabelContainer(label);
+                        }
+                        lc.addNode(source);
+                        labelFreq.put(label, lc);
+                        //System.out.println(count);
                         inEdges[count] = new long[]{dest, source, label};
+                        
                     } else {
                         outEdges[count] = new long[]{source, dest, label};
                     }
 
                 }
                 count++;
-                if (count % 50000000 == 0) {
+                if (count % 5000 == 0) {
                     System.out.printf("Processed %d lines of %s\n", count, edgeFile);
                 }
             } // END WHILE
@@ -188,8 +217,8 @@ public class BigMultigraph implements Multigraph, Iterable<Long>  {
         lastInBounds = new int[2];
         lastOutBounds = new int[2];
         edgeSet = null;
-        Utilities.binaryTableSort(inEdges);
-        Utilities.binaryTableSort(outEdges);
+        //Utilities.binaryTableSort(inEdges);
+        //Utilities.binaryTableSort(outEdges);
         this.inEdges = inEdges;
         this.outEdges = outEdges;
     }
@@ -209,6 +238,7 @@ public class BigMultigraph implements Multigraph, Iterable<Long>  {
         if (nodeNumber == -1) {
             nodeNumber = 0;
             Iterator<Long> it = iterator();
+            
             while (it.hasNext()) {
                 nodeNumber++;
                 it.next();
@@ -250,14 +280,51 @@ public class BigMultigraph implements Multigraph, Iterable<Long>  {
 
     @Override
     public Collection<Edge> incomingEdgesOf(Long vertex) throws NullPointerException {
-        Collection<Edge> edges = new ArrayList<>();
+        Collection<Edge> edges = new ArrayList<Edge>();
         long[][] aEdges = incomingArrayEdgesOf(vertex);
+    
         if (aEdges != null) {
             for (int i = 0; i < aEdges.length; i++) {
                 edges.add(new Edge(aEdges[i][1],vertex,aEdges[i][2]));
             }
         }
         return edges;
+    }
+    
+    public Collection<Long> adj(Long vertex){
+    	Collection<Long> adjacentNodes = new HashSet<Long>();
+    	long[][] aEdges = outgoingArrayEdgesOf(vertex);
+    	if(aEdges != null){
+    		for(int i=0; i < aEdges.length; i++){
+    			adjacentNodes.add(aEdges[i][1]);
+    		}
+    	}
+    	long[][] edges = this.incomingArrayEdgesOf(vertex);
+    	if(edges != null){
+    		for(int i=0; i < edges.length; i++){
+    			adjacentNodes.add(edges[i][1]);
+    		}
+    	}
+    	return adjacentNodes;
+    }
+    
+    public Collection<Edge> adjEdges(Long vertex){
+    	Collection<Edge> adjacentNodes = new HashSet<Edge>();
+    	long[][] aEdges = outgoingArrayEdgesOf(vertex);
+    	if(aEdges != null){
+    		for(int i=0; i < aEdges.length; i++){
+//    			System.out.println("out edges " +aEdges[i][0] + " " + aEdges[i][1] + " " + aEdges[i][2]);
+    			adjacentNodes.add(new Edge(aEdges[i][0], aEdges[i][1], aEdges[i][2]));
+    		}
+    	}
+    	long[][] edges = this.incomingArrayEdgesOf(vertex);
+    	if(edges != null){
+    		for(int i=0; i < edges.length; i++){
+//    			System.out.println("in edges " + edges[i][0] + " " + edges[i][1] + " " + edges[i][2]);
+    			adjacentNodes.add(new Edge(edges[i][1], edges[i][0], edges[i][2]));
+    		}
+    	}
+    	return adjacentNodes;
     }
 
     @Override
@@ -335,7 +402,15 @@ public class BigMultigraph implements Multigraph, Iterable<Long>  {
     }
 
 
-    @Override
+    public HashMap<Long, LabelContainer> getLabelFreq() {
+		return labelFreq;
+	}
+
+	public void setLabelFreq(HashMap<Long, LabelContainer> labelFreq) {
+		this.labelFreq = labelFreq;
+	}
+
+	@Override
     public BaseMultigraph merge(BaseMultigraph graph) throws NullPointerException, ExecutionException {
         throw new UnsupportedOperationException("This graph is immutable, this operation is not allowed.");
     }
@@ -359,9 +434,18 @@ public class BigMultigraph implements Multigraph, Iterable<Long>  {
     public void removeEdge(Edge edge) throws IllegalArgumentException, NullPointerException {
         throw new UnsupportedOperationException("This graph is immutable, this operation is not allowed.");
     }
+    
+
+    public long[][] getInEdges() {
+		return inEdges;
+	}
+
+	public void setInEdges(long[][] inEdges) {
+		this.inEdges = inEdges;
+	}
 
 
-    private class NodeIterator implements Iterator<Long> {
+	private class NodeIterator implements Iterator<Long> {
         //Take into account the index in the inEdges and in the outEdges
         private int indexIn;
         private int indexOut;
@@ -396,7 +480,6 @@ public class BigMultigraph implements Multigraph, Iterable<Long>  {
                 } else  {
                     long valueIn = inEdges[indexIn][0];
                     long valueOut = outEdges[indexOut][0];
-
                     if (valueIn < valueOut) {
                         index = searchNext(inEdges, indexIn, valueIn);
                         value = inEdges[indexIn][0];
@@ -420,8 +503,6 @@ public class BigMultigraph implements Multigraph, Iterable<Long>  {
                 ex.printStackTrace();
                 throw new NoSuchElementException("No more elements to explore");
             }
-            //assert false : "This part of the code should be unreachable";
-            //return null;
         }
 
         @SuppressWarnings("empty-statement")
@@ -438,8 +519,17 @@ public class BigMultigraph implements Multigraph, Iterable<Long>  {
 
     }
 
-    @Override
+    public long[][] getOutEdges() {
+		return outEdges;
+	}
+
+	public void setOutEdges(long[][] outEdges) {
+		this.outEdges = outEdges;
+	}
+
+	@Override
     public Iterator<Long> iterator() {
         return new NodeIterator();
     }
+	
 }
