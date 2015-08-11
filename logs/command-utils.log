@@ -1974,3 +1974,483 @@
 02 Aug 2015 16:34:36 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - Computed the vertex set
 02 Aug 2015 16:34:36 [pool-2-thread-1,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - [T1] Table computation started with 6 nodes to process
 02 Aug 2015 16:34:36 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.PruningAlgorithm - The number of comparison is 1098
+05 Aug 2015 11:08:41 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - Computed the vertex set
+05 Aug 2015 11:08:41 [pool-1-thread-1,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - [T1] Table computation started with 6472 nodes to process
+05 Aug 2015 11:08:41 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - Computed the vertex set
+05 Aug 2015 11:08:41 [pool-2-thread-1,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - [T1] Table computation started with 6 nodes to process
+05 Aug 2015 11:08:41 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.PruningAlgorithm - The number of comparison is 1098
+05 Aug 2015 11:10:25 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - Computed the vertex set
+05 Aug 2015 11:10:25 [pool-1-thread-1,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - [T1] Table computation started with 84 nodes to process
+05 Aug 2015 11:10:25 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - Computed the vertex set
+05 Aug 2015 11:10:25 [pool-2-thread-1,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - [T1] Table computation started with 4 nodes to process
+05 Aug 2015 11:10:25 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.PruningAlgorithm - The number of comparison is 264
+05 Aug 2015 11:12:30 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - Computed the vertex set
+05 Aug 2015 11:12:30 [pool-1-thread-1,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - [T1] Table computation started with 84 nodes to process
+05 Aug 2015 11:12:30 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - Computed the vertex set
+05 Aug 2015 11:12:30 [pool-2-thread-1,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - [T1] Table computation started with 4 nodes to process
+05 Aug 2015 11:12:30 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.PruningAlgorithm - The number of comparison is 61
+05 Aug 2015 11:13:38 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - Computed the vertex set
+05 Aug 2015 11:13:38 [pool-1-thread-1,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - [T1] Table computation started with 84 nodes to process
+05 Aug 2015 11:13:38 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - Computed the vertex set
+05 Aug 2015 11:13:38 [pool-2-thread-1,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - [T1] Table computation started with 4 nodes to process
+05 Aug 2015 11:15:19 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - Computed the vertex set
+05 Aug 2015 11:15:19 [pool-1-thread-1,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - [T1] Table computation started with 84 nodes to process
+05 Aug 2015 11:15:19 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - Computed the vertex set
+05 Aug 2015 11:15:19 [pool-2-thread-1,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - [T1] Table computation started with 4 nodes to process
+05 Aug 2015 11:19:12 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - Computed the vertex set
+05 Aug 2015 11:19:12 [pool-1-thread-1,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - [T1] Table computation started with 84 nodes to process
+05 Aug 2015 11:19:12 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - Computed the vertex set
+05 Aug 2015 11:19:12 [pool-2-thread-1,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - [T1] Table computation started with 4 nodes to process
+05 Aug 2015 11:20:49 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - Computed the vertex set
+05 Aug 2015 11:20:49 [pool-1-thread-1,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - [T1] Table computation started with 84 nodes to process
+05 Aug 2015 11:20:49 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - Computed the vertex set
+05 Aug 2015 11:20:49 [pool-2-thread-1,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - [T1] Table computation started with 4 nodes to process
+05 Aug 2015 11:24:26 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - Computed the vertex set
+05 Aug 2015 11:24:26 [pool-1-thread-1,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - [T1] Table computation started with 84 nodes to process
+05 Aug 2015 11:24:26 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - Computed the vertex set
+05 Aug 2015 11:24:26 [pool-2-thread-1,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - [T1] Table computation started with 4 nodes to process
+05 Aug 2015 11:24:45 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - Computed the vertex set
+05 Aug 2015 11:24:45 [pool-1-thread-1,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - [T1] Table computation started with 84 nodes to process
+05 Aug 2015 11:24:45 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - Computed the vertex set
+05 Aug 2015 11:24:45 [pool-2-thread-1,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - [T1] Table computation started with 4 nodes to process
+05 Aug 2015 11:29:18 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - Computed the vertex set
+05 Aug 2015 11:29:18 [pool-1-thread-1,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - [T1] Table computation started with 84 nodes to process
+05 Aug 2015 11:29:18 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - Computed the vertex set
+05 Aug 2015 11:29:18 [pool-2-thread-1,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - [T1] Table computation started with 4 nodes to process
+05 Aug 2015 11:32:34 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - Computed the vertex set
+05 Aug 2015 11:32:34 [pool-1-thread-1,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - [T1] Table computation started with 84 nodes to process
+05 Aug 2015 11:32:34 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - Computed the vertex set
+05 Aug 2015 11:32:34 [pool-2-thread-1,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - [T1] Table computation started with 4 nodes to process
+05 Aug 2015 11:32:34 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.PruningAlgorithm - The number of comparison is 41
+05 Aug 2015 11:38:46 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - Computed the vertex set
+05 Aug 2015 11:38:46 [pool-1-thread-1,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - [T1] Table computation started with 84 nodes to process
+05 Aug 2015 11:38:46 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - Computed the vertex set
+05 Aug 2015 11:38:46 [pool-2-thread-1,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - [T1] Table computation started with 4 nodes to process
+05 Aug 2015 11:38:46 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.PruningAlgorithm - The number of comparison is 23
+05 Aug 2015 11:39:33 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - Computed the vertex set
+05 Aug 2015 11:39:33 [pool-1-thread-1,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - [T1] Table computation started with 84 nodes to process
+05 Aug 2015 11:39:33 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - Computed the vertex set
+05 Aug 2015 11:39:33 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - [T1] Table computation started with 2 nodes to process
+05 Aug 2015 11:43:23 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - Computed the vertex set
+05 Aug 2015 11:43:23 [pool-1-thread-1,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - [T1] Table computation started with 84 nodes to process
+05 Aug 2015 11:43:23 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - Computed the vertex set
+05 Aug 2015 11:43:23 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - [T1] Table computation started with 2 nodes to process
+05 Aug 2015 11:43:38 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - Computed the vertex set
+05 Aug 2015 11:43:38 [pool-1-thread-1,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - [T1] Table computation started with 84 nodes to process
+05 Aug 2015 11:43:38 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - Computed the vertex set
+05 Aug 2015 11:43:38 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - [T1] Table computation started with 2 nodes to process
+05 Aug 2015 11:44:03 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - Computed the vertex set
+05 Aug 2015 11:44:03 [pool-1-thread-1,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - [T1] Table computation started with 84 nodes to process
+05 Aug 2015 11:44:03 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - Computed the vertex set
+05 Aug 2015 11:44:03 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - [T1] Table computation started with 2 nodes to process
+05 Aug 2015 11:48:46 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - Computed the vertex set
+05 Aug 2015 11:48:46 [pool-1-thread-1,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - [T1] Table computation started with 84 nodes to process
+05 Aug 2015 11:48:46 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - Computed the vertex set
+05 Aug 2015 11:48:46 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - [T1] Table computation started with 2 nodes to process
+05 Aug 2015 11:48:55 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - Computed the vertex set
+05 Aug 2015 11:48:55 [pool-1-thread-1,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - [T1] Table computation started with 84 nodes to process
+05 Aug 2015 11:48:55 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - Computed the vertex set
+05 Aug 2015 11:48:55 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - [T1] Table computation started with 2 nodes to process
+05 Aug 2015 11:49:27 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - Computed the vertex set
+05 Aug 2015 11:49:27 [pool-1-thread-1,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - [T1] Table computation started with 84 nodes to process
+05 Aug 2015 11:49:27 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - Computed the vertex set
+05 Aug 2015 11:49:27 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - [T1] Table computation started with 2 nodes to process
+05 Aug 2015 11:49:38 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - Computed the vertex set
+05 Aug 2015 11:49:38 [pool-1-thread-1,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - [T1] Table computation started with 84 nodes to process
+05 Aug 2015 11:49:38 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - Computed the vertex set
+05 Aug 2015 11:49:38 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - [T1] Table computation started with 2 nodes to process
+05 Aug 2015 11:50:40 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - Computed the vertex set
+05 Aug 2015 11:50:40 [pool-1-thread-1,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - [T1] Table computation started with 84 nodes to process
+05 Aug 2015 11:50:40 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - Computed the vertex set
+05 Aug 2015 11:50:40 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - [T1] Table computation started with 2 nodes to process
+05 Aug 2015 11:50:58 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - Computed the vertex set
+05 Aug 2015 11:50:58 [pool-1-thread-1,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - [T1] Table computation started with 84 nodes to process
+05 Aug 2015 11:50:58 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - Computed the vertex set
+05 Aug 2015 11:50:58 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - [T1] Table computation started with 2 nodes to process
+05 Aug 2015 11:53:06 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - Computed the vertex set
+05 Aug 2015 11:53:06 [pool-1-thread-1,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - [T1] Table computation started with 84 nodes to process
+05 Aug 2015 11:53:06 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - Computed the vertex set
+05 Aug 2015 11:53:06 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - [T1] Table computation started with 2 nodes to process
+05 Aug 2015 12:01:03 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - Computed the vertex set
+05 Aug 2015 12:01:03 [pool-1-thread-1,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - [T1] Table computation started with 84 nodes to process
+05 Aug 2015 12:01:03 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - Computed the vertex set
+05 Aug 2015 12:01:03 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - [T1] Table computation started with 2 nodes to process
+05 Aug 2015 13:42:46 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - Computed the vertex set
+05 Aug 2015 13:42:46 [pool-1-thread-1,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - [T1] Table computation started with 84 nodes to process
+05 Aug 2015 13:42:46 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - Computed the vertex set
+05 Aug 2015 13:42:46 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - [T1] Table computation started with 2 nodes to process
+05 Aug 2015 13:46:42 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - Computed the vertex set
+05 Aug 2015 13:46:42 [pool-1-thread-1,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - [T1] Table computation started with 84 nodes to process
+05 Aug 2015 13:46:42 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - Computed the vertex set
+05 Aug 2015 13:46:42 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - [T1] Table computation started with 2 nodes to process
+05 Aug 2015 13:47:00 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - Computed the vertex set
+05 Aug 2015 13:47:00 [pool-1-thread-1,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - [T1] Table computation started with 84 nodes to process
+05 Aug 2015 13:47:00 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - Computed the vertex set
+05 Aug 2015 13:47:00 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - [T1] Table computation started with 2 nodes to process
+05 Aug 2015 13:49:27 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - Computed the vertex set
+05 Aug 2015 13:49:27 [pool-1-thread-1,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - [T1] Table computation started with 84 nodes to process
+05 Aug 2015 13:49:27 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - Computed the vertex set
+05 Aug 2015 13:49:27 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - [T1] Table computation started with 2 nodes to process
+05 Aug 2015 14:45:28 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - Computed the vertex set
+05 Aug 2015 14:45:28 [pool-1-thread-1,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - [T1] Table computation started with 84 nodes to process
+05 Aug 2015 14:45:28 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - Computed the vertex set
+05 Aug 2015 14:45:28 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - [T1] Table computation started with 2 nodes to process
+05 Aug 2015 14:45:29 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.PruningAlgorithm - The number of comparison is 116
+05 Aug 2015 14:46:01 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - Computed the vertex set
+05 Aug 2015 14:46:01 [pool-1-thread-1,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - [T1] Table computation started with 84 nodes to process
+05 Aug 2015 14:46:01 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - Computed the vertex set
+05 Aug 2015 14:46:01 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - [T1] Table computation started with 2 nodes to process
+05 Aug 2015 14:46:01 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.PruningAlgorithm - The number of comparison is 116
+05 Aug 2015 14:51:27 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - Computed the vertex set
+05 Aug 2015 14:51:27 [pool-1-thread-1,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - [T1] Table computation started with 6472 nodes to process
+05 Aug 2015 14:51:28 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - Computed the vertex set
+05 Aug 2015 14:51:28 [pool-2-thread-1,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - [T1] Table computation started with 6 nodes to process
+05 Aug 2015 14:51:28 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.PruningAlgorithm - The number of comparison is 1098
+05 Aug 2015 14:56:03 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - Computed the vertex set
+05 Aug 2015 14:56:03 [pool-1-thread-1,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - [T1] Table computation started with 6472 nodes to process
+05 Aug 2015 14:56:04 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - Computed the vertex set
+05 Aug 2015 14:56:04 [pool-2-thread-1,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - [T1] Table computation started with 6 nodes to process
+05 Aug 2015 14:56:04 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.PruningAlgorithm - The number of comparison is 1098
+05 Aug 2015 14:58:15 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - Computed the vertex set
+05 Aug 2015 14:58:15 [pool-1-thread-1,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - [T1] Table computation started with 84 nodes to process
+05 Aug 2015 14:58:15 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - Computed the vertex set
+05 Aug 2015 14:58:15 [pool-2-thread-1,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - [T1] Table computation started with 5 nodes to process
+05 Aug 2015 14:58:15 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.PruningAlgorithm - The number of comparison is 309
+05 Aug 2015 14:58:33 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - Computed the vertex set
+05 Aug 2015 14:58:33 [pool-1-thread-1,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - [T1] Table computation started with 84 nodes to process
+05 Aug 2015 14:58:33 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - Computed the vertex set
+05 Aug 2015 14:58:33 [pool-2-thread-1,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - [T1] Table computation started with 5 nodes to process
+05 Aug 2015 14:58:34 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.PruningAlgorithm - The number of comparison is 309
+06 Aug 2015 10:09:00 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - Computed the vertex set
+06 Aug 2015 10:09:00 [pool-1-thread-1,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - [T1] Table computation started with 84 nodes to process
+06 Aug 2015 10:09:00 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - Computed the vertex set
+06 Aug 2015 10:09:00 [pool-2-thread-1,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - [T1] Table computation started with 5 nodes to process
+06 Aug 2015 10:09:00 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.PruningAlgorithm - The number of comparison is 309
+06 Aug 2015 10:09:48 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - Computed the vertex set
+06 Aug 2015 10:09:48 [pool-1-thread-1,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - [T1] Table computation started with 84 nodes to process
+06 Aug 2015 10:09:48 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - Computed the vertex set
+06 Aug 2015 10:09:48 [pool-2-thread-1,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - [T1] Table computation started with 5 nodes to process
+06 Aug 2015 10:09:48 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.PruningAlgorithm - The number of comparison is 309
+06 Aug 2015 10:15:01 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - Computed the vertex set
+06 Aug 2015 10:15:01 [pool-1-thread-1,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - [T1] Table computation started with 84 nodes to process
+06 Aug 2015 10:15:01 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - Computed the vertex set
+06 Aug 2015 10:15:01 [pool-2-thread-1,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - [T1] Table computation started with 5 nodes to process
+06 Aug 2015 10:15:01 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.PruningAlgorithm - The number of comparison is 309
+06 Aug 2015 10:45:06 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - Computed the vertex set
+06 Aug 2015 10:45:06 [pool-1-thread-1,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - [T1] Table computation started with 84 nodes to process
+06 Aug 2015 10:45:06 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - Computed the vertex set
+06 Aug 2015 10:45:06 [pool-2-thread-1,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - [T1] Table computation started with 5 nodes to process
+06 Aug 2015 10:45:06 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.PruningAlgorithm - The number of comparison is 309
+06 Aug 2015 11:42:51 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - Computed the vertex set
+06 Aug 2015 11:42:51 [pool-1-thread-1,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - [T1] Table computation started with 84 nodes to process
+06 Aug 2015 11:42:51 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - Computed the vertex set
+06 Aug 2015 11:42:51 [pool-2-thread-1,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - [T1] Table computation started with 5 nodes to process
+06 Aug 2015 11:42:51 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.PruningAlgorithm - The number of comparison is 309
+06 Aug 2015 11:43:04 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - Computed the vertex set
+06 Aug 2015 11:43:04 [pool-1-thread-1,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - [T1] Table computation started with 84 nodes to process
+06 Aug 2015 11:43:04 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - Computed the vertex set
+06 Aug 2015 11:43:04 [pool-2-thread-1,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - [T1] Table computation started with 5 nodes to process
+06 Aug 2015 11:43:04 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.PruningAlgorithm - The number of comparison is 309
+06 Aug 2015 11:43:41 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - Computed the vertex set
+06 Aug 2015 11:43:41 [pool-1-thread-1,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - [T1] Table computation started with 84 nodes to process
+06 Aug 2015 11:43:42 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - Computed the vertex set
+06 Aug 2015 11:43:42 [pool-2-thread-1,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - [T1] Table computation started with 5 nodes to process
+06 Aug 2015 11:43:42 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.PruningAlgorithm - The number of comparison is 309
+06 Aug 2015 11:44:10 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - Computed the vertex set
+06 Aug 2015 11:44:11 [pool-1-thread-1,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - [T1] Table computation started with 84 nodes to process
+06 Aug 2015 11:44:11 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - Computed the vertex set
+06 Aug 2015 11:44:11 [pool-2-thread-1,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - [T1] Table computation started with 5 nodes to process
+06 Aug 2015 11:44:11 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.PruningAlgorithm - The number of comparison is 309
+06 Aug 2015 11:49:49 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - Computed the vertex set
+06 Aug 2015 11:49:49 [pool-1-thread-1,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - [T1] Table computation started with 84 nodes to process
+06 Aug 2015 11:49:49 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - Computed the vertex set
+06 Aug 2015 11:49:49 [pool-2-thread-1,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - [T1] Table computation started with 5 nodes to process
+06 Aug 2015 11:49:49 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.PruningAlgorithm - The number of comparison is 309
+06 Aug 2015 11:50:02 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - Computed the vertex set
+06 Aug 2015 11:50:02 [pool-1-thread-1,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - [T1] Table computation started with 84 nodes to process
+06 Aug 2015 11:50:02 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - Computed the vertex set
+06 Aug 2015 11:50:02 [pool-2-thread-1,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - [T1] Table computation started with 5 nodes to process
+06 Aug 2015 11:50:02 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.PruningAlgorithm - The number of comparison is 309
+06 Aug 2015 13:18:52 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - Computed the vertex set
+06 Aug 2015 13:18:52 [pool-1-thread-1,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - [T1] Table computation started with 9 nodes to process
+06 Aug 2015 13:20:27 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - Computed the vertex set
+06 Aug 2015 13:20:27 [pool-1-thread-1,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - [T1] Table computation started with 9 nodes to process
+06 Aug 2015 14:08:33 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - Computed the vertex set
+06 Aug 2015 14:08:33 [pool-1-thread-1,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - [T1] Table computation started with 9 nodes to process
+06 Aug 2015 14:10:08 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - Computed the vertex set
+06 Aug 2015 14:10:08 [pool-1-thread-1,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - [T1] Table computation started with 9 nodes to process
+06 Aug 2015 14:12:47 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - Computed the vertex set
+06 Aug 2015 14:12:57 [pool-1-thread-1,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - [T1] Table computation started with 9 nodes to process
+06 Aug 2015 14:13:59 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - Computed the vertex set
+06 Aug 2015 14:13:59 [pool-1-thread-1,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - [T1] Table computation started with 9 nodes to process
+06 Aug 2015 14:16:42 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - Computed the vertex set
+06 Aug 2015 14:17:19 [pool-1-thread-1,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - [T1] Table computation started with 9 nodes to process
+06 Aug 2015 14:18:29 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - Computed the vertex set
+06 Aug 2015 14:18:29 [pool-1-thread-1,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - [T1] Table computation started with 9 nodes to process
+06 Aug 2015 14:18:40 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - Computed the vertex set
+06 Aug 2015 14:18:41 [pool-1-thread-1,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - [T1] Table computation started with 9 nodes to process
+06 Aug 2015 14:18:59 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - Computed the vertex set
+06 Aug 2015 14:19:03 [pool-1-thread-1,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - [T1] Table computation started with 9 nodes to process
+06 Aug 2015 14:19:58 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - Computed the vertex set
+06 Aug 2015 14:19:58 [pool-1-thread-1,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - [T1] Table computation started with 9 nodes to process
+06 Aug 2015 14:20:17 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - Computed the vertex set
+06 Aug 2015 14:20:17 [pool-1-thread-1,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - [T1] Table computation started with 9 nodes to process
+06 Aug 2015 14:24:08 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - Computed the vertex set
+06 Aug 2015 14:24:08 [pool-1-thread-1,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - [T1] Table computation started with 9 nodes to process
+06 Aug 2015 14:24:08 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - Computed the vertex set
+06 Aug 2015 14:24:08 [pool-2-thread-1,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - [T1] Table computation started with 5 nodes to process
+06 Aug 2015 14:24:08 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.PruningAlgorithm - The number of comparison is 6
+06 Aug 2015 14:30:03 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - Computed the vertex set
+06 Aug 2015 14:30:03 [pool-1-thread-1,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - [T1] Table computation started with 9 nodes to process
+06 Aug 2015 14:30:03 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - Computed the vertex set
+06 Aug 2015 14:30:03 [pool-2-thread-1,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - [T1] Table computation started with 5 nodes to process
+06 Aug 2015 14:30:03 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.PruningAlgorithm - The number of comparison is 11
+06 Aug 2015 14:32:35 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - Computed the vertex set
+06 Aug 2015 14:32:35 [pool-1-thread-1,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - [T1] Table computation started with 9 nodes to process
+06 Aug 2015 14:32:35 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - Computed the vertex set
+06 Aug 2015 14:32:35 [pool-2-thread-1,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - [T1] Table computation started with 5 nodes to process
+06 Aug 2015 14:32:35 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.PruningAlgorithm - The number of comparison is 11
+06 Aug 2015 14:32:43 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - Computed the vertex set
+06 Aug 2015 14:32:43 [pool-1-thread-1,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - [T1] Table computation started with 9 nodes to process
+06 Aug 2015 14:32:43 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - Computed the vertex set
+06 Aug 2015 14:32:43 [pool-2-thread-1,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - [T1] Table computation started with 5 nodes to process
+06 Aug 2015 14:32:43 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.PruningAlgorithm - The number of comparison is 11
+06 Aug 2015 14:36:44 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - Computed the vertex set
+06 Aug 2015 14:36:44 [pool-1-thread-1,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - [T1] Table computation started with 9 nodes to process
+06 Aug 2015 14:36:44 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - Computed the vertex set
+06 Aug 2015 14:36:44 [pool-2-thread-1,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - [T1] Table computation started with 5 nodes to process
+06 Aug 2015 14:36:44 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.PruningAlgorithm - The number of comparison is 11
+06 Aug 2015 15:01:07 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - Computed the vertex set
+06 Aug 2015 15:01:07 [pool-1-thread-1,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - [T1] Table computation started with 84 nodes to process
+06 Aug 2015 15:01:07 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - Computed the vertex set
+06 Aug 2015 15:01:07 [pool-2-thread-1,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - [T1] Table computation started with 5 nodes to process
+06 Aug 2015 15:01:07 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.PruningAlgorithm - The number of comparison is 309
+06 Aug 2015 15:01:59 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - Computed the vertex set
+06 Aug 2015 15:01:59 [pool-1-thread-1,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - [T1] Table computation started with 84 nodes to process
+06 Aug 2015 15:01:59 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - Computed the vertex set
+06 Aug 2015 15:01:59 [pool-2-thread-1,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - [T1] Table computation started with 5 nodes to process
+06 Aug 2015 15:01:59 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.PruningAlgorithm - The number of comparison is 309
+06 Aug 2015 15:02:59 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - Computed the vertex set
+06 Aug 2015 15:02:59 [pool-1-thread-1,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - [T1] Table computation started with 84 nodes to process
+06 Aug 2015 15:02:59 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - Computed the vertex set
+06 Aug 2015 15:02:59 [pool-2-thread-1,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - [T1] Table computation started with 4 nodes to process
+06 Aug 2015 15:02:59 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.PruningAlgorithm - The number of comparison is 264
+06 Aug 2015 15:12:17 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - Computed the vertex set
+06 Aug 2015 15:12:17 [pool-1-thread-1,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - [T1] Table computation started with 84 nodes to process
+06 Aug 2015 15:12:17 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - Computed the vertex set
+06 Aug 2015 15:12:17 [pool-2-thread-1,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - [T1] Table computation started with 4 nodes to process
+06 Aug 2015 15:12:17 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.PruningAlgorithm - The number of comparison is 264
+06 Aug 2015 15:13:12 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - Computed the vertex set
+06 Aug 2015 15:13:12 [pool-1-thread-1,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - [T1] Table computation started with 84 nodes to process
+06 Aug 2015 15:13:12 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - Computed the vertex set
+06 Aug 2015 15:13:12 [pool-2-thread-1,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - [T1] Table computation started with 4 nodes to process
+06 Aug 2015 15:13:12 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.PruningAlgorithm - The number of comparison is 264
+06 Aug 2015 16:07:59 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - Computed the vertex set
+06 Aug 2015 16:07:59 [pool-1-thread-1,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - [T1] Table computation started with 84 nodes to process
+06 Aug 2015 16:07:59 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - Computed the vertex set
+06 Aug 2015 16:07:59 [pool-2-thread-1,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - [T1] Table computation started with 4 nodes to process
+06 Aug 2015 16:07:59 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.PruningAlgorithm - The number of comparison is 264
+09 Aug 2015 20:25:07 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - Computed the vertex set
+09 Aug 2015 20:25:07 [pool-1-thread-1,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - [T1] Table computation started with 84 nodes to process
+09 Aug 2015 20:25:08 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - Computed the vertex set
+09 Aug 2015 20:25:08 [pool-2-thread-1,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - [T1] Table computation started with 4 nodes to process
+09 Aug 2015 20:25:08 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.PruningAlgorithm - The number of comparison is 264
+09 Aug 2015 20:27:22 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - Computed the vertex set
+09 Aug 2015 20:27:22 [pool-1-thread-1,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - [T1] Table computation started with 84 nodes to process
+09 Aug 2015 20:27:22 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - Computed the vertex set
+09 Aug 2015 20:27:22 [pool-2-thread-1,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - [T1] Table computation started with 4 nodes to process
+09 Aug 2015 20:27:22 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.PruningAlgorithm - The number of comparison is 264
+09 Aug 2015 20:38:22 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - Computed the vertex set
+09 Aug 2015 20:38:22 [pool-1-thread-1,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - [T1] Table computation started with 84 nodes to process
+09 Aug 2015 20:38:22 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - Computed the vertex set
+09 Aug 2015 20:38:22 [pool-2-thread-1,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - [T1] Table computation started with 4 nodes to process
+09 Aug 2015 20:38:22 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.PruningAlgorithm - The number of comparison is 264
+09 Aug 2015 20:42:10 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - Computed the vertex set
+09 Aug 2015 20:42:10 [pool-1-thread-1,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - [T1] Table computation started with 84 nodes to process
+09 Aug 2015 20:42:10 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - Computed the vertex set
+09 Aug 2015 20:42:10 [pool-2-thread-1,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - [T1] Table computation started with 4 nodes to process
+09 Aug 2015 20:42:10 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.PruningAlgorithm - The number of comparison is 264
+09 Aug 2015 20:48:30 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - Computed the vertex set
+09 Aug 2015 20:48:30 [pool-1-thread-1,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - [T1] Table computation started with 84 nodes to process
+09 Aug 2015 20:48:30 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - Computed the vertex set
+09 Aug 2015 20:48:30 [pool-2-thread-1,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - [T1] Table computation started with 4 nodes to process
+09 Aug 2015 20:48:30 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.PruningAlgorithm - The number of comparison is 264
+10 Aug 2015 11:06:33 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - Computed the vertex set
+10 Aug 2015 11:06:33 [pool-1-thread-1,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - [T1] Table computation started with 84 nodes to process
+10 Aug 2015 11:06:33 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - Computed the vertex set
+10 Aug 2015 11:06:33 [pool-2-thread-1,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - [T1] Table computation started with 4 nodes to process
+10 Aug 2015 11:06:33 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.PruningAlgorithm - The number of comparison is 264
+10 Aug 2015 11:13:35 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - Computed the vertex set
+10 Aug 2015 11:13:35 [pool-1-thread-1,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - [T1] Table computation started with 84 nodes to process
+10 Aug 2015 11:13:35 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - Computed the vertex set
+10 Aug 2015 11:13:35 [pool-2-thread-1,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - [T1] Table computation started with 4 nodes to process
+10 Aug 2015 11:13:35 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.PruningAlgorithm - The number of comparison is 264
+10 Aug 2015 13:43:09 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - Computed the vertex set
+10 Aug 2015 13:43:09 [pool-1-thread-1,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - [T1] Table computation started with 84 nodes to process
+10 Aug 2015 13:43:09 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - Computed the vertex set
+10 Aug 2015 13:43:09 [pool-2-thread-1,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - [T1] Table computation started with 4 nodes to process
+10 Aug 2015 13:43:09 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.PruningAlgorithm - The number of comparison is 264
+10 Aug 2015 13:45:09 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - Computed the vertex set
+10 Aug 2015 13:45:09 [pool-1-thread-1,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - [T1] Table computation started with 84 nodes to process
+10 Aug 2015 13:45:09 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - Computed the vertex set
+10 Aug 2015 13:45:09 [pool-2-thread-1,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - [T1] Table computation started with 4 nodes to process
+10 Aug 2015 13:45:09 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.PruningAlgorithm - The number of comparison is 264
+10 Aug 2015 13:46:29 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - Computed the vertex set
+10 Aug 2015 13:46:29 [pool-1-thread-1,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - [T1] Table computation started with 84 nodes to process
+10 Aug 2015 13:46:29 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - Computed the vertex set
+10 Aug 2015 13:46:29 [pool-2-thread-1,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - [T1] Table computation started with 4 nodes to process
+10 Aug 2015 13:46:29 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.PruningAlgorithm - The number of comparison is 264
+10 Aug 2015 13:52:58 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - Computed the vertex set
+10 Aug 2015 13:52:58 [pool-1-thread-1,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - [T1] Table computation started with 84 nodes to process
+10 Aug 2015 13:52:58 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - Computed the vertex set
+10 Aug 2015 13:52:58 [pool-2-thread-1,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - [T1] Table computation started with 4 nodes to process
+10 Aug 2015 13:52:58 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.PruningAlgorithm - The number of comparison is 264
+10 Aug 2015 13:55:01 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - Computed the vertex set
+10 Aug 2015 13:55:01 [pool-1-thread-1,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - [T1] Table computation started with 84 nodes to process
+10 Aug 2015 13:55:01 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - Computed the vertex set
+10 Aug 2015 13:55:01 [pool-2-thread-1,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - [T1] Table computation started with 4 nodes to process
+10 Aug 2015 13:55:01 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.PruningAlgorithm - The number of comparison is 264
+10 Aug 2015 13:58:31 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - Computed the vertex set
+10 Aug 2015 13:58:31 [pool-1-thread-1,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - [T1] Table computation started with 84 nodes to process
+10 Aug 2015 13:58:31 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - Computed the vertex set
+10 Aug 2015 13:58:31 [pool-2-thread-1,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - [T1] Table computation started with 4 nodes to process
+10 Aug 2015 13:58:31 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.PruningAlgorithm - The number of comparison is 264
+10 Aug 2015 14:10:08 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - Computed the vertex set
+10 Aug 2015 14:10:08 [pool-1-thread-1,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - [T1] Table computation started with 84 nodes to process
+10 Aug 2015 14:10:08 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - Computed the vertex set
+10 Aug 2015 14:10:08 [pool-2-thread-1,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - [T1] Table computation started with 4 nodes to process
+10 Aug 2015 14:10:08 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.PruningAlgorithm - The number of comparison is 264
+10 Aug 2015 14:36:49 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - Computed the vertex set
+10 Aug 2015 14:36:49 [pool-1-thread-1,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - [T1] Table computation started with 84 nodes to process
+10 Aug 2015 14:36:49 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - Computed the vertex set
+10 Aug 2015 14:36:49 [pool-2-thread-1,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - [T1] Table computation started with 4 nodes to process
+10 Aug 2015 14:36:49 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.PruningAlgorithm - The number of comparison is 264
+10 Aug 2015 14:43:48 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - Computed the vertex set
+10 Aug 2015 14:43:48 [pool-1-thread-1,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - [T1] Table computation started with 84 nodes to process
+10 Aug 2015 14:43:48 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - Computed the vertex set
+10 Aug 2015 14:43:48 [pool-2-thread-1,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - [T1] Table computation started with 4 nodes to process
+10 Aug 2015 14:43:48 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.PruningAlgorithm - The number of comparison is 264
+10 Aug 2015 14:45:25 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - Computed the vertex set
+10 Aug 2015 14:45:25 [pool-1-thread-1,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - [T1] Table computation started with 84 nodes to process
+10 Aug 2015 14:45:25 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - Computed the vertex set
+10 Aug 2015 14:45:25 [pool-2-thread-1,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - [T1] Table computation started with 4 nodes to process
+10 Aug 2015 14:45:25 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.PruningAlgorithm - The number of comparison is 264
+10 Aug 2015 14:48:56 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - Computed the vertex set
+10 Aug 2015 14:48:56 [pool-1-thread-1,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - [T1] Table computation started with 84 nodes to process
+10 Aug 2015 14:48:56 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - Computed the vertex set
+10 Aug 2015 14:48:56 [pool-2-thread-1,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - [T1] Table computation started with 4 nodes to process
+10 Aug 2015 14:48:56 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.PruningAlgorithm - The number of comparison is 264
+10 Aug 2015 14:52:21 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - Computed the vertex set
+10 Aug 2015 14:52:21 [pool-1-thread-1,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - [T1] Table computation started with 84 nodes to process
+10 Aug 2015 14:52:21 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - Computed the vertex set
+10 Aug 2015 14:52:21 [pool-2-thread-1,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - [T1] Table computation started with 4 nodes to process
+10 Aug 2015 14:52:21 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.PruningAlgorithm - The number of comparison is 264
+10 Aug 2015 14:55:32 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - Computed the vertex set
+10 Aug 2015 14:55:32 [pool-1-thread-1,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - [T1] Table computation started with 84 nodes to process
+10 Aug 2015 14:55:32 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - Computed the vertex set
+10 Aug 2015 14:55:32 [pool-2-thread-1,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - [T1] Table computation started with 4 nodes to process
+10 Aug 2015 14:55:32 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.PruningAlgorithm - The number of comparison is 264
+10 Aug 2015 14:57:08 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - Computed the vertex set
+10 Aug 2015 14:57:09 [pool-1-thread-1,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - [T1] Table computation started with 18 nodes to process
+10 Aug 2015 14:57:09 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - Computed the vertex set
+10 Aug 2015 14:57:09 [pool-2-thread-1,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - [T1] Table computation started with 5 nodes to process
+10 Aug 2015 14:57:09 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.PruningAlgorithm - The number of comparison is 4
+10 Aug 2015 14:57:31 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - Computed the vertex set
+10 Aug 2015 14:57:31 [pool-1-thread-1,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - [T1] Table computation started with 18 nodes to process
+10 Aug 2015 14:57:31 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - Computed the vertex set
+10 Aug 2015 14:57:31 [pool-2-thread-1,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - [T1] Table computation started with 5 nodes to process
+10 Aug 2015 14:57:31 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.PruningAlgorithm - The number of comparison is 9
+10 Aug 2015 14:57:38 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - Computed the vertex set
+10 Aug 2015 14:57:38 [pool-1-thread-1,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - [T1] Table computation started with 18 nodes to process
+10 Aug 2015 14:57:38 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - Computed the vertex set
+10 Aug 2015 14:57:38 [pool-2-thread-1,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - [T1] Table computation started with 5 nodes to process
+10 Aug 2015 14:57:38 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.PruningAlgorithm - The number of comparison is 52
+10 Aug 2015 15:10:20 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - Computed the vertex set
+10 Aug 2015 15:10:20 [pool-1-thread-1,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - [T1] Table computation started with 18 nodes to process
+10 Aug 2015 15:10:20 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - Computed the vertex set
+10 Aug 2015 15:10:20 [pool-2-thread-1,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - [T1] Table computation started with 5 nodes to process
+10 Aug 2015 15:10:20 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.PruningAlgorithm - The number of comparison is 52
+10 Aug 2015 15:16:23 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - Computed the vertex set
+10 Aug 2015 15:16:23 [pool-1-thread-1,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - [T1] Table computation started with 18 nodes to process
+10 Aug 2015 15:16:23 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - Computed the vertex set
+10 Aug 2015 15:16:23 [pool-2-thread-1,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - [T1] Table computation started with 5 nodes to process
+10 Aug 2015 15:16:23 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.PruningAlgorithm - The number of comparison is 52
+10 Aug 2015 15:30:42 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - Computed the vertex set
+10 Aug 2015 15:30:42 [pool-1-thread-1,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - [T1] Table computation started with 18 nodes to process
+10 Aug 2015 15:30:48 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - Computed the vertex set
+10 Aug 2015 15:30:48 [pool-2-thread-1,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - [T1] Table computation started with 5 nodes to process
+10 Aug 2015 15:32:00 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - Computed the vertex set
+10 Aug 2015 15:32:00 [pool-1-thread-1,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - [T1] Table computation started with 18 nodes to process
+10 Aug 2015 15:32:00 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - Computed the vertex set
+10 Aug 2015 15:32:00 [pool-2-thread-1,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - [T1] Table computation started with 5 nodes to process
+10 Aug 2015 15:32:00 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.PruningAlgorithm - The number of comparison is 52
+10 Aug 2015 15:35:28 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - Computed the vertex set
+10 Aug 2015 15:35:28 [pool-1-thread-1,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - [T1] Table computation started with 18 nodes to process
+10 Aug 2015 15:35:28 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - Computed the vertex set
+10 Aug 2015 15:35:28 [pool-2-thread-1,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - [T1] Table computation started with 5 nodes to process
+10 Aug 2015 15:35:28 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.PruningAlgorithm - The number of comparison is 52
+10 Aug 2015 15:39:38 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - Computed the vertex set
+10 Aug 2015 15:39:38 [pool-1-thread-1,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - [T1] Table computation started with 18 nodes to process
+10 Aug 2015 15:39:38 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - Computed the vertex set
+10 Aug 2015 15:39:38 [pool-2-thread-1,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - [T1] Table computation started with 5 nodes to process
+10 Aug 2015 15:39:38 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.PruningAlgorithm - The number of comparison is 52
+10 Aug 2015 15:39:48 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - Computed the vertex set
+10 Aug 2015 15:39:48 [pool-1-thread-1,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - [T1] Table computation started with 18 nodes to process
+10 Aug 2015 15:39:48 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - Computed the vertex set
+10 Aug 2015 15:39:48 [pool-2-thread-1,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - [T1] Table computation started with 5 nodes to process
+10 Aug 2015 15:39:48 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.PruningAlgorithm - The number of comparison is 9
+10 Aug 2015 15:40:55 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - Computed the vertex set
+10 Aug 2015 15:40:56 [pool-1-thread-1,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - [T1] Table computation started with 18 nodes to process
+10 Aug 2015 15:40:56 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - Computed the vertex set
+10 Aug 2015 15:40:56 [pool-2-thread-1,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - [T1] Table computation started with 5 nodes to process
+10 Aug 2015 15:40:56 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.PruningAlgorithm - The number of comparison is 52
+10 Aug 2015 15:43:08 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - Computed the vertex set
+10 Aug 2015 15:43:08 [pool-1-thread-1,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - [T1] Table computation started with 18 nodes to process
+10 Aug 2015 15:43:08 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - Computed the vertex set
+10 Aug 2015 15:43:08 [pool-2-thread-1,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - [T1] Table computation started with 5 nodes to process
+10 Aug 2015 15:43:08 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.PruningAlgorithm - The number of comparison is 52
+10 Aug 2015 15:51:12 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - Computed the vertex set
+10 Aug 2015 15:51:12 [pool-1-thread-1,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - [T1] Table computation started with 18 nodes to process
+10 Aug 2015 15:51:12 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - Computed the vertex set
+10 Aug 2015 15:51:12 [pool-2-thread-1,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - [T1] Table computation started with 5 nodes to process
+10 Aug 2015 15:51:12 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.PruningAlgorithm - The number of comparison is 52
+10 Aug 2015 15:52:05 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - Computed the vertex set
+10 Aug 2015 15:52:05 [pool-1-thread-1,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - [T1] Table computation started with 18 nodes to process
+10 Aug 2015 15:52:06 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - Computed the vertex set
+10 Aug 2015 15:52:06 [pool-2-thread-1,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - [T1] Table computation started with 5 nodes to process
+10 Aug 2015 15:52:06 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.PruningAlgorithm - The number of comparison is 52
+10 Aug 2015 15:52:28 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - Computed the vertex set
+10 Aug 2015 15:52:28 [pool-1-thread-1,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - [T1] Table computation started with 18 nodes to process
+10 Aug 2015 15:52:28 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - Computed the vertex set
+10 Aug 2015 15:52:28 [pool-2-thread-1,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - [T1] Table computation started with 5 nodes to process
+10 Aug 2015 15:52:28 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.PruningAlgorithm - The number of comparison is 52
+10 Aug 2015 15:54:03 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - Computed the vertex set
+10 Aug 2015 15:54:03 [pool-1-thread-1,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - [T1] Table computation started with 18 nodes to process
+10 Aug 2015 15:54:03 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - Computed the vertex set
+10 Aug 2015 15:54:03 [pool-2-thread-1,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - [T1] Table computation started with 5 nodes to process
+10 Aug 2015 15:54:03 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.PruningAlgorithm - The number of comparison is 52
+10 Aug 2015 16:05:42 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - Computed the vertex set
+10 Aug 2015 16:05:42 [pool-1-thread-1,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - [T1] Table computation started with 18 nodes to process
+10 Aug 2015 16:05:42 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - Computed the vertex set
+10 Aug 2015 16:05:42 [pool-2-thread-1,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - [T1] Table computation started with 5 nodes to process
+10 Aug 2015 16:05:42 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.PruningAlgorithm - The number of comparison is 52
+10 Aug 2015 16:05:59 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - Computed the vertex set
+10 Aug 2015 16:05:59 [pool-1-thread-1,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - [T1] Table computation started with 18 nodes to process
+10 Aug 2015 16:05:59 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - Computed the vertex set
+10 Aug 2015 16:05:59 [pool-2-thread-1,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - [T1] Table computation started with 5 nodes to process
+10 Aug 2015 16:05:59 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.PruningAlgorithm - The number of comparison is 52
+10 Aug 2015 16:06:07 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - Computed the vertex set
+10 Aug 2015 16:06:07 [pool-1-thread-1,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - [T1] Table computation started with 18 nodes to process
+10 Aug 2015 16:06:07 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - Computed the vertex set
+10 Aug 2015 16:06:07 [pool-2-thread-1,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - [T1] Table computation started with 5 nodes to process
+10 Aug 2015 16:06:07 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.PruningAlgorithm - The number of comparison is 52
+10 Aug 2015 16:06:40 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - Computed the vertex set
+10 Aug 2015 16:06:40 [pool-1-thread-1,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - [T1] Table computation started with 18 nodes to process
+10 Aug 2015 16:06:40 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - Computed the vertex set
+10 Aug 2015 16:06:40 [pool-2-thread-1,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - [T1] Table computation started with 5 nodes to process
+10 Aug 2015 16:06:40 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.PruningAlgorithm - The number of comparison is 52
+10 Aug 2015 16:07:48 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - Computed the vertex set
+10 Aug 2015 16:07:48 [pool-1-thread-1,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - [T1] Table computation started with 18 nodes to process
+10 Aug 2015 16:07:48 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - Computed the vertex set
+10 Aug 2015 16:07:48 [pool-2-thread-1,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - [T1] Table computation started with 5 nodes to process
+10 Aug 2015 16:07:48 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.PruningAlgorithm - The number of comparison is 9

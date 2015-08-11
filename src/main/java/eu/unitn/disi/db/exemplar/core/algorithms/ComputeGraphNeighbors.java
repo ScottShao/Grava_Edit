@@ -190,6 +190,7 @@ public class ComputeGraphNeighbors extends Algorithm {
                 neighborTables = new ComputeNodeNeighbors(1, graphNodes, 0, graphNodes.length).call();
             }
         } catch (Exception ex) {
+        	ex.printStackTrace();
             throw new AlgorithmExecutionException("A generic error occurred, complete message follows", ex);
         } finally {
             if (nodePool != null) {

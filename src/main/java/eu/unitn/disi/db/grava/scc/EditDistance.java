@@ -19,11 +19,13 @@ public class EditDistance {
 
 	public static void main(String[] args) throws ParseException, IOException, AlgorithmExecutionException{
 		
+		int repeat = 30;
 		StopWatch watch = new StopWatch();
 		watch.start();
-		Multigraph G = new BigMultigraph("graph10000Nodes.txt","graph10000Nodes.txt", true);
+		Multigraph G = new BigMultigraph("testGraph.txt","testGraph.txt", true);
 		
-		Multigraph Q = new BigMultigraph("query10000.txt","query10000.txt", true);
+		Multigraph Q = new BigMultigraph("query.txt","query.txt", true);
+//		Q.vertexSet();	
 		System.out.println("loading takes:" + watch.getElapsedTimeMillis() + " ms");
 		Map<Long, Set<MappedNode>> queryGraphMapping = null;
 		ComputeGraphNeighbors tableAlgorithm = new ComputeGraphNeighbors();
@@ -38,7 +40,7 @@ public class EditDistance {
 		tableAlgorithm.setNumThreads(1);
 		tableAlgorithm.compute();
 		graphTables = tableAlgorithm.getNeighborTables();
-		Map<Long,Integer>[] gNodeTable = graphTables.getNodeMap(5648);
+//		Map<Long,Integer>[] gNodeTable = graphTables.getNodeMap(5648);
 //		for(int i = 0; i < gNodeTable.length; i++){
 //			Map<Long,Integer> nodeLevel = gNodeTable[i];
 //			for(Entry<Long,Integer> temp : nodeLevel.entrySet()){
@@ -81,27 +83,13 @@ public class EditDistance {
 		queryGraphMapping = pruningAlgorithm.getQueryGraphMapping();
 		long pruningTime = System.nanoTime();
 		System.out.println("pruning time:" + watch.getElapsedTimeMillis());
-//		for(Entry<Long, Set<MappedNode>> entry : queryGraphMapping.entrySet()){
-//			System.out.println("Query node : " + entry.getKey());
-//			System.out.println("Mapping Graph size:" + entry.getValue().size());
-//			
-//		}
+
 		watch.reset();
 		Isomorphism iso = new Isomorphism();
 		iso.setQueryEdges(Q.edgeSet());
 		iso.setThreshold(threshold);
 		iso.setQuery(Q);
 		iso.setQueryGraphMapping(queryGraphMapping);
-//		iso.mappingEdges(queryGraphMapping);
-		
-//		for(Entry<Edge, Set<MappedEdge>> entry : iso.getQueryGraphEdges().entrySet()){
-//			System.out.println("\nquery edge:" + entry.getKey().toString());
-//			System.out.println("Mapped edges:");
-//			for(MappedEdge me : entry.getValue()){
-//				System.out.println(me.toString());
-//			}
-//		}
-//		
 		iso.findIsomorphism();
 		System.out.println("answer " + watch.getElapsedTimeMillis() + " ms");
 	}

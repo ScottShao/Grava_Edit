@@ -60,6 +60,13 @@ public class MappedNode {
 	
 	public boolean equals(Object o){
 		MappedNode mn = (MappedNode)o;
+		if(mn.mappedEdge == null && this.mappedEdge == null){
+			return true;
+		}
+		if(mn.mappedEdge == null || this.mappedEdge == null)
+		{
+			return false;
+		}
 		if(mn.mappedEdge.equals(this.mappedEdge) && mn.isIncoming() == this.incoming){
 			return true;
 		}else{

@@ -138,6 +138,7 @@ public class PruningAlgorithm extends Algorithm {
 //                        System.out.println("matching " + currentQueryNode + " with " + graphCandidate.getNodeID());
                         if (matches(graphCandidate, currentQueryNode)) {
 //                        	System.out.println("success");
+//                        	System.out.println(graphCandidate);
                             numberOfComparison++;
                             mappedNodes.add(graphCandidate);
                             //check if the outgoing-incoming edges matches, if yes add to the next level
