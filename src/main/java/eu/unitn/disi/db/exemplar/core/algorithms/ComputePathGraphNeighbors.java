@@ -22,9 +22,13 @@ import eu.unitn.disi.db.command.algorithmic.AlgorithmInput;
 import eu.unitn.disi.db.command.algorithmic.AlgorithmOutput;
 import eu.unitn.disi.db.command.exceptions.AlgorithmExecutionException;
 import eu.unitn.disi.db.grava.graphs.Edge;
+import eu.unitn.disi.db.grava.graphs.EdgeLabel;
 import eu.unitn.disi.db.grava.graphs.Multigraph;
+import eu.unitn.disi.db.grava.graphs.PathNeighbor;
 import eu.unitn.disi.db.grava.vectorization.MemoryNeighborTables;
 import eu.unitn.disi.db.grava.vectorization.NeighborTables;
+import eu.unitn.disi.db.grava.vectorization.PathNeighborTables;
+
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
@@ -42,7 +46,7 @@ import java.util.concurrent.Future;
  * 
  * @author Davide Mottin <mottin@disi.unitn.eu>
  */
-public class ComputeGraphNeighbors extends Algorithm {
+public class ComputePathGraphNeighbors extends Algorithm {
 	@AlgorithmInput
 	private int k;
 	@AlgorithmInput
@@ -53,19 +57,19 @@ public class ComputeGraphNeighbors extends Algorithm {
 	private Collection<Long> nodeProcessed = null;
 
 	@AlgorithmOutput
-	private NeighborTables neighborTables;
+	private PathNeighborTables neighborTables;
 
 	private boolean debugThreads = false;
 
 	// private int tid;
 
-	private class ComputeNodeNeighbors implements Callable<NeighborTables> {
+	private class ComputePathNodeNeighbors implements Callable<PathNeighborTables> {
 		private final Long[] graphNodes;
 		private final int id;
 		private final int start;
 		private final int end;
 
-		public ComputeNodeNeighbors(int id, Long[] graphNodes, int start,
+		public ComputePathNodeNeighbors(int id, Long[] graphNodes, int start,
 				int end) {
 			this.graphNodes = graphNodes;
 			this.id = id;
@@ -74,27 +78,31 @@ public class ComputeGraphNeighbors extends Algorithm {
 		}
 
 		@Override
-		public NeighborTables call() throws Exception {
-			NeighborTables tables = new MemoryNeighborTables(k);
+		public PathNeighborTables call() throws Exception {
+			PathNeighborTables tables = new PathNeighborTables(k);
 			Set<Long> nextLevelToSee;
 			long label, nodeToAdd;
 			long count = 0L;
 			short in;
 			Integer countNeighbors;
 			Set<Long> visited, toVisit, labels;
+			PathNeighbor pn;
 
 			Long node;
-			Map<Long, Integer> levelTable, lastLevelTable;
+			Map<PathNeighbor, Integer> levelTable, lastLevelTable;
+			Map<Long, PathNeighbor> lastLevelPath;
 			Collection<Edge> inOutEdges;
+			
 
-			debug("[T%d] Table computation started with %d nodes to process",
-					id, end - start);
+//			debug("[T%d] Table computation started with %d nodes to process",id, end - start);
 			for (int i = start; i < end && i < graphNodes.length; i++) {
 				node = graphNodes[i];
 				toVisit = new HashSet<>();
+				
 				toVisit.add(node);
 				visited = new HashSet<>();
 				lastLevelTable = new HashMap<>();
+				lastLevelPath = new HashMap<>();
 				for (short l = 0; l < k; l++) {
 					levelTable = new HashMap<>();
 					nextLevelToSee = new HashSet<>();
@@ -112,19 +120,28 @@ public class ComputeGraphNeighbors extends Algorithm {
 							if (inOutEdges != null) {
 								for (Edge edge : inOutEdges) {
 									label = edge.getLabel();
+									
 									nodeToAdd = in == 0 ? edge.getSource()
 											: edge.getDestination();
 									if (!visited.contains(nodeToAdd)) {
-										countNeighbors = levelTable.get(label);
+										PathNeighbor newPn;
+										if((pn = lastLevelPath.get(current)) == null){
+											pn = new PathNeighbor();
+											
+										}else{
+											pn = new PathNeighbor(pn);
+											
+										}
+										pn.add(new EdgeLabel(label, in == 0));
+										countNeighbors = levelTable.get(pn);
 										if (countNeighbors == null) {
 											countNeighbors = 0;
 										}
-										levelTable.put(label,
+										levelTable.put(pn,
 												countNeighbors + 1);
-										// Add the if it is not in the same
-										// level
 										if (!toVisit.contains(nodeToAdd)) {
 											nextLevelToSee.add(nodeToAdd);
+											lastLevelPath.put(nodeToAdd, pn);
 										}
 									}
 								}
@@ -135,19 +152,20 @@ public class ComputeGraphNeighbors extends Algorithm {
 					toVisit = nextLevelToSee;
 					// currentIndexFuture = indexPool.submit(new
 					// UpdateIndex(levelTable, node, i));
-					if (l > 1) {
-						labels = lastLevelTable.keySet();
-						for (Long lbl : labels) {
-							countNeighbors = levelTable.get(lbl);
-							if (countNeighbors == null) {
-								countNeighbors = 0;
-							}
-							levelTable.put(lbl,
-									countNeighbors + lastLevelTable.get(lbl));
-						}
-
-					}
-					lastLevelTable = levelTable;
+//					if (l > 1) {
+//						labels = lastLevelTable.keySet();
+//						for (Long lbl : labels) {
+//							countNeighbors = levelTable.get(lbl);
+//							if (countNeighbors == null) {
+//								countNeighbors = 0;
+//							}
+//							levelTable.put(lbl,
+//									countNeighbors + lastLevelTable.get(lbl));
+//						}
+//
+//					}
+//					lastLevelTable = levelTable;
+//					System.out.println(node + " " + l + " " + levelTable);
 					tables.addNodeLevelTable(levelTable, node, l);
 				} // END FOR
 				count++;
@@ -168,10 +186,10 @@ public class ComputeGraphNeighbors extends Algorithm {
 		// DECLARATIONS
 		ExecutorService nodePool = null;
 		int chunkSize;
-		List<Future<NeighborTables>> tableNodeFuture;
+		List<Future<PathNeighborTables>> tableNodeFuture;
 		Long[] graphNodes;
-		NeighborTables tables;
-		neighborTables = new MemoryNeighborTables(k);
+		PathNeighborTables tables;
+		neighborTables = new PathNeighborTables(k);
 		// END DECLARATIONS
 
 		try {
@@ -183,7 +201,7 @@ public class ComputeGraphNeighbors extends Algorithm {
 				graphNodes = graph.vertexSet().toArray(
 						new Long[graph.vertexSet().size()]);
 			}
-			debug("Computed the vertex set");
+//			debug("Computed the vertex set");
 			if (graphNodes.length > numThreads * 2) {
 				nodePool = Executors.newFixedThreadPool(numThreads);
 				tableNodeFuture = new ArrayList<>();
@@ -191,21 +209,21 @@ public class ComputeGraphNeighbors extends Algorithm {
 						+ 0.5);
 				for (int i = 0; i < numThreads; i++) {
 					tableNodeFuture.add(nodePool
-							.submit(new ComputeNodeNeighbors(i + 1, graphNodes,
+							.submit(new ComputePathNodeNeighbors(i + 1, graphNodes,
 									i * chunkSize, (i + 1) * chunkSize)));
 
 				}
 //				System.out.println(tableNodeFuture.size());
 				int m = 0;
 				for (int i = 0; i < tableNodeFuture.size(); i++) {
-					Future<NeighborTables> future = tableNodeFuture.get(i);
+					Future<PathNeighborTables> future = tableNodeFuture.get(i);
 					tables = future.get();
 					neighborTables.merge(tables);
 //					System.out.println(m + "done");
 					m++;
 				}
 			} else {
-				neighborTables = new ComputeNodeNeighbors(1, graphNodes, 0,
+				neighborTables = new ComputePathNodeNeighbors(1, graphNodes, 0,
 						graphNodes.length).call();
 			}
 		} catch (Exception ex) {
@@ -231,7 +249,7 @@ public class ComputeGraphNeighbors extends Algorithm {
 		this.numThreads = numThreads;
 	}
 
-	public NeighborTables getNeighborTables() {
+	public PathNeighborTables getPathNeighborTables() {
 		return neighborTables;
 	}
 

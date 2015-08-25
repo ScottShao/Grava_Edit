@@ -5,29 +5,45 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 
+import eu.unitn.disi.db.command.exceptions.AlgorithmExecutionException;
+import eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors;
+import eu.unitn.disi.db.exemplar.core.algorithms.ComputePathGraphNeighbors;
 import eu.unitn.disi.db.grava.exceptions.ParseException;
 import eu.unitn.disi.db.grava.graphs.BigMultigraph;
+import eu.unitn.disi.db.grava.graphs.EdgeLabel;
 import eu.unitn.disi.db.grava.graphs.MappedNode;
+import eu.unitn.disi.db.grava.graphs.PathNeighbor;
+import eu.unitn.disi.db.grava.vectorization.NeighborTables;
+import eu.unitn.disi.db.grava.vectorization.PathNeighborTables;
 
 public class Test {
 	boolean test;
 	int t;
-	public static void main(String[] args) throws ParseException, IOException {
-//        BigMultigraph G = new BigMultigraph("1st.txt","1st.txt");
-//        long[][] inEdges = G.getInEdges();
-//        long[][] outEdges = G.getOutEdges();
-//        System.out.println("inEdges:");
-//        for(int i =0; i < inEdges.length; i++){	
-//        	System.out.println(inEdges[i][0] + " "+inEdges[i][1] + " "+inEdges[i][2]);
-//        }
-//        System.out.println("outEdges:");
-//        for(int i =0; i < outEdges.length; i++){
-//        	System.out.println(outEdges[i][0] + " "+outEdges[i][1] + " "+outEdges[i][2]);
-//        }
-		Test t = new Test();
-		System.out.println(t.t);
+	public static void main(String[] args) throws ParseException, IOException, AlgorithmExecutionException {
+//		BigMultigraph G = new BigMultigraph("query.txt","query.txt",true);
+//        ComputePathGraphNeighbors tableAlgorithm = new ComputePathGraphNeighbors();
+//        tableAlgorithm.setK(2);
+//		tableAlgorithm.setGraph(G);
+//		tableAlgorithm.setNumThreads(1);
+//		tableAlgorithm.compute();
+//		PathNeighborTables table = tableAlgorithm.getPathNeighborTables();
+		
+//		for(Map.Entry<PathNeighbor, Integer> entry :table.getNodeMap(686848L)[1].entrySet()){
+//			System.out.println(entry.getKey() + " " + entry.getValue());
+//		}
+		PathNeighbor pn = new PathNeighbor();
+		pn.add(new EdgeLabel(0L, true));
+		PathNeighbor a = new PathNeighbor();
+		a.add(new EdgeLabel(1111,true));
+		System.out.println(pn.equals(a));
+		HashMap<PathNeighbor, Integer> test = new HashMap<>();
+		test.put(pn, 1);
+		test.put(a, 2);
+		System.out.println(test.size());
     }
 	
 }

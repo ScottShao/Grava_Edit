@@ -1,0 +1,114 @@
+package eu.unitn.disi.db.grava.scc;
+
+import java.io.IOException;
+import java.util.ArrayList;
+
+import eu.unitn.disi.db.command.exceptions.AlgorithmExecutionException;
+import eu.unitn.disi.db.grava.exceptions.ParseException;
+import eu.unitn.disi.db.grava.graphs.Multigraph;
+import eu.unitn.disi.db.grava.utils.FileOperator;
+
+
+public class Experiement {
+	private int repititions;
+	private int threshold;
+	private int threadsNum;
+	private int neighbourNum;
+	private String graphName;
+	private String queryFolder;
+	private String outputFile;
+	private String answerFile;
+	
+	public Experiement() {
+		// TODO Auto-generated constructor stub
+	}
+	
+	public Experiement(int repititions, int threshold, int threadsNum, int neighbourNum, String graphName, String queryFolder, String outputFile) throws AlgorithmExecutionException, ParseException, IOException{
+		this.repititions = repititions;
+		this.threshold = threshold;
+		this.threadsNum = threadsNum;
+		this.neighbourNum = neighbourNum;
+		this.graphName = graphName;
+		this.queryFolder = queryFolder;
+		this.outputFile = outputFile;
+//		this.answerFile = answerFile;
+	}
+	
+	public void runExperiement() throws AlgorithmExecutionException, ParseException, IOException{
+		
+		EditDistance ed = new EditDistance();
+		ed.setGraphName(graphName);
+		ed.setNeighbourNum(neighbourNum);
+		ed.setOutputFile(outputFile);
+		ed.setRepititions(repititions);
+		ed.setThreadsNum(threadsNum);
+		ed.setThreshold(threshold);
+//		ed.setAnswerFile(answerFile);
+		ArrayList<String> queryFiles = FileOperator.getFileName(queryFolder);
+		for(String queryFile : queryFiles){
+			ed.setQueryName(queryFile);
+//			System.out.println("queryfile:" +queryFile);
+			ed.runEditDistance();
+		}
+	}
+
+	public int getRepititions() {
+		return repititions;
+	}
+
+	public void setRepititions(int repititions) {
+		this.repititions = repititions;
+	}
+
+	public int getThreshold() {
+		return threshold;
+	}
+
+	public void setThreshold(int threshold) {
+		this.threshold = threshold;
+	}
+
+	public int getThreadsNum() {
+		return threadsNum;
+	}
+
+	public void setThreadsNum(int threadsNum) {
+		this.threadsNum = threadsNum;
+	}
+
+	public int getNeighbourNum() {
+		return neighbourNum;
+	}
+
+	public void setNeighbourNum(int neighbourNum) {
+		this.neighbourNum = neighbourNum;
+	}
+
+	public String getGraphName() {
+		return graphName;
+	}
+
+	public void setGraphName(String graphName) {
+		this.graphName = graphName;
+	}
+
+	
+
+	public String getQueryFolder() {
+		return queryFolder;
+	}
+
+	public void setQueryFolder(String queryFolder) {
+		this.queryFolder = queryFolder;
+	}
+
+	public String getOutputFile() {
+		return outputFile;
+	}
+
+	public void setOutputFile(String outputFile) {
+		this.outputFile = outputFile;
+	}
+	
+	
+}

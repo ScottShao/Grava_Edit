@@ -17,6 +17,7 @@
  */
 package eu.unitn.disi.db.grava.graphs;
 
+import eu.unitn.disi.db.command.exceptions.AlgorithmExecutionException;
 import eu.unitn.disi.db.grava.exceptions.ParseException;
 import eu.unitn.disi.db.grava.utils.StdOut;
 import eu.unitn.disi.db.grava.utils.Utilities;
@@ -53,6 +54,7 @@ public class BigMultigraph implements Multigraph, Iterable<Long>  {
     private Set<Edge> edgeSet;
     private boolean calLabelFreq;
     private HashMap<Long, LabelContainer> labelFreq;
+    
     private enum separator {space , tab, unknown };
 
     public BigMultigraph() {
@@ -183,7 +185,7 @@ public class BigMultigraph implements Multigraph, Iterable<Long>  {
 
                 }
                 count++;
-                if (count % 5000 == 0) {
+                if (count % 50000 == 0) {
                     System.out.printf("Processed %d lines of %s\n", count, edgeFile);
                 }
             } // END WHILE
@@ -226,9 +228,14 @@ public class BigMultigraph implements Multigraph, Iterable<Long>  {
     @Override
     public Collection<Long> vertexSet() {
         Set<Long> verteces = new HashSet<Long>();
-        for (int i = 0; i < inEdges.length; i++) {
-            verteces.add(inEdges[i][0]);
-            verteces.add(outEdges[i][0]);
+        try{
+	        for (int i = 0; i < inEdges.length; i++) {
+	            verteces.add(inEdges[i][0]);
+	            verteces.add(outEdges[i][0]);
+	        }
+        }catch(Exception e){
+        	System.out.println(verteces==null);
+        	System.out.println(inEdges==null);
         }
         return verteces;
     }
@@ -363,16 +370,30 @@ public class BigMultigraph implements Multigraph, Iterable<Long>  {
     }
 
 
-    private static long[][] edgesOf(long[][] edges, int[] bounds, long vertex, long lastVertex) {
-        if (vertex != lastVertex) {
+    private synchronized static long[][] edgesOf(long[][] edges, int[] bounds, long vertex, long lastVertex) {
+//    	System.out.println(vertex + " " + lastVertex);
+        
+    	if (vertex != lastVertex) {
             boundsOf(edges, bounds, vertex);
+            
         }
         if (bounds == null || bounds[0] == -1) {
             return null;
         }
+        
         int length = bounds[1] - bounds[0];
         long[][] sublist = new long[length][3];
+        try{
         System.arraycopy(edges, bounds[0], sublist, 0, length);
+        }catch(Exception e){
+        	System.out.println(edges.length  + " " + bounds[0] + " " + bounds[1] +  " " +sublist.length );
+        	System.out.println(bounds[0] == -1);
+//        	System.out.println(length);
+        	
+        	e.printStackTrace();
+        
+        }
+        
         return sublist;
     }
 
@@ -531,5 +552,23 @@ public class BigMultigraph implements Multigraph, Iterable<Long>  {
     public Iterator<Long> iterator() {
         return new NodeIterator();
     }
+
+	public synchronized int[] getLastInBounds() {
+		return lastInBounds;
+	}
+
+	public void setLastInBounds(int[] lastInBounds) {
+		this.lastInBounds = lastInBounds;
+	}
+
+	public synchronized int[] getLastOutBounds() {
+		return lastOutBounds;
+	}
+
+	public void setLastOutBounds(int[] lastOutBounds) {
+		this.lastOutBounds = lastOutBounds;
+	}
+	
+	
 	
 }
