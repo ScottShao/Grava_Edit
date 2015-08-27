@@ -67,7 +67,7 @@ public class Isomorphism {
 		visitedQueryNodes = new ArrayList<Long>();
 		ringNodes = new HashSet<GraphRing>();
 		outputDir = graphName + "_output";
-		
+
 		File dir = new File(outputDir);
 		if (!dir.exists()) {
 			if (dir.mkdir()) {
@@ -83,21 +83,21 @@ public class Isomorphism {
 		}
 		resultsWriter = new BufferedWriter((new OutputStreamWriter(
 				new FileOutputStream(file, true))));
-		
+
 		if (startingNode == null) {
 			startingNode = queryNodes.iterator().next();
 		}
 		Set<Long> visitedQueryNodes = new HashSet<Long>();
 
 		searchList = this.computeSearchList(startingNode);
-		System.out.println("search list");
-		for(Long temp:searchList){
-			System.out.println(temp);
-		}
-		System.out.println("prev list");
-		for(Long temp:prevQueryNodes){
-			System.out.println(temp);
-		}
+//		System.out.println("search list");
+//		for (Long temp : searchList) {
+//			System.out.println(temp);
+//		}
+//		System.out.println("prev list");
+//		for (Long temp : prevQueryNodes) {
+//			System.out.println(temp);
+//		}
 		this.combineMappedNodes(0, this.threshold);
 		this.writeToFile();
 		System.out.println("total answer number:" + count);
@@ -110,7 +110,7 @@ public class Isomorphism {
 		boolean isPrintingSolution = false;
 		int ringStatus = 0;
 		Long currentNodesPrev;
-		
+
 		int nextRemainingThreshold = remainingThreshold;
 		long ringNode = 0L;
 		if (index > 0) {
@@ -131,23 +131,35 @@ public class Isomorphism {
 			Edge mappedEdge = mn.getMappedEdge();
 			if (mappedEdge == null) {
 				currentMapping.put(currentQueryNode, mn.getNodeID());
-//				currentNodesPrev = mn.getNodeID();
+				// currentNodesPrev = mn.getNodeID();
 				this.combineMappedNodes(index + 1, nextRemainingThreshold);
 			} else {
 				if (solutionEdges.contains(mappedEdge)) {
 					continue;
 				} else {
-					currentNodesPrev = mn.isIncoming() ? mappedEdge
-							.getSource() : mappedEdge.getDestination();
-					if(!prevQueryNodes.get(index).equals(currentQueryNode) && mappedEdge.getSource().equals(mappedEdge.getDestination())){
-						//remove self ring
-						continue;
-					}
-					if(ringStatus == 2 && mn.getNodeID() != ringNode){
-						//if it's a ring, it should have same ring node as previous mapping
-						continue;
-					}
+					currentNodesPrev = mn.isIncoming() ? mappedEdge.getSource()
+							: mappedEdge.getDestination();
 					
+//					if (prevQueryNodes.get(index).equals(currentQueryNode)
+//							&& mappedEdge.getSource().equals(
+//									mappedEdge.getDestination())) {
+//						 System.out.println("first:" +prevQueryNodes.get(index) +
+//						 " " +currentQueryNode);
+//						 System.out.println("second:" + mappedEdge.getSource() +
+//						 " " + (mappedEdge.getDestination()));
+//					}
+					if (!prevQueryNodes.get(index).equals(currentQueryNode)
+							&& mappedEdge.getSource().equals(
+									mappedEdge.getDestination())) {
+						// remove self ring
+						continue;
+					}
+					if (ringStatus == 2 && mn.getNodeID() != ringNode) {
+						// if it's a ring, it should have same ring node as
+						// previous mapping
+						continue;
+					}
+
 					if (mn.isLabelDif() && nextRemainingThreshold == 0) {
 						continue;
 					} else {
@@ -155,32 +167,39 @@ public class Isomorphism {
 								.get(index));
 						if (currentNodesPrev.equals(prevMappedNode)) {
 							solutionEdges.addLast(mappedEdge);
+//							if(mappedEdge.getSource().equals(89754982785048L) && mappedEdge.getDestination().equals(80754982785048L)){
+////								System.out.println(currentNodesPrev + " " + prevMappedNode);
+//							}
+//							System.out.println("adding"
+//									+ mappedEdge.getSource() + " "
+//									+ (mappedEdge.getDestination()));
 							if (!isPrintingSolution) {
+								
 								currentMapping.put(currentQueryNode,
 										mn.getNodeID());
 								if (mn.isLabelDif()) {
 									nextRemainingThreshold = remainingThreshold - 1;
 								}
-								if(ringStatus == 1){
-									ringStatus ++;
+								if (ringStatus == 1) {
+									ringStatus++;
 									ringNode = mn.getNodeID();
 									continue;
-								}else{
-									this.combineMappedNodes(index + 1,
-									nextRemainingThreshold);
+								} else {
+									this.combineMappedNodes(index+1,
+											nextRemainingThreshold);
 								}
 							} else {
-//								this.printSolution(solutionEdges);
-								if(ringStatus == 1){
-									ringStatus ++;
+								// this.printSolution(solutionEdges);
+								if (ringStatus == 1) {
+									ringStatus++;
 									ringNode = mn.getNodeID();
 									continue;
-								}else{
+								} else {
 									this.addToAnswers(solutionEdges);
 									count++;
 								}
 							}
-							if(ringStatus == 2){
+							if (ringStatus == 2) {
 								solutionEdges.pollLast();
 							}
 							solutionEdges.pollLast();
@@ -189,19 +208,19 @@ public class Isomorphism {
 				}
 			}
 		}
-		
+
 	}
 
-	
-	private void writeToFile() throws IOException{
+	private void writeToFile() throws IOException {
 		int i = 0;
-		for(Answer ans : answers){
-			resultsWriter.write("query solution " + i );
+		for (Answer ans : answers) {
+			resultsWriter.write("query solution " + i);
 			resultsWriter.newLine();
 			resultsWriter.write(ans.toString());
 			i++;
 		}
 	}
+
 	private void computeRelatedQuery(Long queryNode, Long graphNode) {
 		visitedQueryNodes.add(queryNode);
 		System.out.println("visiting:" + queryNode);
@@ -248,7 +267,7 @@ public class Isomorphism {
 		LinkedList<Long> searchList = new LinkedList<Long>();
 		LinkedList<Long> temp = new LinkedList<Long>();
 		ArrayList<Long> repeatedNodes = new ArrayList<Long>();
-		prevQueryNodes.add(startingNode);
+		prevQueryNodes.add(-1L);
 		searchList.addLast(startingNode);
 		temp.addLast(startingNode);
 		Long nodeToVisit;
@@ -269,7 +288,8 @@ public class Isomorphism {
 			Collection<Edge> outgoingEdges = query.outgoingEdgesOf(nodeToVisit);
 			for (Edge e : outgoingEdges) {
 				if (repeatedNodes.contains(e.getDestination())) {
-//					System.out.println(e.getSource() + " " + e.getDestination());
+					// System.out.println(e.getSource() + " " +
+					// e.getDestination());
 					ringNodes.add(new GraphRing(e.getSource(), e
 							.getDestination()));
 				} else {
@@ -286,15 +306,15 @@ public class Isomorphism {
 		}
 		return searchList;
 	}
-	
-	private void addToAnswers(LinkedList<Edge> edges){
+
+	private void addToAnswers(LinkedList<Edge> edges) {
 		Answer ans = new Answer();
 		for (Edge e : edges) {
 			ans.add(e.toString());
 		}
 		answers.add(ans);
 	}
-	
+
 	private void printSolution(LinkedList<Edge> edges) throws IOException {
 		resultsWriter.write("query solution " + count);
 		resultsWriter.newLine();
@@ -305,74 +325,74 @@ public class Isomorphism {
 
 	}
 
-//	public void combine(Set<Edge> unvisitedEdges, LinkedList<Edge> answer,
-//			int threshold, int depth) throws IOException {
-//		Edge e = unvisitedEdges.iterator().next();
-//		Set<MappedEdge> mappedEdges = queryGraphEdges.get(e);
-//		if (unvisitedEdges.size() == 1) {
-//			for (MappedEdge me : mappedEdges) {
-//				if (me.getDis() > threshold) {
-//					continue;
-//				} else {
-//					a.put(e, me.getEdge());
-//					if (this.checkAnswer()) {
-//						this.printAnswer(answer, me.getEdge());
-//						count++;
-//					}
-//				}
-//			}
-//			answer.removeLast();
-//		} else {
-//			unvisitedEdges.remove(e);
-//			for (MappedEdge me : mappedEdges) {
-//				if (me.getDis() > threshold) {
-//					continue;
-//				} else {
-//					a.put(e, me.getEdge());
-//					answer.add(me.getEdge());
-//					this.combine(unvisitedEdges, answer,
-//							threshold - me.getDis(), depth + 1);
-//				}
-//
-//			}
-//			if (answer.size() != 0) {
-//				answer.removeLast();
-//			}
-//		}
-//	}
+	// public void combine(Set<Edge> unvisitedEdges, LinkedList<Edge> answer,
+	// int threshold, int depth) throws IOException {
+	// Edge e = unvisitedEdges.iterator().next();
+	// Set<MappedEdge> mappedEdges = queryGraphEdges.get(e);
+	// if (unvisitedEdges.size() == 1) {
+	// for (MappedEdge me : mappedEdges) {
+	// if (me.getDis() > threshold) {
+	// continue;
+	// } else {
+	// a.put(e, me.getEdge());
+	// if (this.checkAnswer()) {
+	// this.printAnswer(answer, me.getEdge());
+	// count++;
+	// }
+	// }
+	// }
+	// answer.removeLast();
+	// } else {
+	// unvisitedEdges.remove(e);
+	// for (MappedEdge me : mappedEdges) {
+	// if (me.getDis() > threshold) {
+	// continue;
+	// } else {
+	// a.put(e, me.getEdge());
+	// answer.add(me.getEdge());
+	// this.combine(unvisitedEdges, answer,
+	// threshold - me.getDis(), depth + 1);
+	// }
+	//
+	// }
+	// if (answer.size() != 0) {
+	// answer.removeLast();
+	// }
+	// }
+	// }
 
-//	public boolean checkAnswer() {
-//		Collection<Long> vertexes = query.vertexSet();
-//		for (Long node : vertexes) {
-//			Collection<Edge> incomeEdges = query.incomingEdgesOf(node);
-//			long nodeID = -1;
-//			for (Edge edge : incomeEdges) {
-//				Edge gEdge = this.a.get(edge);
-//				if (nodeID == -1) {
-//					nodeID = gEdge.getDestination();
-//				} else {
-//					if (nodeID != gEdge.getDestination()) {
-//						return false;
-//					}
-//				}
-//
-//			}
-//			Collection<Edge> outcomeEdges = query.outgoingEdgesOf(node);
-//			nodeID = -1;
-//			for (Edge edge : outcomeEdges) {
-//				Edge gEdge = this.a.get(edge);
-//				if (nodeID == -1) {
-//					nodeID = gEdge.getSource();
-//				} else {
-//					if (nodeID != gEdge.getSource()) {
-//						return false;
-//					}
-//				}
-//
-//			}
-//		}
-//		return true;
-//	}
+	// public boolean checkAnswer() {
+	// Collection<Long> vertexes = query.vertexSet();
+	// for (Long node : vertexes) {
+	// Collection<Edge> incomeEdges = query.incomingEdgesOf(node);
+	// long nodeID = -1;
+	// for (Edge edge : incomeEdges) {
+	// Edge gEdge = this.a.get(edge);
+	// if (nodeID == -1) {
+	// nodeID = gEdge.getDestination();
+	// } else {
+	// if (nodeID != gEdge.getDestination()) {
+	// return false;
+	// }
+	// }
+	//
+	// }
+	// Collection<Edge> outcomeEdges = query.outgoingEdgesOf(node);
+	// nodeID = -1;
+	// for (Edge edge : outcomeEdges) {
+	// Edge gEdge = this.a.get(edge);
+	// if (nodeID == -1) {
+	// nodeID = gEdge.getSource();
+	// } else {
+	// if (nodeID != gEdge.getSource()) {
+	// return false;
+	// }
+	// }
+	//
+	// }
+	// }
+	// return true;
+	// }
 
 	private void printAnswer(LinkedList<Edge> answer, Edge edge)
 			throws IOException {
@@ -561,6 +581,5 @@ public class Isomorphism {
 	public void setAnswers(HashSet<Answer> answers) {
 		this.answers = answers;
 	}
-	
 
 }
