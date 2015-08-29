@@ -41,7 +41,8 @@ public class Isomorphism {
 	private int mnStartingIndex;
 	private ArrayList<Long> visitedQueryNodes;
 	private HashMap<Long, Long> currentMapping;
-	private HashSet<GraphRing> ringNodes;
+	private HashSet<GraphRing> queryRingNodes;
+	private LinkedList<GraphRing> graphRingNodes;
 	private BufferedWriter resultsWriter;
 	private String anwserFile;
 	private String outputDir;
@@ -65,7 +66,8 @@ public class Isomorphism {
 		prevQueryNodes = new LinkedList<Long>();
 		currentMapping = new HashMap<Long, Long>();
 		visitedQueryNodes = new ArrayList<Long>();
-		ringNodes = new HashSet<GraphRing>();
+		queryRingNodes = new HashSet<GraphRing>();
+		graphRingNodes = new LinkedList<GraphRing>();
 		outputDir = graphName + "_output";
 
 		File dir = new File(outputDir);
@@ -116,7 +118,7 @@ public class Isomorphism {
 		if (index > 0) {
 			Long prevForCurrentQNode = prevQueryNodes.get(index);
 			Long prevForPrevQNode = prevQueryNodes.get(index - 1);
-			if (ringNodes.contains(new GraphRing(searchList.get(index),
+			if (queryRingNodes.contains(new GraphRing(searchList.get(index),
 					prevQueryNodes.get(index)))) {
 				ringStatus++;
 			}
@@ -140,18 +142,15 @@ public class Isomorphism {
 					currentNodesPrev = mn.isIncoming() ? mappedEdge.getSource()
 							: mappedEdge.getDestination();
 					
-//					if (prevQueryNodes.get(index).equals(currentQueryNode)
-//							&& mappedEdge.getSource().equals(
-//									mappedEdge.getDestination())) {
-//						 System.out.println("first:" +prevQueryNodes.get(index) +
-//						 " " +currentQueryNode);
-//						 System.out.println("second:" + mappedEdge.getSource() +
-//						 " " + (mappedEdge.getDestination()));
-//					}
 					if (!prevQueryNodes.get(index).equals(currentQueryNode)
 							&& mappedEdge.getSource().equals(
 									mappedEdge.getDestination())) {
 						// remove self ring
+						continue;
+					}
+					if(ringStatus == 0 && graphRingNodes.contains(new GraphRing(mappedEdge.getSource(),mappedEdge.getDestination()))){
+						//if query nodes are  not a ring  and graph nodes are ring
+						System.out.println(mappedEdge.getSource() + " " + mappedEdge.getDestination());
 						continue;
 					}
 					if (ringStatus == 2 && mn.getNodeID() != ringNode) {
@@ -159,6 +158,7 @@ public class Isomorphism {
 						// previous mapping
 						continue;
 					}
+					
 
 					if (mn.isLabelDif() && nextRemainingThreshold == 0) {
 						continue;
@@ -167,12 +167,7 @@ public class Isomorphism {
 								.get(index));
 						if (currentNodesPrev.equals(prevMappedNode)) {
 							solutionEdges.addLast(mappedEdge);
-//							if(mappedEdge.getSource().equals(89754982785048L) && mappedEdge.getDestination().equals(80754982785048L)){
-////								System.out.println(currentNodesPrev + " " + prevMappedNode);
-//							}
-//							System.out.println("adding"
-//									+ mappedEdge.getSource() + " "
-//									+ (mappedEdge.getDestination()));
+							graphRingNodes.addLast(new GraphRing(mappedEdge.getSource(),mappedEdge.getDestination()));
 							if (!isPrintingSolution) {
 								
 								currentMapping.put(currentQueryNode,
@@ -200,8 +195,10 @@ public class Isomorphism {
 								}
 							}
 							if (ringStatus == 2) {
+								graphRingNodes.pollLast();
 								solutionEdges.pollLast();
 							}
+							graphRingNodes.pollLast();
 							solutionEdges.pollLast();
 						}
 					}
@@ -257,9 +254,7 @@ public class Isomorphism {
 	}
 
 	private String concateAnswerFile(String fileName) {
-		// System.out.println("answerFile:" + fileName);
 		String[] split = fileName.split("/");
-		// System.out.println("split" + split[0]);
 		return graphName + "_results_" + split[split.length - 1];
 	}
 
@@ -290,7 +285,7 @@ public class Isomorphism {
 				if (repeatedNodes.contains(e.getDestination())) {
 					// System.out.println(e.getSource() + " " +
 					// e.getDestination());
-					ringNodes.add(new GraphRing(e.getSource(), e
+					queryRingNodes.add(new GraphRing(e.getSource(), e
 							.getDestination()));
 				} else {
 					repeatedNodes.add(e.getDestination());
@@ -325,74 +320,7 @@ public class Isomorphism {
 
 	}
 
-	// public void combine(Set<Edge> unvisitedEdges, LinkedList<Edge> answer,
-	// int threshold, int depth) throws IOException {
-	// Edge e = unvisitedEdges.iterator().next();
-	// Set<MappedEdge> mappedEdges = queryGraphEdges.get(e);
-	// if (unvisitedEdges.size() == 1) {
-	// for (MappedEdge me : mappedEdges) {
-	// if (me.getDis() > threshold) {
-	// continue;
-	// } else {
-	// a.put(e, me.getEdge());
-	// if (this.checkAnswer()) {
-	// this.printAnswer(answer, me.getEdge());
-	// count++;
-	// }
-	// }
-	// }
-	// answer.removeLast();
-	// } else {
-	// unvisitedEdges.remove(e);
-	// for (MappedEdge me : mappedEdges) {
-	// if (me.getDis() > threshold) {
-	// continue;
-	// } else {
-	// a.put(e, me.getEdge());
-	// answer.add(me.getEdge());
-	// this.combine(unvisitedEdges, answer,
-	// threshold - me.getDis(), depth + 1);
-	// }
-	//
-	// }
-	// if (answer.size() != 0) {
-	// answer.removeLast();
-	// }
-	// }
-	// }
 
-	// public boolean checkAnswer() {
-	// Collection<Long> vertexes = query.vertexSet();
-	// for (Long node : vertexes) {
-	// Collection<Edge> incomeEdges = query.incomingEdgesOf(node);
-	// long nodeID = -1;
-	// for (Edge edge : incomeEdges) {
-	// Edge gEdge = this.a.get(edge);
-	// if (nodeID == -1) {
-	// nodeID = gEdge.getDestination();
-	// } else {
-	// if (nodeID != gEdge.getDestination()) {
-	// return false;
-	// }
-	// }
-	//
-	// }
-	// Collection<Edge> outcomeEdges = query.outgoingEdgesOf(node);
-	// nodeID = -1;
-	// for (Edge edge : outcomeEdges) {
-	// Edge gEdge = this.a.get(edge);
-	// if (nodeID == -1) {
-	// nodeID = gEdge.getSource();
-	// } else {
-	// if (nodeID != gEdge.getSource()) {
-	// return false;
-	// }
-	// }
-	//
-	// }
-	// }
-	// return true;
-	// }
 
 	private void printAnswer(LinkedList<Edge> answer, Edge edge)
 			throws IOException {
