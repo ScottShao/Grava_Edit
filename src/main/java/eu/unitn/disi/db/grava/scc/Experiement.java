@@ -7,6 +7,7 @@ import eu.unitn.disi.db.command.exceptions.AlgorithmExecutionException;
 import eu.unitn.disi.db.grava.exceptions.ParseException;
 import eu.unitn.disi.db.grava.graphs.Multigraph;
 import eu.unitn.disi.db.grava.utils.FileOperator;
+import eu.unitn.disi.db.query.WildCardQuery;
 
 
 public class Experiement {
@@ -18,12 +19,14 @@ public class Experiement {
 	private String queryFolder;
 	private String outputFile;
 	private String answerFile;
+	private boolean isUsingWildCard;
+	
 	
 	public Experiement() {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public Experiement(int repititions, int threshold, int threadsNum, int neighbourNum, String graphName, String queryFolder, String outputFile) throws AlgorithmExecutionException, ParseException, IOException{
+	public Experiement(int repititions, int threshold, int threadsNum, int neighbourNum, String graphName, String queryFolder, String outputFile, boolean isUsingWildCard) throws AlgorithmExecutionException, ParseException, IOException{
 		this.repititions = repititions;
 		this.threshold = threshold;
 		this.threadsNum = threadsNum;
@@ -31,6 +34,7 @@ public class Experiement {
 		this.graphName = graphName;
 		this.queryFolder = queryFolder;
 		this.outputFile = outputFile;
+		this.isUsingWildCard = isUsingWildCard;
 //		this.answerFile = answerFile;
 	}
 	
@@ -46,9 +50,20 @@ public class Experiement {
 //		ed.setAnswerFile(answerFile);
 		ArrayList<String> queryFiles = FileOperator.getFileName(queryFolder);
 		for(String queryFile : queryFiles){
-			ed.setQueryName(queryFile);
+			if(threshold != 0 && isUsingWildCard){
+				WildCardQuery wcq = new WildCardQuery(1);
+				wcq.run(queryFile);
+				ArrayList<String> wildCardFiles = FileOperator.getFileName(wcq.getDirName());
+				for(String wildCardQuery : wildCardFiles){
+					ed.setQueryName(wildCardQuery);
+					ed.runEditDistance();
+				}
+			}else{
+				ed.setQueryName(queryFile);
+				ed.runEditDistance();
+			}
+			
 //			System.out.println("queryfile:" +queryFile);
-			ed.runEditDistance();
 		}
 	}
 
