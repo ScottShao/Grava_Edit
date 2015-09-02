@@ -46,7 +46,7 @@ public class Experiement {
 		ed.setOutputFile(outputFile);
 		ed.setRepititions(repititions);
 		ed.setThreadsNum(threadsNum);
-		ed.setThreshold(threshold);
+		
 //		ed.setAnswerFile(answerFile);
 		ArrayList<String> queryFiles = FileOperator.getFileName(queryFolder);
 		for(String queryFile : queryFiles){
@@ -54,11 +54,13 @@ public class Experiement {
 				WildCardQuery wcq = new WildCardQuery(1);
 				wcq.run(queryFile);
 				ArrayList<String> wildCardFiles = FileOperator.getFileName(wcq.getDirName());
+				ed.setThreshold(0);
 				for(String wildCardQuery : wildCardFiles){
 					ed.setQueryName(wildCardQuery);
 					ed.runEditDistance();
 				}
 			}else{
+				ed.setThreshold(threshold);
 				ed.setQueryName(queryFile);
 				ed.runEditDistance();
 			}

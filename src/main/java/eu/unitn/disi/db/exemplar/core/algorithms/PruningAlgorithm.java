@@ -141,10 +141,7 @@ public class PruningAlgorithm extends Algorithm {
                     //We should check if ALL the query nodes matches and then add the node
                     for (i = 0; i < nodesToVisit.size(); i++) {
                         graphCandidate = nodesToVisit.get(i);
-//                        System.out.println("matching " + currentQueryNode + " with " + graphCandidate.getNodeID());
                         if (this.matches(graphCandidate, currentQueryNode)) {
-//                        	System.out.println("success");
-//                        	System.out.println(graphCandidate);
                             numberOfComparison++;
                             mappedNodes.add(graphCandidate);
                             //check if the outgoing-incoming edges matches, if yes add to the next level
@@ -156,7 +153,7 @@ public class PruningAlgorithm extends Algorithm {
                         }
                     }
                     queryGraphMapping.put(currentQueryNode, mappedNodes);
-//                    System.out.println(currentQueryNode + " " + mappedNodes.size());
+//                    System.out.println("node:" + currentQueryNode + "  size:" + mappedNodes.size());
                     //add the out edges to the visited ones
                     visitedQueryNodes.add(currentQueryNode);
                 } else { //No map is possible anymore
@@ -335,18 +332,7 @@ public class PruningAlgorithm extends Algorithm {
         Map<Long,Integer>[] qNodeTable = queryTables.getNodeMap(qNode);
         Map<Long, Integer> qNodeLevel, gNodeLevel;
         Set<Long> qSet;
-//        int dif = mappedGNode.getDist();
         int dif = 0;
-        //D:/*
-//        if (gNode == 84748654765648L) {
-//            for (int i = 0; i < gNodeTable.length; i++) {
-//                error(Utilities.mapToString(gNodeTable[i]));
-//            }
-//            for (int i = 0; i < qNodeTable.length; i++) {
-//                error(Utilities.mapToString(qNodeTable[i]));
-//            }
-//        }
-        //D:*/
         for (int i = 0; i < qNodeTable.length && i < gNodeTable.length; i++) {
             qNodeLevel = qNodeTable[i];
             gNodeLevel = gNodeTable[i];
@@ -354,36 +340,16 @@ public class PruningAlgorithm extends Algorithm {
 
             for (Long label : qSet) {
             	if(label.equals(0L)){
-//            		System.out.println("wang neng bian");
             		continue;
             	}
                 if (gNodeLevel.containsKey(label)) {
                 	int count = qNodeLevel.get(label) - gNodeLevel.get(label); 
                     if (!isBinary && count > threshold - dif) {
-//        //D:/*
-//                        if (gNode == 84748654765648L) {
-//                            try {
-//                                error("Less information for label %s, queryNode %s at distance %d", FreebaseConstants.getPropertyMid(label), FreebaseConstants.convertLongToMid(qNode), i);
-//                            } catch (IOException ex) {
-//                                Logger.getLogger(PruningAlgorithm.class.getName()).log(Level.SEVERE, null, ex);
-//                            }
-//                        }
-//                        //D:*/
-//
                         return false;
                     }else{
                     	dif += count;
                     }
                 } else {
-//        //D:/*
-//                    if (gNode == 84748654765648L) {
-//                        try {
-//                            error("Missing information for label %s, queryNode %s at distance %d", FreebaseConstants.getPropertyMid(label), FreebaseConstants.convertLongToMid(qNode), i);
-//                        } catch (IOException ex) {
-//                            Logger.getLogger(PruningAlgorithm.class.getName()).log(Level.SEVERE, null, ex);
-//                        }
-//                    }
-//                        //D:*/
                     dif += qNodeLevel.get(label);
                     if(dif > threshold){
                     	return false;

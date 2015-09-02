@@ -68,7 +68,7 @@ public class Isomorphism {
 		visitedQueryNodes = new ArrayList<Long>();
 		queryRingNodes = new HashSet<GraphRing>();
 		graphRingNodes = new LinkedList<GraphRing>();
-		outputDir = graphName + "_output";
+//		outputDir = graphName + "_output";
 
 		File dir = new File(outputDir);
 		if (!dir.exists()) {
@@ -92,14 +92,7 @@ public class Isomorphism {
 		Set<Long> visitedQueryNodes = new HashSet<Long>();
 
 		searchList = this.computeSearchList(startingNode);
-//		System.out.println("search list");
-//		for (Long temp : searchList) {
-//			System.out.println(temp);
-//		}
-//		System.out.println("prev list");
-//		for (Long temp : prevQueryNodes) {
-//			System.out.println(temp);
-//		}
+
 		this.combineMappedNodes(0, this.threshold);
 		this.writeToFile();
 		System.out.println("total answer number:" + count);
@@ -128,12 +121,16 @@ public class Isomorphism {
 		if (index == searchList.size() - 1) {
 			isPrintingSolution = true;
 		}
-
+		System.out.println("ring status:" + ringStatus);
 		for (MappedNode mn : mappedNodes) {
 			Edge mappedEdge = mn.getMappedEdge();
+			System.out.println(currentQueryNode + " " + mn.getNodeID() +  " " + mn.getMappedEdge() + " " + mn.getDist());
+			
 			if (mappedEdge == null) {
+				if(mn.getNodeID() == 495248L){
+					System.out.println();
+				}
 				currentMapping.put(currentQueryNode, mn.getNodeID());
-				// currentNodesPrev = mn.getNodeID();
 				this.combineMappedNodes(index + 1, nextRemainingThreshold);
 			} else {
 				if (solutionEdges.contains(mappedEdge)) {
@@ -150,7 +147,7 @@ public class Isomorphism {
 					}
 					if(ringStatus == 0 && graphRingNodes.contains(new GraphRing(mappedEdge.getSource(),mappedEdge.getDestination()))){
 						//if query nodes are  not a ring  and graph nodes are ring
-						System.out.println(mappedEdge.getSource() + " " + mappedEdge.getDestination());
+//						System.out.println(mappedEdge.getSource() + " " + mappedEdge.getDestination());
 						continue;
 					}
 					if (ringStatus == 2 && mn.getNodeID() != ringNode) {
@@ -166,6 +163,7 @@ public class Isomorphism {
 						Long prevMappedNode = currentMapping.get(prevQueryNodes
 								.get(index));
 						if (currentNodesPrev.equals(prevMappedNode)) {
+							System.out.println("adding " + mappedEdge);
 							solutionEdges.addLast(mappedEdge);
 							graphRingNodes.addLast(new GraphRing(mappedEdge.getSource(),mappedEdge.getDestination()));
 							if (!isPrintingSolution) {
@@ -184,7 +182,6 @@ public class Isomorphism {
 											nextRemainingThreshold);
 								}
 							} else {
-								// this.printSolution(solutionEdges);
 								if (ringStatus == 1) {
 									ringStatus++;
 									ringNode = mn.getNodeID();
@@ -194,16 +191,18 @@ public class Isomorphism {
 									count++;
 								}
 							}
-							if (ringStatus == 2) {
-								graphRingNodes.pollLast();
-								solutionEdges.pollLast();
-							}
 							graphRingNodes.pollLast();
 							solutionEdges.pollLast();
+							
 						}
 					}
 				}
 			}
+			nextRemainingThreshold = remainingThreshold;
+		}
+		if (ringStatus == 2) {
+			graphRingNodes.pollLast();
+			solutionEdges.pollLast();
 		}
 
 	}
@@ -218,40 +217,40 @@ public class Isomorphism {
 		}
 	}
 
-	private void computeRelatedQuery(Long queryNode, Long graphNode) {
-		visitedQueryNodes.add(queryNode);
-		System.out.println("visiting:" + queryNode);
-		Collection<Edge> incomingEdges = query.incomingEdgesOf(queryNode);
-		Long nextNode;
-
-		Set<MappedNode> mappedNodes = null;
-
-		for (Edge e : incomingEdges) {
-			nextNode = e.getSource();
-			if (visitedQueryNodes.contains(nextNode)) {
-				continue;
-			} else {
-				mappedNodes = queryGraphMapping.get(nextNode);
-				for (MappedNode mn : mappedNodes) {
-					if (!mn.isIncoming()) {
-						this.computeRelatedQuery(nextNode, mn.getNodeID());
-					}
-				}
-			}
-		}
-		Collection<Edge> outgoingEdges = query.outgoingEdgesOf(queryNode);
-		for (Edge e : outgoingEdges) {
-			nextNode = e.getDestination();
-			if (visitedQueryNodes.contains(nextNode)) {
-				continue;
-			} else {
-				for (MappedNode mn : mappedNodes) {
-					this.computeRelatedQuery(nextNode, mn.getNodeID());
-				}
-			}
-		}
-
-	}
+//	private void computeRelatedQuery(Long queryNode, Long graphNode) {
+//		visitedQueryNodes.add(queryNode);
+//		System.out.println("visiting:" + queryNode);
+//		Collection<Edge> incomingEdges = query.incomingEdgesOf(queryNode);
+//		Long nextNode;
+//
+//		Set<MappedNode> mappedNodes = null;
+//
+//		for (Edge e : incomingEdges) {
+//			nextNode = e.getSource();
+//			if (visitedQueryNodes.contains(nextNode)) {
+//				continue;
+//			} else {
+//				mappedNodes = queryGraphMapping.get(nextNode);
+//				for (MappedNode mn : mappedNodes) {
+//					if (!mn.isIncoming()) {
+//						this.computeRelatedQuery(nextNode, mn.getNodeID());
+//					}
+//				}
+//			}
+//		}
+//		Collection<Edge> outgoingEdges = query.outgoingEdgesOf(queryNode);
+//		for (Edge e : outgoingEdges) {
+//			nextNode = e.getDestination();
+//			if (visitedQueryNodes.contains(nextNode)) {
+//				continue;
+//			} else {
+//				for (MappedNode mn : mappedNodes) {
+//					this.computeRelatedQuery(nextNode, mn.getNodeID());
+//				}
+//			}
+//		}
+//
+//	}
 
 	private String concateAnswerFile(String fileName) {
 		String[] split = fileName.split("/");
@@ -283,8 +282,6 @@ public class Isomorphism {
 			Collection<Edge> outgoingEdges = query.outgoingEdgesOf(nodeToVisit);
 			for (Edge e : outgoingEdges) {
 				if (repeatedNodes.contains(e.getDestination())) {
-					// System.out.println(e.getSource() + " " +
-					// e.getDestination());
 					queryRingNodes.add(new GraphRing(e.getSource(), e
 							.getDestination()));
 				} else {
@@ -310,30 +307,30 @@ public class Isomorphism {
 		answers.add(ans);
 	}
 
-	private void printSolution(LinkedList<Edge> edges) throws IOException {
-		resultsWriter.write("query solution " + count);
-		resultsWriter.newLine();
-		for (Edge e : edges) {
-			resultsWriter.write(e.toString());
-			resultsWriter.newLine();
-		}
+//	private void printSolution(LinkedList<Edge> edges) throws IOException {
+//		resultsWriter.write("query solution " + count);
+//		resultsWriter.newLine();
+//		for (Edge e : edges) {
+//			resultsWriter.write(e.toString());
+//			resultsWriter.newLine();
+//		}
+//
+//	}
 
-	}
 
 
-
-	private void printAnswer(LinkedList<Edge> answer, Edge edge)
-			throws IOException {
-		resultsWriter.write("query solution " + count);
-		resultsWriter.newLine();
-		for (Edge e : answer) {
-			resultsWriter.write(e.toString());
-			resultsWriter.newLine();
-		}
-		resultsWriter.write(edge.toString());
-		resultsWriter.newLine();
-
-	}
+//	private void printAnswer(LinkedList<Edge> answer, Edge edge)
+//			throws IOException {
+//		resultsWriter.write("query solution " + count);
+//		resultsWriter.newLine();
+//		for (Edge e : answer) {
+//			resultsWriter.write(e.toString());
+//			resultsWriter.newLine();
+//		}
+//		resultsWriter.write(edge.toString());
+//		resultsWriter.newLine();
+//
+//	}
 
 	public void mappingEdges(Map<Long, Set<MappedNode>> queryGraphMapping) {
 		long src;

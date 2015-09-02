@@ -16,6 +16,7 @@ import eu.unitn.disi.db.grava.exceptions.ParseException;
 import eu.unitn.disi.db.grava.graphs.BigMultigraph;
 import eu.unitn.disi.db.grava.graphs.Edge;
 import eu.unitn.disi.db.grava.graphs.Multigraph;
+import eu.unitn.disi.db.grava.utils.FileOperator;
 import eu.unitn.disi.db.grava.vectorization.NeighborTables;
 import eu.unitn.disi.db.grava.vectorization.PathNeighborTables;
 import eu.unitn.disi.db.grava.graphs.MappedNode;
@@ -51,12 +52,12 @@ public class EditDistance {
 			AlgorithmExecutionException {
 		
 		Map<Long, Set<MappedNode>> queryGraphMapping = null;
-		ComputeGraphNeighbors tableAlgorithm = null;
-//		ComputePathGraphNeighbors tableAlgorithm = null;
-//		PathNeighborTables queryTables = null;
-//		PathNeighborTables graphTables = null;
-		NeighborTables queryTables = null;
-		NeighborTables graphTables = null;
+//		ComputeGraphNeighbors tableAlgorithm = null;
+		ComputePathGraphNeighbors tableAlgorithm = null;
+		PathNeighborTables queryTables = null;
+		PathNeighborTables graphTables = null;
+//		NeighborTables queryTables = null;
+//		NeighborTables graphTables = null;
 		PruningAlgorithm pruningAlgorithm = null;
 		Isomorphism iso = null;
 		float loadingTime = 0;
@@ -64,7 +65,7 @@ public class EditDistance {
 		float pruningTime = 0;
 		float isoTime = 0;
 		int answerNum = -1;
-		
+		String outputDir = queryName.substring(0,queryName.length()-11) + "_results";
 		
 		for (int exprimentTime = 0; exprimentTime < repititions; exprimentTime++) {
 			StopWatch watch = new StopWatch();
@@ -73,6 +74,7 @@ public class EditDistance {
 			G = new BigMultigraph(graphName+"-sin.graph", graphName+"-sout.graph");
 //			System.out.println("loading query");
 			Q = new BigMultigraph(queryName, queryName, true);
+//			System.out.println(queryName);
 //			System.out.println("query loaded");
 			System.out.println(queryName.substring(queryName.length()-10));
 			if(!this.isQueryMappable(Q)){
@@ -80,18 +82,18 @@ public class EditDistance {
 			}
 			loadingTime += watch.getElapsedTimeMillis();
 
-			tableAlgorithm = new ComputeGraphNeighbors();
-//			tableAlgorithm = new ComputePathGraphNeighbors();
+//			tableAlgorithm = new ComputeGraphNeighbors();
+			tableAlgorithm = new ComputePathGraphNeighbors();
 
 			watch.reset();
 			tableAlgorithm.setK(neighbourNum);
 			tableAlgorithm.setGraph(G);
 			tableAlgorithm.setNumThreads(threadsNum);
 			tableAlgorithm.compute();
-			graphTables = tableAlgorithm.getNeighborTables();
+			graphTables = tableAlgorithm.getPathNeighborTables();
 			tableAlgorithm.setGraph(Q);
 			tableAlgorithm.compute();
-			queryTables = tableAlgorithm.getNeighborTables();
+			queryTables = tableAlgorithm.getPathNeighborTables();
 			computingNeighborTime += watch.getElapsedTimeMillis();
 			
 			watch.reset();
@@ -100,8 +102,8 @@ public class EditDistance {
 			pruningAlgorithm.setQuery(Q);
 //			pruningAlgorithm.setGraphTables(graphTables);
 //			pruningAlgorithm.setQueryTables(queryTables);
-			pruningAlgorithm.setGraphTables(graphTables);
-			pruningAlgorithm.setQueryTables(queryTables);
+			pruningAlgorithm.setGraphPathTables(graphTables);
+			pruningAlgorithm.setQueryPathTables(queryTables);
 			pruningAlgorithm.setThreshold(threshold);
 			pruningAlgorithm.compute();
 
@@ -117,12 +119,15 @@ public class EditDistance {
 			iso.setAnwserFile(queryName);
 			iso.setGraphName(graphName);
 			iso.setQueryGraphMapping(queryGraphMapping);
+			iso.setOutputDir(outputDir);
 			iso.findIsomorphism();
 			iso.getResultsWriter().close();
 			
+			FileOperator.mergeWildCardResults(outputDir, Q.edgeSet().size());
 			answerNum = iso.getCount();
 			isoTime += watch.getElapsedTimeMillis();
 		}
+		
 		loadingTime = loadingTime/repititions;
 		computingNeighborTime = computingNeighborTime/repititions;
 		pruningTime = pruningTime/repititions;
