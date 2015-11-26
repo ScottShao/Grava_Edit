@@ -10,6 +10,7 @@ public class PathNeighbor {
 		this.path = new ArrayList<EdgeLabel>();
 	}
 	
+	
 	public PathNeighbor(ArrayList<EdgeLabel> path){
 		this.path = path;
 	}

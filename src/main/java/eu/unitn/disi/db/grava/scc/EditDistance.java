@@ -5,7 +5,9 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.util.Collection;
+import java.util.HashMap;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
 
 import eu.unitn.disi.db.command.exceptions.AlgorithmExecutionException;
@@ -15,7 +17,10 @@ import eu.unitn.disi.db.exemplar.core.algorithms.PruningAlgorithm;
 import eu.unitn.disi.db.grava.exceptions.ParseException;
 import eu.unitn.disi.db.grava.graphs.BigMultigraph;
 import eu.unitn.disi.db.grava.graphs.Edge;
+import eu.unitn.disi.db.grava.graphs.Indexing;
+import eu.unitn.disi.db.grava.graphs.LabelContainer;
 import eu.unitn.disi.db.grava.graphs.Multigraph;
+import eu.unitn.disi.db.grava.graphs.Selectivity;
 import eu.unitn.disi.db.grava.utils.FileOperator;
 import eu.unitn.disi.db.grava.vectorization.NeighborTables;
 import eu.unitn.disi.db.grava.vectorization.PathNeighborTables;
@@ -52,13 +57,14 @@ public class EditDistance {
 			AlgorithmExecutionException {
 		
 		Map<Long, Set<MappedNode>> queryGraphMapping = null;
-//		ComputeGraphNeighbors tableAlgorithm = null;
-		ComputePathGraphNeighbors tableAlgorithm = null;
-		PathNeighborTables queryTables = null;
-		PathNeighborTables graphTables = null;
-//		NeighborTables queryTables = null;
-//		NeighborTables graphTables = null;
+		ComputeGraphNeighbors tableAlgorithm = null;
+//		ComputePathGraphNeighbors tableAlgorithm = null;
+//		PathNeighborTables queryTables = null;
+//		PathNeighborTables graphTables = null;
+		NeighborTables queryTables = null;
+		NeighborTables graphTables = null;
 		PruningAlgorithm pruningAlgorithm = null;
+		NextQueryVertexes  nqv = null;
 		Isomorphism iso = null;
 		float loadingTime = 0;
 		float computingNeighborTime = 0;
@@ -66,53 +72,82 @@ public class EditDistance {
 		float isoTime = 0;
 		int answerNum = -1;
 		String outputDir = queryName.substring(0,queryName.length()-11) + "_results";
-		
+		Long startingNode;
+		Indexing ind = new Indexing();
+		Selectivity sel = new Selectivity();
 		for (int exprimentTime = 0; exprimentTime < repititions; exprimentTime++) {
 			StopWatch watch = new StopWatch();
 			watch.start();
 			
+			System.out.println(queryName.substring(queryName.length()-10));
 			G = new BigMultigraph(graphName+"-sin.graph", graphName+"-sout.graph");
+			System.out.println("Data graph's vertexex number is " + G.vertexSet().size());
+			System.out.println("Data graph's maximum degree is " + ((BigMultigraph)G).getMaxDegree());
 //			System.out.println("loading query");
 			Q = new BigMultigraph(queryName, queryName, true);
+			ind.indexing((BigMultigraph)G);
+//			sel.print();
+			System.out.println("Query's vertexex number is " + Q.vertexSet().size());
+			System.out.println("Query's maximum degree is " + ((BigMultigraph)Q).getMaxDegree());
+			
 //			System.out.println(queryName);
 //			System.out.println("query loaded");
-			System.out.println(queryName.substring(queryName.length()-10));
+			
 			if(!this.isQueryMappable(Q)){
 				break;
 			}
 			loadingTime += watch.getElapsedTimeMillis();
 
-//			tableAlgorithm = new ComputeGraphNeighbors();
-			tableAlgorithm = new ComputePathGraphNeighbors();
+			tableAlgorithm = new ComputeGraphNeighbors();
+//			tableAlgorithm = new ComputePathGraphNeighbors();
 
 			watch.reset();
 			tableAlgorithm.setK(neighbourNum);
 			tableAlgorithm.setGraph(G);
 			tableAlgorithm.setNumThreads(threadsNum);
 			tableAlgorithm.compute();
-			graphTables = tableAlgorithm.getPathNeighborTables();
+			graphTables = tableAlgorithm.getNeighborTables();
 			tableAlgorithm.setGraph(Q);
 			tableAlgorithm.compute();
-			queryTables = tableAlgorithm.getPathNeighborTables();
+			queryTables = tableAlgorithm.getNeighborTables();
 			computingNeighborTime += watch.getElapsedTimeMillis();
-			
+//			System.out.println(queryTables.toString());
 			watch.reset();
+			nqv = new NextQueryVertexes(G, Q, queryTables);
+			nqv.computeSelectivity();
+			startingNode = nqv.getNextVertexes();
 			pruningAlgorithm = new PruningAlgorithm();
+			
+			pruningAlgorithm.setStartingNode(startingNode);
 			pruningAlgorithm.setGraph(G);
 			pruningAlgorithm.setQuery(Q);
-//			pruningAlgorithm.setGraphTables(graphTables);
-//			pruningAlgorithm.setQueryTables(queryTables);
-			pruningAlgorithm.setGraphPathTables(graphTables);
-			pruningAlgorithm.setQueryPathTables(queryTables);
+			pruningAlgorithm.setGraphTables(graphTables);
+			pruningAlgorithm.setQueryTables(queryTables);
+//			pruningAlgorithm.setGraphPathTables(graphTables);
+//			pruningAlgorithm.setQueryPathTables(queryTables);
 			pruningAlgorithm.setThreshold(threshold);
 			pruningAlgorithm.compute();
 
 			queryGraphMapping = pruningAlgorithm.getQueryGraphMapping();
 //			System.out.println("pruning time:" + watch.getElapsedTimeMillis());
 			pruningTime += watch.getElapsedTimeMillis();
-			
+			System.out.println("Edge size:" + G.edgeSet().size());
+			sel.setGraph((BigMultigraph)G);
+//			sel.setGraph((BigMultigraph)Q);
+			sel.setIndexing(ind);
+			sel.setPaths(pruningAlgorithm.getPaths());
+			sel.computSelectivity(1.0, startingNode);
+			for(int i = 0; i < pruningAlgorithm.getVisitSeq().size(); i++){
+				System.out.println("node:" + pruningAlgorithm.getVisitSeq().get(i) + " candidates number:" + pruningAlgorithm.getCandidates().get(pruningAlgorithm.getVisitSeq().get(i)) + " estimated candidates:" + G.edgeSet().size()*sel.getSels().get(pruningAlgorithm.getVisitSeq().get(i)));
+			}
+//			sel.print();
+//			pruningAlgorithm.computeTimeCost();
+			System.out.println("Binary Search count:" + pruningAlgorithm.getBsCount());
+			System.out.println("Neighbourhood comparison count:" + pruningAlgorithm.getCmpNeighCount());
+			System.out.println("Update adjacent nodes count:" + pruningAlgorithm.getUptCount());
 			watch.reset();
 			iso = new Isomorphism();
+			iso.setStartingNode(startingNode);
 			iso.setQueryEdges(Q.edgeSet());
 			iso.setThreshold(threshold);
 			iso.setQuery(Q);
@@ -120,10 +155,10 @@ public class EditDistance {
 			iso.setGraphName(graphName);
 			iso.setQueryGraphMapping(queryGraphMapping);
 			iso.setOutputDir(outputDir);
-			iso.findIsomorphism();
-			iso.getResultsWriter().close();
+//			iso.findIsomorphism();
+//			iso.getResultsWriter().close();
 			
-			FileOperator.mergeWildCardResults(outputDir, Q.edgeSet().size());
+//			FileOperator.mergeWildCardResults(outputDir, Q.edgeSet().size());
 			answerNum = iso.getCount();
 			isoTime += watch.getElapsedTimeMillis();
 		}

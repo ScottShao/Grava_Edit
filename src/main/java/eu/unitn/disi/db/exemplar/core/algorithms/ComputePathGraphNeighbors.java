@@ -33,6 +33,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -86,28 +87,37 @@ public class ComputePathGraphNeighbors extends Algorithm {
 			short in;
 			Integer countNeighbors;
 			Set<Long> visited, toVisit, labels;
-			PathNeighbor pn;
+			Set<PathNeighbor> pn;
 
 			Long node;
 			Map<PathNeighbor, Integer> levelTable, lastLevelTable;
-			Map<Long, PathNeighbor> lastLevelPath;
+			Map<Long, Set<PathNeighbor>> lastLevelPath;
+			Set<PathNeighbor> currentPath;
 			Collection<Edge> inOutEdges;
 			
 
 //			debug("[T%d] Table computation started with %d nodes to process",id, end - start);
 			for (int i = start; i < end && i < graphNodes.length; i++) {
 				node = graphNodes[i];
+//				if(node.equals(52665748L)){
+//					System.out.println();
+//				}
 				toVisit = new HashSet<>();
 				
 				toVisit.add(node);
 				visited = new HashSet<>();
 				lastLevelTable = new HashMap<>();
-				lastLevelPath = new HashMap<>();
+				
 				for (short l = 0; l < k; l++) {
+					lastLevelPath = new HashMap<Long, Set<PathNeighbor>>();
 					levelTable = new HashMap<>();
+					
 					nextLevelToSee = new HashSet<>();
 					for (Long current : toVisit) {
+						
+						currentPath = new HashSet<>();
 						// current = toVisit.poll();
+						
 						if (current == null) {
 							warn("[T%d] NodeToExplore is null for level %d and node %d",
 									id, l, current);
@@ -124,21 +134,34 @@ public class ComputePathGraphNeighbors extends Algorithm {
 									nodeToAdd = in == 0 ? edge.getSource()
 											: edge.getDestination();
 									if (!visited.contains(nodeToAdd)) {
-										PathNeighbor newPn;
+										
 										if((pn = lastLevelPath.get(current)) == null){
-											pn = new PathNeighbor();
+											pn = new HashSet<PathNeighbor>();
+											PathNeighbor newPn = new PathNeighbor();
+											newPn.add(new EdgeLabel(label, in == 0));
+											pn.add(newPn);
 											
 										}else{
-											pn = new PathNeighbor(pn);
-											
+											pn = new HashSet<PathNeighbor>(pn);
+											Iterator<PathNeighbor> it = pn.iterator();
+											while(it.hasNext()){
+												PathNeighbor newPn = it.next();
+												newPn.add(new EdgeLabel(label, in == 0));
+												pn.add(newPn);
+												pn.remove(it);
+											}
 										}
-										pn.add(new EdgeLabel(label, in == 0));
-										countNeighbors = levelTable.get(pn);
-										if (countNeighbors == null) {
-											countNeighbors = 0;
+										
+										for(PathNeighbor pnTemp : pn){
+											countNeighbors = levelTable.get(pnTemp);
+											if (countNeighbors == null) {
+												countNeighbors = 0;
+											}
+											levelTable.put(pnTemp,
+													countNeighbors + 1);
+											currentPath.add(pnTemp);
 										}
-										levelTable.put(pn,
-												countNeighbors + 1);
+//										System.out.println(current + " " + pn);
 										if (!toVisit.contains(nodeToAdd)) {
 											nextLevelToSee.add(nodeToAdd);
 											lastLevelPath.put(nodeToAdd, pn);
@@ -148,24 +171,12 @@ public class ComputePathGraphNeighbors extends Algorithm {
 							}
 						} // END FOR
 						visited.add(current);
+//						for(PathNeighbor temp : currentPath){
+//							lastLevelPath.put(current, temp);
+//						}
 					} // END FOR LEVEL
 					toVisit = nextLevelToSee;
-					// currentIndexFuture = indexPool.submit(new
-					// UpdateIndex(levelTable, node, i));
-//					if (l > 1) {
-//						labels = lastLevelTable.keySet();
-//						for (Long lbl : labels) {
-//							countNeighbors = levelTable.get(lbl);
-//							if (countNeighbors == null) {
-//								countNeighbors = 0;
-//							}
-//							levelTable.put(lbl,
-//									countNeighbors + lastLevelTable.get(lbl));
-//						}
-//
-//					}
-//					lastLevelTable = levelTable;
-//					System.out.println(node + " " + l + " " + levelTable);
+					
 					tables.addNodeLevelTable(levelTable, node, l);
 				} // END FOR
 				count++;

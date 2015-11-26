@@ -190,7 +190,7 @@
 ////			return;
 ////		}
 //		
-////		HashSet<MappedNode> nodes = null;
+//		HashSet<MappedNode> nodes = null;
 //		HashSet<MappedEdge> edges = null;
 //		MappedEdge me = null;
 //		visitedNodes.add(currentNode);

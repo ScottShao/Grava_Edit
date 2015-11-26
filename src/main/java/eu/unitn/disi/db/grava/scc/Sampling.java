@@ -38,7 +38,7 @@ public class Sampling {
     private int ansNum;
     private int ans;
 	
-	public Sampling(BigMultigraph G,int maxNodesNum, int maxDegree, Long startingNode) throws IOException{
+	public Sampling(BigMultigraph G,int maxNodesNum, int maxDegree, Long startingNode, String fileName) throws IOException{
 		this.G = G;
 		numberOfNodes = G.numberOfNodes();
 		visitedNodesNum = 0;
@@ -59,7 +59,7 @@ public class Sampling {
 		pre = -1;
 		distance.add(dis);
 		rate =  0.1;
-		this.bfs(G, startingNode);
+		this.bfs(G, startingNode,fileName);
 	}
     public Long Int2Long(int in){
     	int i = 0;
@@ -83,7 +83,7 @@ public class Sampling {
     	return -1;
     	
     }
-	private void bfs(BigMultigraph G, Long v) throws IOException{
+	private void bfs(BigMultigraph G, Long v, String fileName) throws IOException{
 //		marked[v] = true;
 //        System.out.println("bfs: " + v);
 //        Long test = queue.poll();
@@ -95,13 +95,14 @@ public class Sampling {
 //        }
 //        long temp = Int2Long(v);
 //        System.out.println("long:" + temp);
-		File out = new File("10nodes.txt");
+		File out = new File(fileName);
         BufferedWriter bw = new BufferedWriter(new FileWriter(out));
 		queue.add(v);
 		count++;
         Collection<Edge> adjEdges = null;
         Long top;
         Long newNode;
+        Long prevNode;
         int degree;
         int cur;
         boolean flag = true;
@@ -113,7 +114,7 @@ public class Sampling {
         		continue;
         	}
         	visited.add(top);
-        	
+        	System.out.println("current visiting:" + top);
         	adjEdges = G.adjEdges(top);
 //        	System.out.println(adjEdges.size());
         	degree = 0;
@@ -143,7 +144,8 @@ public class Sampling {
 //	        		System.out.println(e.getSource() + " " + e.getDestination() + " " + e.getLabel());
 //	        		bw.write(e.getSource() + " " + e.getDestination() + " " + e.getLabel());
 	        		System.out.println(newNode);
-	        		bw.write(newNode+"");
+	        		System.out.println(e.getSource() + " " + e.getDestination() + " " + e.getLabel());
+	        		bw.write(e.getSource() + " " + e.getDestination() + " " + e.getLabel());
 	        		bw.newLine();
 	        		
 //	        		if(ans <= ansNum && Math.random() <= rate){
@@ -216,8 +218,8 @@ public class Sampling {
     }
     
     public static void main(String[] args) throws ParseException, IOException {
-        BigMultigraph G = new BigMultigraph("1st.txt","1st.txt", true);
-        Sampling s = new Sampling(G, 10, 3, (long) 1);
+        BigMultigraph G = new BigMultigraph("10000nodes-sin.graph","10000nodes-sout.graph", false);
+        Sampling s = new Sampling(G, 16, 3,  66507152838148L, "query30.text");
 //        System.out.println("Nodes number is " + s.count);
     }
 }

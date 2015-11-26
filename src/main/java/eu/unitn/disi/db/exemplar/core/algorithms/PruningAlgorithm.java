@@ -24,9 +24,12 @@ import eu.unitn.disi.db.command.exceptions.AlgorithmExecutionException;
 import eu.unitn.disi.db.mutilities.StopWatch;
 import eu.unitn.disi.db.grava.exceptions.DataException;
 import eu.unitn.disi.db.grava.graphs.BaseMultigraph;
+import eu.unitn.disi.db.grava.graphs.BigMultigraph;
 import eu.unitn.disi.db.grava.graphs.Edge;
+import eu.unitn.disi.db.grava.graphs.LabelContainer;
 import eu.unitn.disi.db.grava.graphs.MappedNode;
 import eu.unitn.disi.db.grava.graphs.Multigraph;
+import eu.unitn.disi.db.grava.graphs.Path;
 import eu.unitn.disi.db.grava.graphs.PathNeighbor;
 import eu.unitn.disi.db.grava.utils.Utilities;
 import eu.unitn.disi.db.grava.vectorization.NeighborTables;
@@ -66,23 +69,43 @@ public class PruningAlgorithm extends Algorithm {
     private boolean isBinary = false;
     @AlgorithmInput
     private int threshold;
-
+    private HashMap<Long, Double> prefixSelectivities;
+    private int edgeNum;
+    private HashMap<Long, LabelContainer> labelFreq;
+    private HashMap<Long, Double> nodeSelectivities;
+    private HashMap<Long, Integer> neighborLabels;
+    private HashMap<Long, Integer> candidates;
+    private int bsCount;
+    private int cmpNeighCount;
+    private int uptCount;
+    private ArrayList<Long> visitSeq;
+    
     @AlgorithmOutput
     private Map<Long,Set<MappedNode>> queryGraphMapping;
     @AlgorithmOutput
     private int numberOfComparison;
+    private HashMap<Long, HashSet<Edge>> paths;
 
     @Override
     public void compute()
             throws AlgorithmExecutionException
     {
         //Initialize the output.
-        queryGraphMapping = new HashMap<>();
-
+        bsCount  = 0;
+        cmpNeighCount = 0;
+        uptCount = 0;
+    	queryGraphMapping = new HashMap<>();
+        prefixSelectivities = new HashMap<Long, Double>();
+        edgeNum = graph.edgeSet().size();
         //Map<Long,Integer> nodeFrequency;
         Map<Long,Integer> labelFrequency = new HashMap<>();
         Map<Long, Set<MappedNode>> candidateNextLevel = new HashMap<>();
-
+        labelFreq = ((BigMultigraph)graph).getLabelFreq();
+        nodeSelectivities = new HashMap<Long, Double>();
+        neighborLabels = new HashMap<Long, Integer>();
+        visitSeq = new ArrayList<Long>();
+        paths = new HashMap<Long, HashSet<Edge>>();
+        candidates = new HashMap<Long, Integer>();
         //Long label;
         Long candidate, currentQueryNode;
         MappedNode graphCandidate;
@@ -100,7 +123,7 @@ public class PruningAlgorithm extends Algorithm {
         Set<MappedNode> mappedNodes;
         Set<Long> visitedQueryNodes = new HashSet<>();
         int i;
-
+        this.computeSelectivity();
         for (Edge e : graphEdges) {
             frequency = labelFrequency.get(e.getLabel());
             if (frequency == null) {
@@ -122,45 +145,58 @@ public class PruningAlgorithm extends Algorithm {
         for (Long node : queryNodes) {
            candidateNextLevel.put(node, new HashSet<MappedNode>());
         }
-        
+        prefixSelectivities.put(startingNode, (double) 1);
         candidateNextLevel.put(candidate, Utilities.nodesToMappedNodes(graph.vertexSet()));
         try {
             while (!queryNodeToVisit.isEmpty()) {
                 currentQueryNode = queryNodeToVisit.poll();
+                visitSeq.add(currentQueryNode);
                 mappedNodes = queryGraphMapping.get(currentQueryNode);
                 //Compute the valid edges to explore and update the nodes to visit
                 inQueryEdges = computeAdjacentNodes(currentQueryNode, visitedQueryNodes, queryNodeToVisit, true);
                 outQueryEdges = computeAdjacentNodes(currentQueryNode, visitedQueryNodes, queryNodeToVisit, false);
 
                 if (candidateNextLevel.containsKey(currentQueryNode)) {
+                	
                 	nodesToVisit = new ArrayList<MappedNode>();
                     nodesToVisit.addAll(candidateNextLevel.get(currentQueryNode));
                     assert mappedNodes == null : String.format("The current query node %d, has already been explored", currentQueryNode);
                     mappedNodes = new HashSet<>();
+                    
                     //countNodes = 0;
                     //We should check if ALL the query nodes matches and then add the node
                     for (i = 0; i < nodesToVisit.size(); i++) {
                         graphCandidate = nodesToVisit.get(i);
+//                        if (this.matchesWithPathNeighbor(graphCandidate, currentQueryNode)) {
+                        	
                         if (this.matches(graphCandidate, currentQueryNode)) {
                             numberOfComparison++;
                             mappedNodes.add(graphCandidate);
                             //check if the outgoing-incoming edges matches, if yes add to the next level
                             mapNodes(graphCandidate, graph.incomingEdgesOf(graphCandidate.getNodeID()), inQueryEdges, candidateNextLevel, true);
                             mapNodes(graphCandidate, graph.outgoingEdgesOf(graphCandidate.getNodeID()), outQueryEdges, candidateNextLevel, false);
+                            bsCount += 2;
                         }
                         else{
 //                        	System.out.println("fail");
                         }
                     }
                     queryGraphMapping.put(currentQueryNode, mappedNodes);
-//                    System.out.println("node:" + currentQueryNode + "  size:" + mappedNodes.size());
+                    candidates.put(currentQueryNode, mappedNodes.size());
+                    if(currentQueryNode.equals(48497476877148L)){
+	                    for(MappedNode tt : mappedNodes){
+	                    	System.out.println("candidate:" + tt.getNodeID());
+	                    }
+                    }
+//                    System.out.println("node:" + currentQueryNode + " candidate number:" + mappedNodes.size());
                     //add the out edges to the visited ones
                     visitedQueryNodes.add(currentQueryNode);
                 } else { //No map is possible anymore
                     break;
                 }
             }
-            debug("The number of comparison is %d", numberOfComparison);
+//            this.print();
+//            debug("The number of comparison is %d", numberOfComparison);
         } catch (DataException ex) {
             //fatal("Some problems with the data occurred", ex);
             throw new AlgorithmExecutionException("Some problem with the data occurrred", ex);
@@ -169,6 +205,7 @@ public class PruningAlgorithm extends Algorithm {
             ex.printStackTrace();
         	throw new AlgorithmExecutionException("Some other problem occurred", ex);
         }
+//        this.computeTimeCost();
         //Choose the node with the least frequency.
     }
 
@@ -187,7 +224,16 @@ public class PruningAlgorithm extends Algorithm {
 	public void setQueryPathTables(PathNeighborTables queryPathTables) {
 		this.queryPathTables = queryPathTables;
 	}
-
+	
+	private void print(){
+		for(Entry<Long, HashSet<Edge>> en : paths.entrySet()){
+			System.out.println("node : " + en.getKey() + "edges:");
+			for(Edge e : en.getValue()){
+				System.out.println(e);
+			}
+		}
+	}
+	
 	private void mapNodes(MappedNode currentNode, Collection<Edge> graphEdges, Map<Long, List<Long>> queryEdges, Map<Long, Set<MappedNode>> nextLevel, boolean incoming) {
         MappedNode nodeToAdd = null;
         List<Long> labeledNodes;
@@ -196,7 +242,7 @@ public class PruningAlgorithm extends Algorithm {
         int i;
         boolean canHaveMoreDif = true;
         omniNodes = queryEdges.get(0L);
-       
+        uptCount ++;
         if(currentNode.getDist() == threshold){
         	canHaveMoreDif = false;
         }
@@ -242,11 +288,19 @@ public class PruningAlgorithm extends Algorithm {
     {
         Collection<Edge> queryEdges =
                 incoming? query.incomingEdgesOf(node) : query.outgoingEdgesOf(node);
+        
         List<Long> nodes;
         Map<Long, List<Long>> outMapping = new HashMap<>();
         Set<Long> toVisit = new HashSet<>();
         Long nodeToAdd;
-
+        double preSel = prefixSelectivities.get(node);
+        double sel;
+        HashSet<Edge> ps;
+        if(paths.containsKey(node)){
+        	ps = paths.get(node);
+        }else{
+        	ps = new HashSet<Edge>();
+        }
         for (Edge edge : queryEdges) {
             nodes = outMapping.get(edge.getLabel());
             if (nodes == null) {
@@ -256,9 +310,19 @@ public class PruningAlgorithm extends Algorithm {
             if (!visitedQueryNodes.contains(nodeToAdd)) {
                 nodes.add(nodeToAdd);
                 toVisit.add(nodeToAdd);
+                ps.add(edge);
             }
+            
+            if(!prefixSelectivities.containsKey(nodeToAdd)){
+            	prefixSelectivities.put(nodeToAdd, preSel*this.computeSel(labelFreq.get(edge.getLabel()).getFrequency()));
+            }else{
+            	sel = prefixSelectivities.get(nodeToAdd);
+            	prefixSelectivities.put(nodeToAdd, sel + preSel*this.computeSel(labelFreq.get(edge.getLabel()).getFrequency()));
+            }
+            
             outMapping.put(edge.getLabel(), nodes);
         }
+        paths.put(node, ps);
         queryNodeToVisit.addAll(toVisit);
         return outMapping;
     }
@@ -268,18 +332,10 @@ public class PruningAlgorithm extends Algorithm {
         Map<PathNeighbor,Integer>[] qNodeTable = queryPathTables.getNodeMap(qNode);
         Map<PathNeighbor, Integer> qNodeLevel, gNodeLevel;
         Set<PathNeighbor> qSet;
-//        int dif = mappedGNode.getDist();
         
-        //D:/*
-//        if (gNode == 84748654765648L) {
-//            for (int i = 0; i < gNodeTable.length; i++) {
-//                error(Utilities.mapToString(gNodeTable[i]));
-//            }
-//            for (int i = 0; i < qNodeTable.length; i++) {
-//                error(Utilities.mapToString(qNodeTable[i]));
-//            }
+//        if(mappedGNode.getNodeID() == 765448){
+//        	System.out.println();
 //        }
-        //D:*/
         for (int i = 0; i < qNodeTable.length && i < gNodeTable.length; i++) {
             qNodeLevel = qNodeTable[i];
             gNodeLevel = gNodeTable[i];
@@ -293,30 +349,12 @@ public class PruningAlgorithm extends Algorithm {
                 if (gNodeLevel.containsKey(pn)) {
                 	int count = qNodeLevel.get(pn) - gNodeLevel.get(pn); 
                     if (!isBinary && count > threshold - dif) {
-//        //D:/*
-//                        if (gNode == 84748654765648L) {
-//                            try {
-//                                error("Less information for label %s, queryNode %s at distance %d", FreebaseConstants.getPropertyMid(label), FreebaseConstants.convertLongToMid(qNode), i);
-//                            } catch (IOException ex) {
-//                                Logger.getLogger(PruningAlgorithm.class.getName()).log(Level.SEVERE, null, ex);
-//                            }
-//                        }
-//                        //D:*/
-//
                         return false;
                     }else{
                     	dif += count;
                     }
                 } else {
-//        //D:/*
-//                    if (gNode == 84748654765648L) {
-//                        try {
-//                            error("Missing information for label %s, queryNode %s at distance %d", FreebaseConstants.getPropertyMid(label), FreebaseConstants.convertLongToMid(qNode), i);
-//                        } catch (IOException ex) {
-//                            Logger.getLogger(PruningAlgorithm.class.getName()).log(Level.SEVERE, null, ex);
-//                        }
-//                    }
-//                        //D:*/
+
                     dif += qNodeLevel.get(pn);
                     if(dif > threshold){
                     	return false;
@@ -327,12 +365,72 @@ public class PruningAlgorithm extends Algorithm {
         return true;
     }
     
+    public void computeTimeCost(){
+    	int Vg = graph.vertexSet().size();
+    	int Vq = graph.vertexSet().size();
+    	long Dg = ((BigMultigraph)graph).getMaxDegree();
+    	long Dq = ((BigMultigraph)query).getMaxDegree();
+    	double pt = 0;
+    	double ut = 0;
+    	double st = Dg;
+    	double sel = 0;
+    	double tempPt;
+    	double tempUt;
+    	for(long node : query.vertexSet()){
+    		sel = prefixSelectivities.get(node)*nodeSelectivities.get(node);
+    		tempPt = Vg*prefixSelectivities.get(node);
+    		pt += tempPt*neighborLabels.get(node);
+    		tempUt = Vg*sel;
+    		ut += Dg*Dq*tempUt;
+//    		System.out.println("node: " + node + " before pruning sel:" + tempPt + " after pruning sel:" + tempUt);
+    		st *= Vg*sel;
+//    		System.out.println(st);
+    	}
+    	
+//    	System.out.println("pruning time + update time is " + (pt+ut));
+//    	System.out.println("search time is " + st);
+    }
+    
+    public ArrayList<Long> getVisitSeq() {
+		return visitSeq;
+	}
+
+	public void setVisitSeq(ArrayList<Long> visitSeq) {
+		this.visitSeq = visitSeq;
+	}
+
+	private void computeSelectivity(){
+		Map<Long,Integer>[] qNodeTable = null;
+		Set<Long> qSet = null;
+		Map<Long, Integer> qNodeLevel;
+		double selectivity;
+		int count;
+		for(Long node : query.vertexSet()){
+			selectivity = 1;
+			count = 0;
+			qNodeTable = queryTables.getNodeMap(node);
+			for(int i = 0; i < qNodeTable.length; i++){
+				qNodeLevel = qNodeTable[i];
+				qSet = qNodeLevel.keySet();
+				count += qSet.size();
+				for(Long label : qSet){
+					selectivity *= (Math.pow(this.computeSel(labelFreq.get(label).getFrequency()),qNodeLevel.get(label))*(i+1));
+				}
+			}
+			neighborLabels.put(node, count);
+			nodeSelectivities.put(node, selectivity);
+		}
+		
+	}
+    
     private boolean matches(MappedNode mappedGNode, long qNode) throws DataException {
+
         Map<Long,Integer>[] gNodeTable = graphTables.getNodeMap(mappedGNode.getNodeID());
         Map<Long,Integer>[] qNodeTable = queryTables.getNodeMap(qNode);
         Map<Long, Integer> qNodeLevel, gNodeLevel;
         Set<Long> qSet;
         int dif = 0;
+        cmpNeighCount ++;
         for (int i = 0; i < qNodeTable.length && i < gNodeTable.length; i++) {
             qNodeLevel = qNodeTable[i];
             gNodeLevel = gNodeTable[i];
@@ -343,11 +441,14 @@ public class PruningAlgorithm extends Algorithm {
             		continue;
             	}
                 if (gNodeLevel.containsKey(label)) {
-                	int count = qNodeLevel.get(label) - gNodeLevel.get(label); 
+                	int count = qNodeLevel.get(label) - gNodeLevel.get(label);
+                	
                     if (!isBinary && count > threshold - dif) {
                         return false;
                     }else{
-                    	dif += count;
+                    	if(count > 0){
+                    		dif += count;
+                    	}
                     }
                 } else {
                     dif += qNodeLevel.get(label);
@@ -455,7 +556,50 @@ public class PruningAlgorithm extends Algorithm {
 		this.threshold = threshold;
 	}
 
-    
+    private double computeSel(int freq){
+    	return ((double)freq)/edgeNum;
+    }
 
+	public int getBsCount() {
+		return bsCount;
+	}
+
+	public void setBsCount(int bsCount) {
+		this.bsCount = bsCount;
+	}
+
+	public int getCmpNeighCount() {
+		return cmpNeighCount;
+	}
+
+	public void setCmpNeighCount(int cmpNeighCount) {
+		this.cmpNeighCount = cmpNeighCount;
+	}
+
+	public int getUptCount() {
+		return uptCount;
+	}
+
+	public void setUptCount(int uptCount) {
+		this.uptCount = uptCount;
+	}
+
+	public HashMap<Long, HashSet<Edge>> getPaths() {
+		return paths;
+	}
+
+	public void setPaths(HashMap<Long, HashSet<Edge>> paths) {
+		this.paths = paths;
+	}
+
+	public HashMap<Long, Integer> getCandidates() {
+		return candidates;
+	}
+
+	public void setCandidates(HashMap<Long, Integer> candidates) {
+		this.candidates = candidates;
+	}
+    
+    
 
 }

@@ -31,6 +31,7 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
+import java.util.Map.Entry;
 import java.util.NoSuchElementException;
 import java.util.Set;
 import java.util.concurrent.ExecutionException;
@@ -48,12 +49,14 @@ public class BigMultigraph implements Multigraph, Iterable<Long>  {
     private long[][] outEdges;
     private long lastInVertex;
     private long lastOutVertex;
+    private long maxDegree;
     private int[] lastInBounds;
     private int[] lastOutBounds;
     private int nodeNumber;
     private Set<Edge> edgeSet;
     private boolean calLabelFreq;
     private HashMap<Long, LabelContainer> labelFreq;
+    private HashMap<Long, Long> nodeDegree;
     
     private enum separator {space , tab, unknown };
 
@@ -79,6 +82,7 @@ public class BigMultigraph implements Multigraph, Iterable<Long>  {
         edgeSet = null;
         calLabelFreq = true;
         labelFreq = new HashMap<Long, LabelContainer>();
+        nodeDegree = new HashMap<Long, Long>();
         if (edges == -1) {
             edges = Utilities.countLines(inFile);
         }
@@ -86,8 +90,10 @@ public class BigMultigraph implements Multigraph, Iterable<Long>  {
         //TODO: Add a check on different sizes.
         inEdges = new long[edges][];
         outEdges = new long[edges][];
+       
         loadEdges(inFile, true);
         loadEdges(outFile, false);
+        computeMaximumDegree();
         
         if (sort) {
             Utilities.binaryTableSort(inEdges);
@@ -174,6 +180,19 @@ public class BigMultigraph implements Multigraph, Iterable<Long>  {
                         }else{
                         	lc = new LabelContainer(label);
                         }
+                        Long degree = null;
+                        if(nodeDegree.containsKey(source)){
+                        	degree = nodeDegree.get(source);
+                        }else{
+                        	degree = 0L;
+                        }
+                        nodeDegree.put(source, degree+1);
+                        if(nodeDegree.containsKey(dest)){
+                        	degree = nodeDegree.get(dest);
+                        }else{
+                        	degree = 0L;
+                        }
+                        nodeDegree.put(dest, degree+1);
                         lc.addNode(source);
                         labelFreq.put(label, lc);
                         //System.out.println(count);
@@ -369,7 +388,15 @@ public class BigMultigraph implements Multigraph, Iterable<Long>  {
         return edges;
     }
 
-
+    private void computeMaximumDegree(){
+    	for(Entry<Long,Long> temp : nodeDegree.entrySet()){
+    		Long v = temp.getValue();
+    		if(v > maxDegree){
+    			maxDegree = v;
+    		}
+    	}
+    }
+    
     private synchronized static long[][] edgesOf(long[][] edges, int[] bounds, long vertex, long lastVertex) {
 //    	System.out.println(vertex + " " + lastVertex);
         
@@ -567,6 +594,14 @@ public class BigMultigraph implements Multigraph, Iterable<Long>  {
 
 	public void setLastOutBounds(int[] lastOutBounds) {
 		this.lastOutBounds = lastOutBounds;
+	}
+
+	public long getMaxDegree() {
+		return maxDegree;
+	}
+
+	public void setMaxDegree(long maxDegree) {
+		this.maxDegree = maxDegree;
 	}
 	
 	

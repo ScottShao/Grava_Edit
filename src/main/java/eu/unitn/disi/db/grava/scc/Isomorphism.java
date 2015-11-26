@@ -105,7 +105,7 @@ public class Isomorphism {
 		boolean isPrintingSolution = false;
 		int ringStatus = 0;
 		Long currentNodesPrev;
-
+		
 		int nextRemainingThreshold = remainingThreshold;
 		long ringNode = 0L;
 		if (index > 0) {
@@ -121,10 +121,10 @@ public class Isomorphism {
 		if (index == searchList.size() - 1) {
 			isPrintingSolution = true;
 		}
-		System.out.println("ring status:" + ringStatus);
+//		System.out.println("ring status:" + ringStatus);
 		for (MappedNode mn : mappedNodes) {
 			Edge mappedEdge = mn.getMappedEdge();
-			System.out.println(currentQueryNode + " " + mn.getNodeID() +  " " + mn.getMappedEdge() + " " + mn.getDist());
+//			System.out.println(currentQueryNode + " " + mn.getNodeID() +  " " + mn.getMappedEdge() + " " + mn.getDist());
 			
 			if (mappedEdge == null) {
 				if(mn.getNodeID() == 495248L){
@@ -163,7 +163,7 @@ public class Isomorphism {
 						Long prevMappedNode = currentMapping.get(prevQueryNodes
 								.get(index));
 						if (currentNodesPrev.equals(prevMappedNode)) {
-							System.out.println("adding " + mappedEdge);
+//							System.out.println("adding " + mappedEdge);
 							solutionEdges.addLast(mappedEdge);
 							graphRingNodes.addLast(new GraphRing(mappedEdge.getSource(),mappedEdge.getDestination()));
 							if (!isPrintingSolution) {

@@ -32,11 +32,31 @@ public class EdgeLabel {
 	
 	public boolean equals(Object o){
 		EdgeLabel el = (EdgeLabel)o;
-		if(el.getLabel() == label && el.isIncoming() == this.isIncoming){
-			return true;
+		boolean flag = true;
+		if(el.isIncoming() != this.isIncoming){
+			flag = false;
+			return flag;
 		}
-		return false;
+		if(el.getLabel() == 0 || this.label == 0){
+			flag = true;
+			return flag;
+		}
+		if(el.getLabel() == label){
+			flag = true;
+		}else{
+			flag = false;
+		}
+		return flag;
 	}
+	
+	public int hashCode(){
+		if(this.isIncoming){
+			return 1;
+		}else{
+			return 0;
+		}
+	}
+	
 	public String toString(){
 		StringBuilder sb = new StringBuilder();
 		sb.append(this.label);

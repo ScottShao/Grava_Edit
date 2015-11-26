@@ -87,8 +87,8 @@ public class ComputeGraphNeighbors extends Algorithm {
 			Map<Long, Integer> levelTable, lastLevelTable;
 			Collection<Edge> inOutEdges;
 
-			debug("[T%d] Table computation started with %d nodes to process",
-					id, end - start);
+//			debug("[T%d] Table computation started with %d nodes to process",
+//					id, end - start);
 			for (int i = start; i < end && i < graphNodes.length; i++) {
 				node = graphNodes[i];
 				toVisit = new HashSet<>();
@@ -183,7 +183,7 @@ public class ComputeGraphNeighbors extends Algorithm {
 				graphNodes = graph.vertexSet().toArray(
 						new Long[graph.vertexSet().size()]);
 			}
-			debug("Computed the vertex set");
+//			debug("Computed the vertex set");
 			if (graphNodes.length > numThreads * 2) {
 				nodePool = Executors.newFixedThreadPool(numThreads);
 				tableNodeFuture = new ArrayList<>();
