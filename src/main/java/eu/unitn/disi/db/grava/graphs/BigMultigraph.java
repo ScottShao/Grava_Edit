@@ -57,6 +57,7 @@ public class BigMultigraph implements Multigraph, Iterable<Long>  {
     private boolean calLabelFreq;
     private HashMap<Long, LabelContainer> labelFreq;
     private HashMap<Long, Long> nodeDegree;
+    private HashMap<Long, Integer> maxRep;
     
     private enum separator {space , tab, unknown };
 
@@ -83,6 +84,7 @@ public class BigMultigraph implements Multigraph, Iterable<Long>  {
         calLabelFreq = true;
         labelFreq = new HashMap<Long, LabelContainer>();
         nodeDegree = new HashMap<Long, Long>();
+        maxRep = new HashMap<Long, Integer>();
         if (edges == -1) {
             edges = Utilities.countLines(inFile);
         }
@@ -602,6 +604,14 @@ public class BigMultigraph implements Multigraph, Iterable<Long>  {
 
 	public void setMaxDegree(long maxDegree) {
 		this.maxDegree = maxDegree;
+	}
+
+	public HashMap<Long, Integer> getMaxRep() {
+		return maxRep;
+	}
+
+	public void setMaxRep(HashMap<Long, Integer> maxRep) {
+		this.maxRep = maxRep;
 	}
 	
 	

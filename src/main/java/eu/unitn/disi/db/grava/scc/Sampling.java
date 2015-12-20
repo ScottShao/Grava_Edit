@@ -6,11 +6,14 @@ import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Queue;
+import java.util.Random;
 import java.util.Stack;
 
 import eu.unitn.disi.db.grava.exceptions.ParseException;
@@ -37,7 +40,10 @@ public class Sampling {
     private double rate;
     private int ansNum;
     private int ans;
-	
+    
+	public Sampling(BigMultigraph G){
+		this.G = G;
+	}
 	public Sampling(BigMultigraph G,int maxNodesNum, int maxDegree, Long startingNode, String fileName) throws IOException{
 		this.G = G;
 		numberOfNodes = G.numberOfNodes();
@@ -83,6 +89,8 @@ public class Sampling {
     	return -1;
     	
     }
+    
+    
 	private void bfs(BigMultigraph G, Long v, String fileName) throws IOException{
 //		marked[v] = true;
 //        System.out.println("bfs: " + v);
@@ -217,9 +225,129 @@ public class Sampling {
     	return mapping;
     }
     
+    private void generateQuery(int edgeNum){
+    	int count = 0;
+    	Collection<Long> nodes = G.vertexSet();
+    	Collection<Edge> edges;
+    	int j;
+    	long currentNode;
+    	edgeNum --;
+    	for(Long node : nodes){
+    		edges = G.adjEdges(node);
+    		currentNode = node;
+    		for(Edge e : edges){
+    			List<ArrayList<Edge>> results = new ArrayList<ArrayList<Edge>>();
+    			List<Edge> currentEdges = new ArrayList<Edge>();
+    			currentEdges.add(e);
+    			
+    			currentNode = ((node.equals(e.getDestination()))? e.getSource():e.getDestination());
+    			this.dfs(results, edges, currentEdges, currentNode, edgeNum);
+    			for(ArrayList<Edge> result : results){
+    				System.out.println(node);
+    				System.out.println("path query " + count);
+    				for(Edge r : result){
+    					System.out.println(r);
+    				}
+    				System.out.println("fan query:" + count);
+    				for(Edge r : result){
+    					System.out.println(this.getEdgeWithLabel(edges, r.getLabel()));
+    				}
+    				count ++;
+    			}
+    		}
+    	}
+    	
+    }
+    
+    private void dfs(List<ArrayList<Edge>> results, Collection<Edge> adjEdges, List<Edge> currentEdges, Long currentNode, int edgeNum){
+    	
+    	if(edgeNum == 0){
+    		ArrayList<Edge> result = new ArrayList<Edge>();
+    		for(int i =0; i< currentEdges.size(); i++){
+    			result.add(currentEdges.get(i));
+    		}
+    		results.add(result);
+    	}else{
+    		edgeNum --;
+    		Collection<Edge> currentAdj = G.adjEdges(currentNode);
+    		boolean nextRecur;
+    		for(Edge e : currentAdj){
+    			if(e.equals(currentEdges.get(currentEdges.size()-1))){
+    				System.out.println("nonono");
+    				continue;
+    			}
+    			nextRecur = false;
+    			if(this.isContainLabel(adjEdges, e.getLabel())){
+    				if(!this.isContainLabel(currentEdges, e.getLabel())){
+    					currentEdges.add(e);
+    					nextRecur = true;
+    				}else{
+    					int count = 0;
+    					for(int j = 0; j < currentEdges.size(); j++){
+    						if(currentEdges.get(j).getLabel().equals(e.getLabel())){
+    							count ++;
+    						}
+    					}
+    					for(Edge adjE : adjEdges){
+    						if(adjE.getLabel().equals(e.getLabel())){
+    							count --;
+    							if(count <= 0){
+    	    						currentEdges.add(e);
+    	    						nextRecur = true;
+    	    						break;
+    	    					}
+    						}
+    					}
+    					
+    				}
+    				if(nextRecur){
+    					currentNode = (currentNode == e.getDestination())?e.getSource():e.getDestination();
+    					dfs(results,adjEdges, currentEdges,currentNode, edgeNum);
+    					currentEdges.remove(currentEdges.size()-1);
+    				}
+    				
+    			}else{
+    				continue;
+    			}
+    			
+    		}
+    	}
+    }
+    
+    private boolean isContainLabel(Collection<Edge> adjEdges, Long label){
+    	for(Edge e : adjEdges){
+    		if(e.getLabel().equals(label)){
+    			return true;
+    		}
+    	}
+    	return false;
+    }
+    
+    private Edge getEdgeWithLabel(Collection<Edge> adjEdges, Long label){
+    	for(Edge e : adjEdges){
+    		if(e.getLabel().equals(label)){
+    			return e;
+    		}
+    	}
+    	return null;
+    }
+    
+
+    
     public static void main(String[] args) throws ParseException, IOException {
         BigMultigraph G = new BigMultigraph("10000nodes-sin.graph","10000nodes-sout.graph", false);
-        Sampling s = new Sampling(G, 16, 3,  66507152838148L, "query30.text");
-//        System.out.println("Nodes number is " + s.count);
+//        int size = G.vertexSet().size();
+//        Random rnd = new Random();
+//        Long[] nodes = G.vertexSet().toArray(new Long[size]);
+//        for(int i = 0; i < 10; i++){
+//        	System.out.println("Starting node " + nodes[rnd.nextInt(size)]);
+//        	for(int j = 2; j <=5; j++){
+//        		for(int k = 1;k <= 5; k++){
+//        			Sampling s = new Sampling(G, j*10, k,  nodes[rnd.nextInt(size)], "Q" + j*10 + "N"+k+"D_" + (i+1) +".txt");
+//        		}
+//        	}
+//        }
+        Sampling s = new Sampling(G);
+        s.generateQuery(2);
     }
 }

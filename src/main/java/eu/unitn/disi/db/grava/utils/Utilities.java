@@ -49,6 +49,7 @@ import java.util.concurrent.TimeUnit;
  */
 public final class Utilities {
     public static final int PAGE_SIZE = 1024;
+    public static long bsCount = 0;
 
     private static class TableComparator implements Comparator<long[]> {
         @Override
@@ -304,11 +305,11 @@ public final class Utilities {
     public static int binaryTableSearch0(long[][]a, int searchField, int fromIndex, int toIndex, long key) {
         int low = fromIndex;
         int high = toIndex - 1;
-
         while (low <= high) {
             int mid = (low + high) >>> 1;
             long midVal = a[mid][searchField]; //Take the first
-
+            
+            bsCount++;
             if (midVal < key) {
                 low = mid + 1;
             } else if (midVal > key) {
@@ -316,6 +317,7 @@ public final class Utilities {
             } else {
                 return mid; // key found
             }
+            
         }
         return -(low + 1);  // key not found.
     }
