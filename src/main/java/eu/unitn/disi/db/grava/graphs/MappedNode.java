@@ -17,6 +17,14 @@ public class MappedNode {
 		this.isLabelDif = false;
 	}
 	
+	public MappedNode(Edge mappedEdge, boolean incoming){
+		this.mappedEdge = mappedEdge;
+		this.incoming = incoming;
+		this.dist = 0;
+		this.nodeID = -1;
+		this.isLabelDif = false;
+	}
+	
 	public MappedNode(long nodeID, Edge mappedEdge, int dist, boolean incoming, boolean isLabelDif){
 		this.dist = dist;
 		this.nodeID = nodeID;

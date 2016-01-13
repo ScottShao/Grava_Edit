@@ -2,10 +2,13 @@ package eu.unitn.disi.db.grava.scc;
 
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
+import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
@@ -225,17 +228,23 @@ public class Sampling {
     	return mapping;
     }
     
-    private void generateQuery(int edgeNum){
+    private void generateQuery(int edgeNum) throws FileNotFoundException, UnsupportedEncodingException{
     	int count = 0;
     	Collection<Long> nodes = G.vertexSet();
     	Collection<Edge> edges;
     	int j;
     	long currentNode;
+    	int en = edgeNum;
     	edgeNum --;
+    	PrintWriter w = null;
+    	PrintWriter fw = null;
     	for(Long node : nodes){
-    		edges = G.adjEdges(node);
+    		edges = G.outgoingEdgesOf(node);
     		currentNode = node;
     		for(Edge e : edges){
+    			if(count >= 300){
+    				return;
+    			}
     			List<ArrayList<Edge>> results = new ArrayList<ArrayList<Edge>>();
     			List<Edge> currentEdges = new ArrayList<Edge>();
     			currentEdges.add(e);
@@ -243,15 +252,33 @@ public class Sampling {
     			currentNode = ((node.equals(e.getDestination()))? e.getSource():e.getDestination());
     			this.dfs(results, edges, currentEdges, currentNode, edgeNum);
     			for(ArrayList<Edge> result : results){
+    				w = new PrintWriter("E"+(en) + "PQ"+count + ".txt", "UTF-8");
     				System.out.println(node);
     				System.out.println("path query " + count);
     				for(Edge r : result){
+    					w.write(r.getSource() + " " + r.getDestination() + " " + r.getLabel());
+    					w.write("\n");
     					System.out.println(r);
     				}
+    				fw = new PrintWriter("E"+(en) + "FQ"+count + ".txt", "UTF-8");
     				System.out.println("fan query:" + count);
-    				for(Edge r : result){
-    					System.out.println(this.getEdgeWithLabel(edges, r.getLabel()));
+    				for(int m = 0; m < result.size(); m++){
+    					int repeat = 0;
+    					for(int n = 0; n < m; n++){
+    						if(result.get(n).getLabel().equals(result.get(m).getLabel())){
+    							repeat++;
+    						}
+    					}
+    					Edge r = result.get(m);
+    					System.out.println(repeat);
+    					Edge out = this.getEdgeWithLabel(edges, r.getLabel(), repeat);
+    					fw.write(out.getSource() + " " + out.getDestination() + " " + out.getLabel());
+    					fw.write("\n");
     				}
+    				w.close();
+    				fw.close();
+    				w = null;
+    				fw = null;
     				count ++;
     			}
     		}
@@ -260,6 +287,9 @@ public class Sampling {
     }
     
     private void dfs(List<ArrayList<Edge>> results, Collection<Edge> adjEdges, List<Edge> currentEdges, Long currentNode, int edgeNum){
+    	if(results.size() == 1){
+    		return;
+    	}
     	
     	if(edgeNum == 0){
     		ArrayList<Edge> result = new ArrayList<Edge>();
@@ -267,13 +297,13 @@ public class Sampling {
     			result.add(currentEdges.get(i));
     		}
     		results.add(result);
+    		
     	}else{
     		edgeNum --;
-    		Collection<Edge> currentAdj = G.adjEdges(currentNode);
+    		Collection<Edge> currentAdj = G.outgoingEdgesOf(currentNode);
     		boolean nextRecur;
     		for(Edge e : currentAdj){
     			if(e.equals(currentEdges.get(currentEdges.size()-1))){
-    				System.out.println("nonono");
     				continue;
     			}
     			nextRecur = false;
@@ -291,7 +321,7 @@ public class Sampling {
     					for(Edge adjE : adjEdges){
     						if(adjE.getLabel().equals(e.getLabel())){
     							count --;
-    							if(count <= 0){
+    							if(count < 0){
     	    						currentEdges.add(e);
     	    						nextRecur = true;
     	    						break;
@@ -323,10 +353,14 @@ public class Sampling {
     	return false;
     }
     
-    private Edge getEdgeWithLabel(Collection<Edge> adjEdges, Long label){
+    private Edge getEdgeWithLabel(Collection<Edge> adjEdges, Long label, int repeat){
     	for(Edge e : adjEdges){
     		if(e.getLabel().equals(label)){
-    			return e;
+    			if(repeat == 0){
+    				return e;
+    			}else{
+    				repeat --;
+    			}
     		}
     	}
     	return null;
@@ -348,6 +382,6 @@ public class Sampling {
 //        	}
 //        }
         Sampling s = new Sampling(G);
-        s.generateQuery(2);
+        s.generateQuery(5);
     }
 }

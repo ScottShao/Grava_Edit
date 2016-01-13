@@ -58,6 +58,7 @@ public class BigMultigraph implements Multigraph, Iterable<Long>  {
     private HashMap<Long, LabelContainer> labelFreq;
     private HashMap<Long, Long> nodeDegree;
     private HashMap<Long, Integer> maxRep;
+    private Long startingNode;
     
     private enum separator {space , tab, unknown };
 
@@ -85,6 +86,7 @@ public class BigMultigraph implements Multigraph, Iterable<Long>  {
         labelFreq = new HashMap<Long, LabelContainer>();
         nodeDegree = new HashMap<Long, Long>();
         maxRep = new HashMap<Long, Integer>();
+        
         if (edges == -1) {
             edges = Utilities.countLines(inFile);
         }
@@ -147,6 +149,7 @@ public class BigMultigraph implements Multigraph, Iterable<Long>  {
             String[] tokens;
             int count = 0;
             separator splitting = separator.space;
+            boolean isFirstLine = true;
             while((line = in.readLine()) != null) {
 //            	System.out.println(count + " " + line);
                 line = line.trim();
@@ -169,11 +172,14 @@ public class BigMultigraph implements Multigraph, Iterable<Long>  {
                     if (tokens.length != 3) {
                         throw new ParseException("Line[" + (count + 1) +  "]: " + line + " is malformed, num tokens " + tokens.length);
                     }
-                   
+                    
                     source = Long.parseLong(tokens[0]);
                     dest = Long.parseLong(tokens[1]);
                     label = Long.parseLong(tokens[2]);
-                    
+                    if(isFirstLine){
+                    	startingNode = source;
+                    	isFirstLine = false;
+                    }
 //                    System.out.println(source + " " + dest + " " + label);
                     if (incoming) {
                     	LabelContainer lc = null;
@@ -612,6 +618,14 @@ public class BigMultigraph implements Multigraph, Iterable<Long>  {
 
 	public void setMaxRep(HashMap<Long, Integer> maxRep) {
 		this.maxRep = maxRep;
+	}
+
+	public Long getStartingNode() {
+		return startingNode;
+	}
+
+	public void setStartingNode(Long startingNode) {
+		this.startingNode = startingNode;
 	}
 	
 	

@@ -49,24 +49,34 @@ public class Experiement {
 		
 //		ed.setAnswerFile(answerFile);
 		ArrayList<String> queryFiles = FileOperator.getFileName(queryFolder);
-		for(String queryFile : queryFiles){
-			if(threshold != 0 && isUsingWildCard){
-				WildCardQuery wcq = new WildCardQuery(1);
-				wcq.run(queryFile);
-				ArrayList<String> wildCardFiles = FileOperator.getFileName(wcq.getDirName());
-				ed.setThreshold(0);
-				for(String wildCardQuery : wildCardFiles){
-					ed.setQueryName(wildCardQuery);
-					ed.runEditDistance();
-				}
-			}else{
-				ed.setThreshold(threshold);
-				ed.setQueryName(queryFile);
-				ed.runEditDistance();
-			}
-			
-//			System.out.println("queryfile:" +queryFile);
+		for(int i = 0; i < 1; i++){
+			ed.setThreshold(threshold);
+			ed.setQueryName(queryFolder + "/" + "E5PQ" + i + ".txt");
+			ed.runEditDistance();
+//			ed.setQueryName(queryFolder + "/" + "E5FQ" + i + ".txt");
+//			ed.runEditDistance();
 		}
+//		for(String queryFile : queryFiles){
+//			if(threshold != 0 && isUsingWildCard){
+//				WildCardQuery wcq = new WildCardQuery(1);
+//				wcq.run(queryFile);
+//				ArrayList<String> wildCardFiles = FileOperator.getFileName(wcq.getDirName());
+//				ed.setThreshold(0);
+//				for(String wildCardQuery : wildCardFiles){
+//					ed.setQueryName(wildCardQuery);
+//					ed.runEditDistance();
+//				}
+//			}else{
+//				if(queryFile.contains("E2")){
+//					System.out.println(queryFile);
+//					ed.setThreshold(threshold);
+//					ed.setQueryName(queryFile);
+//					ed.runEditDistance();
+//				}
+//			}
+//			
+////			System.out.println("queryfile:" +queryFile);
+//		}
 	}
 
 	public int getRepititions() {

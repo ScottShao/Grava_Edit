@@ -5,6 +5,7 @@ import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
+import java.math.BigDecimal;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
@@ -80,12 +81,12 @@ public class EditDistance {
 		Long startingNode;
 		Indexing ind = new Indexing();
 		Selectivity sel = new Selectivity();
-		
+		G = new BigMultigraph(graphName+"-sin.graph", graphName+"-sout.graph");
 		for (int exprimentTime = 0; exprimentTime < repititions; exprimentTime++) {
 			StopWatch watch = new StopWatch();
 			watch.start();
 			System.out.println(temp[temp.length-1]);
-			G = new BigMultigraph(graphName+"-sin.graph", graphName+"-sout.graph");
+			
 			System.out.println("Data graph's vertexex number is " + G.vertexSet().size());
 			System.out.println("Data graph's maximum degree is " + ((BigMultigraph)G).getMaxDegree());
 //			System.out.println("loading query");
@@ -118,16 +119,14 @@ public class EditDistance {
 			computingNeighborTime += watch.getElapsedTimeMillis();
 //			System.out.println(queryTables.toString());
 			watch.reset();
-			nqv = new NextQueryVertexes(G, Q, queryTables);
-			nqv.computeSelectivity();
-			startingNode = nqv.getNextVertexes();
-			startingNode = Q.vertexSet().iterator().next();
+//			nqv = new NextQueryVertexes(G, Q, queryTables);
+//			nqv.computeSelectivity();
+//			startingNode = nqv.getNextVertexes();
+//			startingNode = Q.vertexSet().iterator().next();
+			startingNode = ((BigMultigraph)Q).getStartingNode();
 			pruningAlgorithm = new PruningAlgorithm();
-			if(temp[temp.length-1].equals("Q10N1D_2.txt")){
-				System.out.println();
-			}
 			//Set starting node according to sels of nodes.
-//			pruningAlgorithm.setStartingNode(startingNode);
+			pruningAlgorithm.setStartingNode(startingNode);
 			pruningAlgorithm.setGraph(G);
 			pruningAlgorithm.setQuery(Q);
 			pruningAlgorithm.setGraphTables(graphTables);
@@ -135,9 +134,16 @@ public class EditDistance {
 //			pruningAlgorithm.setGraphPathTables(graphTables);
 //			pruningAlgorithm.setQueryPathTables(queryTables);
 			pruningAlgorithm.setThreshold(threshold);
-			pruningAlgorithm.compute();
-
+//			pruningAlgorithm.compute();
+			pruningAlgorithm.fastCompute();
+			
 			queryGraphMapping = pruningAlgorithm.getQueryGraphMapping();
+			for(Entry<Long, Set<MappedNode>> en : queryGraphMapping.entrySet()){
+				System.out.println(en.getKey() + "size: " + en.getValue().size());
+//				for(MappedNode mn : en.getValue()){
+//					System.out.println(mn.getNodeID());
+//				}
+			}
 //			System.out.println("pruning time:" + watch.getElapsedTimeMillis());
 			pruningTime += watch.getElapsedTimeMillis();
 			System.out.println("Edge size:" + G.edgeSet().size());
@@ -148,12 +154,13 @@ public class EditDistance {
 			sel.setQueryTables(queryTables);
 			sel.setGraphTables(graphTables);
 			sel.setPaths(pruningAlgorithm.getPaths());
-			sel.setStartingNode(Q.vertexSet().iterator().next());
+			sel.setStartingNode(startingNode);
 			sel.compute();
 //			sel.computSelectivity(1, Q.vertexSet().iterator().next());
 //			sel.computePruningCost(Q.vertexSet().iterator().next());
 			System.out.println("Pruning estimated cost:" + sel.getPruningCost());
 //			sel.computSelectivity(1.0, Q.vertexSet().iterator().next());
+			System.out.println("starting node:" + startingNode);
 			for(int i = 0; i < pruningAlgorithm.getVisitSeq().size(); i++){
 				System.out.println("node:" + pruningAlgorithm.getVisitSeq().get(i) + " candidates number:" + pruningAlgorithm.getCandidates().get(pruningAlgorithm.getVisitSeq().get(i)) + " estimated candidates:" + sel.getSels().get(pruningAlgorithm.getVisitSeq().get(i)));
 			}
@@ -172,11 +179,12 @@ public class EditDistance {
 			iso.setGraphName(graphName);
 			iso.setQueryGraphMapping(queryGraphMapping);
 			iso.setOutputDir(outputDir);
-//			iso.findIsomorphism();
-//			iso.getResultsWriter().close();
+			iso.findIsomorphism();
+			iso.getResultsWriter().close();
 			comBw.write(temp[temp.length-1] + " " + (pruningAlgorithm.getCmpNbLabel()+pruningAlgorithm.getBsCount()) +" "+pruningAlgorithm.getUptCount() +" " 
 							+(pruningAlgorithm.getCmpNbLabel()+pruningAlgorithm.getBsCount()+pruningAlgorithm.getUptCount())+ " " +sel.getPruningCost() + " " +
 							sel.getUpdateCost() + " " + (sel.getUpdateCost()+sel.getPruningCost()));
+//			comBw.write(temp[temp.length-1] + " " +(pruningAlgorithm.getCmpNbLabel()+pruningAlgorithm.getBsCount()+pruningAlgorithm.getUptCount())+ " "  + (sel.getUpdateCost()+sel.getPruningCost()));
 			comBw.newLine();
 //			FileOperator.mergeWildCardResults(outputDir, Q.edgeSet().size());
 			answerNum = iso.getCount();
