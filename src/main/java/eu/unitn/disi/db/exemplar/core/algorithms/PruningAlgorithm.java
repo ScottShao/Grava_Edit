@@ -213,9 +213,9 @@ public class PruningAlgorithm extends Algorithm {
                 }
             }
             bsCount = Utilities.bsCount;
-            System.out.println("binarySearch count:" + bsCount);
-            System.out.println("cmp neighbour labels count:" + this.cmpNbLabel);
-            System.out.println("update count:" + this.uptCount);
+//            System.out.println("Binary Search count:" + bsCount);
+//            System.out.println("cmp neighbour labels count:" + this.cmpNbLabel);
+//            System.out.println("update count:" + this.uptCount);
 //            this.print();
 //            debug("The number of comparison is %d", numberOfComparison);
         } catch (DataException ex) {
@@ -407,11 +407,11 @@ public class PruningAlgorithm extends Algorithm {
     			while(iter.hasNext()){
     				next = iter.next();
     				
-    				nextNode = next.getgEdge().getSource();
+    				nextNode = gNodeID;
     				
-    	    		if(nextNode.equals(gNodeID)){
-    	    			nextNode = next.getgEdge().getDestination();
-    	    		}
+//    	    		if(nextNode.equals(gNodeID)){
+//    	    			nextNode = next.getgEdge().getDestination();
+//    	    		}
     				if(next.getqNode().equals(qNodeID) && next.getgEdge().equals(prevStrt.getgEdge())){
     					iter.remove();
     				}else if(next.getgEdge().getLabel().equals(prevStrt.getgEdge().getLabel())){
@@ -426,14 +426,13 @@ public class PruningAlgorithm extends Algorithm {
     				gNodesNextEdgeMapping.remove(new Pair<Long,Long>(prevStrt.getqNode(),prevNode));
     				Set<MappedNode> nodes = queryGraphMapping.get(tempQNode);
     				
-    				if(tempQNode == 665378864948L){
-    					System.out.println();
-    				}
+//    				System.out.println(tempQNode);
     				Iterator<MappedNode> imn = nodes.iterator();
     				while(imn.hasNext()){
     					MappedNode node = imn.next();
-    					System.out.println(node.getNodeID() + " " + nextNode);
-    					if(nextNode.equals(node.getNodeID())){//TODO: may have bug with edit distance
+//    					System.out.println(node + " " + prevStrt.getqNode() + " " +prevNode);
+    					if(prevNode.equals(node.getNodeID())){//TODO: may have bug with edit distance
+    						System.out.println(node + " " +tempQNode + " " + prevNode);
     						imn.remove();
     					}
     				}
@@ -573,16 +572,23 @@ public class PruningAlgorithm extends Algorithm {
             }
             if (labeledNodes != null) {
             	nodeToAdd = new MappedNode(nodeID, gEdge, currentNode.getDist(), !incoming, false);
-                for (i = 0; i < labeledNodes.size(); i++) {
+            	uptCount--;
+            	for (i = 0; i < labeledNodes.size(); i++) {
+                	uptCount ++;
                     nextLevel.get(labeledNodes.get(i)).add(nodeToAdd);
                     
                 }
             }
             if(canHaveMoreDif){
+            	uptCount--;
             	for(Entry<Long, List<Long>> entry : queryEdges.entrySet()){
-            		for(Long oneNode : entry.getValue()){
-           				nextLevel.get(oneNode).add(new MappedNode(nodeID, gEdge, currentNode.getDist()+1, !incoming, true));
-           			}
+            		if(!entry.getKey().equals(gEdge.getLabel())){
+            			uptCount --;
+	            		for(Long oneNode : entry.getValue()){
+	            			uptCount ++;
+	           				nextLevel.get(oneNode).add(new MappedNode(nodeID, gEdge, currentNode.getDist()+1, !incoming, true));
+	           			}
+            		}
            		}
            	}
         }

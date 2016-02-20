@@ -116,3 +116,1213 @@
 08 Sep 2015 12:49:45 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - Computed the vertex set
 08 Sep 2015 12:49:47 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - Computed the vertex set
 08 Sep 2015 12:49:47 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors - Computed the vertex set
+16 Feb 2016 22:26:30 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 8656727182494948
+16 Feb 2016 22:26:30 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 22/24 chunk size: 5 Number of nodes 110
+16 Feb 2016 22:26:30 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Computed related in 25ms
+16 Feb 2016 22:31:46 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 8656727182494948
+16 Feb 2016 22:31:46 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 22/24 chunk size: 5 Number of nodes 110
+16 Feb 2016 22:31:46 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Computed related in 28ms
+16 Feb 2016 22:31:47 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 8656727182494948
+16 Feb 2016 22:31:47 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 22/24 chunk size: 5 Number of nodes 107
+16 Feb 2016 22:31:47 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Computed related in 27ms
+16 Feb 2016 22:31:47 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 8656727182494948
+16 Feb 2016 22:31:47 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 22/24 chunk size: 5 Number of nodes 107
+16 Feb 2016 22:31:47 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Computed related in 6ms
+16 Feb 2016 22:31:47 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 67847783495348
+16 Feb 2016 22:31:47 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 24/24 chunk size: 8 Number of nodes 189
+16 Feb 2016 22:31:47 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Computed related in 19ms
+16 Feb 2016 22:31:47 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 67847783495348
+16 Feb 2016 22:31:47 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 23/24 chunk size: 13 Number of nodes 297
+16 Feb 2016 22:31:47 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Computed related in 81ms
+16 Feb 2016 22:31:48 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 67847783495348
+16 Feb 2016 22:31:48 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 24/24 chunk size: 8 Number of nodes 189
+16 Feb 2016 22:31:48 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Computed related in 8ms
+16 Feb 2016 22:31:48 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 86575576677148
+16 Feb 2016 22:31:48 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 22/24 chunk size: 5 Number of nodes 110
+16 Feb 2016 22:31:48 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Computed related in 8ms
+16 Feb 2016 22:31:48 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 86575576677148
+16 Feb 2016 22:31:48 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 22/24 chunk size: 5 Number of nodes 107
+16 Feb 2016 22:31:48 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Computed related in 3ms
+16 Feb 2016 22:31:48 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 86575576677148
+16 Feb 2016 22:31:48 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 22/24 chunk size: 5 Number of nodes 107
+16 Feb 2016 22:31:48 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Computed related in 3ms
+16 Feb 2016 22:31:49 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 7484815348
+16 Feb 2016 22:31:49 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 16/24 chunk size: 1 Number of nodes 16
+16 Feb 2016 22:31:49 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Computed related in 3ms
+16 Feb 2016 22:31:49 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 7484815348
+16 Feb 2016 22:31:49 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 11/24 chunk size: 1 Number of nodes 11
+16 Feb 2016 22:31:49 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Computed related in 1ms
+16 Feb 2016 22:31:49 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 51758452955248
+16 Feb 2016 22:31:49 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 23/24 chunk size: 9 Number of nodes 204
+16 Feb 2016 22:31:49 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - java.util.concurrent.ExecutionException: java.lang.IllegalArgumentException: Query edge 67847783495348-[1000009041]->53674948 is not present in the original query
+16 Feb 2016 22:31:49 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Computed related in 11ms
+16 Feb 2016 22:31:49 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 51758452955248
+16 Feb 2016 22:31:49 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 24/24 chunk size: 18 Number of nodes 430
+16 Feb 2016 22:31:49 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - java.util.concurrent.ExecutionException: java.lang.IllegalArgumentException: Query edge 67847783495348-[1000009041]->53674948 is not present in the original query
+16 Feb 2016 22:31:49 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Computed related in 10ms
+16 Feb 2016 22:31:49 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 51758452955248
+16 Feb 2016 22:31:50 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 24/24 chunk size: 28 Number of nodes 664
+16 Feb 2016 22:31:50 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - java.util.concurrent.ExecutionException: java.lang.IllegalArgumentException: Query edge 67847783495348-[1000009041]->53674948 is not present in the original query
+16 Feb 2016 22:31:50 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Computed related in 262ms
+16 Feb 2016 22:31:50 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 51758452955248
+16 Feb 2016 22:31:50 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 21/24 chunk size: 2 Number of nodes 42
+16 Feb 2016 22:31:50 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Computed related in 3ms
+16 Feb 2016 22:31:50 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 51758452955248
+16 Feb 2016 22:31:50 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 21/24 chunk size: 2 Number of nodes 42
+16 Feb 2016 22:31:50 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Computed related in 3ms
+16 Feb 2016 22:31:50 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 52907783505348
+16 Feb 2016 22:31:50 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 24/24 chunk size: 41 Number of nodes 965
+16 Feb 2016 22:31:50 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - java.util.concurrent.ExecutionException: java.lang.IllegalArgumentException: Query edge 67847783495348-[1000011399]->66748452955248 is not present in the original query
+16 Feb 2016 22:31:50 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Computed related in 10ms
+16 Feb 2016 22:31:51 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 52907783505348
+16 Feb 2016 22:31:51 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 24/24 chunk size: 30 Number of nodes 708
+16 Feb 2016 22:31:51 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - java.util.concurrent.ExecutionException: java.lang.IllegalArgumentException: Query edge 67847783495348-[1000011399]->66748452955248 is not present in the original query
+16 Feb 2016 22:31:51 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Computed related in 11ms
+16 Feb 2016 22:31:51 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 52907783505348
+16 Feb 2016 22:31:51 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 24/24 chunk size: 41 Number of nodes 965
+16 Feb 2016 22:31:51 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - java.util.concurrent.ExecutionException: java.lang.IllegalArgumentException: Query edge 67847783495348-[1000011399]->66748452955248 is not present in the original query
+16 Feb 2016 22:31:51 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Computed related in 21ms
+16 Feb 2016 22:31:51 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 48886788897748
+16 Feb 2016 22:31:51 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 10/24 chunk size: 1 Number of nodes 10
+16 Feb 2016 22:31:51 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Computed related in 6ms
+16 Feb 2016 22:31:51 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 48886788897748
+16 Feb 2016 22:31:51 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 12/24 chunk size: 1 Number of nodes 12
+16 Feb 2016 22:31:51 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Computed related in 1ms
+16 Feb 2016 22:31:51 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 48886788897748
+16 Feb 2016 22:31:51 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 17/24 chunk size: 1 Number of nodes 17
+16 Feb 2016 22:31:51 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Computed related in 2ms
+16 Feb 2016 22:31:51 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 53674948
+16 Feb 2016 22:31:52 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 22/24 chunk size: 6 Number of nodes 128
+16 Feb 2016 22:31:52 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Computed related in 87ms
+16 Feb 2016 22:31:53 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 53674948
+16 Feb 2016 22:31:54 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 24/24 chunk size: 22 Number of nodes 519
+16 Feb 2016 22:34:34 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 5648
+16 Feb 2016 22:34:34 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 1/24 chunk size: 1 Number of nodes 1
+16 Feb 2016 22:34:34 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Computed related in 34ms
+16 Feb 2016 22:34:34 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 5648
+16 Feb 2016 22:34:34 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 2/24 chunk size: 1 Number of nodes 2
+16 Feb 2016 22:34:34 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Computed related in 17ms
+16 Feb 2016 22:34:34 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 5648
+16 Feb 2016 22:34:34 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 2/24 chunk size: 1 Number of nodes 2
+16 Feb 2016 22:34:34 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Computed related in 21ms
+16 Feb 2016 22:34:34 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 5648
+16 Feb 2016 22:34:35 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 12/24 chunk size: 1 Number of nodes 12
+16 Feb 2016 22:34:35 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Computed related in 39ms
+16 Feb 2016 22:34:35 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 5648
+16 Feb 2016 22:34:35 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 12/24 chunk size: 1 Number of nodes 12
+16 Feb 2016 22:34:35 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Computed related in 30ms
+16 Feb 2016 22:34:35 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 5648
+16 Feb 2016 22:34:35 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 3/24 chunk size: 1 Number of nodes 3
+16 Feb 2016 22:34:35 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Computed related in 5ms
+16 Feb 2016 22:34:35 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 5648
+16 Feb 2016 22:34:35 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 2/24 chunk size: 1 Number of nodes 2
+16 Feb 2016 22:34:35 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Computed related in 5ms
+16 Feb 2016 22:34:35 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 5648
+16 Feb 2016 22:34:35 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 12/24 chunk size: 1 Number of nodes 12
+16 Feb 2016 22:34:35 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - java.util.concurrent.ExecutionException: java.lang.IllegalArgumentException: Query edge 5648-[1000011400]->755548 is not present in the original query
+16 Feb 2016 22:34:35 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Computed related in 2ms
+16 Feb 2016 22:34:35 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 5648
+16 Feb 2016 22:34:35 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 12/24 chunk size: 1 Number of nodes 12
+16 Feb 2016 22:34:35 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - java.util.concurrent.ExecutionException: java.lang.IllegalArgumentException: Query edge 5648-[1000011400]->755548 is not present in the original query
+16 Feb 2016 22:34:35 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Computed related in 3ms
+16 Feb 2016 22:34:35 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 765448
+16 Feb 2016 22:34:35 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 21/24 chunk size: 3 Number of nodes 61
+16 Feb 2016 22:34:35 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Computed related in 12ms
+16 Feb 2016 22:34:35 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 765448
+16 Feb 2016 22:34:35 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 21/24 chunk size: 5 Number of nodes 104
+16 Feb 2016 22:34:35 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Computed related in 10ms
+16 Feb 2016 22:34:35 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 865348
+16 Feb 2016 22:34:35 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 12/24 chunk size: 1 Number of nodes 12
+16 Feb 2016 22:34:35 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - java.util.concurrent.ExecutionException: java.lang.IllegalArgumentException: Query edge 554948-[1000011410]->89754982785048 is not present in the original query
+16 Feb 2016 22:34:35 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Computed related in 6ms
+16 Feb 2016 22:34:35 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 865348
+16 Feb 2016 22:34:35 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 10/24 chunk size: 1 Number of nodes 10
+16 Feb 2016 22:34:35 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Computed related in 6ms
+16 Feb 2016 22:34:35 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 865348
+16 Feb 2016 22:34:35 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 10/24 chunk size: 1 Number of nodes 10
+16 Feb 2016 22:34:35 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - java.util.concurrent.ExecutionException: java.lang.IllegalArgumentException: Query edge 815548-[1000011404]->554948 is not present in the original query
+16 Feb 2016 22:34:35 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Computed related in 2ms
+16 Feb 2016 22:34:35 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 865348
+16 Feb 2016 22:34:35 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 21/24 chunk size: 1 Number of nodes 21
+16 Feb 2016 22:34:35 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Computed related in 3ms
+16 Feb 2016 22:34:35 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 865348
+16 Feb 2016 22:34:35 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 10/24 chunk size: 1 Number of nodes 10
+16 Feb 2016 22:34:35 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Computed related in 2ms
+16 Feb 2016 22:34:35 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 765448
+16 Feb 2016 22:34:35 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 21/24 chunk size: 1 Number of nodes 21
+16 Feb 2016 22:34:35 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Computed related in 3ms
+16 Feb 2016 22:34:35 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 765448
+16 Feb 2016 22:34:35 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 12/24 chunk size: 2 Number of nodes 24
+16 Feb 2016 22:34:35 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Computed related in 1ms
+16 Feb 2016 22:48:39 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 5648
+16 Feb 2016 22:48:39 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 1/24 chunk size: 1 Number of nodes 1
+16 Feb 2016 22:48:39 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Computed related in 45ms
+16 Feb 2016 22:48:39 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 5648
+16 Feb 2016 22:48:39 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 2/24 chunk size: 1 Number of nodes 2
+16 Feb 2016 22:48:39 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Computed related in 63ms
+16 Feb 2016 22:48:39 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 5648
+16 Feb 2016 22:48:39 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 2/24 chunk size: 1 Number of nodes 2
+16 Feb 2016 22:48:39 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Computed related in 9ms
+16 Feb 2016 22:48:39 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 5648
+16 Feb 2016 22:48:39 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 12/24 chunk size: 1 Number of nodes 12
+16 Feb 2016 22:48:39 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Computed related in 35ms
+16 Feb 2016 22:48:39 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 5648
+16 Feb 2016 22:48:39 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 12/24 chunk size: 1 Number of nodes 12
+16 Feb 2016 22:48:39 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Computed related in 36ms
+16 Feb 2016 22:48:39 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 5648
+16 Feb 2016 22:48:39 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 3/24 chunk size: 1 Number of nodes 3
+16 Feb 2016 22:48:39 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Computed related in 4ms
+16 Feb 2016 22:48:39 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 5648
+16 Feb 2016 22:48:39 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 2/24 chunk size: 1 Number of nodes 2
+16 Feb 2016 22:48:39 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Computed related in 5ms
+16 Feb 2016 22:48:39 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 5648
+16 Feb 2016 22:48:39 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 12/24 chunk size: 1 Number of nodes 12
+16 Feb 2016 22:48:39 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - java.util.concurrent.ExecutionException: java.lang.IllegalArgumentException: Query edge 5648-[1000011400]->755548 is not present in the original query
+16 Feb 2016 22:48:39 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Computed related in 16ms
+16 Feb 2016 22:48:39 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 5648
+16 Feb 2016 22:48:39 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 12/24 chunk size: 1 Number of nodes 12
+16 Feb 2016 22:48:39 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - java.util.concurrent.ExecutionException: java.lang.IllegalArgumentException: Query edge 5648-[1000011400]->755548 is not present in the original query
+16 Feb 2016 22:48:39 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Computed related in 12ms
+16 Feb 2016 22:48:39 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 765448
+16 Feb 2016 22:48:39 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 21/24 chunk size: 3 Number of nodes 61
+16 Feb 2016 22:48:39 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Computed related in 4ms
+16 Feb 2016 22:48:39 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 765448
+16 Feb 2016 22:48:39 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 21/24 chunk size: 5 Number of nodes 104
+16 Feb 2016 22:48:39 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - java.util.concurrent.ExecutionException: java.lang.IllegalArgumentException: Query edge 495248-[1000011399]->495248 is not present in the original query
+16 Feb 2016 22:48:39 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Computed related in 6ms
+16 Feb 2016 22:48:39 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 865348
+16 Feb 2016 22:48:39 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 12/24 chunk size: 1 Number of nodes 12
+16 Feb 2016 22:48:39 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - java.util.concurrent.ExecutionException: java.lang.IllegalArgumentException: Query edge 554948-[1000011410]->89754982785048 is not present in the original query
+16 Feb 2016 22:48:39 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Computed related in 2ms
+16 Feb 2016 22:48:39 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 865348
+16 Feb 2016 22:48:39 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 10/24 chunk size: 1 Number of nodes 10
+16 Feb 2016 22:48:39 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Computed related in 1ms
+16 Feb 2016 22:48:39 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 865348
+16 Feb 2016 22:48:39 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 10/24 chunk size: 1 Number of nodes 10
+16 Feb 2016 22:48:39 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Computed related in 1ms
+16 Feb 2016 22:48:39 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 865348
+16 Feb 2016 22:48:39 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 21/24 chunk size: 1 Number of nodes 21
+16 Feb 2016 22:48:39 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Computed related in 2ms
+16 Feb 2016 22:48:39 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 865348
+16 Feb 2016 22:48:39 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 10/24 chunk size: 1 Number of nodes 10
+16 Feb 2016 22:48:39 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - java.util.concurrent.ExecutionException: java.lang.IllegalArgumentException: Query edge 815548-[1000011404]->554948 is not present in the original query
+16 Feb 2016 22:48:39 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Computed related in 1ms
+16 Feb 2016 22:48:39 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 765448
+16 Feb 2016 22:48:39 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 21/24 chunk size: 1 Number of nodes 21
+16 Feb 2016 22:48:39 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Computed related in 51ms
+16 Feb 2016 22:48:39 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 765448
+16 Feb 2016 22:48:39 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 12/24 chunk size: 2 Number of nodes 24
+16 Feb 2016 22:48:39 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Computed related in 2ms
+16 Feb 2016 22:48:48 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 5648
+16 Feb 2016 22:48:48 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 1/24 chunk size: 1 Number of nodes 1
+16 Feb 2016 22:48:48 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Computed related in 48ms
+16 Feb 2016 22:48:48 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 5648
+16 Feb 2016 22:48:48 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 2/24 chunk size: 1 Number of nodes 2
+16 Feb 2016 22:48:48 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Computed related in 47ms
+16 Feb 2016 22:48:48 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 5648
+16 Feb 2016 22:48:48 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 2/24 chunk size: 1 Number of nodes 2
+16 Feb 2016 22:48:48 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Computed related in 23ms
+16 Feb 2016 22:48:48 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 5648
+16 Feb 2016 22:48:48 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 12/24 chunk size: 1 Number of nodes 12
+16 Feb 2016 22:48:48 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Computed related in 102ms
+16 Feb 2016 22:48:48 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 5648
+16 Feb 2016 22:48:48 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 12/24 chunk size: 1 Number of nodes 12
+16 Feb 2016 22:48:48 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Computed related in 33ms
+16 Feb 2016 22:48:48 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 5648
+16 Feb 2016 22:48:48 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 3/24 chunk size: 1 Number of nodes 3
+16 Feb 2016 22:48:48 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Computed related in 4ms
+16 Feb 2016 22:48:48 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 5648
+16 Feb 2016 22:48:48 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 2/24 chunk size: 1 Number of nodes 2
+16 Feb 2016 22:48:48 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Computed related in 5ms
+16 Feb 2016 22:48:48 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 5648
+16 Feb 2016 22:48:48 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 12/24 chunk size: 1 Number of nodes 12
+16 Feb 2016 22:48:48 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - java.util.concurrent.ExecutionException: java.lang.IllegalArgumentException: Query edge 5648-[1000011400]->755548 is not present in the original query
+16 Feb 2016 22:48:48 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Computed related in 27ms
+16 Feb 2016 22:48:48 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 5648
+16 Feb 2016 22:48:48 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 12/24 chunk size: 1 Number of nodes 12
+16 Feb 2016 22:48:48 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - java.util.concurrent.ExecutionException: java.lang.IllegalArgumentException: Query edge 5648-[1000011400]->755548 is not present in the original query
+16 Feb 2016 22:48:48 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Computed related in 10ms
+16 Feb 2016 22:48:48 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 765448
+16 Feb 2016 22:48:48 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 21/24 chunk size: 3 Number of nodes 61
+16 Feb 2016 22:48:48 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Computed related in 7ms
+16 Feb 2016 22:48:49 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 765448
+16 Feb 2016 22:48:49 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 21/24 chunk size: 5 Number of nodes 104
+16 Feb 2016 22:48:49 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Computed related in 7ms
+16 Feb 2016 22:48:49 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 865348
+16 Feb 2016 22:48:49 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 12/24 chunk size: 1 Number of nodes 12
+16 Feb 2016 22:48:49 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - java.util.concurrent.ExecutionException: java.lang.IllegalArgumentException: Query edge 865348-[1000011412]->765448 is not present in the original query
+16 Feb 2016 22:48:49 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Computed related in 5ms
+16 Feb 2016 22:48:49 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 865348
+16 Feb 2016 22:48:49 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 10/24 chunk size: 1 Number of nodes 10
+16 Feb 2016 22:48:49 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - java.util.concurrent.ExecutionException: java.lang.IllegalArgumentException: Query edge 765448-[1000011404]->554948 is not present in the original query
+16 Feb 2016 22:48:49 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Computed related in 2ms
+16 Feb 2016 22:48:49 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 865348
+16 Feb 2016 22:48:49 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 10/24 chunk size: 1 Number of nodes 10
+16 Feb 2016 22:48:49 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Computed related in 3ms
+16 Feb 2016 22:48:49 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 865348
+16 Feb 2016 22:48:49 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 21/24 chunk size: 1 Number of nodes 21
+16 Feb 2016 22:48:49 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Computed related in 11ms
+16 Feb 2016 22:48:49 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 865348
+16 Feb 2016 22:48:49 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 10/24 chunk size: 1 Number of nodes 10
+16 Feb 2016 22:48:49 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - java.util.concurrent.ExecutionException: java.lang.IllegalArgumentException: Query edge 765448-[1000011404]->554948 is not present in the original query
+16 Feb 2016 22:48:49 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Computed related in 3ms
+16 Feb 2016 22:48:49 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 765448
+16 Feb 2016 22:48:49 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 21/24 chunk size: 1 Number of nodes 21
+16 Feb 2016 22:48:49 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Computed related in 9ms
+16 Feb 2016 22:48:49 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 765448
+16 Feb 2016 22:48:49 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 12/24 chunk size: 2 Number of nodes 24
+16 Feb 2016 22:48:49 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Computed related in 2ms
+16 Feb 2016 22:49:31 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 5648
+16 Feb 2016 22:49:31 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 1/24 chunk size: 1 Number of nodes 1
+16 Feb 2016 22:49:31 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Computed related in 35ms
+16 Feb 2016 22:49:31 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 5648
+16 Feb 2016 22:49:31 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 2/24 chunk size: 1 Number of nodes 2
+16 Feb 2016 22:49:31 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Computed related in 25ms
+16 Feb 2016 22:49:31 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 5648
+16 Feb 2016 22:49:31 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 2/24 chunk size: 1 Number of nodes 2
+16 Feb 2016 22:49:31 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Computed related in 9ms
+16 Feb 2016 22:49:31 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 5648
+16 Feb 2016 22:49:31 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 12/24 chunk size: 1 Number of nodes 12
+16 Feb 2016 22:49:31 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Computed related in 50ms
+16 Feb 2016 22:49:31 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 5648
+16 Feb 2016 22:49:31 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 12/24 chunk size: 1 Number of nodes 12
+16 Feb 2016 22:49:31 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Computed related in 25ms
+16 Feb 2016 22:49:31 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 5648
+16 Feb 2016 22:49:31 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 3/24 chunk size: 1 Number of nodes 3
+16 Feb 2016 22:49:31 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Computed related in 12ms
+16 Feb 2016 22:49:31 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 5648
+16 Feb 2016 22:49:31 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 2/24 chunk size: 1 Number of nodes 2
+16 Feb 2016 22:49:31 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Computed related in 13ms
+16 Feb 2016 22:49:31 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 5648
+16 Feb 2016 22:49:32 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 12/24 chunk size: 1 Number of nodes 12
+16 Feb 2016 22:49:32 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Computed related in 29ms
+16 Feb 2016 22:49:32 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 5648
+16 Feb 2016 22:49:32 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 12/24 chunk size: 1 Number of nodes 12
+16 Feb 2016 22:49:32 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - java.util.concurrent.ExecutionException: java.lang.IllegalArgumentException: Query edge 5148-[1000011399]->5648 is not present in the original query
+16 Feb 2016 22:49:32 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Computed related in 29ms
+16 Feb 2016 22:49:32 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 765448
+16 Feb 2016 22:49:32 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 21/24 chunk size: 3 Number of nodes 61
+16 Feb 2016 22:49:32 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Computed related in 6ms
+16 Feb 2016 22:49:32 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 765448
+16 Feb 2016 22:49:32 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 21/24 chunk size: 5 Number of nodes 104
+16 Feb 2016 22:49:32 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Computed related in 7ms
+16 Feb 2016 22:49:32 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 865348
+16 Feb 2016 22:49:32 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 12/24 chunk size: 1 Number of nodes 12
+16 Feb 2016 22:49:32 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - java.util.concurrent.ExecutionException: java.lang.IllegalArgumentException: Query edge 89754982785048-[1000011404]->765448 is not present in the original query
+16 Feb 2016 22:49:32 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Computed related in 2ms
+16 Feb 2016 22:49:32 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 865348
+16 Feb 2016 22:49:32 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 10/24 chunk size: 1 Number of nodes 10
+16 Feb 2016 22:49:32 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Computed related in 3ms
+16 Feb 2016 22:49:32 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 865348
+16 Feb 2016 22:49:32 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 10/24 chunk size: 1 Number of nodes 10
+16 Feb 2016 22:49:32 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Computed related in 2ms
+16 Feb 2016 22:49:32 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 865348
+16 Feb 2016 22:49:32 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 21/24 chunk size: 1 Number of nodes 21
+16 Feb 2016 22:49:32 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Computed related in 2ms
+16 Feb 2016 22:49:32 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 865348
+16 Feb 2016 22:49:32 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 10/24 chunk size: 1 Number of nodes 10
+16 Feb 2016 22:49:32 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Computed related in 1ms
+16 Feb 2016 22:49:32 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 765448
+16 Feb 2016 22:49:32 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 21/24 chunk size: 1 Number of nodes 21
+16 Feb 2016 22:49:32 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Computed related in 5ms
+16 Feb 2016 22:49:32 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 765448
+16 Feb 2016 22:49:32 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 12/24 chunk size: 2 Number of nodes 24
+16 Feb 2016 22:49:32 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Computed related in 4ms
+16 Feb 2016 22:50:34 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 5648
+16 Feb 2016 22:50:34 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 1/24 chunk size: 1 Number of nodes 1
+16 Feb 2016 22:50:34 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Computed related in 43ms
+16 Feb 2016 22:50:35 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 5648
+16 Feb 2016 22:50:35 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 2/24 chunk size: 1 Number of nodes 2
+16 Feb 2016 22:50:35 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Computed related in 22ms
+16 Feb 2016 22:50:35 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 5648
+16 Feb 2016 22:50:35 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 2/24 chunk size: 1 Number of nodes 2
+16 Feb 2016 22:50:35 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Computed related in 10ms
+16 Feb 2016 22:50:35 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 5648
+16 Feb 2016 22:50:35 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 12/24 chunk size: 1 Number of nodes 12
+16 Feb 2016 22:50:35 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Computed related in 41ms
+16 Feb 2016 22:50:35 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 5648
+16 Feb 2016 22:50:35 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 12/24 chunk size: 1 Number of nodes 12
+16 Feb 2016 22:50:35 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Computed related in 19ms
+16 Feb 2016 22:50:35 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 5648
+16 Feb 2016 22:50:35 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 3/24 chunk size: 1 Number of nodes 3
+16 Feb 2016 22:50:35 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Computed related in 1ms
+16 Feb 2016 22:50:35 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 5648
+16 Feb 2016 22:50:35 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 2/24 chunk size: 1 Number of nodes 2
+16 Feb 2016 22:50:35 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Computed related in 6ms
+16 Feb 2016 22:50:35 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 5648
+16 Feb 2016 22:50:35 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 12/24 chunk size: 1 Number of nodes 12
+16 Feb 2016 22:50:35 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - java.util.concurrent.ExecutionException: java.lang.IllegalArgumentException: Query edge 5648-[1000011400]->755548 is not present in the original query
+16 Feb 2016 22:50:35 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Computed related in 26ms
+16 Feb 2016 22:50:35 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 5648
+16 Feb 2016 22:50:35 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 12/24 chunk size: 1 Number of nodes 12
+16 Feb 2016 22:50:35 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - java.util.concurrent.ExecutionException: java.lang.IllegalArgumentException: Query edge 5148-[1000011399]->5648 is not present in the original query
+16 Feb 2016 22:50:35 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Computed related in 26ms
+16 Feb 2016 22:50:35 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 765448
+16 Feb 2016 22:50:35 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 21/24 chunk size: 3 Number of nodes 61
+16 Feb 2016 22:50:35 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - java.util.concurrent.ExecutionException: java.lang.IllegalArgumentException: Query edge 495248-[1000011399]->495248 is not present in the original query
+16 Feb 2016 22:50:35 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Computed related in 4ms
+16 Feb 2016 22:50:35 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 765448
+16 Feb 2016 22:50:35 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 21/24 chunk size: 5 Number of nodes 104
+16 Feb 2016 22:50:35 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - java.util.concurrent.ExecutionException: java.lang.IllegalArgumentException: Query edge 495248-[1000011399]->495248 is not present in the original query
+16 Feb 2016 22:50:35 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Computed related in 10ms
+16 Feb 2016 22:50:35 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 865348
+16 Feb 2016 22:50:35 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 12/24 chunk size: 1 Number of nodes 12
+16 Feb 2016 22:50:35 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - java.util.concurrent.ExecutionException: java.lang.IllegalArgumentException: Query edge 554948-[1000011410]->89754982785048 is not present in the original query
+16 Feb 2016 22:50:35 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Computed related in 3ms
+16 Feb 2016 22:50:35 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 865348
+16 Feb 2016 22:50:35 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 10/24 chunk size: 1 Number of nodes 10
+16 Feb 2016 22:50:35 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Computed related in 2ms
+16 Feb 2016 22:50:35 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 865348
+16 Feb 2016 22:50:35 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 10/24 chunk size: 1 Number of nodes 10
+16 Feb 2016 22:50:35 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Computed related in 2ms
+16 Feb 2016 22:50:35 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 865348
+16 Feb 2016 22:50:35 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 21/24 chunk size: 1 Number of nodes 21
+16 Feb 2016 22:50:35 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Computed related in 2ms
+16 Feb 2016 22:50:35 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 865348
+16 Feb 2016 22:50:35 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 10/24 chunk size: 1 Number of nodes 10
+16 Feb 2016 22:50:35 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - java.util.concurrent.ExecutionException: java.lang.IllegalArgumentException: Query edge 554948-[1000011410]->89754982785048 is not present in the original query
+16 Feb 2016 22:50:35 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Computed related in 2ms
+16 Feb 2016 22:50:35 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 765448
+16 Feb 2016 22:50:35 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 21/24 chunk size: 1 Number of nodes 21
+16 Feb 2016 22:50:35 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Computed related in 7ms
+16 Feb 2016 22:50:35 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 765448
+16 Feb 2016 22:50:35 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 12/24 chunk size: 2 Number of nodes 24
+16 Feb 2016 22:50:35 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Computed related in 4ms
+16 Feb 2016 22:50:59 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 5648
+16 Feb 2016 22:50:59 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 1/24 chunk size: 1 Number of nodes 1
+16 Feb 2016 22:50:59 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Computed related in 37ms
+16 Feb 2016 22:50:59 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 5648
+16 Feb 2016 22:50:59 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 2/24 chunk size: 1 Number of nodes 2
+16 Feb 2016 22:50:59 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Computed related in 3ms
+16 Feb 2016 22:50:59 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 5648
+16 Feb 2016 22:50:59 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 2/24 chunk size: 1 Number of nodes 2
+16 Feb 2016 22:50:59 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Computed related in 34ms
+16 Feb 2016 22:51:00 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 5648
+16 Feb 2016 22:51:00 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 12/24 chunk size: 1 Number of nodes 12
+16 Feb 2016 22:51:00 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Computed related in 59ms
+16 Feb 2016 22:51:00 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 5648
+16 Feb 2016 22:51:00 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 12/24 chunk size: 1 Number of nodes 12
+16 Feb 2016 22:51:00 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Computed related in 54ms
+16 Feb 2016 22:51:00 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 5648
+16 Feb 2016 22:51:00 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 3/24 chunk size: 1 Number of nodes 3
+16 Feb 2016 22:51:00 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Computed related in 4ms
+16 Feb 2016 22:51:00 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 5648
+16 Feb 2016 22:51:00 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 2/24 chunk size: 1 Number of nodes 2
+16 Feb 2016 22:51:00 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Computed related in 21ms
+16 Feb 2016 22:51:00 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 5648
+16 Feb 2016 22:51:00 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 12/24 chunk size: 1 Number of nodes 12
+16 Feb 2016 22:51:00 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - java.util.concurrent.ExecutionException: java.lang.IllegalArgumentException: Query edge 5648-[1000011400]->755548 is not present in the original query
+16 Feb 2016 22:51:00 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Computed related in 10ms
+16 Feb 2016 22:51:00 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 5648
+16 Feb 2016 22:51:00 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 12/24 chunk size: 1 Number of nodes 12
+16 Feb 2016 22:51:00 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - java.util.concurrent.ExecutionException: java.lang.IllegalArgumentException: Query edge 5148-[1000011399]->5648 is not present in the original query
+16 Feb 2016 22:51:00 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Computed related in 24ms
+16 Feb 2016 22:51:00 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 765448
+16 Feb 2016 22:51:00 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 21/24 chunk size: 3 Number of nodes 61
+16 Feb 2016 22:51:00 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - java.util.concurrent.ExecutionException: java.lang.IllegalArgumentException: Query edge 495248-[1000011399]->495248 is not present in the original query
+16 Feb 2016 22:51:00 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Computed related in 7ms
+16 Feb 2016 22:51:00 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 765448
+16 Feb 2016 22:51:00 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 21/24 chunk size: 5 Number of nodes 104
+16 Feb 2016 22:51:00 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Computed related in 14ms
+16 Feb 2016 22:51:00 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 865348
+16 Feb 2016 22:51:00 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 12/24 chunk size: 1 Number of nodes 12
+16 Feb 2016 22:51:00 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Computed related in 4ms
+16 Feb 2016 22:51:00 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 865348
+16 Feb 2016 22:51:00 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 10/24 chunk size: 1 Number of nodes 10
+16 Feb 2016 22:51:00 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Computed related in 2ms
+16 Feb 2016 22:51:00 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 865348
+16 Feb 2016 22:51:00 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 10/24 chunk size: 1 Number of nodes 10
+16 Feb 2016 22:51:00 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - java.util.concurrent.ExecutionException: java.lang.IllegalArgumentException: Query edge 554948-[1000011410]->89754982785048 is not present in the original query
+16 Feb 2016 22:51:00 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Computed related in 2ms
+16 Feb 2016 22:51:00 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 865348
+16 Feb 2016 22:51:00 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 21/24 chunk size: 1 Number of nodes 21
+16 Feb 2016 22:51:00 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Computed related in 3ms
+16 Feb 2016 22:51:00 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 865348
+16 Feb 2016 22:51:00 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 10/24 chunk size: 1 Number of nodes 10
+16 Feb 2016 22:51:00 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - java.util.concurrent.ExecutionException: java.lang.IllegalArgumentException: Query edge 815548-[1000011404]->554948 is not present in the original query
+16 Feb 2016 22:51:00 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Computed related in 3ms
+16 Feb 2016 22:51:00 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 765448
+16 Feb 2016 22:51:00 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 21/24 chunk size: 1 Number of nodes 21
+16 Feb 2016 22:51:00 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Computed related in 3ms
+16 Feb 2016 22:51:00 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 765448
+16 Feb 2016 22:51:00 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 12/24 chunk size: 2 Number of nodes 24
+16 Feb 2016 22:51:00 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Computed related in 1ms
+17 Feb 2016 10:16:04 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 5648
+17 Feb 2016 10:16:04 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 1/24 chunk size: 1 Number of nodes 1
+17 Feb 2016 10:16:05 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Computed related in 49ms
+17 Feb 2016 10:16:09 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 5648
+17 Feb 2016 10:16:09 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 2/24 chunk size: 1 Number of nodes 2
+17 Feb 2016 10:16:09 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Computed related in 22ms
+17 Feb 2016 10:16:09 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 5648
+17 Feb 2016 10:16:09 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 2/24 chunk size: 1 Number of nodes 2
+17 Feb 2016 10:16:09 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Computed related in 11ms
+17 Feb 2016 10:16:09 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 5648
+17 Feb 2016 10:16:09 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 12/24 chunk size: 1 Number of nodes 12
+17 Feb 2016 10:16:09 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Computed related in 42ms
+17 Feb 2016 10:16:09 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 5648
+17 Feb 2016 10:16:09 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 12/24 chunk size: 1 Number of nodes 12
+17 Feb 2016 10:16:09 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Computed related in 29ms
+17 Feb 2016 10:16:16 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 5648
+17 Feb 2016 10:16:16 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 3/24 chunk size: 1 Number of nodes 3
+17 Feb 2016 10:16:16 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Computed related in 6ms
+17 Feb 2016 10:16:16 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 5648
+17 Feb 2016 10:16:16 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 2/24 chunk size: 1 Number of nodes 2
+17 Feb 2016 10:16:16 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Computed related in 8ms
+17 Feb 2016 10:16:16 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 5648
+17 Feb 2016 10:16:16 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 12/24 chunk size: 1 Number of nodes 12
+17 Feb 2016 10:16:16 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - java.util.concurrent.ExecutionException: java.lang.IllegalArgumentException: Query edge 5648-[1000011400]->755548 is not present in the original query
+17 Feb 2016 10:16:16 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Computed related in 37ms
+17 Feb 2016 10:16:16 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 5648
+17 Feb 2016 10:16:16 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 12/24 chunk size: 1 Number of nodes 12
+17 Feb 2016 10:16:16 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - java.util.concurrent.ExecutionException: java.lang.IllegalArgumentException: Query edge 5148-[1000011399]->5648 is not present in the original query
+17 Feb 2016 10:16:16 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Computed related in 47ms
+17 Feb 2016 10:16:21 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 765448
+17 Feb 2016 10:16:21 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 21/24 chunk size: 3 Number of nodes 61
+17 Feb 2016 10:16:21 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Computed related in 19ms
+17 Feb 2016 10:16:21 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 765448
+17 Feb 2016 10:16:22 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 21/24 chunk size: 5 Number of nodes 104
+17 Feb 2016 10:16:22 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - java.util.concurrent.ExecutionException: java.lang.IllegalArgumentException: Query edge 495248-[1000011400]->495248 is not present in the original query
+17 Feb 2016 10:16:22 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Computed related in 23ms
+17 Feb 2016 10:16:28 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 865348
+17 Feb 2016 10:16:28 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 12/24 chunk size: 1 Number of nodes 12
+17 Feb 2016 10:16:28 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Computed related in 9ms
+17 Feb 2016 10:16:28 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 865348
+17 Feb 2016 10:16:28 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 10/24 chunk size: 1 Number of nodes 10
+17 Feb 2016 10:16:28 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Computed related in 4ms
+17 Feb 2016 10:16:28 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 865348
+17 Feb 2016 10:16:28 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 10/24 chunk size: 1 Number of nodes 10
+17 Feb 2016 10:16:28 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Computed related in 6ms
+17 Feb 2016 10:16:28 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 865348
+17 Feb 2016 10:16:28 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 21/24 chunk size: 1 Number of nodes 21
+17 Feb 2016 10:16:28 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Computed related in 10ms
+17 Feb 2016 10:16:28 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 865348
+17 Feb 2016 10:16:28 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 10/24 chunk size: 1 Number of nodes 10
+17 Feb 2016 10:16:28 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Computed related in 11ms
+17 Feb 2016 10:16:34 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 765448
+17 Feb 2016 10:16:34 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 21/24 chunk size: 1 Number of nodes 21
+17 Feb 2016 10:16:34 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Computed related in 8ms
+17 Feb 2016 10:16:34 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 765448
+17 Feb 2016 10:16:34 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 12/24 chunk size: 2 Number of nodes 24
+17 Feb 2016 10:16:34 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Computed related in 5ms
+17 Feb 2016 10:34:19 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 5648
+17 Feb 2016 10:34:19 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 5648
+17 Feb 2016 10:34:19 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 5648
+17 Feb 2016 10:34:19 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 5648
+17 Feb 2016 10:34:19 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 5648
+17 Feb 2016 10:34:19 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 5648
+17 Feb 2016 10:34:19 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 5648
+17 Feb 2016 10:34:19 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 5648
+17 Feb 2016 10:34:19 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - java.util.concurrent.ExecutionException: java.lang.IllegalArgumentException: Query edge 5648-[1000011400]->755548 is not present in the original query
+17 Feb 2016 10:34:19 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 5648
+17 Feb 2016 10:34:19 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - java.util.concurrent.ExecutionException: java.lang.IllegalArgumentException: Query edge 5648-[1000011400]->755548 is not present in the original query
+17 Feb 2016 10:34:19 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 765448
+17 Feb 2016 10:34:19 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - java.util.concurrent.ExecutionException: java.lang.IllegalArgumentException: Query edge 495248-[1000011399]->495248 is not present in the original query
+17 Feb 2016 10:34:19 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 765448
+17 Feb 2016 10:34:19 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 865348
+17 Feb 2016 10:34:19 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 865348
+17 Feb 2016 10:34:19 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - java.util.concurrent.ExecutionException: java.lang.IllegalArgumentException: Query edge 765448-[1000011404]->554948 is not present in the original query
+17 Feb 2016 10:34:19 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 865348
+17 Feb 2016 10:34:19 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - java.util.concurrent.ExecutionException: java.lang.IllegalArgumentException: Query edge 865348-[1000011412]->765448 is not present in the original query
+17 Feb 2016 10:34:19 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 865348
+17 Feb 2016 10:34:19 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 865348
+17 Feb 2016 10:34:19 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - java.util.concurrent.ExecutionException: java.lang.IllegalArgumentException: Query edge 865348-[1000011412]->765448 is not present in the original query
+17 Feb 2016 10:34:20 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 765448
+17 Feb 2016 10:34:20 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 765448
+17 Feb 2016 10:38:57 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 5648
+17 Feb 2016 10:38:57 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 5648
+17 Feb 2016 10:38:57 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 5648
+17 Feb 2016 10:38:57 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 5648
+17 Feb 2016 10:38:57 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 5648
+17 Feb 2016 10:38:57 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - java.util.concurrent.ExecutionException: java.lang.IllegalArgumentException: Query edge 755548-[1000011399]->5148 is not present in the original query
+17 Feb 2016 10:38:57 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 5648
+17 Feb 2016 10:38:57 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 5648
+17 Feb 2016 10:38:57 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 5648
+17 Feb 2016 10:38:57 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - java.util.concurrent.ExecutionException: java.lang.IllegalArgumentException: Query edge 5648-[1000011400]->755548 is not present in the original query
+17 Feb 2016 10:38:57 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 5648
+17 Feb 2016 10:38:57 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - java.util.concurrent.ExecutionException: java.lang.IllegalArgumentException: Query edge 5648-[1000011400]->755548 is not present in the original query
+17 Feb 2016 10:38:57 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 765448
+17 Feb 2016 10:38:57 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 765448
+17 Feb 2016 10:38:57 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - java.util.concurrent.ExecutionException: java.lang.IllegalArgumentException: Query edge 495248-[1000011400]->495248 is not present in the original query
+17 Feb 2016 10:38:57 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 865348
+17 Feb 2016 10:38:57 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - java.util.concurrent.ExecutionException: java.lang.IllegalArgumentException: Query edge 765448-[1000011404]->554948 is not present in the original query
+17 Feb 2016 10:38:57 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 865348
+17 Feb 2016 10:38:57 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - java.util.concurrent.ExecutionException: java.lang.IllegalArgumentException: Query edge 765448-[1000011404]->554948 is not present in the original query
+17 Feb 2016 10:38:57 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 865348
+17 Feb 2016 10:38:57 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 865348
+17 Feb 2016 10:38:57 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 865348
+17 Feb 2016 10:38:57 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 765448
+17 Feb 2016 10:38:57 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 765448
+17 Feb 2016 10:44:00 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 5648
+17 Feb 2016 10:44:00 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 1/12 chunk size: 1 Number of nodes 1
+17 Feb 2016 10:44:00 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 5648
+17 Feb 2016 10:44:00 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 2/12 chunk size: 1 Number of nodes 2
+17 Feb 2016 10:44:00 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 5648
+17 Feb 2016 10:44:00 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 2/12 chunk size: 1 Number of nodes 2
+17 Feb 2016 10:44:00 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 5648
+17 Feb 2016 10:44:00 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 6/12 chunk size: 2 Number of nodes 12
+17 Feb 2016 10:44:00 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 5648
+17 Feb 2016 10:44:00 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 6/12 chunk size: 2 Number of nodes 12
+17 Feb 2016 10:44:00 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 5648
+17 Feb 2016 10:44:00 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 3/12 chunk size: 1 Number of nodes 3
+17 Feb 2016 10:44:00 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 5648
+17 Feb 2016 10:44:00 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 2/12 chunk size: 1 Number of nodes 2
+17 Feb 2016 10:44:00 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 5648
+17 Feb 2016 10:44:00 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 6/12 chunk size: 2 Number of nodes 12
+17 Feb 2016 10:44:00 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - java.util.concurrent.ExecutionException: java.lang.IllegalArgumentException: Query edge 5148-[1000011399]->5648 is not present in the original query
+17 Feb 2016 10:44:00 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 5648
+17 Feb 2016 10:44:00 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 6/12 chunk size: 2 Number of nodes 12
+17 Feb 2016 10:44:00 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - java.util.concurrent.ExecutionException: java.lang.IllegalArgumentException: Query edge 5648-[1000011400]->755548 is not present in the original query
+17 Feb 2016 10:44:00 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 765448
+17 Feb 2016 10:44:00 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 11/12 chunk size: 6 Number of nodes 61
+17 Feb 2016 10:44:00 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - java.util.concurrent.ExecutionException: java.lang.IllegalArgumentException: Query edge 495248-[1000011399]->495248 is not present in the original query
+17 Feb 2016 10:44:00 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 765448
+17 Feb 2016 10:44:00 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 12/12 chunk size: 9 Number of nodes 104
+17 Feb 2016 10:44:00 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - java.util.concurrent.ExecutionException: java.lang.IllegalArgumentException: Query edge 495248-[1000011399]->495248 is not present in the original query
+17 Feb 2016 10:44:00 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 865348
+17 Feb 2016 10:44:00 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 6/12 chunk size: 2 Number of nodes 12
+17 Feb 2016 10:44:00 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - java.util.concurrent.ExecutionException: java.lang.IllegalArgumentException: Query edge 554948-[1000011410]->89754982785048 is not present in the original query
+17 Feb 2016 10:44:00 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 865348
+17 Feb 2016 10:44:00 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 10/12 chunk size: 1 Number of nodes 10
+17 Feb 2016 10:44:00 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 865348
+17 Feb 2016 10:44:00 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 10/12 chunk size: 1 Number of nodes 10
+17 Feb 2016 10:44:00 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 865348
+17 Feb 2016 10:44:00 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 11/12 chunk size: 2 Number of nodes 21
+17 Feb 2016 10:44:00 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 865348
+17 Feb 2016 10:44:00 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 10/12 chunk size: 1 Number of nodes 10
+17 Feb 2016 10:44:00 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - java.util.concurrent.ExecutionException: java.lang.IllegalArgumentException: Query edge 554948-[1000011410]->89754982785048 is not present in the original query
+17 Feb 2016 10:44:00 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 765448
+17 Feb 2016 10:44:00 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 11/12 chunk size: 2 Number of nodes 21
+17 Feb 2016 10:44:00 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 765448
+17 Feb 2016 10:44:00 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 8/12 chunk size: 3 Number of nodes 24
+17 Feb 2016 10:45:20 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 5648
+17 Feb 2016 10:45:20 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 1/3 chunk size: 1 Number of nodes 1
+17 Feb 2016 10:45:20 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 5648
+17 Feb 2016 10:45:20 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 2/3 chunk size: 1 Number of nodes 2
+17 Feb 2016 10:45:20 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 5648
+17 Feb 2016 10:45:20 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 2/3 chunk size: 1 Number of nodes 2
+17 Feb 2016 10:45:20 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 5648
+17 Feb 2016 10:45:20 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 3/3 chunk size: 5 Number of nodes 12
+17 Feb 2016 10:45:20 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 5648
+17 Feb 2016 10:45:20 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 3/3 chunk size: 5 Number of nodes 12
+17 Feb 2016 10:45:20 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 5648
+17 Feb 2016 10:45:20 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 2/3 chunk size: 2 Number of nodes 3
+17 Feb 2016 10:45:20 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 5648
+17 Feb 2016 10:45:20 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 2/3 chunk size: 1 Number of nodes 2
+17 Feb 2016 10:45:20 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - java.util.concurrent.ExecutionException: java.lang.IllegalArgumentException: Query edge 5648-[1000011400]->755548 is not present in the original query
+17 Feb 2016 10:45:20 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 5648
+17 Feb 2016 10:45:20 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 3/3 chunk size: 5 Number of nodes 12
+17 Feb 2016 10:45:20 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - java.util.concurrent.ExecutionException: java.lang.IllegalArgumentException: Query edge 5648-[1000011400]->755548 is not present in the original query
+17 Feb 2016 10:45:20 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 5648
+17 Feb 2016 10:45:20 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 3/3 chunk size: 5 Number of nodes 12
+17 Feb 2016 10:45:20 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - java.util.concurrent.ExecutionException: java.lang.IllegalArgumentException: Query edge 5648-[1000011400]->755548 is not present in the original query
+17 Feb 2016 10:45:20 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 765448
+17 Feb 2016 10:45:20 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 3/3 chunk size: 21 Number of nodes 61
+17 Feb 2016 10:45:20 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 765448
+17 Feb 2016 10:45:20 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 3/3 chunk size: 35 Number of nodes 104
+17 Feb 2016 10:45:20 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - java.util.concurrent.ExecutionException: java.lang.IllegalArgumentException: Query edge 495248-[1000011399]->495248 is not present in the original query
+17 Feb 2016 10:45:20 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 865348
+17 Feb 2016 10:45:20 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 3/3 chunk size: 5 Number of nodes 12
+17 Feb 2016 10:45:20 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - java.util.concurrent.ExecutionException: java.lang.IllegalArgumentException: Query edge 865348-[1000011412]->765448 is not present in the original query
+17 Feb 2016 10:45:20 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 865348
+17 Feb 2016 10:45:20 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 3/3 chunk size: 4 Number of nodes 10
+17 Feb 2016 10:45:20 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - java.util.concurrent.ExecutionException: java.lang.IllegalArgumentException: Query edge 554948-[1000011410]->89754982785048 is not present in the original query
+17 Feb 2016 10:45:20 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 865348
+17 Feb 2016 10:45:20 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 3/3 chunk size: 4 Number of nodes 10
+17 Feb 2016 10:45:20 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 865348
+17 Feb 2016 10:45:20 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 3/3 chunk size: 8 Number of nodes 21
+17 Feb 2016 10:45:20 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 865348
+17 Feb 2016 10:45:20 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 3/3 chunk size: 4 Number of nodes 10
+17 Feb 2016 10:45:20 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 765448
+17 Feb 2016 10:45:20 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 3/3 chunk size: 8 Number of nodes 21
+17 Feb 2016 10:45:20 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 765448
+17 Feb 2016 10:45:20 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 3/3 chunk size: 9 Number of nodes 24
+17 Feb 2016 10:48:16 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 5648
+17 Feb 2016 10:48:16 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 1/1 chunk size: 1 Number of nodes 1
+17 Feb 2016 10:48:16 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 5648
+17 Feb 2016 10:48:16 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 1/1 chunk size: 2 Number of nodes 2
+17 Feb 2016 10:48:16 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 5648
+17 Feb 2016 10:48:16 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 1/1 chunk size: 2 Number of nodes 2
+17 Feb 2016 10:48:16 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 5648
+17 Feb 2016 10:48:16 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 1/1 chunk size: 12 Number of nodes 12
+17 Feb 2016 10:48:17 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 5648
+17 Feb 2016 10:48:17 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 1/1 chunk size: 12 Number of nodes 12
+17 Feb 2016 10:48:17 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 5648
+17 Feb 2016 10:48:17 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 1/1 chunk size: 3 Number of nodes 3
+17 Feb 2016 10:48:17 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 5648
+17 Feb 2016 10:48:17 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 1/1 chunk size: 2 Number of nodes 2
+17 Feb 2016 10:48:17 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 5648
+17 Feb 2016 10:48:17 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 1/1 chunk size: 12 Number of nodes 12
+17 Feb 2016 10:48:17 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 5648
+17 Feb 2016 10:48:17 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 1/1 chunk size: 12 Number of nodes 12
+17 Feb 2016 10:48:17 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 765448
+17 Feb 2016 10:48:17 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 1/1 chunk size: 61 Number of nodes 61
+17 Feb 2016 10:48:17 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 765448
+17 Feb 2016 10:48:17 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 1/1 chunk size: 104 Number of nodes 104
+17 Feb 2016 10:48:17 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 865348
+17 Feb 2016 10:48:17 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 1/1 chunk size: 12 Number of nodes 12
+17 Feb 2016 10:48:17 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 865348
+17 Feb 2016 10:48:17 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 1/1 chunk size: 10 Number of nodes 10
+17 Feb 2016 10:48:17 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 865348
+17 Feb 2016 10:48:17 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 1/1 chunk size: 10 Number of nodes 10
+17 Feb 2016 10:48:17 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 865348
+17 Feb 2016 10:48:17 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 1/1 chunk size: 21 Number of nodes 21
+17 Feb 2016 10:48:17 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 865348
+17 Feb 2016 10:48:17 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 1/1 chunk size: 10 Number of nodes 10
+17 Feb 2016 10:48:17 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 765448
+17 Feb 2016 10:48:17 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 1/1 chunk size: 21 Number of nodes 21
+17 Feb 2016 10:48:17 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 765448
+17 Feb 2016 10:48:17 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 1/1 chunk size: 24 Number of nodes 24
+17 Feb 2016 10:58:41 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 5648
+17 Feb 2016 10:59:36 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 1/1 chunk size: 1 Number of nodes 1
+17 Feb 2016 11:01:25 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 5648
+17 Feb 2016 11:01:25 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 1/1 chunk size: 1 Number of nodes 1
+17 Feb 2016 11:01:25 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 5648
+17 Feb 2016 11:01:25 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 1/1 chunk size: 3 Number of nodes 3
+17 Feb 2016 11:01:25 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 765448
+17 Feb 2016 11:01:25 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 1/1 chunk size: 61 Number of nodes 61
+17 Feb 2016 11:01:25 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 865348
+17 Feb 2016 11:01:25 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 1/1 chunk size: 12 Number of nodes 12
+17 Feb 2016 11:01:25 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 765448
+17 Feb 2016 11:01:25 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 1/1 chunk size: 21 Number of nodes 21
+17 Feb 2016 11:01:43 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 5648
+17 Feb 2016 11:01:43 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 1/12 chunk size: 1 Number of nodes 1
+17 Feb 2016 11:01:43 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 5648
+17 Feb 2016 11:01:43 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 3/12 chunk size: 1 Number of nodes 3
+17 Feb 2016 11:01:43 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 765448
+17 Feb 2016 11:01:43 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 11/12 chunk size: 6 Number of nodes 61
+17 Feb 2016 11:01:43 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 865348
+17 Feb 2016 11:01:43 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 6/12 chunk size: 2 Number of nodes 12
+17 Feb 2016 11:01:43 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 765448
+17 Feb 2016 11:01:43 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 11/12 chunk size: 2 Number of nodes 21
+17 Feb 2016 11:01:59 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 5648
+17 Feb 2016 11:01:59 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 1/12 chunk size: 1 Number of nodes 1
+17 Feb 2016 11:02:25 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 5648
+17 Feb 2016 11:02:25 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 3/12 chunk size: 1 Number of nodes 3
+17 Feb 2016 11:02:34 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 765448
+17 Feb 2016 11:02:34 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 11/12 chunk size: 6 Number of nodes 61
+17 Feb 2016 11:02:50 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 865348
+17 Feb 2016 11:02:50 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 6/12 chunk size: 2 Number of nodes 12
+17 Feb 2016 11:02:50 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - java.util.concurrent.ExecutionException: java.lang.IllegalArgumentException: Query edge 765448-[1000011404]->554948 is not present in the original query
+17 Feb 2016 11:02:56 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 765448
+17 Feb 2016 11:02:56 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 11/12 chunk size: 2 Number of nodes 21
+17 Feb 2016 11:09:46 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 5648
+17 Feb 2016 11:09:46 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 1/12 chunk size: 1 Number of nodes 1
+17 Feb 2016 11:09:46 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 5648
+17 Feb 2016 11:09:46 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 3/12 chunk size: 1 Number of nodes 3
+17 Feb 2016 11:09:46 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 765448
+17 Feb 2016 11:09:46 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 11/12 chunk size: 6 Number of nodes 61
+17 Feb 2016 11:09:46 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 865348
+17 Feb 2016 11:09:46 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 6/12 chunk size: 2 Number of nodes 12
+17 Feb 2016 11:09:46 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 765448
+17 Feb 2016 11:09:46 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 11/12 chunk size: 2 Number of nodes 21
+17 Feb 2016 11:10:55 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 5648
+17 Feb 2016 11:10:55 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 1/12 chunk size: 1 Number of nodes 1
+17 Feb 2016 11:11:00 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 5648
+17 Feb 2016 11:11:00 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 3/12 chunk size: 1 Number of nodes 3
+17 Feb 2016 11:11:06 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 765448
+17 Feb 2016 11:11:06 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 11/12 chunk size: 6 Number of nodes 61
+17 Feb 2016 11:11:11 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 865348
+17 Feb 2016 11:11:11 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 6/12 chunk size: 2 Number of nodes 12
+17 Feb 2016 11:11:14 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 765448
+17 Feb 2016 11:11:14 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 11/12 chunk size: 2 Number of nodes 21
+17 Feb 2016 11:36:57 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 5648
+17 Feb 2016 11:36:57 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 1/12 chunk size: 1 Number of nodes 1
+17 Feb 2016 11:36:57 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 5648
+17 Feb 2016 11:36:57 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 3/12 chunk size: 1 Number of nodes 3
+17 Feb 2016 11:36:57 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 765448
+17 Feb 2016 11:36:57 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 11/12 chunk size: 6 Number of nodes 61
+17 Feb 2016 11:36:57 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 865348
+17 Feb 2016 11:36:57 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 6/12 chunk size: 2 Number of nodes 12
+17 Feb 2016 11:36:57 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 765448
+17 Feb 2016 11:36:57 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 11/12 chunk size: 2 Number of nodes 21
+17 Feb 2016 11:38:57 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 5648
+17 Feb 2016 11:38:57 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 1/12 chunk size: 1 Number of nodes 1
+17 Feb 2016 11:38:57 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 5648
+17 Feb 2016 11:38:57 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 3/12 chunk size: 1 Number of nodes 3
+17 Feb 2016 11:38:57 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 765448
+17 Feb 2016 11:38:57 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 11/12 chunk size: 6 Number of nodes 61
+17 Feb 2016 11:38:57 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - java.util.concurrent.ExecutionException: java.lang.IllegalArgumentException: Query edge 495248-[1000011399]->495248 is not present in the original query
+17 Feb 2016 11:38:57 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 865348
+17 Feb 2016 11:38:57 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 6/12 chunk size: 2 Number of nodes 12
+17 Feb 2016 11:38:57 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - java.util.concurrent.ExecutionException: java.lang.IllegalArgumentException: Query edge 554948-[1000011410]->89754982785048 is not present in the original query
+17 Feb 2016 11:38:57 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 765448
+17 Feb 2016 11:38:57 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 11/12 chunk size: 2 Number of nodes 21
+17 Feb 2016 11:42:33 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 5648
+17 Feb 2016 11:42:33 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 1/12 chunk size: 1 Number of nodes 1
+17 Feb 2016 11:42:33 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 5648
+17 Feb 2016 11:42:33 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 3/12 chunk size: 1 Number of nodes 3
+17 Feb 2016 11:42:33 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 765448
+17 Feb 2016 11:42:33 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 11/12 chunk size: 6 Number of nodes 61
+17 Feb 2016 11:42:33 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - java.util.concurrent.ExecutionException: java.lang.IllegalArgumentException: Query edge 495248-[1000011400]->495248 is not present in the original query
+17 Feb 2016 11:42:33 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 865348
+17 Feb 2016 11:42:33 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 6/12 chunk size: 2 Number of nodes 12
+17 Feb 2016 11:42:33 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - java.util.concurrent.ExecutionException: java.lang.IllegalArgumentException: Query edge 815548-[1000011404]->554948 is not present in the original query
+17 Feb 2016 11:42:33 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 765448
+17 Feb 2016 11:42:33 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 11/12 chunk size: 2 Number of nodes 21
+17 Feb 2016 12:00:33 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 5648
+17 Feb 2016 12:00:33 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 1/12 chunk size: 1 Number of nodes 1
+17 Feb 2016 12:00:33 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 5648
+17 Feb 2016 12:00:33 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 3/12 chunk size: 1 Number of nodes 3
+17 Feb 2016 12:00:33 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 765448
+17 Feb 2016 12:00:33 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 11/12 chunk size: 6 Number of nodes 61
+17 Feb 2016 12:00:33 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - java.util.concurrent.ExecutionException: java.lang.IllegalArgumentException: Query edge 765448-[1000011400]->765448 is not present in the original query
+17 Feb 2016 12:00:33 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 865348
+17 Feb 2016 12:00:33 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 6/12 chunk size: 2 Number of nodes 12
+17 Feb 2016 12:00:33 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 765448
+17 Feb 2016 12:00:33 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 11/12 chunk size: 2 Number of nodes 21
+17 Feb 2016 12:19:12 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 5648
+17 Feb 2016 12:19:12 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 1/12 chunk size: 1 Number of nodes 1
+17 Feb 2016 12:19:12 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 5648
+17 Feb 2016 12:19:12 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 3/12 chunk size: 1 Number of nodes 3
+17 Feb 2016 12:19:12 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 765448
+17 Feb 2016 12:19:12 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 11/12 chunk size: 6 Number of nodes 61
+17 Feb 2016 12:19:12 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 865348
+17 Feb 2016 12:19:12 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 6/12 chunk size: 2 Number of nodes 12
+17 Feb 2016 12:19:12 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 765448
+17 Feb 2016 12:19:12 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 11/12 chunk size: 2 Number of nodes 21
+17 Feb 2016 12:21:45 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 5648
+17 Feb 2016 12:21:45 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 1/12 chunk size: 1 Number of nodes 1
+17 Feb 2016 12:21:45 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 5648
+17 Feb 2016 12:21:45 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 3/12 chunk size: 1 Number of nodes 3
+17 Feb 2016 12:21:45 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 765448
+17 Feb 2016 12:21:45 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 11/12 chunk size: 6 Number of nodes 61
+17 Feb 2016 12:21:45 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - java.util.concurrent.ExecutionException: java.lang.IllegalArgumentException: Query edge 495248-[1000011399]->495248 is not present in the original query
+17 Feb 2016 12:21:45 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 865348
+17 Feb 2016 12:21:45 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 6/12 chunk size: 2 Number of nodes 12
+17 Feb 2016 12:21:45 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 765448
+17 Feb 2016 12:21:45 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 11/12 chunk size: 2 Number of nodes 21
+17 Feb 2016 15:49:13 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 5648
+17 Feb 2016 15:49:13 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 1/12 chunk size: 1 Number of nodes 1
+17 Feb 2016 15:49:13 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 5648
+17 Feb 2016 15:49:13 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 3/12 chunk size: 1 Number of nodes 3
+17 Feb 2016 15:49:13 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 765448
+17 Feb 2016 15:49:13 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 11/12 chunk size: 6 Number of nodes 61
+17 Feb 2016 15:49:13 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - java.util.concurrent.ExecutionException: java.lang.IllegalArgumentException: Query edge 495248-[1000011399]->495248 is not present in the original query
+17 Feb 2016 15:49:13 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 865348
+17 Feb 2016 15:49:13 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 6/12 chunk size: 2 Number of nodes 12
+17 Feb 2016 15:49:13 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - java.util.concurrent.ExecutionException: java.lang.IllegalArgumentException: Query edge 815548-[1000010601]->865348 is not present in the original query
+17 Feb 2016 15:49:13 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 765448
+17 Feb 2016 15:49:13 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 11/12 chunk size: 2 Number of nodes 21
+17 Feb 2016 15:54:37 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 5648
+17 Feb 2016 15:54:37 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 1/12 chunk size: 1 Number of nodes 1
+17 Feb 2016 15:54:37 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 5648
+17 Feb 2016 15:54:37 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 3/12 chunk size: 1 Number of nodes 3
+17 Feb 2016 15:54:37 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 765448
+17 Feb 2016 15:54:37 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 11/12 chunk size: 6 Number of nodes 61
+17 Feb 2016 15:54:37 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 865348
+17 Feb 2016 15:54:38 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 6/12 chunk size: 2 Number of nodes 12
+17 Feb 2016 15:54:38 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 765448
+17 Feb 2016 15:54:38 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 11/12 chunk size: 2 Number of nodes 21
+17 Feb 2016 15:54:45 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 5648
+17 Feb 2016 15:54:45 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 1/12 chunk size: 1 Number of nodes 1
+17 Feb 2016 15:54:45 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 5648
+17 Feb 2016 15:54:45 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 3/12 chunk size: 1 Number of nodes 3
+17 Feb 2016 15:54:45 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 765448
+17 Feb 2016 15:54:45 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 11/12 chunk size: 6 Number of nodes 61
+17 Feb 2016 15:54:45 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 865348
+17 Feb 2016 15:54:45 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 6/12 chunk size: 2 Number of nodes 12
+17 Feb 2016 15:54:45 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 765448
+17 Feb 2016 15:54:45 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 11/12 chunk size: 2 Number of nodes 21
+17 Feb 2016 17:19:54 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 5648
+17 Feb 2016 17:19:54 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 1/12 chunk size: 1 Number of nodes 1
+17 Feb 2016 17:19:54 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 5648
+17 Feb 2016 17:19:54 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 3/12 chunk size: 1 Number of nodes 3
+17 Feb 2016 17:19:55 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 765448
+17 Feb 2016 17:19:55 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 11/12 chunk size: 6 Number of nodes 61
+17 Feb 2016 17:19:55 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 865348
+17 Feb 2016 17:19:55 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 6/12 chunk size: 2 Number of nodes 12
+17 Feb 2016 17:19:55 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 765448
+17 Feb 2016 17:19:55 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 11/12 chunk size: 2 Number of nodes 21
+18 Feb 2016 15:32:04 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Starting node is 5648
+18 Feb 2016 15:32:04 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Number of Threads: 1/12 chunk size: 1 Number of nodes 1
+18 Feb 2016 15:32:04 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - java.util.concurrent.ExecutionException: java.lang.ClassCastException: java.lang.Long cannot be cast to eu.unitn.disi.db.grava.graphs.MappedNode
+18 Feb 2016 15:32:04 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Starting node is 5648
+18 Feb 2016 15:32:04 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Number of Threads: 3/12 chunk size: 1 Number of nodes 3
+18 Feb 2016 15:32:04 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - java.util.concurrent.ExecutionException: java.lang.ClassCastException: java.lang.Long cannot be cast to eu.unitn.disi.db.grava.graphs.MappedNode
+18 Feb 2016 15:32:04 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Starting node is 765448
+18 Feb 2016 15:32:04 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Number of Threads: 11/12 chunk size: 6 Number of nodes 61
+18 Feb 2016 15:32:04 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - java.util.concurrent.ExecutionException: java.lang.ClassCastException: java.lang.Long cannot be cast to eu.unitn.disi.db.grava.graphs.MappedNode
+18 Feb 2016 15:32:04 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Starting node is 865348
+18 Feb 2016 15:32:04 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Number of Threads: 6/12 chunk size: 2 Number of nodes 12
+18 Feb 2016 15:32:04 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - java.util.concurrent.ExecutionException: java.lang.ClassCastException: java.lang.Long cannot be cast to eu.unitn.disi.db.grava.graphs.MappedNode
+18 Feb 2016 15:32:04 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Starting node is 765448
+18 Feb 2016 15:32:04 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Number of Threads: 11/12 chunk size: 2 Number of nodes 21
+18 Feb 2016 15:32:04 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - java.util.concurrent.ExecutionException: java.lang.ClassCastException: java.lang.Long cannot be cast to eu.unitn.disi.db.grava.graphs.MappedNode
+18 Feb 2016 15:53:11 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Starting node is 5648
+18 Feb 2016 15:53:12 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Number of Threads: 1/12 chunk size: 1 Number of nodes 1
+18 Feb 2016 15:53:12 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - java.util.concurrent.ExecutionException: java.lang.ClassCastException: java.lang.Long cannot be cast to eu.unitn.disi.db.grava.graphs.MappedNode
+18 Feb 2016 16:16:36 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Starting node is 5648
+18 Feb 2016 16:16:36 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Number of Threads: 1/12 chunk size: 1 Number of nodes 1
+18 Feb 2016 16:16:36 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - java.util.concurrent.ExecutionException: java.lang.ClassCastException: java.lang.Long cannot be cast to eu.unitn.disi.db.grava.graphs.MappedNode
+18 Feb 2016 16:16:36 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Starting node is 5648
+18 Feb 2016 16:16:36 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Number of Threads: 3/12 chunk size: 1 Number of nodes 3
+18 Feb 2016 16:16:36 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - java.util.concurrent.ExecutionException: java.lang.ClassCastException: java.lang.Long cannot be cast to eu.unitn.disi.db.grava.graphs.MappedNode
+18 Feb 2016 16:16:36 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Starting node is 765448
+18 Feb 2016 16:16:36 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Number of Threads: 11/12 chunk size: 6 Number of nodes 61
+18 Feb 2016 16:16:36 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - java.util.concurrent.ExecutionException: java.lang.ClassCastException: java.lang.Long cannot be cast to eu.unitn.disi.db.grava.graphs.MappedNode
+18 Feb 2016 16:16:36 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Starting node is 865348
+18 Feb 2016 16:16:36 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Number of Threads: 6/12 chunk size: 2 Number of nodes 12
+18 Feb 2016 16:16:36 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - java.util.concurrent.ExecutionException: java.lang.ClassCastException: java.lang.Long cannot be cast to eu.unitn.disi.db.grava.graphs.MappedNode
+18 Feb 2016 16:16:36 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Starting node is 765448
+18 Feb 2016 16:16:36 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Number of Threads: 11/12 chunk size: 2 Number of nodes 21
+18 Feb 2016 16:16:36 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - java.util.concurrent.ExecutionException: java.lang.ClassCastException: java.lang.Long cannot be cast to eu.unitn.disi.db.grava.graphs.MappedNode
+18 Feb 2016 16:26:28 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Starting node is 5648
+18 Feb 2016 16:26:28 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Number of Threads: 1/12 chunk size: 1 Number of nodes 1
+18 Feb 2016 16:26:28 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Starting node is 5648
+18 Feb 2016 16:26:28 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Number of Threads: 3/12 chunk size: 1 Number of nodes 3
+18 Feb 2016 16:26:28 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Starting node is 765448
+18 Feb 2016 16:26:28 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Number of Threads: 11/12 chunk size: 6 Number of nodes 61
+18 Feb 2016 16:26:28 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - java.util.concurrent.ExecutionException: java.lang.IllegalArgumentException: Trying to change map of query node 765448 a different map is already present
+18 Feb 2016 16:26:28 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Starting node is 865348
+18 Feb 2016 16:26:28 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Number of Threads: 6/12 chunk size: 2 Number of nodes 12
+18 Feb 2016 16:26:28 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - java.util.concurrent.ExecutionException: java.lang.IllegalArgumentException: Query edge 765448-[1000011404]->554948 is not present in the original query
+18 Feb 2016 16:26:28 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Starting node is 765448
+18 Feb 2016 16:26:28 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Number of Threads: 11/12 chunk size: 2 Number of nodes 21
+18 Feb 2016 16:26:28 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - java.util.concurrent.ExecutionException: java.lang.IllegalArgumentException: Trying to change map of query node 765448 a different map is already present
+18 Feb 2016 16:49:22 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Starting node is 5648
+18 Feb 2016 16:49:22 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Number of Threads: 1/12 chunk size: 1 Number of nodes 1
+18 Feb 2016 16:49:22 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Starting node is 5648
+18 Feb 2016 16:49:22 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Number of Threads: 3/12 chunk size: 1 Number of nodes 3
+18 Feb 2016 16:49:22 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Starting node is 765448
+18 Feb 2016 16:49:22 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Number of Threads: 11/12 chunk size: 6 Number of nodes 61
+18 Feb 2016 16:49:22 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Starting node is 865348
+18 Feb 2016 16:49:22 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Number of Threads: 6/12 chunk size: 2 Number of nodes 12
+18 Feb 2016 16:49:22 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Starting node is 765448
+18 Feb 2016 16:49:22 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Number of Threads: 11/12 chunk size: 2 Number of nodes 21
+18 Feb 2016 16:53:55 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Starting node is 5648
+18 Feb 2016 16:53:55 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Number of Threads: 1/12 chunk size: 1 Number of nodes 1
+18 Feb 2016 16:53:55 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Starting node is 5648
+18 Feb 2016 16:53:55 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Number of Threads: 3/12 chunk size: 1 Number of nodes 3
+18 Feb 2016 16:53:55 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Starting node is 765448
+18 Feb 2016 16:53:55 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Number of Threads: 11/12 chunk size: 6 Number of nodes 61
+18 Feb 2016 16:53:55 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Starting node is 865348
+18 Feb 2016 16:53:55 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Number of Threads: 6/12 chunk size: 2 Number of nodes 12
+18 Feb 2016 16:53:55 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Starting node is 765448
+18 Feb 2016 16:53:55 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Number of Threads: 11/12 chunk size: 2 Number of nodes 21
+18 Feb 2016 17:00:45 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 5648
+18 Feb 2016 17:00:45 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 1/12 chunk size: 1 Number of nodes 1
+18 Feb 2016 17:00:46 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - java.util.concurrent.ExecutionException: java.lang.ClassCastException: java.lang.Long cannot be cast to eu.unitn.disi.db.grava.graphs.MappedNode
+18 Feb 2016 17:00:46 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 5648
+18 Feb 2016 17:00:46 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 3/12 chunk size: 1 Number of nodes 3
+18 Feb 2016 17:00:46 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - java.util.concurrent.ExecutionException: java.lang.ClassCastException: java.lang.Long cannot be cast to eu.unitn.disi.db.grava.graphs.MappedNode
+18 Feb 2016 17:00:46 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 765448
+18 Feb 2016 17:00:46 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 11/12 chunk size: 6 Number of nodes 61
+18 Feb 2016 17:00:46 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - java.util.concurrent.ExecutionException: java.lang.ClassCastException: java.lang.Long cannot be cast to eu.unitn.disi.db.grava.graphs.MappedNode
+18 Feb 2016 17:00:46 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 865348
+18 Feb 2016 17:00:46 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 6/12 chunk size: 2 Number of nodes 12
+18 Feb 2016 17:00:46 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - java.util.concurrent.ExecutionException: java.lang.ClassCastException: java.lang.Long cannot be cast to eu.unitn.disi.db.grava.graphs.MappedNode
+18 Feb 2016 17:00:46 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 765448
+18 Feb 2016 17:00:46 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 11/12 chunk size: 2 Number of nodes 21
+18 Feb 2016 17:00:46 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - java.util.concurrent.ExecutionException: java.lang.ClassCastException: java.lang.Long cannot be cast to eu.unitn.disi.db.grava.graphs.MappedNode
+18 Feb 2016 17:01:43 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 5648
+18 Feb 2016 17:01:43 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 1/12 chunk size: 1 Number of nodes 1
+18 Feb 2016 17:01:43 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 5648
+18 Feb 2016 17:01:43 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 3/12 chunk size: 1 Number of nodes 3
+18 Feb 2016 17:01:43 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 765448
+18 Feb 2016 17:01:43 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 11/12 chunk size: 6 Number of nodes 61
+18 Feb 2016 17:01:43 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - java.util.concurrent.ExecutionException: java.lang.IllegalArgumentException: Query edge 495248-[1000011399]->495248 is not present in the original query
+18 Feb 2016 17:01:43 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 865348
+18 Feb 2016 17:01:43 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 6/12 chunk size: 2 Number of nodes 12
+18 Feb 2016 17:01:43 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Starting node is 765448
+18 Feb 2016 17:01:43 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - Number of Threads: 11/12 chunk size: 2 Number of nodes 21
+18 Feb 2016 17:13:54 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Starting node is 5648
+18 Feb 2016 17:13:54 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Number of Threads: 1/12 chunk size: 1 Number of nodes 1
+18 Feb 2016 17:13:54 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Starting node is 5648
+18 Feb 2016 17:13:54 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Number of Threads: 3/12 chunk size: 1 Number of nodes 3
+18 Feb 2016 17:13:54 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Starting node is 765448
+18 Feb 2016 17:13:54 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Number of Threads: 11/12 chunk size: 6 Number of nodes 61
+18 Feb 2016 17:13:54 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Starting node is 865348
+18 Feb 2016 17:13:54 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Number of Threads: 6/12 chunk size: 2 Number of nodes 12
+18 Feb 2016 17:13:54 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Starting node is 765448
+18 Feb 2016 17:13:54 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Number of Threads: 11/12 chunk size: 2 Number of nodes 21
+18 Feb 2016 17:14:25 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Starting node is 5648
+18 Feb 2016 17:14:25 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Number of Threads: 1/12 chunk size: 1 Number of nodes 1
+18 Feb 2016 17:14:25 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Starting node is 5648
+18 Feb 2016 17:14:25 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Number of Threads: 3/12 chunk size: 1 Number of nodes 3
+18 Feb 2016 17:14:25 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Starting node is 765448
+18 Feb 2016 17:14:25 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Number of Threads: 11/12 chunk size: 6 Number of nodes 61
+18 Feb 2016 17:14:25 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Starting node is 865348
+18 Feb 2016 17:14:25 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Number of Threads: 6/12 chunk size: 2 Number of nodes 12
+18 Feb 2016 17:14:25 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Starting node is 765448
+18 Feb 2016 17:14:25 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Number of Threads: 11/12 chunk size: 2 Number of nodes 21
+18 Feb 2016 17:15:03 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Starting node is 765448
+18 Feb 2016 17:15:03 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Number of Threads: 11/12 chunk size: 6 Number of nodes 61
+18 Feb 2016 17:15:04 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Starting node is 865348
+18 Feb 2016 17:15:04 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Number of Threads: 6/12 chunk size: 2 Number of nodes 12
+18 Feb 2016 17:15:04 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Starting node is 765448
+18 Feb 2016 17:15:04 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Number of Threads: 11/12 chunk size: 2 Number of nodes 21
+18 Feb 2016 17:15:12 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Starting node is 765448
+18 Feb 2016 17:15:12 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Number of Threads: 11/12 chunk size: 6 Number of nodes 61
+18 Feb 2016 17:15:12 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Starting node is 865348
+18 Feb 2016 17:15:12 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Number of Threads: 6/12 chunk size: 2 Number of nodes 12
+18 Feb 2016 17:15:12 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Starting node is 765448
+18 Feb 2016 17:15:12 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Number of Threads: 11/12 chunk size: 2 Number of nodes 21
+18 Feb 2016 17:22:57 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Starting node is 765448
+18 Feb 2016 17:24:12 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Starting node is 765448
+18 Feb 2016 17:31:00 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Starting node is 765448
+18 Feb 2016 17:31:00 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Number of Threads: 11/12 chunk size: 6 Number of nodes 61
+18 Feb 2016 17:31:00 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Starting node is 865348
+18 Feb 2016 17:31:00 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Number of Threads: 6/12 chunk size: 2 Number of nodes 12
+18 Feb 2016 17:31:00 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Starting node is 765448
+18 Feb 2016 17:31:00 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Number of Threads: 11/12 chunk size: 2 Number of nodes 21
+18 Feb 2016 17:31:12 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Starting node is 765448
+18 Feb 2016 17:31:12 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Number of Threads: 11/12 chunk size: 6 Number of nodes 61
+18 Feb 2016 17:33:55 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Starting node is 765448
+18 Feb 2016 17:33:55 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Number of Threads: 11/12 chunk size: 6 Number of nodes 61
+18 Feb 2016 17:33:55 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - java.util.concurrent.ExecutionException: java.lang.IllegalArgumentException: Trying to change map of query node 765448 a different map is already present
+18 Feb 2016 17:33:55 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Starting node is 865348
+18 Feb 2016 17:33:55 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Number of Threads: 6/12 chunk size: 2 Number of nodes 12
+18 Feb 2016 17:33:55 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Starting node is 765448
+18 Feb 2016 17:33:55 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Number of Threads: 11/12 chunk size: 2 Number of nodes 21
+18 Feb 2016 17:33:55 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - java.util.concurrent.ExecutionException: java.lang.IllegalArgumentException: Trying to change map of query node 765448 a different map is already present
+18 Feb 2016 17:39:16 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Starting node is 765448
+18 Feb 2016 17:39:16 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Number of Threads: 11/12 chunk size: 6 Number of nodes 61
+18 Feb 2016 17:39:16 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - java.util.concurrent.ExecutionException: java.lang.IllegalArgumentException: Trying to change map of query node 765448 a different map is already present
+18 Feb 2016 17:39:16 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Starting node is 865348
+18 Feb 2016 17:39:16 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Number of Threads: 6/12 chunk size: 2 Number of nodes 12
+18 Feb 2016 17:39:16 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Starting node is 765448
+18 Feb 2016 17:39:16 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Number of Threads: 11/12 chunk size: 2 Number of nodes 21
+18 Feb 2016 17:39:16 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - java.util.concurrent.ExecutionException: java.lang.IllegalArgumentException: Trying to change map of query node 765448 a different map is already present
+18 Feb 2016 17:40:13 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Starting node is 765448
+18 Feb 2016 17:40:13 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Number of Threads: 11/12 chunk size: 6 Number of nodes 61
+18 Feb 2016 17:40:13 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - java.util.concurrent.ExecutionException: java.lang.IllegalArgumentException: Trying to change map of query node 765448 a different map is already present
+18 Feb 2016 17:40:13 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Starting node is 865348
+18 Feb 2016 17:40:13 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Number of Threads: 6/12 chunk size: 2 Number of nodes 12
+18 Feb 2016 17:40:14 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Starting node is 765448
+18 Feb 2016 17:40:14 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Number of Threads: 11/12 chunk size: 2 Number of nodes 21
+18 Feb 2016 17:40:14 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - java.util.concurrent.ExecutionException: java.lang.IllegalArgumentException: Trying to change map of query node 765448 a different map is already present
+18 Feb 2016 17:41:57 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Starting node is 765448
+18 Feb 2016 17:41:57 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Number of Threads: 11/12 chunk size: 6 Number of nodes 61
+18 Feb 2016 17:41:57 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - java.util.concurrent.ExecutionException: java.lang.IllegalArgumentException: Trying to change map of query node 765448 a different map is already present
+18 Feb 2016 17:41:57 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Starting node is 865348
+18 Feb 2016 17:41:57 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Number of Threads: 6/12 chunk size: 2 Number of nodes 12
+18 Feb 2016 17:41:57 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Starting node is 765448
+18 Feb 2016 17:41:57 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Number of Threads: 11/12 chunk size: 2 Number of nodes 21
+18 Feb 2016 17:41:57 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - java.util.concurrent.ExecutionException: java.lang.IllegalArgumentException: Trying to change map of query node 765448 a different map is already present
+18 Feb 2016 17:56:05 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Starting node is 765448
+18 Feb 2016 17:56:05 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Number of Threads: 11/12 chunk size: 6 Number of nodes 61
+18 Feb 2016 17:56:05 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - java.util.concurrent.ExecutionException: java.lang.NullPointerException
+18 Feb 2016 17:56:05 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Starting node is 865348
+18 Feb 2016 17:56:05 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Number of Threads: 6/12 chunk size: 2 Number of nodes 12
+18 Feb 2016 17:56:05 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - java.util.concurrent.ExecutionException: java.lang.NullPointerException
+18 Feb 2016 17:56:05 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Starting node is 765448
+18 Feb 2016 17:56:05 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Number of Threads: 11/12 chunk size: 2 Number of nodes 21
+18 Feb 2016 17:56:05 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - java.util.concurrent.ExecutionException: java.lang.NullPointerException
+18 Feb 2016 17:57:54 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Starting node is 765448
+18 Feb 2016 17:57:54 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Number of Threads: 11/12 chunk size: 6 Number of nodes 61
+18 Feb 2016 17:57:54 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - java.util.concurrent.ExecutionException: java.lang.IllegalArgumentException: Trying to change map of query node 765448 a different map is already present
+18 Feb 2016 17:57:54 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Starting node is 865348
+18 Feb 2016 17:57:54 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Number of Threads: 6/12 chunk size: 2 Number of nodes 12
+18 Feb 2016 17:57:54 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Starting node is 765448
+18 Feb 2016 17:57:54 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Number of Threads: 11/12 chunk size: 2 Number of nodes 21
+18 Feb 2016 17:59:26 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Starting node is 765448
+18 Feb 2016 17:59:26 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Number of Threads: 11/12 chunk size: 6 Number of nodes 61
+18 Feb 2016 17:59:26 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - java.util.concurrent.ExecutionException: java.lang.IllegalArgumentException: Trying to change map of query node 765448 a different map is already present
+18 Feb 2016 17:59:26 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Starting node is 865348
+18 Feb 2016 17:59:26 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Number of Threads: 6/12 chunk size: 2 Number of nodes 12
+18 Feb 2016 17:59:26 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Starting node is 765448
+18 Feb 2016 17:59:26 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Number of Threads: 11/12 chunk size: 2 Number of nodes 21
+18 Feb 2016 18:11:35 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Starting node is 765448
+18 Feb 2016 18:11:35 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Number of Threads: 11/12 chunk size: 6 Number of nodes 61
+18 Feb 2016 18:11:35 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - java.util.concurrent.ExecutionException: java.lang.IllegalArgumentException: Trying to change map of query node 765448 a different map is already present
+18 Feb 2016 18:11:35 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Starting node is 865348
+18 Feb 2016 18:11:35 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Number of Threads: 6/12 chunk size: 2 Number of nodes 12
+18 Feb 2016 18:11:35 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Starting node is 765448
+18 Feb 2016 18:11:35 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Number of Threads: 11/12 chunk size: 2 Number of nodes 21
+18 Feb 2016 18:11:56 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Starting node is 765448
+18 Feb 2016 18:11:56 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Number of Threads: 11/12 chunk size: 6 Number of nodes 61
+18 Feb 2016 18:11:56 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - java.util.concurrent.ExecutionException: java.lang.IllegalArgumentException: Trying to change map of query node 765448 a different map is already present
+18 Feb 2016 18:11:56 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Starting node is 865348
+18 Feb 2016 18:11:56 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Number of Threads: 6/12 chunk size: 2 Number of nodes 12
+18 Feb 2016 18:11:56 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Starting node is 765448
+18 Feb 2016 18:11:56 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Number of Threads: 11/12 chunk size: 2 Number of nodes 21
+18 Feb 2016 21:17:52 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Starting node is 765448
+18 Feb 2016 21:17:52 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Number of Threads: 1/1 chunk size: 61 Number of nodes 61
+18 Feb 2016 21:17:52 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - java.util.concurrent.ExecutionException: java.lang.IllegalArgumentException: Trying to change map of query node 765448 a different map is already present
+18 Feb 2016 21:17:52 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Starting node is 865348
+18 Feb 2016 21:17:52 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Number of Threads: 1/1 chunk size: 12 Number of nodes 12
+18 Feb 2016 21:17:52 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Starting node is 765448
+18 Feb 2016 21:17:52 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Number of Threads: 1/1 chunk size: 21 Number of nodes 21
+18 Feb 2016 22:39:18 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Starting node is 765448
+18 Feb 2016 22:39:18 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Number of Threads: 1/1 chunk size: 61 Number of nodes 61
+18 Feb 2016 22:39:18 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - java.util.concurrent.ExecutionException: java.lang.IllegalArgumentException: Trying to change map of query node 765448 a different map is already present
+18 Feb 2016 22:39:18 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Starting node is 865348
+18 Feb 2016 22:39:18 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Number of Threads: 1/1 chunk size: 12 Number of nodes 12
+18 Feb 2016 22:39:18 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Starting node is 765448
+18 Feb 2016 22:39:18 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Number of Threads: 1/1 chunk size: 21 Number of nodes 21
+18 Feb 2016 22:39:38 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Starting node is 765448
+18 Feb 2016 22:39:38 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Number of Threads: 1/1 chunk size: 61 Number of nodes 61
+18 Feb 2016 22:39:38 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - java.util.concurrent.ExecutionException: java.lang.IllegalArgumentException: Trying to change map of query node 765448 a different map is already present
+18 Feb 2016 22:39:38 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Starting node is 865348
+18 Feb 2016 22:39:38 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Number of Threads: 1/1 chunk size: 12 Number of nodes 12
+18 Feb 2016 22:39:38 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Starting node is 765448
+18 Feb 2016 22:39:38 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Number of Threads: 1/1 chunk size: 21 Number of nodes 21
+18 Feb 2016 22:39:50 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Starting node is 765448
+18 Feb 2016 22:39:50 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Number of Threads: 1/1 chunk size: 61 Number of nodes 61
+18 Feb 2016 22:39:50 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - java.util.concurrent.ExecutionException: java.lang.IllegalArgumentException: Trying to change map of query node 765448 a different map is already present
+18 Feb 2016 22:39:50 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Starting node is 865348
+18 Feb 2016 22:39:50 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Number of Threads: 1/1 chunk size: 12 Number of nodes 12
+18 Feb 2016 22:39:50 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Starting node is 765448
+18 Feb 2016 22:39:50 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Number of Threads: 1/1 chunk size: 21 Number of nodes 21
+18 Feb 2016 22:42:34 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Starting node is 765448
+18 Feb 2016 22:42:34 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Number of Threads: 1/1 chunk size: 61 Number of nodes 61
+18 Feb 2016 22:42:34 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - java.util.concurrent.ExecutionException: java.lang.IllegalArgumentException: Trying to change map of query node 765448 a different map is already present
+18 Feb 2016 22:42:34 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Starting node is 865348
+18 Feb 2016 22:42:34 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Number of Threads: 1/1 chunk size: 12 Number of nodes 12
+18 Feb 2016 22:42:34 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Starting node is 765448
+18 Feb 2016 22:42:34 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Number of Threads: 1/1 chunk size: 21 Number of nodes 21
+18 Feb 2016 22:54:00 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Starting node is 765448
+18 Feb 2016 22:54:00 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Number of Threads: 1/1 chunk size: 61 Number of nodes 61
+18 Feb 2016 22:54:00 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - java.util.concurrent.ExecutionException: java.lang.IllegalArgumentException: Trying to change map of query node 765448 a different map is already present
+18 Feb 2016 22:54:00 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Starting node is 865348
+18 Feb 2016 22:54:00 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Number of Threads: 1/1 chunk size: 12 Number of nodes 12
+18 Feb 2016 22:54:00 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Starting node is 765448
+18 Feb 2016 22:54:00 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Number of Threads: 1/1 chunk size: 21 Number of nodes 21
+18 Feb 2016 22:55:57 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Starting node is 765448
+18 Feb 2016 22:55:57 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Number of Threads: 1/1 chunk size: 61 Number of nodes 61
+18 Feb 2016 22:55:57 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - java.util.concurrent.ExecutionException: java.lang.IllegalArgumentException: Trying to change map of query node 765448 a different map is already present
+18 Feb 2016 22:55:57 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Starting node is 865348
+18 Feb 2016 22:55:57 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Number of Threads: 1/1 chunk size: 12 Number of nodes 12
+18 Feb 2016 22:55:57 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Starting node is 765448
+18 Feb 2016 22:55:57 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Number of Threads: 1/1 chunk size: 21 Number of nodes 21
+18 Feb 2016 22:56:39 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Starting node is 765448
+18 Feb 2016 22:56:39 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Number of Threads: 1/1 chunk size: 61 Number of nodes 61
+18 Feb 2016 22:56:39 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - java.util.concurrent.ExecutionException: java.lang.IllegalArgumentException: Trying to change map of query node 765448 a different map is already present
+18 Feb 2016 22:56:39 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Starting node is 865348
+18 Feb 2016 22:56:39 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Number of Threads: 1/1 chunk size: 12 Number of nodes 12
+18 Feb 2016 22:56:39 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Starting node is 765448
+18 Feb 2016 22:56:39 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Number of Threads: 1/1 chunk size: 21 Number of nodes 21
+18 Feb 2016 23:01:07 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Starting node is 765448
+18 Feb 2016 23:01:07 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Number of Threads: 1/1 chunk size: 61 Number of nodes 61
+18 Feb 2016 23:01:07 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Starting node is 865348
+18 Feb 2016 23:01:07 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Number of Threads: 1/1 chunk size: 12 Number of nodes 12
+18 Feb 2016 23:01:07 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Starting node is 765448
+18 Feb 2016 23:01:07 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Number of Threads: 1/1 chunk size: 21 Number of nodes 21
+18 Feb 2016 23:02:21 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Starting node is 765448
+18 Feb 2016 23:02:21 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Number of Threads: 1/1 chunk size: 61 Number of nodes 61
+18 Feb 2016 23:02:21 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Starting node is 865348
+18 Feb 2016 23:02:21 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Number of Threads: 1/1 chunk size: 12 Number of nodes 12
+18 Feb 2016 23:02:21 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Starting node is 765448
+18 Feb 2016 23:02:21 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Number of Threads: 1/1 chunk size: 21 Number of nodes 21
+18 Feb 2016 23:04:18 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Starting node is 765448
+18 Feb 2016 23:04:18 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Number of Threads: 1/1 chunk size: 61 Number of nodes 61
+18 Feb 2016 23:04:18 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Starting node is 865348
+18 Feb 2016 23:04:18 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Number of Threads: 1/1 chunk size: 12 Number of nodes 12
+18 Feb 2016 23:04:18 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Starting node is 765448
+18 Feb 2016 23:04:18 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Number of Threads: 1/1 chunk size: 21 Number of nodes 21
+18 Feb 2016 23:05:50 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Starting node is 765448
+18 Feb 2016 23:05:50 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Number of Threads: 1/1 chunk size: 61 Number of nodes 61
+18 Feb 2016 23:05:50 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Starting node is 865348
+18 Feb 2016 23:05:50 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Number of Threads: 1/1 chunk size: 12 Number of nodes 12
+18 Feb 2016 23:05:50 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Starting node is 765448
+18 Feb 2016 23:05:50 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Number of Threads: 1/1 chunk size: 21 Number of nodes 21
+19 Feb 2016 20:34:46 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Starting node is 865348
+19 Feb 2016 20:34:46 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Number of Threads: 1/1 chunk size: 12 Number of nodes 12
+19 Feb 2016 20:34:46 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Starting node is 765448
+19 Feb 2016 20:34:46 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Number of Threads: 1/1 chunk size: 21 Number of nodes 21
+19 Feb 2016 20:51:08 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Starting node is 865348
+19 Feb 2016 20:51:08 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Number of Threads: 1/1 chunk size: 12 Number of nodes 12
+19 Feb 2016 21:24:47 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Starting node is 865348
+19 Feb 2016 21:24:47 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Number of Threads: 1/1 chunk size: 12 Number of nodes 12
+19 Feb 2016 21:24:47 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Starting node is 765448
+19 Feb 2016 21:24:47 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Number of Threads: 1/1 chunk size: 21 Number of nodes 21
+19 Feb 2016 21:24:58 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Starting node is 865348
+19 Feb 2016 21:24:58 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Number of Threads: 1/1 chunk size: 12 Number of nodes 12
+19 Feb 2016 21:24:58 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Starting node is 765448
+19 Feb 2016 21:24:58 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Number of Threads: 1/1 chunk size: 21 Number of nodes 21
+19 Feb 2016 21:26:58 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Starting node is 865348
+19 Feb 2016 21:26:58 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Number of Threads: 1/1 chunk size: 12 Number of nodes 12
+19 Feb 2016 22:01:31 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Starting node is 865348
+19 Feb 2016 22:01:31 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Number of Threads: 1/1 chunk size: 12 Number of nodes 12
+19 Feb 2016 22:09:52 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Starting node is 865348
+19 Feb 2016 22:09:52 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Number of Threads: 1/1 chunk size: 12 Number of nodes 12
+19 Feb 2016 22:14:59 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Starting node is 865348
+19 Feb 2016 22:14:59 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Number of Threads: 1/1 chunk size: 12 Number of nodes 12
+19 Feb 2016 22:16:09 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Starting node is 865348
+19 Feb 2016 22:16:09 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Number of Threads: 1/1 chunk size: 12 Number of nodes 12
+19 Feb 2016 22:16:09 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Starting node is 765448
+19 Feb 2016 22:16:09 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Number of Threads: 1/1 chunk size: 21 Number of nodes 21
+19 Feb 2016 22:23:11 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Starting node is 815548
+19 Feb 2016 22:23:11 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Number of Threads: 1/1 chunk size: 21 Number of nodes 21
+19 Feb 2016 22:23:12 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Starting node is 765448
+19 Feb 2016 22:23:12 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Number of Threads: 1/1 chunk size: 21 Number of nodes 21
+19 Feb 2016 22:33:06 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Starting node is 815548
+19 Feb 2016 22:33:06 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Number of Threads: 1/1 chunk size: 21 Number of nodes 21
+19 Feb 2016 22:34:17 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Starting node is 815548
+19 Feb 2016 22:34:17 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Number of Threads: 1/1 chunk size: 21 Number of nodes 21
+19 Feb 2016 22:36:09 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Starting node is 815548
+19 Feb 2016 22:36:09 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Number of Threads: 1/1 chunk size: 21 Number of nodes 21
+19 Feb 2016 22:37:39 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Starting node is 815548
+19 Feb 2016 22:37:39 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Number of Threads: 1/1 chunk size: 21 Number of nodes 21
+19 Feb 2016 23:00:57 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Starting node is 815548
+19 Feb 2016 23:00:57 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Number of Threads: 1/1 chunk size: 21 Number of nodes 21
+19 Feb 2016 23:00:57 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Starting node is 765448
+19 Feb 2016 23:00:57 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Number of Threads: 1/1 chunk size: 21 Number of nodes 21
+19 Feb 2016 23:02:30 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Starting node is 815548
+19 Feb 2016 23:02:30 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Number of Threads: 1/1 chunk size: 21 Number of nodes 21
+20 Feb 2016 13:54:59 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Starting node is 815548
+20 Feb 2016 13:54:59 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Number of Threads: 1/1 chunk size: 21 Number of nodes 21
+20 Feb 2016 14:04:27 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Starting node is 815548
+20 Feb 2016 14:04:27 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Number of Threads: 1/1 chunk size: 21 Number of nodes 21
+20 Feb 2016 14:04:27 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Starting node is 765448
+20 Feb 2016 14:04:27 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Number of Threads: 1/1 chunk size: 21 Number of nodes 21
+20 Feb 2016 14:05:46 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Starting node is 815548
+20 Feb 2016 14:05:46 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Number of Threads: 1/1 chunk size: 21 Number of nodes 21
+20 Feb 2016 14:08:01 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Starting node is 815548
+20 Feb 2016 14:08:01 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Number of Threads: 1/1 chunk size: 21 Number of nodes 21
+20 Feb 2016 14:08:01 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Starting node is 765448
+20 Feb 2016 14:08:01 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Number of Threads: 1/1 chunk size: 21 Number of nodes 21
+20 Feb 2016 14:11:40 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Starting node is 815548
+20 Feb 2016 14:11:40 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Number of Threads: 1/1 chunk size: 21 Number of nodes 21
+20 Feb 2016 14:11:40 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Starting node is 765448
+20 Feb 2016 14:11:40 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Number of Threads: 1/1 chunk size: 21 Number of nodes 21
+20 Feb 2016 14:12:28 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Starting node is 815548
+20 Feb 2016 14:12:28 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Number of Threads: 1/1 chunk size: 21 Number of nodes 21
+20 Feb 2016 14:12:28 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Starting node is 765448
+20 Feb 2016 14:12:28 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Number of Threads: 1/1 chunk size: 21 Number of nodes 21
+20 Feb 2016 14:18:49 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Starting node is 815548
+20 Feb 2016 14:18:49 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Number of Threads: 1/1 chunk size: 21 Number of nodes 21
+20 Feb 2016 14:20:27 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Starting node is 815548
+20 Feb 2016 14:20:27 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Number of Threads: 1/1 chunk size: 21 Number of nodes 21
+20 Feb 2016 14:20:27 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Starting node is 765448
+20 Feb 2016 14:20:27 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Number of Threads: 1/1 chunk size: 21 Number of nodes 21
+20 Feb 2016 14:29:40 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Starting node is 765448
+20 Feb 2016 14:29:40 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Number of Threads: 1/1 chunk size: 21 Number of nodes 21
+20 Feb 2016 14:33:27 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Starting node is 765448
+20 Feb 2016 14:33:27 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Number of Threads: 1/1 chunk size: 21 Number of nodes 21
+20 Feb 2016 14:34:22 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Starting node is 765448
+20 Feb 2016 14:34:22 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Number of Threads: 1/1 chunk size: 21 Number of nodes 21
+20 Feb 2016 14:35:08 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Starting node is 765448
+20 Feb 2016 14:35:08 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Number of Threads: 1/1 chunk size: 21 Number of nodes 21
+20 Feb 2016 14:46:31 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Starting node is 765448
+20 Feb 2016 14:46:31 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Number of Threads: 1/1 chunk size: 21 Number of nodes 21
+20 Feb 2016 15:17:45 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Starting node is 765448
+20 Feb 2016 15:17:45 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Number of Threads: 1/1 chunk size: 21 Number of nodes 21
+20 Feb 2016 15:28:51 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Starting node is 765448
+20 Feb 2016 15:28:51 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Number of Threads: 1/1 chunk size: 21 Number of nodes 21
+20 Feb 2016 15:34:31 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Starting node is 765448
+20 Feb 2016 15:34:31 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Number of Threads: 1/1 chunk size: 21 Number of nodes 21
+20 Feb 2016 15:38:32 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Starting node is 765448
+20 Feb 2016 15:38:32 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Number of Threads: 1/1 chunk size: 21 Number of nodes 21
+20 Feb 2016 15:39:23 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Starting node is 765448
+20 Feb 2016 15:39:23 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Number of Threads: 1/1 chunk size: 21 Number of nodes 21
+20 Feb 2016 15:45:28 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Starting node is 5648
+20 Feb 2016 15:45:28 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Number of Threads: 1/1 chunk size: 1 Number of nodes 1
+20 Feb 2016 15:45:28 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Starting node is 5648
+20 Feb 2016 15:45:28 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Number of Threads: 1/1 chunk size: 3 Number of nodes 3
+20 Feb 2016 15:45:28 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Starting node is 765448
+20 Feb 2016 15:45:28 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Number of Threads: 1/1 chunk size: 61 Number of nodes 61
+20 Feb 2016 15:45:28 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Starting node is 815548
+20 Feb 2016 15:45:28 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Number of Threads: 1/1 chunk size: 21 Number of nodes 21
+20 Feb 2016 15:45:28 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Starting node is 765448
+20 Feb 2016 15:45:28 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Number of Threads: 1/1 chunk size: 21 Number of nodes 21
+20 Feb 2016 15:46:39 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Starting node is 5648
+20 Feb 2016 15:46:39 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Number of Threads: 1/1 chunk size: 1 Number of nodes 1
+20 Feb 2016 15:46:39 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Starting node is 5648
+20 Feb 2016 15:46:39 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Number of Threads: 1/1 chunk size: 3 Number of nodes 3
+20 Feb 2016 15:46:39 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Starting node is 765448
+20 Feb 2016 15:46:39 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Number of Threads: 1/1 chunk size: 61 Number of nodes 61
+20 Feb 2016 15:46:39 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Starting node is 815548
+20 Feb 2016 15:46:40 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Number of Threads: 1/1 chunk size: 21 Number of nodes 21
+20 Feb 2016 15:46:40 [main,89] DEBUG eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Starting node is 765448
+20 Feb 2016 15:46:40 [main,89] INFO  eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - Number of Threads: 1/1 chunk size: 21 Number of nodes 21

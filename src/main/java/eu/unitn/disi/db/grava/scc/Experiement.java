@@ -49,11 +49,13 @@ public class Experiement {
 		
 //		ed.setAnswerFile(answerFile);
 		ArrayList<String> queryFiles = FileOperator.getFileName(queryFolder);
-		for(int i = 0; i < 1; i++){
+		for(int i = 1; i < 6; i++){
 			ed.setThreshold(threshold);
-			ed.setQueryName(queryFolder + "/" + "E5PQ" + i + ".txt");
+//			ed.setQueryName(queryFolder + "/" + "Clique" + i + ".txt");
+//			ed.runEditDistance();
+			ed.setQueryName(queryFolder + "/" + "query" + i + ".txt");
 			ed.runEditDistance();
-//			ed.setQueryName(queryFolder + "/" + "E5FQ" + i + ".txt");
+//			ed.setQueryName(queryFolder + "/" + "E2FQ" + i + ".txt");
 //			ed.runEditDistance();
 		}
 //		for(String queryFile : queryFiles){

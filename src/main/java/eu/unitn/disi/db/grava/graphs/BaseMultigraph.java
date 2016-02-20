@@ -390,4 +390,13 @@ public class BaseMultigraph implements Multigraph {
             }
         }
     }
+
+	@Override
+	public Collection<MappedNode> infoVertexSet() {
+		Collection<MappedNode> infoVertex = new HashSet<MappedNode>();
+		for (Long node : nodeEdges.keySet()) {
+			infoVertex.add(new MappedNode(node, null, 0, false, false));
+		}
+		return infoVertex;
+	}
 }

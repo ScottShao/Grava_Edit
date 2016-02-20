@@ -176,6 +176,7 @@ public class BigMultigraph implements Multigraph, Iterable<Long>  {
                     source = Long.parseLong(tokens[0]);
                     dest = Long.parseLong(tokens[1]);
                     label = Long.parseLong(tokens[2]);
+                    //set startingNode
                     if(isFirstLine){
                     	startingNode = source;
                     	isFirstLine = false;
@@ -626,6 +627,15 @@ public class BigMultigraph implements Multigraph, Iterable<Long>  {
 
 	public void setStartingNode(Long startingNode) {
 		this.startingNode = startingNode;
+	}
+
+	@Override
+	public Collection<MappedNode> infoVertexSet() {
+		Collection<MappedNode> infoVertex = new HashSet<MappedNode>();
+		for (Long node : this.vertexSet()) {
+			infoVertex.add(new MappedNode(node, null, 0, false, false));
+		}
+		return infoVertex;
 	}
 	
 	

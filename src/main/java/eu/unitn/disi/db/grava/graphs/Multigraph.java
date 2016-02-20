@@ -88,7 +88,9 @@ public interface Multigraph extends Iterable<Long> {
      * @return The set of vertices
      */
     public Collection<Long> vertexSet();
-
+    
+    
+    public Collection<MappedNode> infoVertexSet();
     /**
      * Returns The number of vertices
      * @return The number of vertices

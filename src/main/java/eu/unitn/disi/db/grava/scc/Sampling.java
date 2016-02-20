@@ -45,6 +45,7 @@ public class Sampling {
     private int ans;
     
 	public Sampling(BigMultigraph G){
+	
 		this.G = G;
 	}
 	public Sampling(BigMultigraph G,int maxNodesNum, int maxDegree, Long startingNode, String fileName) throws IOException{
@@ -227,7 +228,7 @@ public class Sampling {
     	}
     	return mapping;
     }
-    
+    //generate path queries and fan-shaped queries with same label
     private void generateQuery(int edgeNum) throws FileNotFoundException, UnsupportedEncodingException{
     	int count = 0;
     	Collection<Long> nodes = G.vertexSet();
@@ -238,6 +239,7 @@ public class Sampling {
     	edgeNum --;
     	PrintWriter w = null;
     	PrintWriter fw = null;
+    	Long prevLabel = null;
     	for(Long node : nodes){
     		edges = G.outgoingEdgesOf(node);
     		currentNode = node;
@@ -245,14 +247,21 @@ public class Sampling {
     			if(count >= 300){
     				return;
     			}
+    			if(prevLabel != null && prevLabel.equals(e.getLabel())){
+    				continue;
+    			}else{
+    				prevLabel = e.getLabel();
+    			}
     			List<ArrayList<Edge>> results = new ArrayList<ArrayList<Edge>>();
     			List<Edge> currentEdges = new ArrayList<Edge>();
     			currentEdges.add(e);
     			
     			currentNode = ((node.equals(e.getDestination()))? e.getSource():e.getDestination());
-    			this.dfs(results, edges, currentEdges, currentNode, edgeNum);
+    			ArrayList<Long> usedNodes = new ArrayList<Long>();
+    			usedNodes.add(currentNode);
+    			this.dfs(results, edges, currentEdges, currentNode, edgeNum, usedNodes);
     			for(ArrayList<Edge> result : results){
-    				w = new PrintWriter("E"+(en) + "PQ"+count + ".txt", "UTF-8");
+    				w = new PrintWriter("./test/E"+(en) + "PQ"+count + ".txt", "UTF-8");
     				System.out.println(node);
     				System.out.println("path query " + count);
     				for(Edge r : result){
@@ -260,7 +269,7 @@ public class Sampling {
     					w.write("\n");
     					System.out.println(r);
     				}
-    				fw = new PrintWriter("E"+(en) + "FQ"+count + ".txt", "UTF-8");
+    				fw = new PrintWriter("./test/E"+(en) + "FQ"+count + ".txt", "UTF-8");
     				System.out.println("fan query:" + count);
     				for(int m = 0; m < result.size(); m++){
     					int repeat = 0;
@@ -285,8 +294,183 @@ public class Sampling {
     	}
     	
     }
+    //generate path query and fan shaped query 
+    private void randomlyGenerateQuery(int edgeNum) throws FileNotFoundException, UnsupportedEncodingException{
+    	int pCount = 0, fCount = 0;
+    	Collection<Long> nodes = G.vertexSet();
+    	Collection<Edge> edges;
+    	int j;
+    	long currentNode;
+    	int en = edgeNum;
+    	edgeNum --;
+    	PrintWriter w = null;
+    	PrintWriter fw = null;
+    	Long prevLabel = null;
+    	for(Long node : nodes){
+    		edges = G.outgoingEdgesOf(node);
+    		currentNode = node;
+    		for(Edge e : edges){
+    			if(pCount >= 300){
+    				break;
+    			}
+    			
+    			List<ArrayList<Edge>> results = new ArrayList<ArrayList<Edge>>();
+    			List<Edge> currentEdges = new ArrayList<Edge>();
+    			currentEdges.add(e);
+    			
+    			currentNode = ((node.equals(e.getDestination()))? e.getSource():e.getDestination());
+    			ArrayList<Long> usedNodes = new ArrayList<Long>();
+    			usedNodes.add(currentNode);
+    			this.dfs(results, edges, currentEdges, currentNode, edgeNum, usedNodes);
+    			for(ArrayList<Edge> result : results){
+    				w = new PrintWriter("./test/E"+(en) + "PQ"+pCount + ".txt", "UTF-8");
+    				System.out.println(node);
+    				System.out.println("path query " + pCount);
+    				for(Edge r : result){
+    					w.write(r.getSource() + " " + r.getDestination() + " " + r.getLabel());
+    					w.write("\n");
+    					System.out.println(r);
+    				}
+//    				fw = new PrintWriter("./test/E"+(en) + "FQ"+count + ".txt", "UTF-8");
+//    				System.out.println("fan query:" + count);
+//    				for(int m = 0; m < result.size(); m++){
+//    					int repeat = 0;
+//    					for(int n = 0; n < m; n++){
+//    						if(result.get(n).getLabel().equals(result.get(m).getLabel())){
+//    							repeat++;
+//    						}
+//    					}
+//    					Edge r = result.get(m);
+//    					System.out.println(repeat);
+//    					Edge out = this.getEdgeWithLabel(edges, r.getLabel(), repeat);
+//    					fw.write(out.getSource() + " " + out.getDestination() + " " + out.getLabel());
+//    					fw.write("\n");
+//    				}
+    				w.close();
+//    				fw.close();
+    				w = null;
+//    				fw = null;
+    				pCount ++;
+    			}
+    		}
+    		if(edges.size() >= en && fCount < 300){
+    			
+    			fw = new PrintWriter("./test/E"+(en) + "FQ"+fCount + ".txt", "UTF-8");
+    			int i = 0;
+    			for(Edge e : edges){
+    				if(i < en){
+    					fw.write(e.getSource() + " " + e.getDestination() + " " + e.getLabel());
+    					fw.write("\n");
+    					i++;
+    				}else{
+    					break;
+    				}
+    			}
+    			fw.close();
+    			fw = null;
+    			fCount++;
+    			
+    		}
+    	}
+    	
+    }
     
-    private void dfs(List<ArrayList<Edge>> results, Collection<Edge> adjEdges, List<Edge> currentEdges, Long currentNode, int edgeNum){
+    private void writeCliqueToFile(List<Long> prevNodes) throws FileNotFoundException, UnsupportedEncodingException{
+    	Collection<Edge> ins = null;
+    	Collection<Edge> outs = null;
+    	Long tempNode = null;
+    	Long firstNode = null;
+    	Long secondNode = null;
+    	PrintWriter w =  new PrintWriter("./test/Clique"+count + ".txt", "UTF-8");;
+    	for(int i = 0; i < prevNodes.size(); i++){
+    		for(int j = i+1; j < prevNodes.size(); j++){
+    			firstNode = prevNodes.get(i);
+    			secondNode = prevNodes.get(j);
+    			ins = G.incomingEdgesOf(firstNode);
+    	    	for(Edge in : ins){
+    	    		tempNode = in.getDestination().equals(firstNode)?in.getSource():in.getDestination();
+    	    		if(tempNode.equals(secondNode)){
+    	    			w.write(in.getSource() +" "+in.getDestination()+ " " + in.getLabel());
+    	    			w.write("\n");
+    	    			System.out.println(in);
+    	    		}
+    	    	}
+    	    	
+    	    	outs = G.outgoingEdgesOf(firstNode);
+    	    	for(Edge out : outs){
+    	    		tempNode = out.getDestination().equals(firstNode)?out.getSource():out.getDestination();
+    	    		if(tempNode.equals(secondNode)){
+    	    			w.write(out.getSource() +" "+out.getDestination()+ " " + out.getLabel());
+    	    			w.write("\n");
+    	    			System.out.println(out);
+    	    		}
+    	    	}
+    		}
+    		
+    	}
+    	w.close();
+    }
+    private void generateClique(int nodeNum,int index, List<Long> prevNodes){
+    	if(nodeNum == 0){
+    		count++;
+    		if(count >= 300){
+    			return;
+    		}
+    		System.out.println("========="+count+"========");
+    		try {
+				this.writeCliqueToFile(prevNodes);
+			} catch (FileNotFoundException | UnsupportedEncodingException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+    	}
+    	Collection<Long> nodes = G.vertexSet();
+    	int i = 0;
+    	boolean isAdding = true;
+    	for(Long node : nodes){
+//    		System.out.println("processing:" + node);
+    		isAdding = true;
+    		if(i < index){
+    			i++;
+    			continue;
+    		}else{
+    			i++;
+    			for(Long prevNode : prevNodes){
+    				isAdding = isAdding && isConnected(node, prevNode);
+    			}
+    			if(isAdding){
+    				prevNodes.add(node);
+    				generateClique(nodeNum-1, i+1, prevNodes);
+    				prevNodes.remove(prevNodes.size()-1);
+    			}
+    		}
+    		
+    	}
+    	
+    }
+    
+    private	boolean isConnected(Long firstNode, Long secondNode){
+    	Collection<Edge> ins = G.incomingEdgesOf(firstNode);
+    	Long tempNode = null;
+    	for(Edge in : ins){
+    		tempNode = in.getDestination().equals(firstNode)?in.getSource():in.getDestination();
+    		if(tempNode.equals(secondNode)){
+    			return true;
+    		}
+    	}
+    	
+    	Collection<Edge> outs = G.outgoingEdgesOf(firstNode);
+    	for(Edge out : outs){
+    		tempNode = out.getDestination().equals(firstNode)?out.getSource():out.getDestination();
+    		if(tempNode.equals(secondNode)){
+    			return true;
+    		}
+    	}
+    	return false;
+    	
+    } 
+    
+    private void dfs(List<ArrayList<Edge>> results, Collection<Edge> adjEdges, List<Edge> currentEdges, Long currentNode, int edgeNum, ArrayList<Long> usedNodes){
     	if(results.size() == 1){
     		return;
     	}
@@ -302,9 +486,17 @@ public class Sampling {
     		edgeNum --;
     		Collection<Edge> currentAdj = G.outgoingEdgesOf(currentNode);
     		boolean nextRecur;
+    		Long tempNode = currentNode;
     		for(Edge e : currentAdj){
+    			
     			if(e.equals(currentEdges.get(currentEdges.size()-1))){
     				continue;
+    			}
+    			currentNode = (tempNode == e.getDestination())?e.getSource():e.getDestination();
+    			if(usedNodes.contains(currentNode)){
+    				continue;
+    			}else{
+    				usedNodes.add(currentNode);
     			}
     			nextRecur = false;
     			if(this.isContainLabel(adjEdges, e.getLabel())){
@@ -331,8 +523,8 @@ public class Sampling {
     					
     				}
     				if(nextRecur){
-    					currentNode = (currentNode == e.getDestination())?e.getSource():e.getDestination();
-    					dfs(results,adjEdges, currentEdges,currentNode, edgeNum);
+    					
+    					dfs(results,adjEdges, currentEdges,currentNode, edgeNum, usedNodes);
     					currentEdges.remove(currentEdges.size()-1);
     				}
     				
@@ -382,6 +574,7 @@ public class Sampling {
 //        	}
 //        }
         Sampling s = new Sampling(G);
-        s.generateQuery(5);
+//        s.randomlyGenerateQuery(2);
+        s.generateClique(3, 0, new ArrayList<Long>());
     }
 }
