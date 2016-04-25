@@ -129,7 +129,7 @@ public class PruningAlgorithm extends Algorithm {
         Set<MappedNode> mappedNodes;
         Set<Long> visitedQueryNodes = new HashSet<>();
         int i;
-        this.computeSelectivity();
+//        this.computeSelectivity();
         for (Edge e : graphEdges) {
             frequency = labelFrequency.get(e.getLabel());
             if (frequency == null) {
@@ -160,6 +160,7 @@ public class PruningAlgorithm extends Algorithm {
             while (!queryNodeToVisit.isEmpty()) {
             	
                 currentQueryNode = queryNodeToVisit.poll();
+//                System.out.println(currentQueryNode);
 //                if(currentQueryNode.equals(77815786887248L)){
 //                	System.out.print("");
 //                }
@@ -180,6 +181,12 @@ public class PruningAlgorithm extends Algorithm {
                     //countNodes = 0;
                     //We should check if ALL the query nodes matches and then add the node
                     for (i = 0; i < nodesToVisit.size(); i++) {
+                    	if (i == 500) {
+                    		System.out.print("");
+                    	} else if (i == 1000) {
+                    		System.out.print("");
+                    	}
+                    	int testSize = nodesToVisit.size();
                         graphCandidate = nodesToVisit.get(i);
 //                        if (this.matchesWithPathNeighbor(graphCandidate, currentQueryNode)) {
                         if (this.matches(graphCandidate, currentQueryNode)) {
@@ -193,6 +200,9 @@ public class PruningAlgorithm extends Algorithm {
                             mapNodes(graphCandidate, graph.incomingEdgesOf(graphCandidate.getNodeID()), inQueryEdges, candidateNextLevel, true);
                             mapNodes(graphCandidate, graph.outgoingEdgesOf(graphCandidate.getNodeID()), outQueryEdges, candidateNextLevel, false);
 //                            System.out.println(medium + " " + Utilities.bsCount);
+                            if (testSize != nodesToVisit.size()) {
+                            	System.out.print("");
+                            }
                         }
                     }
 //                    if(currentQueryNode.equals(startingNode)){
@@ -205,12 +215,13 @@ public class PruningAlgorithm extends Algorithm {
 //	                    	System.out.println("candidate:" + tt.getNodeID());
 //	                    }
 //                    }
-//                    System.out.println("node:" + currentQueryNode + " candidate number:" + mappedNodes.size());
+                    
                     //add the out edges to the visited ones
                     visitedQueryNodes.add(currentQueryNode);
                 } else { //No map is possible anymore
                     break;
                 }
+//                System.out.println("node:" + currentQueryNode + " candidate number:" + mappedNodes.size());
             }
             bsCount = Utilities.bsCount;
 //            System.out.println("Binary Search count:" + bsCount);
@@ -226,6 +237,7 @@ public class PruningAlgorithm extends Algorithm {
             ex.printStackTrace();
         	throw new AlgorithmExecutionException("Some other problem occurred", ex);
         }
+        
 //        this.computeTimeCost();
         //Choose the node with the least frequency.
     }
@@ -300,7 +312,7 @@ public class PruningAlgorithm extends Algorithm {
             while (!queryNodeToVisit.isEmpty()) {
             	
                 currentQueryNode = queryNodeToVisit.poll();
-                System.out.println("current query node :" + currentQueryNode);
+//                System.out.println("current query node :" + currentQueryNode);
 //                if(currentQueryNode.equals(77815786887248L)){
 //                	System.out.print("");
 //                }
@@ -356,9 +368,9 @@ public class PruningAlgorithm extends Algorithm {
                 }
             }
             bsCount = Utilities.bsCount;
-            System.out.println("binarySearch count:" + bsCount);
-            System.out.println("cmp neighbour labels count:" + this.cmpNbLabel);
-            System.out.println("update count:" + this.uptCount);
+//            System.out.println("binarySearch count:" + bsCount);
+//            System.out.println("cmp neighbour labels count:" + this.cmpNbLabel);
+//            System.out.println("update count:" + this.uptCount);
 //            this.print();
 //            debug("The number of comparison is %d", numberOfComparison);
         } catch (DataException ex) {
@@ -432,7 +444,7 @@ public class PruningAlgorithm extends Algorithm {
     					MappedNode node = imn.next();
 //    					System.out.println(node + " " + prevStrt.getqNode() + " " +prevNode);
     					if(prevNode.equals(node.getNodeID())){//TODO: may have bug with edit distance
-    						System.out.println(node + " " +tempQNode + " " + prevNode);
+//    						System.out.println(node + " " +tempQNode + " " + prevNode);
     						imn.remove();
     					}
     				}
@@ -548,7 +560,7 @@ public class PruningAlgorithm extends Algorithm {
 	
 	private void mapNodes(MappedNode currentNode, Collection<Edge> graphEdges, Map<Long, List<Long>> queryEdges, Map<Long, Set<MappedNode>> nextLevel, boolean incoming) {
         MappedNode nodeToAdd = null;
-        List<Long> labeledNodes;
+        List<Long> labeledNodes = null;
         List<Long> omniNodes;
         Long nodeID;
         int i;
@@ -559,6 +571,7 @@ public class PruningAlgorithm extends Algorithm {
         	canHaveMoreDif = false;
         }
         for (Edge gEdge : graphEdges) {
+        	labeledNodes = null;
         	uptCount ++;
             nodeID = incoming? gEdge.getSource() : gEdge.getDestination();
             labeledNodes = queryEdges.get(gEdge.getLabel());
@@ -567,23 +580,22 @@ public class PruningAlgorithm extends Algorithm {
             		labeledNodes = new ArrayList<Long>();
             	}
             	for(Long omniNode: omniNodes){
-            		labeledNodes.add(omniNode);
+            		if (!labeledNodes.contains(omniNode)) labeledNodes.add(omniNode);
             	}
             }
             if (labeledNodes != null) {
             	nodeToAdd = new MappedNode(nodeID, gEdge, currentNode.getDist(), !incoming, false);
-            	uptCount--;
+//            	uptCount--;
             	for (i = 0; i < labeledNodes.size(); i++) {
                 	uptCount ++;
                     nextLevel.get(labeledNodes.get(i)).add(nodeToAdd);
-                    
                 }
             }
             if(canHaveMoreDif){
-            	uptCount--;
+//            	uptCount--;
             	for(Entry<Long, List<Long>> entry : queryEdges.entrySet()){
             		if(!entry.getKey().equals(gEdge.getLabel())){
-            			uptCount --;
+//            			uptCount --;
 	            		for(Long oneNode : entry.getValue()){
 	            			uptCount ++;
 	           				nextLevel.get(oneNode).add(new MappedNode(nodeID, gEdge, currentNode.getDist()+1, !incoming, true));
@@ -604,7 +616,7 @@ public class PruningAlgorithm extends Algorithm {
         Map<Long, List<Long>> outMapping = new HashMap<>();
         Set<Long> toVisit = new HashSet<>();
         Long nodeToAdd;
-        double preSel = prefixSelectivities.get(node);
+//        double preSel = prefixSelectivities.get(node);
         double sel;
         HashSet<Edge> ps;
         if(paths.containsKey(node)){
@@ -624,13 +636,13 @@ public class PruningAlgorithm extends Algorithm {
                 ps.add(edge);
             }
             
-            if(!prefixSelectivities.containsKey(nodeToAdd)){
-            	prefixSelectivities.put(nodeToAdd, preSel*this.computeSel(labelFreq.get(edge.getLabel()).getFrequency()));
-            }else{
-            	sel = prefixSelectivities.get(nodeToAdd);
-            	prefixSelectivities.put(nodeToAdd, sel + preSel*this.computeSel(labelFreq.get(edge.getLabel()).getFrequency()));
-            }
-            
+//            if(!prefixSelectivities.containsKey(nodeToAdd)){
+//            	prefixSelectivities.put(nodeToAdd, preSel*this.computeSel(labelFreq.get(edge.getLabel()).getFrequency()));
+//            }else{
+//            	sel = prefixSelectivities.get(nodeToAdd);
+//            	prefixSelectivities.put(nodeToAdd, sel + preSel*this.computeSel(labelFreq.get(edge.getLabel()).getFrequency()));
+//            }
+//            
             outMapping.put(edge.getLabel(), nodes);
         }
         paths.put(node, ps);

@@ -13,7 +13,7 @@ import eu.unitn.disi.db.grava.vectorization.NeighborTables;
 
 public class Selectivity {
 	private ArrayList<Long> visitSeq;
-	private BigMultigraph query;
+	private Multigraph query;
 	private BigMultigraph graph;
 	private double selectivity;
 	private Indexing indexing;
@@ -294,13 +294,13 @@ public class Selectivity {
 
 
 
-	public BigMultigraph getQuery() {
+	public Multigraph getQuery() {
 		return query;
 	}
 
 
 
-	public void setQuery(BigMultigraph query) {
+	public void setQuery(Multigraph query) {
 		this.query = query;
 	}
 

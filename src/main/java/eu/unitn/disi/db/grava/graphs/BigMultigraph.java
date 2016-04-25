@@ -131,7 +131,15 @@ public class BigMultigraph implements Multigraph, Iterable<Long>  {
         this(inFile, outFile, -1, false);
     }
 
-    public BigMultigraph(String inFile, String outFile, boolean sort) throws ParseException, IOException {
+    public HashMap<Long, Long> getNodeDegree() {
+		return nodeDegree;
+	}
+
+	public void setNodeDegree(HashMap<Long, Long> nodeDegree) {
+		this.nodeDegree = nodeDegree;
+	}
+
+	public BigMultigraph(String inFile, String outFile, boolean sort) throws ParseException, IOException {
         this(inFile, outFile, -1, sort);
     }
 

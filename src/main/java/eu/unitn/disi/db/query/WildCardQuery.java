@@ -5,8 +5,14 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.LinkedList;
+import java.util.Set;
 
+import eu.unitn.disi.db.grava.graphs.BaseMultigraph;
+import eu.unitn.disi.db.grava.graphs.BigMultigraph;
+import eu.unitn.disi.db.grava.graphs.Edge;
+import eu.unitn.disi.db.grava.graphs.Multigraph;
 import eu.unitn.disi.db.grava.utils.FileOperator;
 
 public class WildCardQuery {
@@ -19,11 +25,12 @@ public class WildCardQuery {
 	private int count;
 	private String dirName;
 	private String fileNameWithoutSuffix;
-	
+	private Set<Multigraph> wcQueries;
 	public WildCardQuery(){
 	}
 	
 	public WildCardQuery(int threshold){
+		this.wcQueries = new HashSet<Multigraph>();
 		this.wildCardQuery = new LinkedList<String>();
 		this.threshold = threshold;
 		count = 0;
@@ -31,7 +38,7 @@ public class WildCardQuery {
 	
 	public void run(String fileName) throws IOException{
 		this.readQuery(fileName);
-		this.createWildCardQueryDir();
+//		this.createWildCardQueryDir();
 		this.choose(threshold, 0);
 	}
 	
@@ -55,13 +62,19 @@ public class WildCardQuery {
 		
 	}
 	
-	public String changeToWildCard(String edge){
+	public Edge changeToWildCard(String edge){
 		String[] words = edge.split(" ");
-		return words[0] + " " + words[1] + " " + 0;
+		return new Edge(Long.parseLong(words[0]), Long.parseLong(words[1]), 0L);
+	}
+	
+	public Edge stringToEdge(String edge){
+		String[] words = edge.split(" ");
+		return new Edge(Long.parseLong(words[0]), Long.parseLong(words[1]), Long.parseLong(words[2]));
 	}
 	
 	public void writeQuery() throws IOException{
-		BufferedWriter bw = new BufferedWriter(new FileWriter(dirName+"query" + count + ".txt"));
+//		BufferedWriter bw = new BufferedWriter(new FileWriter(dirName+"query" + count + ".txt"));
+		Multigraph newQuery = new BaseMultigraph();
 		boolean isChanging = false;
 		for(int i = 0; i < query.size(); i++){
 			for(int j = 0; j < chosenNum.length; j ++){
@@ -72,14 +85,23 @@ public class WildCardQuery {
 			}
 			if(isChanging){
 				isChanging = false;
-				bw.write(changeToWildCard(query.get(i)));
-				bw.newLine();
+				Edge newEdge = this.changeToWildCard(query.get(i));
+				newQuery.addVertex(newEdge.getSource());
+				newQuery.addVertex(newEdge.getDestination());
+				newQuery.addEdge(newEdge);
+//				bw.write(changeToWildCard(query.get(i)));
+//				bw.newLine();
 			}else{
-				bw.write(query.get(i));
-				bw.newLine();
+				Edge newEdge = this.stringToEdge(query.get(i));
+				newQuery.addVertex(newEdge.getSource());
+				newQuery.addVertex(newEdge.getDestination());
+				newQuery.addEdge(newEdge);
+//				bw.write(query.get(i));
+//				bw.newLine();
 			}
 		}
-		bw.close();
+		this.wcQueries.add(newQuery);
+//		bw.close();
 	}
 	
 	public void choose(int number, int index) throws IOException{
@@ -164,6 +186,14 @@ public class WildCardQuery {
 
 	public void setFileNameWithoutSuffix(String fileNameWithoutSuffix) {
 		this.fileNameWithoutSuffix = fileNameWithoutSuffix;
+	}
+
+	public Set<Multigraph> getWcQueries() {
+		return wcQueries;
+	}
+
+	public void setWcQueries(Set<Multigraph> wcQueries) {
+		this.wcQueries = wcQueries;
 	}
 	
 	

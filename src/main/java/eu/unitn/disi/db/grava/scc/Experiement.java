@@ -1,12 +1,20 @@
 package eu.unitn.disi.db.grava.scc;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
 
+import eu.unitn.disi.db.grava.utils.MethodOption;
 import eu.unitn.disi.db.command.exceptions.AlgorithmExecutionException;
+import eu.unitn.disi.db.exemplar.core.RelatedQuery;
 import eu.unitn.disi.db.grava.exceptions.ParseException;
 import eu.unitn.disi.db.grava.graphs.Multigraph;
 import eu.unitn.disi.db.grava.utils.FileOperator;
+import eu.unitn.disi.db.grava.utils.Utilities;
 import eu.unitn.disi.db.query.WildCardQuery;
 
 
@@ -49,35 +57,48 @@ public class Experiement {
 		
 //		ed.setAnswerFile(answerFile);
 		ArrayList<String> queryFiles = FileOperator.getFileName(queryFolder);
-		for(int i = 1; i < 6; i++){
-			ed.setThreshold(threshold);
-//			ed.setQueryName(queryFolder + "/" + "Clique" + i + ".txt");
-//			ed.runEditDistance();
-			ed.setQueryName(queryFolder + "/" + "query" + i + ".txt");
+		BufferedWriter bw = new BufferedWriter(new FileWriter(new File("./comparison.csv"), true));
+		int count = 0;
+		int bsCount;
+		int cmpCount;
+		int uptCount;
+		MethodOption mo = MethodOption.BOTH;
+		ed.setMo(mo);
+		ed.setThreshold(threshold);
+		ed.setCmpBw(bw);
+		try{
+		bw.write("avg degree: 8.97, wc candidates, wc estimated candidates, ex candidates, ex estimated candidates, wc cost, wc estimated cost, ex cost, ex estimated cost, wc running time, ex running time");
+		bw.newLine();
+		
+		for (String queryFile : queryFiles) {
+			ed.setQueryName(queryFile);
 			ed.runEditDistance();
+		}
+		
+		}catch (IOException ioe) {
+			ioe.printStackTrace();
+		}finally {
+			bw.close();
+		}
+		
+//		for(int i = 0; i < 50; i++){
+//			bsCount = 0;
+//			cmpCount = 0;
+//			uptCount = 0;
+//			ed.setThreshold(threshold);
+////			ed.setQueryName(queryFolder + "/" + "query" + i + ".txt");
+////			ed.runEditDistance();
+//			
+////			ed.setQueryName(queryFolder + "/" + "Clique" + i + ".txt");
+////			ed.runEditDistance();
 //			ed.setQueryName(queryFolder + "/" + "E2FQ" + i + ".txt");
 //			ed.runEditDistance();
-		}
-//		for(String queryFile : queryFiles){
-//			if(threshold != 0 && isUsingWildCard){
-//				WildCardQuery wcq = new WildCardQuery(1);
-//				wcq.run(queryFile);
-//				ArrayList<String> wildCardFiles = FileOperator.getFileName(wcq.getDirName());
-//				ed.setThreshold(0);
-//				for(String wildCardQuery : wildCardFiles){
-//					ed.setQueryName(wildCardQuery);
-//					ed.runEditDistance();
-//				}
-//			}else{
-//				if(queryFile.contains("E2")){
-//					System.out.println(queryFile);
-//					ed.setThreshold(threshold);
-//					ed.setQueryName(queryFile);
-//					ed.runEditDistance();
-//				}
-//			}
-//			
-////			System.out.println("queryfile:" +queryFile);
+//			bsCount += ed.getBsCount();
+//			cmpCount += ed.getCmpCount();
+//			uptCount += ed.getUptCount();
+//          System.out.println(bsCount);
+//          System.out.println(cmpCount);
+//          System.out.println(uptCount);
 //		}
 	}
 

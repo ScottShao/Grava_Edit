@@ -9,9 +9,6 @@ import eu.unitn.disi.db.query.WildCardQuery;
 public class Main {
 
 	public static void main(String[] args) throws AlgorithmExecutionException, ParseException, IOException {
-		
-
-		
 		if(args.length == 8){
 			int repititions = Integer.parseInt(args[0]);
 			int threshold = Integer.parseInt(args[1]);

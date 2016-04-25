@@ -49,8 +49,9 @@ import java.util.concurrent.TimeUnit;
  */
 public final class Utilities {
     public static final int PAGE_SIZE = 1024;
+    
     public static long bsCount = 0;
-
+    public static long searchCount = 0;
     private static class TableComparator implements Comparator<long[]> {
         @Override
         public int compare(long[] o1, long[] o2) {
@@ -65,6 +66,21 @@ public final class Utilities {
     private Utilities() {
     }
     
+    public static double choose(int x, int y) {
+	    if (y < 0 || y > x) return 0;
+	    if (y > x/2) {
+	        // choose(n,k) == choose(n,n-k), 
+	        // so this could save a little effort
+	        y = x - y;
+	    }
+
+	    double denominator = 1.0, numerator = 1.0;
+	    for (int i = 1; i <= y; i++) {
+	        denominator *= i;
+	        numerator *= (x + 1 - i);
+	    }
+	    return numerator / denominator;
+	}
     public static Set<MappedNode> nodesToMappedNodes(Collection<Long> collection){
     	Set<MappedNode> mappedNodes = new HashSet<MappedNode>();
     	MappedNode mn = null;
