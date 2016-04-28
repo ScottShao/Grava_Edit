@@ -173,6 +173,7 @@ public class EditDistance {
 						computingNeighborTime += watch.getElapsedTimeMillis();
 						// System.out.println(queryTables.toString());
 						watch.reset();
+//						startingNode = this.getRootNode(true);
 						startingNode = this.getRootNode(true);
 						InfoNode info = new InfoNode(startingNode);
 						// System.out.println("starting node:" + startingNode);
