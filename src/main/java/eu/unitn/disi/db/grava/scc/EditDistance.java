@@ -321,6 +321,7 @@ public class EditDistance {
 			computingNeighborTime += watch.getElapsedTimeMillis();
 			// System.out.println(queryTables.toString());
 			watch.reset();
+//			startingNode = this.getRootNode(true);
 			startingNode = this.getRootNode(true);
 			InfoNode info = new InfoNode(startingNode);
 			// System.out.println("starting node:" + startingNode);
@@ -498,6 +499,16 @@ public class EditDistance {
 		
 	}
 	
+	public Long getRootNode() {
+		Collection<Long> nodes = this.Q.vertexSet();
+		for (Long node : nodes) {
+			int degree = Q.inDegreeOf(node) + Q.outDegreeOf(node);
+			if (degree == 1) {
+				return node;
+			}
+		}
+		return nodes.iterator().next();
+	}
 	public Long getRootNode(boolean minimumFrquency) throws AlgorithmExecutionException {
         Collection<Long> nodes = this.Q.vertexSet();
         Set<Long> edgeLabels = new HashSet<>();
