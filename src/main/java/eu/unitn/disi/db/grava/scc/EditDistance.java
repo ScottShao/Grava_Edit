@@ -158,11 +158,6 @@ public class EditDistance {
 						StopWatch watch = new StopWatch();
 						watch.start();
 
-//						ind.indexing((BigMultigraph) G);
-
-//						if (!this.isQueryMappable(Q)) {
-//							break;
-//						}
 						loadingTime += watch.getElapsedTimeMillis();
 
 						tableAlgorithm = new ComputeGraphNeighbors();
