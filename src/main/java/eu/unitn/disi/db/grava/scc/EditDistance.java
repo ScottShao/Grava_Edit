@@ -173,7 +173,7 @@ public class EditDistance {
 						computingNeighborTime += watch.getElapsedTimeMillis();
 						// System.out.println(queryTables.toString());
 						watch.reset();
-						startingNode = this.getRootNode();
+						startingNode = this.getRootNode(true);
 						InfoNode info = new InfoNode(startingNode);
 						// System.out.println("starting node:" + startingNode);
 						pruningAlgorithm = new PruningAlgorithm();
@@ -317,7 +317,7 @@ public class EditDistance {
 			// System.out.println(queryTables.toString());
 			watch.reset();
 //			startingNode = this.getRootNode(true);
-			startingNode = this.getRootNode();
+			startingNode = this.getRootNode(true);
 			InfoNode info = new InfoNode(startingNode);
 			// System.out.println("starting node:" + startingNode);
 			pruningAlgorithm = new PruningAlgorithm();
@@ -357,7 +357,7 @@ public class EditDistance {
 			relatedQueriesUnique.addAll(relatedQueries);
 			Cost.cost = 0;
 			Cost.estimateMaxCost(Q, startingNode, G, MAX_DEGREE, new HashSet<Edge>(), 1);
-			edCost = Cost.getCandidatesNum(Q, startingNode, G) * Q.edgeSet().size() * Cost.cost;
+			edCost = Cost.getCandidatesNum(Q, startingNode, G) * Cost.cost;
 			String[] temp = queryName.split("/");
 //			if (relatedQueriesUnique.size() != 0) {
 //				
