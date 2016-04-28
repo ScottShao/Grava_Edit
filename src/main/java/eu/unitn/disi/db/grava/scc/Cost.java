@@ -75,6 +75,7 @@ public class Cost {
 	    			} else if (e2.getLabel().equals(0L)) {
 	    				return -1;
 	    			} else {
+	    				System.out.println(e1.getLabel() + " " + e2.getLabel());
 	    				return (int)(((BigMultigraph)graph).getLabelFreq().get(e1.getLabel()).getFrequency() - ((BigMultigraph)graph).getLabelFreq().get(e2.getLabel()).getFrequency());
 	    			}
 	    		}

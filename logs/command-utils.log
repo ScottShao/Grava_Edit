@@ -12258,3 +12258,5 @@
 21 Apr 2016 23:02:15 [pool-220-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - More than 100000 partial isomorphic results
 22 Apr 2016 08:39:27 [pool-220-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - More than 100000 partial isomorphic results
 22 Apr 2016 10:58:35 [pool-220-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - More than 100000 partial isomorphic results
+27 Apr 2016 11:59:29 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - java.util.concurrent.ExecutionException: java.lang.NullPointerException
+27 Apr 2016 12:01:35 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - java.util.concurrent.ExecutionException: java.lang.NullPointerException

@@ -10,6 +10,7 @@ import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -407,7 +408,65 @@ public class Sampling {
 		}
 
 	}
-
+	
+	private void generateQueries(int edgeNum, int queriesNum) {
+		Collection<Long> nodes = G.vertexSet();
+		int count = 0;
+		for (Long node : nodes) {
+			if (count > queriesNum)
+				break;
+			if (Math.random() < 0.2) {
+				for (int i = 2; i <= edgeNum; i++){
+					try {
+						this.generateDifSizeQueries(i, node);
+					} catch (FileNotFoundException
+							| UnsupportedEncodingException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+					count++;
+				}
+			}
+		}
+	}
+	
+	private void generateDifSizeQueries(int edgeNum, Long node) throws FileNotFoundException, UnsupportedEncodingException {
+		List<Long> nodes = new ArrayList<>();
+		nodes.add(node);
+		generateQueriesWithAtMost(edgeNum, nodes, new ArrayList<Edge>(), 0);
+	}
+	
+	private void generateQueriesWithAtMost(int edgeNum, List<Long> nodes, List<Edge> edges, int depth) throws FileNotFoundException, UnsupportedEncodingException {
+		if (depth > edges.size() * 10 + 10) {
+			return;
+		}
+		if (edgeNum == 0) {
+			PrintWriter fw = new PrintWriter("./test/N" + nodes.get(0) + "E" + edges.size() + ".txt", "UTF-8");
+			for (Edge e : edges) {
+				fw.write(e.getSource() + " " + e.getDestination() + " " + e.getLabel() + "\n");
+			}
+			fw.close();
+		} else {
+			double choice = Math.random();
+//			System.out.println(choice);
+			int nodeIdx = (int) (choice * nodes.size());
+			Long node = nodes.get(nodeIdx);
+			System.out.println(nodeIdx + " " + nodes.size());
+			Collection<Edge> oes = G.outgoingEdgesOf(node);
+			int edgeSize = oes.size();
+			double prob = 1 / (double) oes.size();
+			for (Edge e : oes) {
+				if (Math.random() <= prob && !edges.contains(e)) {
+					edgeNum--;
+					edges.add(e);
+					nodes.add(e.getDestination());
+					break;
+				}
+			}
+			generateQueriesWithAtMost(edgeNum, nodes, edges, depth + 1);
+		}
+	}
+	
 	private void generateQueriesWithAtMost(int edgeNum, int totalQueryNum)
 			throws FileNotFoundException, UnsupportedEncodingException {
 		int pCount = 0, fCount = 0;
@@ -663,7 +722,7 @@ public class Sampling {
 		// }
 		// }
 		Sampling s = new Sampling(G);
-		s.generateQueriesWithAtMost(10, 10);
+		s.generateQueries(5, 20);
 		// s.generateClique(3, 0, new ArrayList<Long>());
 	}
 }
