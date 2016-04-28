@@ -188,6 +188,7 @@ public class EditDistance {
 						pruningAlgorithm.setQuery(Q);
 						pruningAlgorithm.setGraphTables(graphTables);
 						pruningAlgorithm.setQueryTables(queryTables);
+						System.out.println("startingNode:" + startingNode + " degree:" + (Q.inDegreeOf(startingNode) + Q.outDegreeOf(startingNode))); 
 						// pruningAlgorithm.setGraphPathTables(graphTables);
 						// pruningAlgorithm.setQueryPathTables(queryTables);
 						
@@ -223,7 +224,7 @@ public class EditDistance {
 						relatedQueriesUnique.addAll(relatedQueries);
 						Cost.cost = 0;
 						Cost.estimateMaxCost(wildCardQuery, startingNode, G, MAX_DEGREE, new HashSet<Edge>(), 1);
-						System.out.println("asd:" + Cost.cost);
+//						System.out.println("asd:" + Cost.cost);
 						wcCost += Cost.getCandidatesNum(wildCardQuery, startingNode, G) * Cost.cost;
 //						wcCost += Cost.estimateQueryCost(wildCardQuery, startingNode, G, AVG_DEGREE);
 //						comBw.newLine();
