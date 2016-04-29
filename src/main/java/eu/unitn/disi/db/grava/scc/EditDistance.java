@@ -219,9 +219,11 @@ public class EditDistance {
 						relatedQueriesUnique.addAll(relatedQueries);
 						Cost.cost = 0;
 						Cost.estimateMaxCost(wildCardQuery, startingNode, G, MAX_DEGREE, new HashSet<Edge>(), 1);
+					
 //						System.out.println("asd:" + Cost.cost);
 						wcCost += Cost.getCandidatesNum(wildCardQuery, startingNode, G) * Cost.cost;
 //						wcCost += Cost.estimateQueryCost(wildCardQuery, startingNode, G, AVG_DEGREE);
+//						System.out.println(wcCost + "  asd");
 //						comBw.newLine();
 						isoTime += watch.getElapsedTimeMillis();
 						wcCandidatesNum += pruningAlgorithm.getCandidates().get(startingNode);
@@ -489,6 +491,7 @@ public class EditDistance {
 		*/
 		cmpBw.write(sb.toString());
 		cmpBw.newLine();
+		cmpBw.flush();
 	}
 	
 	public void findMaxEstimation() {
