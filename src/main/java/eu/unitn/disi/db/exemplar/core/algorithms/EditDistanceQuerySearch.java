@@ -119,7 +119,7 @@ public class EditDistanceQuerySearch extends RelatedQuerySearch {
 
         for (List<MappedNode> chunk : nodesChunks) {
             threadNum++;
-            EDMatchingRecursiveStep graphI = new EDMatchingRecursiveStep(threadNum, chunk.iterator(), startingNode, query, graph, this.isLimitedComputation(), this.getSkipSave(), threshold, this.getQueryToGraphMap());
+            EDMatchingRecursiveStep graphI = new EDMatchingRecursiveStep(threadNum, chunk.iterator(), startingNode, query, graph, true, this.getSkipSave(), threshold, this.getQueryToGraphMap());
             lists.add(pool.submit(graphI));
         }
 
