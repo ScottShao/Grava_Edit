@@ -57,7 +57,7 @@ public class Experiement {
 		
 //		ed.setAnswerFile(answerFile);
 		ArrayList<String> queryFiles = FileOperator.getFileName(queryFolder);
-		BufferedWriter bw = new BufferedWriter(new FileWriter(new File("./comparison.csv"), true));
+		BufferedWriter bw = new BufferedWriter(new FileWriter(new File(queryFolder+"/comparison.csv"), true));
 		int count = 0;
 		int bsCount;
 		int cmpCount;
