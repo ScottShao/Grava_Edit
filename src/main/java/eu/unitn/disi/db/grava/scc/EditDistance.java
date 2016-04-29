@@ -210,7 +210,7 @@ public class EditDistance {
 						edAlgorithm.setStartingNode(startingNode);
 						edAlgorithm.setQuery(Q);
 						edAlgorithm.setGraph(G);
-						edAlgorithm.setNumThreads(1);
+						edAlgorithm.setNumThreads(this.threadsNum);
 						edAlgorithm.setQueryToGraphMap(pruningAlgorithm
 								.getQueryGraphMapping());
 						edAlgorithm.setLimitedComputation(false);
@@ -264,7 +264,7 @@ public class EditDistance {
 	public void runExtension() throws IOException, ParseException,
 			AlgorithmExecutionException {
 		long startTime = System.nanoTime();
-//		System.out.println("Running extension");
+		System.out.println("Running extension");
 		Map<Long, Set<MappedNode>> queryGraphMapping = null;
 		ComputeGraphNeighbors tableAlgorithm = null;
 		NeighborTables queryTables = null;
@@ -344,9 +344,10 @@ public class EditDistance {
 
 			EditDistanceQuerySearch edAlgorithm = new EditDistanceQuerySearch();
 			edAlgorithm.setStartingNode(startingNode);
+			
 			edAlgorithm.setQuery(Q);
 			edAlgorithm.setGraph(G);
-			edAlgorithm.setNumThreads(1);
+			edAlgorithm.setNumThreads(this.threadsNum);
 			edAlgorithm.setQueryToGraphMap(pruningAlgorithm
 					.getQueryGraphMapping());
 			edAlgorithm.setLimitedComputation(false);

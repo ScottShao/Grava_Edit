@@ -335,7 +335,7 @@ public class Sampling {
 			edges = G.outgoingEdgesOf(node);
 			currentNode = node;
 			for (Edge e : edges) {
-				if (pCount >= 300) {
+				if (pCount >= 100) {
 					break;
 				}
 
@@ -385,7 +385,7 @@ public class Sampling {
 					pCount++;
 				}
 			}
-			if (edges.size() >= en && fCount < 300) {
+			if (edges.size() >= en && fCount < 100) {
 
 				fw = new PrintWriter(
 						"./test/E" + (en) + "FQ" + fCount + ".txt", "UTF-8");
@@ -408,7 +408,7 @@ public class Sampling {
 		}
 
 	}
-	
+
 	private void generateQueries(int edgeNum, int queriesNum) {
 		Collection<Long> nodes = G.vertexSet();
 		int count = 0;
@@ -416,7 +416,7 @@ public class Sampling {
 			if (count > queriesNum)
 				break;
 			if (Math.random() < 0.2) {
-				for (int i = 2; i <= edgeNum; i++){
+				for (int i = 2; i <= edgeNum; i++) {
 					try {
 						this.generateDifSizeQueries(i, node);
 					} catch (FileNotFoundException
@@ -429,26 +429,30 @@ public class Sampling {
 			}
 		}
 	}
-	
-	private void generateDifSizeQueries(int edgeNum, Long node) throws FileNotFoundException, UnsupportedEncodingException {
+
+	private void generateDifSizeQueries(int edgeNum, Long node)
+			throws FileNotFoundException, UnsupportedEncodingException {
 		List<Long> nodes = new ArrayList<>();
 		nodes.add(node);
 		generateQueriesWithAtMost(edgeNum, nodes, new ArrayList<Edge>(), 0);
 	}
-	
-	private void generateQueriesWithAtMost(int edgeNum, List<Long> nodes, List<Edge> edges, int depth) throws FileNotFoundException, UnsupportedEncodingException {
+
+	private void generateQueriesWithAtMost(int edgeNum, List<Long> nodes,
+			List<Edge> edges, int depth) throws FileNotFoundException,
+			UnsupportedEncodingException {
 		if (depth > edges.size() * 10 + 10) {
 			return;
 		}
 		if (edgeNum == 0) {
-			PrintWriter fw = new PrintWriter("./test/N" + nodes.get(0) + "E" + edges.size() + ".txt", "UTF-8");
+			PrintWriter fw = new PrintWriter("./test/E" + edges.size() + "E" + nodes.get(0) + ".txt", "UTF-8");
 			for (Edge e : edges) {
-				fw.write(e.getSource() + " " + e.getDestination() + " " + e.getLabel() + "\n");
+				fw.write(e.getSource() + " " + e.getDestination() + " "
+						+ e.getLabel() + "\n");
 			}
 			fw.close();
 		} else {
 			double choice = Math.random();
-//			System.out.println(choice);
+			// System.out.println(choice);
 			int nodeIdx = (int) (choice * nodes.size());
 			Long node = nodes.get(nodeIdx);
 			System.out.println(nodeIdx + " " + nodes.size());
@@ -466,7 +470,7 @@ public class Sampling {
 			generateQueriesWithAtMost(edgeNum, nodes, edges, depth + 1);
 		}
 	}
-	
+
 	private void generateQueriesWithAtMost(int edgeNum, int totalQueryNum)
 			throws FileNotFoundException, UnsupportedEncodingException {
 		int pCount = 0, fCount = 0;
@@ -481,13 +485,15 @@ public class Sampling {
 			edges = G.outgoingEdgesOf(node);
 			if (edges.size() >= edgeNum) {
 				for (int i = 2; i <= edgeNum; i++) {
-					fw = new PrintWriter("./test/FQN" + node + "E" + (i) +".txt", "UTF-8");
+					fw = new PrintWriter("./test/FQN" + node + "E" + (i)
+							+ ".txt", "UTF-8");
 					int j = 0;
 					for (Edge e : edges) {
-						if (j < i){
+						if (j < i) {
 							if (fCount <= totalQueryNum) {
-								fw.write(e.getSource() + " " + e.getDestination()
-										+ " " + e.getLabel());
+								fw.write(e.getSource() + " "
+										+ e.getDestination() + " "
+										+ e.getLabel());
 								fw.write("\n");
 							} else {
 								return;
@@ -502,7 +508,7 @@ public class Sampling {
 				}
 				fCount++;
 			}
-			
+
 		}
 
 	}
@@ -709,20 +715,23 @@ public class Sampling {
 	public static void main(String[] args) throws ParseException, IOException {
 		BigMultigraph G = new BigMultigraph("10000nodes-sin.graph",
 				"10000nodes-sout.graph", false);
-		// int size = G.vertexSet().size();
-		// Random rnd = new Random();
-		// Long[] nodes = G.vertexSet().toArray(new Long[size]);
-		// for(int i = 0; i < 10; i++){
-		// System.out.println("Starting node " + nodes[rnd.nextInt(size)]);
-		// for(int j = 2; j <=5; j++){
-		// for(int k = 1;k <= 5; k++){
-		// Sampling s = new Sampling(G, j*10, k, nodes[rnd.nextInt(size)], "Q" +
-		// j*10 + "N"+k+"D_" + (i+1) +".txt");
-		// }
-		// }
-		// }
-		Sampling s = new Sampling(G);
-		s.generateQueries(5, 20);
-		// s.generateClique(3, 0, new ArrayList<Long>());
+//		int size = G.vertexSet().size();
+//		Random rnd = new Random();
+//		Long[] nodes = G.vertexSet().toArray(new Long[size]);
+//		Sampling s = new Sampling(G);
+//		s.randomlyGenerateQuery(2);
+//		for (int i = 0; i < 10; i++) {
+//			System.out.println("Starting node " + nodes[rnd.nextInt(size)]);
+//			for (int j = 2; j <= 5; j++) {
+//				for (int k = 1; k <= 5; k++) {
+//					Sampling s = new Sampling(G, j * 10, k,
+//							nodes[rnd.nextInt(size)], "Q" + j * 10 + "N" + k
+//									+ "D_" + (i + 1) + ".txt");
+//				}
+//			}
+//		}
+		 Sampling s = new Sampling(G);
+		 s.generateQueries(6, 300);
+//		 s.generateClique(3, 0, new ArrayList<Long>());
 	}
 }

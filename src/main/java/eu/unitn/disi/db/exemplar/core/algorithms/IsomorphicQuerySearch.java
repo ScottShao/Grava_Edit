@@ -96,7 +96,7 @@ public class IsomorphicQuerySearch extends RelatedQuerySearch {
         List<List<MappedNode>> nodesChunks = new LinkedList<>();
         List<MappedNode> tmpChunk = new LinkedList<>(); // NETBEANS!
         int count = 0, threadNum = 0;
-        System.out.println(graphNodes.size());
+//        System.out.println(graphNodes.size());
         for (MappedNode node : graphNodes) {
             //if (nodesSimilarity(queryConcept, node) > MIN_SIMILARITY) {
             if (count % chunkSize == 0) {
