@@ -460,6 +460,9 @@ public class Sampling {
 			int edgeSize = oes.size();
 			double prob = 1 / (double) oes.size();
 			for (Edge e : oes) {
+				if (((BigMultigraph)G).getLabelFreq().get(e.getLabel()).getFrequency() > 100) {
+					continue;
+				}
 				if (Math.random() <= prob && !edges.contains(e)) {
 					edgeNum--;
 					edges.add(e);
@@ -731,7 +734,7 @@ public class Sampling {
 //			}
 //		}
 		 Sampling s = new Sampling(G);
-		 s.generateQueries(6, 300);
+		 s.generateQueries(6, 900);
 //		 s.generateClique(3, 0, new ArrayList<Long>());
 	}
 }
