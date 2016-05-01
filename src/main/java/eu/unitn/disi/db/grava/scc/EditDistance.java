@@ -78,6 +78,7 @@ public class EditDistance {
 	private final int AVG_DEGREE = 9;
 	private final int MAX_DEGREE = 688;
 	private int count = 0;
+	private int answerNum = 0;
 	
 	public BufferedWriter getCmpBw() {
 		return cmpBw;
@@ -260,6 +261,7 @@ public class EditDistance {
 		} else {
 
 		}
+		answerNum = relatedQueriesUnique.size();
 		wcElapsedTime = (double)(System.nanoTime() - startTime) / 1000000000.0;
 	}
 
@@ -451,7 +453,7 @@ public class EditDistance {
 //		exEstimatedCost = exEstimatedNum * (this.AVG_DEGREE + this.AVG_DEGREE * this.AVG_DEGREE + 
 //				Utilities.choose(this.AVG_DEGREE, 2)* (a+b) * this.AVG_DEGREE);
 //		sb.append("," + this.wcSearchCount + "," + wcEstimatedCost + "," + this.exSearchCount + "," + exEstimatedCost);
-		sb.append(temp[temp.length - 1] + ","  + this.wcSearchCount + "," + wcCost + "," + this.exSearchCount + "," + edCost);
+		sb.append(temp[temp.length - 1] + ","  + this.wcSearchCount + "," + wcCost + "," + this.exSearchCount + "," + edCost + "," + answerNum);
 		/*for (Edge e : Q.edgeSet()) {
 			double sel = ((BigMultigraph)G).getLabelFreq().get(e.getLabel()).getFrequency()/((double)G.edgeSet().size());
 			selSum += sel; 
