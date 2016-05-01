@@ -84,6 +84,7 @@ public class GraphIsomorphismRecursiveStep extends AlgorithmStep<RelatedQuery> {
                         }
                     }
                 }
+                System.out.println(Utilities.searchCount);
             } catch (OutOfMemoryError E) {
                 if (relatedQueriesPartial != null) {
                     relatedQueriesPartial.clear();
