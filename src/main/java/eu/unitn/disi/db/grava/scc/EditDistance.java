@@ -78,7 +78,7 @@ public class EditDistance {
 	private final int AVG_DEGREE = 9;
 	private final int MAX_DEGREE = 688;
 	private int count = 0;
-	private int answerNum = 0;
+	private int answerNum;
 	
 	public BufferedWriter getCmpBw() {
 		return cmpBw;
@@ -131,7 +131,6 @@ public class EditDistance {
 		float computingNeighborTime = 0;
 		float pruningTime = 0;
 		float isoTime = 0;
-		int answerNum = -1;
 		String temp[] = null;
 		String comFile = "comparison.txt";
 		wcCandidatesNum = 0;
@@ -141,7 +140,7 @@ public class EditDistance {
 			WildCardQuery wcq = new WildCardQuery(threshold);
 			wcq.run(queryName);
 			Set<Multigraph> wildCardQueries = wcq.getWcQueries();
-			relatedQueriesUnique = new HashSet<>();
+//			relatedQueriesUnique = new HashSet<>();
 			for (int exprimentTime = 0; exprimentTime < repititions; exprimentTime++) {
 				// ed.setThreshold(0);
 				for (Multigraph wildCardQuery : wildCardQueries) {
@@ -184,7 +183,7 @@ public class EditDistance {
 						pruningAlgorithm.setQuery(Q);
 						pruningAlgorithm.setGraphTables(graphTables);
 						pruningAlgorithm.setQueryTables(queryTables);
-						System.out.println("startingNode:" + startingNode + " degree:" + (Q.inDegreeOf(startingNode) + Q.outDegreeOf(startingNode))); 
+//						System.out.println("startingNode:" + startingNode + " degree:" + (Q.inDegreeOf(startingNode) + Q.outDegreeOf(startingNode))); 
 						// pruningAlgorithm.setGraphPathTables(graphTables);
 						// pruningAlgorithm.setQueryPathTables(queryTables);
 						
@@ -218,6 +217,7 @@ public class EditDistance {
 						edAlgorithm.compute();
 						relatedQueries = edAlgorithm.getRelatedQueries();
 						relatedQueriesUnique.addAll(relatedQueries);
+						System.out.println(relatedQueriesUnique.size());
 						Cost.cost = 0;
 						Cost.estimateMaxCost(wildCardQuery, startingNode, G, MAX_DEGREE, new HashSet<Edge>(), 1);
 					
@@ -258,10 +258,12 @@ public class EditDistance {
 //				System.out.println(wcUptCount);
 //				System.out.println(wcSearchCount);
 			}
+			answerNum = relatedQueriesUnique.size();
+//			System.out.println(answerNum);
 		} else {
 
 		}
-		answerNum = relatedQueriesUnique.size();
+		
 		wcElapsedTime = (double)(System.nanoTime() - startTime) / 1000000000.0;
 	}
 
@@ -280,7 +282,6 @@ public class EditDistance {
 		float computingNeighborTime = 0;
 		float pruningTime = 0;
 		float isoTime = 0;
-		int answerNum = -1;
 		this.exBsCount = 0;
 		this.exCmpCount = 0;
 		this.exUptCount = 0;
@@ -318,7 +319,6 @@ public class EditDistance {
 			tableAlgorithm.compute();
 			queryTables = tableAlgorithm.getNeighborTables();
 			computingNeighborTime += watch.getElapsedTimeMillis();
-			// System.out.println(queryTables.toString());
 			watch.reset();
 //			startingNode = this.getRootNode(true);
 			startingNode = this.getRootNode(true);
@@ -454,6 +454,7 @@ public class EditDistance {
 //				Utilities.choose(this.AVG_DEGREE, 2)* (a+b) * this.AVG_DEGREE);
 //		sb.append("," + this.wcSearchCount + "," + wcEstimatedCost + "," + this.exSearchCount + "," + exEstimatedCost);
 		sb.append(temp[temp.length - 1] + ","  + this.wcSearchCount + "," + wcCost + "," + this.exSearchCount + "," + edCost + "," + answerNum);
+		System.out.println(answerNum);
 		/*for (Edge e : Q.edgeSet()) {
 			double sel = ((BigMultigraph)G).getLabelFreq().get(e.getLabel()).getFrequency()/((double)G.edgeSet().size());
 			selSum += sel; 

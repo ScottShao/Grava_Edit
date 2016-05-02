@@ -71,6 +71,9 @@ public class Experiement {
 		bw.newLine();
 		
 		for (String queryFile : queryFiles) {
+			if (queryFile.contains("csv")) {
+				continue;
+			}
 			ed.setQueryName(queryFile);
 			ed.runEditDistance();
 		}

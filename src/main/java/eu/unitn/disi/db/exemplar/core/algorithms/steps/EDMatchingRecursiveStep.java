@@ -93,7 +93,7 @@ public class EDMatchingRecursiveStep extends AlgorithmStep<EditDistanceQuery> {
                     relatedQueriesPartial.clear();
                 }
                 error("Memory exausted, so we are returning something but not everything.");
-                //System.gc();
+                System.gc();
                 return new LinkedList<>(relatedQueries);
             }
 

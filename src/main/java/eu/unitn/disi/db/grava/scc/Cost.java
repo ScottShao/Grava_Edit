@@ -148,7 +148,7 @@ public class Cost {
 				}
 			}
 			cost *= minFreq/(double)graph.edgeSet().size() * avgDegree;
-			System.out.println(cost);
+//			System.out.println(cost);
 		}
 		System.out.println("done");
 		return cost;
