@@ -335,10 +335,10 @@ public class Sampling {
 			edges = G.outgoingEdgesOf(node);
 			currentNode = node;
 			for (Edge e : edges) {
-				if (((BigMultigraph) G).getLabelFreq().get(e.getLabel())
-						.getFrequency() > 100) {
-					continue;
-				}
+//				if (((BigMultigraph) G).getLabelFreq().get(e.getLabel())
+//						.getFrequency() > 100) {
+//					continue;
+//				}
 				if (pCount >= 100) {
 					break;
 				}
@@ -395,10 +395,10 @@ public class Sampling {
 				
 				int i = 0;
 				for (Edge e : edges) {
-					if (((BigMultigraph) G).getLabelFreq().get(e.getLabel())
-							.getFrequency() > 100) {
-						continue;
-					}
+//					if (((BigMultigraph) G).getLabelFreq().get(e.getLabel())
+//							.getFrequency() > 100) {
+//						continue;
+//					}
 					// fw.write(e.getSource() + " " + e.getDestination() + " "
 					// + e.getLabel());
 					// fw.write("\n");
@@ -412,10 +412,10 @@ public class Sampling {
 					fw = new PrintWriter(
 							"./test/FQ" + en + "E/E" + (en) + "FQ" + fCount + ".txt", "UTF-8");
 					for (Edge e : edges) {
-						if (((BigMultigraph) G).getLabelFreq()
-								.get(e.getLabel()).getFrequency() > 100) {
-							continue;
-						}
+//						if (((BigMultigraph) G).getLabelFreq()
+//								.get(e.getLabel()).getFrequency() > 100) {
+//							continue;
+//						}
 						if (i < en) {
 							 fw.write(e.getSource() + " " + e.getDestination()
 							 + " "
@@ -674,10 +674,10 @@ public class Sampling {
 			boolean nextRecur;
 			Long tempNode = currentNode;
 			for (Edge e : currentAdj) {
-				if (((BigMultigraph) G).getLabelFreq().get(e.getLabel())
-						.getFrequency() > 100) {
-					continue;
-				}
+//				if (((BigMultigraph) G).getLabelFreq().get(e.getLabel())
+//						.getFrequency() > 100) {
+//					continue;
+//				}
 				if (e.equals(currentEdges.get(currentEdges.size() - 1))) {
 					continue;
 				}
@@ -757,10 +757,10 @@ public class Sampling {
 		int size = G.vertexSet().size();
 		Random rnd = new Random();
 		Long[] nodes = G.vertexSet().toArray(new Long[size]);
-//		Sampling s = new Sampling(G);
-//		for (int i = 5; i <= 10; i++){
-//		s.randomlyGenerateQuery(i);
-//		}
+		Sampling s = new Sampling(G);
+		for (int i = 2; i <= 10; i++){
+			s.randomlyGenerateQuery(i);
+		}
 		// for (int i = 0; i < 10; i++) {
 		// System.out.println("Starting node " + nodes[rnd.nextInt(size)]);
 		// for (int j = 2; j <= 5; j++) {
@@ -771,8 +771,8 @@ public class Sampling {
 		// }
 		// }
 		// }
-		 Sampling s = new Sampling(G);
-		 s.generateQueries(10, 1000);
+//		 Sampling s = new Sampling(G);
+//		 s.generateQueries(10, 1000);
 		// s.generateClique(3, 0, new ArrayList<Long>());
 	}
 
