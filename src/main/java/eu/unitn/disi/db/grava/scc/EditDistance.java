@@ -219,7 +219,7 @@ public class EditDistance {
 						relatedQueriesUnique.addAll(relatedQueries);
 						System.out.println(relatedQueriesUnique.size());
 						Cost.cost = 0;
-						Cost.estimateMaxCost(wildCardQuery, startingNode, G, MAX_DEGREE, new HashSet<Edge>(), 1);
+						Cost.estimateMaxCost(wildCardQuery, startingNode, G, this.AVG_DEGREE, new HashSet<Edge>(), 1);
 					
 //						System.out.println("asd:" + Cost.cost);
 						wcCost += Cost.getCandidatesNum(wildCardQuery, startingNode, G) * Cost.cost;
@@ -361,7 +361,7 @@ public class EditDistance {
 			relatedQueries = edAlgorithm.getRelatedQueries();
 			relatedQueriesUnique.addAll(relatedQueries);
 			Cost.cost = 0;
-			Cost.estimateMaxCost(Q, startingNode, G, MAX_DEGREE, new HashSet<Edge>(), 1);
+			Cost.estimateMaxCost(Q, startingNode, G, this.AVG_DEGREE, new HashSet<Edge>(), 1);
 			edCost = Cost.getCandidatesNum(Q, startingNode, G) * Cost.cost;
 			String[] temp = queryName.split("/");
 //			if (relatedQueriesUnique.size() != 0) {
@@ -425,7 +425,7 @@ public class EditDistance {
 			break;
 		case BOTH:
 			this.runWildCard();
-			this.runExtension();
+//			this.runExtension();
 			break;
 		default:
 			throw new IllegalArgumentException("Wrong running arguements");
@@ -437,7 +437,7 @@ public class EditDistance {
 		double wcEstimatedCost = 0;
 		double exEstimatedCost = 0;
 		double selSum = 0;
-		List<Edge> sortedEdges = this.sortEdge(Q.edgeSet());
+//		List<Edge> sortedEdges = this.sortEdge(Q.edgeSet());
 //		System.out.println("max:" + ((BigMultigraph)G).getMaxDegree());
 //		double a = ((BigMultigraph)G).getLabelFreq().get(sortedEdges.get(0).getLabel()).getFrequency()/((double)G.edgeSet().size());
 //		double b = ((BigMultigraph)G).getLabelFreq().get(sortedEdges.get(1).getLabel()).getFrequency()/((double)G.edgeSet().size());
