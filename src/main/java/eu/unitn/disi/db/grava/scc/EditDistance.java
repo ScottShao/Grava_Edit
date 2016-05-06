@@ -1,7 +1,10 @@
 package eu.unitn.disi.db.grava.scc;
 
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
@@ -79,6 +82,7 @@ public class EditDistance {
 	private final int MAX_DEGREE = 688;
 	private int count = 0;
 	private int answerNum;
+	private List<String> strList;
 	
 	public BufferedWriter getCmpBw() {
 		return cmpBw;
@@ -104,7 +108,6 @@ public class EditDistance {
 		this.queryName = queryName;
 		this.outputFile = graphName + "_output/" + outputFile;
 		this.answerFile = answerFile;
-
 	}
 
 	public void runWildCard() throws IOException, ParseException,
@@ -214,9 +217,9 @@ public class EditDistance {
 						edAlgorithm.setQueryToGraphMap(pruningAlgorithm
 								.getQueryGraphMapping());
 						edAlgorithm.setLimitedComputation(false);
-						edAlgorithm.compute();
-						relatedQueries = edAlgorithm.getRelatedQueries();
-						relatedQueriesUnique.addAll(relatedQueries);
+//						edAlgorithm.compute();
+//						relatedQueries = edAlgorithm.getRelatedQueries();
+//						relatedQueriesUnique.addAll(relatedQueries);
 						System.out.println(relatedQueriesUnique.size());
 						Cost.cost = 0;
 						Cost.estimateMaxCost(wildCardQuery, startingNode, G, this.AVG_DEGREE, new HashSet<Edge>(), 1);
@@ -356,10 +359,9 @@ public class EditDistance {
 					.getQueryGraphMapping());
 			edAlgorithm.setLimitedComputation(false);
 			edAlgorithm.setThreshold(threshold);
-			edAlgorithm.compute();
-			
-			relatedQueries = edAlgorithm.getRelatedQueries();
-			relatedQueriesUnique.addAll(relatedQueries);
+//			edAlgorithm.compute();
+//			relatedQueries = edAlgorithm.getRelatedQueries();
+//			relatedQueriesUnique.addAll(relatedQueries);
 			Cost.cost = 0;
 			Cost.estimateMaxCost(Q, startingNode, G, this.AVG_DEGREE, new HashSet<Edge>(), 1);
 			edCost = Cost.getCandidatesNum(Q, startingNode, G) * Cost.cost;
@@ -425,7 +427,7 @@ public class EditDistance {
 			break;
 		case BOTH:
 			this.runWildCard();
-//			this.runExtension();
+			this.runExtension();
 			break;
 		default:
 			throw new IllegalArgumentException("Wrong running arguements");
@@ -455,6 +457,7 @@ public class EditDistance {
 //		sb.append("," + this.wcSearchCount + "," + wcEstimatedCost + "," + this.exSearchCount + "," + exEstimatedCost);
 		sb.append(temp[temp.length - 1] + ","  + this.wcSearchCount + "," + wcCost + "," + this.exSearchCount + "," + edCost + "," + answerNum);
 		System.out.println(answerNum);
+		this.append(strList, temp[temp.length - 1] , wcCost, edCost);
 		/*for (Edge e : Q.edgeSet()) {
 			double sel = ((BigMultigraph)G).getLabelFreq().get(e.getLabel()).getFrequency()/((double)G.edgeSet().size());
 			selSum += sel; 
@@ -492,9 +495,63 @@ public class EditDistance {
 //		}
 		System.out.println(a + " " + b + " " + sb.toString());
 		*/
-		cmpBw.write(sb.toString());
-		cmpBw.newLine();
-		cmpBw.flush();
+//		cmpBw.write(sb.toString());
+//		cmpBw.newLine();
+//		cmpBw.flush();
+	}
+	
+	public void write(String fileName) {
+		try {
+			BufferedWriter bw = new BufferedWriter(new FileWriter(fileName));
+			for (String str : strList) {
+				if (str.length() == 0) {
+					continue;
+				}
+				bw.write(str);
+				bw.newLine();
+				bw.flush();
+			}
+			bw.close();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+	public void append(List<String> strList, String fileName, double wcCost, double edCost) {
+		String goal = null;
+		for (String str : strList) {
+			if (str.startsWith(fileName)) {
+				goal = str;
+				break;
+			}
+		}
+		strList.remove(goal);
+		goal += "," + wcCost + "," + edCost;
+		strList.add(goal);
+	}
+	
+	public List<String> readFile(String fileName) {
+		List<String> strList = new ArrayList<String>();
+		try {
+			BufferedReader br = new BufferedReader(new FileReader(fileName));
+			String str = null;
+			while((str = br.readLine()) != null) {
+				if (str.startsWith("E")) {
+					strList.add(str.substring(0, str.length() - 5));
+				} else {
+					strList.add(str);
+				}
+			}
+			br.close();
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return strList;
 	}
 	
 	public void findMaxEstimation() {
@@ -713,5 +770,14 @@ public class EditDistance {
     	}
     	return sortedEdges;
 	}
+
+	public List<String> getStrList() {
+		return strList;
+	}
+
+	public void setStrList(List<String> strList) {
+		this.strList = strList;
+	}
+	
 
 }

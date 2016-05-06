@@ -6,6 +6,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import eu.unitn.disi.db.grava.utils.MethodOption;
@@ -67,9 +68,10 @@ public class Experiement {
 		ed.setThreshold(threshold);
 		ed.setCmpBw(bw);
 		try{
-		bw.write("avg degree: 8.97, wc candidates, wc estimated candidates, ex candidates, ex estimated candidates, wc cost, wc estimated cost, ex cost, ex estimated cost, wc running time, ex running time");
+//		bw.write("avg degree: 8.97, wc candidates, wc estimated candidates, ex candidates, ex estimated candidates, wc cost, wc estimated cost, ex cost, ex estimated cost, wc running time, ex running time");
 		bw.newLine();
-		
+		List<String> strList = ed.readFile(queryFolder+"/comparison.csv");
+		ed.setStrList(strList);
 		for (String queryFile : queryFiles) {
 			if (queryFile.contains("csv")) {
 				continue;
@@ -77,6 +79,7 @@ public class Experiement {
 			ed.setQueryName(queryFile);
 			ed.runEditDistance();
 		}
+		ed.write(queryFolder+"/c.csv");
 		
 		}catch (IOException ioe) {
 			ioe.printStackTrace();
