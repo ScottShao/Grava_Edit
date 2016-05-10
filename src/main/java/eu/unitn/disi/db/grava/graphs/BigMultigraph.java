@@ -31,6 +31,7 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
+import java.util.Map;
 import java.util.Map.Entry;
 import java.util.NoSuchElementException;
 import java.util.Set;
@@ -58,6 +59,7 @@ public class BigMultigraph implements Multigraph, Iterable<Long>  {
     private HashMap<Long, LabelContainer> labelFreq;
     private HashMap<Long, Long> nodeDegree;
     private HashMap<Long, Integer> maxRep;
+    private HashMap<Long, Integer> labelMax;
     private Long startingNode;
     
     private enum separator {space , tab, unknown };
@@ -86,7 +88,7 @@ public class BigMultigraph implements Multigraph, Iterable<Long>  {
         labelFreq = new HashMap<Long, LabelContainer>();
         nodeDegree = new HashMap<Long, Long>();
         maxRep = new HashMap<Long, Integer>();
-        
+        labelMax = new HashMap<Long, Integer>();
         if (edges == -1) {
             edges = Utilities.countLines(inFile);
         }
@@ -103,17 +105,47 @@ public class BigMultigraph implements Multigraph, Iterable<Long>  {
             Utilities.binaryTableSort(inEdges);
             Utilities.binaryTableSort(outEdges);
         }
-//        System.out.println("inEdges:");
-//        for(int i =0; i < inEdges.length; i++){	
-//        	System.out.println(inEdges[i][0] + " "+inEdges[i][1] + " "+inEdges[i][2]);
+        this.findLabelMax();
+//        System.out.println(labelMax.size() + "size");
+//        for (Entry<Long, Integer> en : labelMax.entrySet()) {
+//        	System.out.println(en.getKey() + " " + en.getValue());
 //        }
-//        System.out.println("outEdges:");
-//        for(int i =0; i < outEdges.length; i++){
-//        	System.out.println(outEdges[i][0] + " "+outEdges[i][1] + " "+outEdges[i][2]);
-//        }
-        
     }
-
+    
+    private void findLabelMax() {
+    	for (Long node : this.vertexSet()) {
+    		Map<Long, int[]> max  = new HashMap<Long, int[]>();
+    		for (Edge e : this.incomingEdgesOf(node)) {
+    			int[] fre = max.get(e.getLabel());
+    			if (fre == null) {
+    				fre = new int[]{1};
+    				max.put(e.getLabel(), fre);
+    			} else {
+    				fre[0]++;
+    			}
+    		}
+    		for (Edge e : this.outgoingEdgesOf(node)) {
+    			int[] fre = max.get(e.getLabel());
+    			if (fre == null) {
+    				fre = new int[]{1};
+    				max.put(e.getLabel(), fre);
+    			} else {
+    				fre[0]++;
+    			}
+    		}
+    		
+    		for (Entry<Long, int[]> en : max.entrySet()) {
+    			if (labelMax.containsKey(en.getKey())) {
+    				int n = labelMax.get(en.getKey());
+    				if (n < en.getValue()[0]) {
+    					labelMax.put(en.getKey(), en.getValue()[0]);
+    				}
+    			} else {
+    				labelMax.put(en.getKey(), en.getValue()[0]);
+    			}
+    		}
+    	}
+    }
         /**
      * Takes in input the graph ordered by source and by dest to have a faster
      * computation
@@ -644,6 +676,14 @@ public class BigMultigraph implements Multigraph, Iterable<Long>  {
 			infoVertex.add(new MappedNode(node, null, 0, false, false));
 		}
 		return infoVertex;
+	}
+
+	public void setLabelMax(HashMap<Long, Integer> labelMax) {
+		this.labelMax = labelMax;
+	}
+
+	public HashMap<Long, Integer> getLabelMax() {
+		return labelMax;
 	}
 	
 	

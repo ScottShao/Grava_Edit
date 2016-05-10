@@ -13,6 +13,7 @@ import eu.unitn.disi.db.grava.utils.MethodOption;
 import eu.unitn.disi.db.command.exceptions.AlgorithmExecutionException;
 import eu.unitn.disi.db.exemplar.core.RelatedQuery;
 import eu.unitn.disi.db.grava.exceptions.ParseException;
+import eu.unitn.disi.db.grava.graphs.BigMultigraph;
 import eu.unitn.disi.db.grava.graphs.Multigraph;
 import eu.unitn.disi.db.grava.utils.FileOperator;
 import eu.unitn.disi.db.grava.utils.Utilities;
@@ -72,6 +73,9 @@ public class Experiement {
 		bw.newLine();
 		List<String> strList = ed.readFile(queryFolder+"/comparison.csv");
 		ed.setStrList(strList);
+		Multigraph G = new BigMultigraph(graphName + "-sin.graph", graphName
+				+ "-sout.graph");
+		ed.setG(G);
 		for (String queryFile : queryFiles) {
 			if (queryFile.contains("csv")) {
 				continue;

@@ -222,8 +222,8 @@ public class EditDistance {
 //						relatedQueriesUnique.addAll(relatedQueries);
 						System.out.println(relatedQueriesUnique.size());
 						Cost.cost = 0;
-						Cost.estimateMaxCost(wildCardQuery, startingNode, G, this.AVG_DEGREE, new HashSet<Edge>(), 1);
-					
+//						Cost.estimateMaxCost(wildCardQuery, startingNode, G, this.AVG_DEGREE, new HashSet<Edge>(), 1);
+						Cost.estimateMaxCostWithLabelMaxNum(Q, startingNode, this.AVG_DEGREE, G, new HashSet<Edge>(), 1);
 //						System.out.println("asd:" + Cost.cost);
 						wcCost += Cost.getCandidatesNum(wildCardQuery, startingNode, G) * Cost.cost;
 //						wcCost += Cost.estimateQueryCost(wildCardQuery, startingNode, G, AVG_DEGREE);
@@ -363,7 +363,8 @@ public class EditDistance {
 //			relatedQueries = edAlgorithm.getRelatedQueries();
 //			relatedQueriesUnique.addAll(relatedQueries);
 			Cost.cost = 0;
-			Cost.estimateMaxCost(Q, startingNode, G, this.AVG_DEGREE, new HashSet<Edge>(), 1);
+//			Cost.estimateMaxCost(Q, startingNode, G, this.AVG_DEGREE, new HashSet<Edge>(), 1);
+			Cost.estimateMaxCostWithLabelMaxNum(Q, startingNode, this.AVG_DEGREE, G, new HashSet<Edge>(), 1);
 			edCost = Cost.getCandidatesNum(Q, startingNode, G) * Cost.cost;
 			String[] temp = queryName.split("/");
 //			if (relatedQueriesUnique.size() != 0) {
@@ -409,8 +410,7 @@ public class EditDistance {
 			ParseException, IOException {
 		String[] temp = queryName.split("/");
 		System.out.println(temp[temp.length - 1]);
-		G = new BigMultigraph(graphName + "-sin.graph", graphName
-				+ "-sout.graph");
+		
 		
 //		long degrees = 0;
 //		for (Entry<Long, Long> nodes: ((BigMultigraph)G).getNodeDegree().entrySet()){
@@ -507,6 +507,7 @@ public class EditDistance {
 				if (str.length() == 0) {
 					continue;
 				}
+				System.out.println(str);
 				bw.write(str);
 				bw.newLine();
 				bw.flush();
@@ -527,8 +528,10 @@ public class EditDistance {
 			}
 		}
 		strList.remove(goal);
+		if (goal != null) {
 		goal += "," + wcCost + "," + edCost;
 		strList.add(goal);
+		}
 	}
 	
 	public List<String> readFile(String fileName) {
@@ -537,11 +540,7 @@ public class EditDistance {
 			BufferedReader br = new BufferedReader(new FileReader(fileName));
 			String str = null;
 			while((str = br.readLine()) != null) {
-				if (str.startsWith("E")) {
-					strList.add(str.substring(0, str.length() - 5));
-				} else {
 					strList.add(str);
-				}
 			}
 			br.close();
 		} catch (FileNotFoundException e) {
@@ -777,6 +776,14 @@ public class EditDistance {
 
 	public void setStrList(List<String> strList) {
 		this.strList = strList;
+	}
+
+	public Multigraph getG() {
+		return G;
+	}
+
+	public void setG(Multigraph g) {
+		G = g;
 	}
 	
 

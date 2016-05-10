@@ -6,6 +6,7 @@ package eu.unitn.disi.db.grava.scc;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Comparator;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
@@ -88,6 +89,36 @@ public class Cost {
 	    	}
 	    	return sortedEdges;
 		}
+	
+	 public static void estimateMaxCostWithLabelMaxNum(Multigraph query, Long crtNode, int AVG_DEGREE, Multigraph graph, Set<Edge> visited, double multiplier) {
+			Set<Edge> queryEdges = new HashSet<>();
+			for (Edge ie : query.incomingEdgesOf(crtNode)) {
+				if (!visited.contains(ie))
+					queryEdges.add(ie);
+			}
+			
+			for (Edge oe : query.outgoingEdgesOf(crtNode)) {
+				if (!visited.contains(oe))
+					queryEdges.add(oe);
+			}
+			
+			List<Edge> sortedEdge = getSortedEdges(queryEdges, graph);
+			HashMap<Long, Integer> labelMax = ((BigMultigraph)graph).getLabelMax();
+//			System.out.println(labelMax.size());
+			for (Edge qe : sortedEdge) {
+				double costTemp;
+				if (qe.getLabel().equals(0L)) {
+					costTemp = AVG_DEGREE;
+				} else {
+					costTemp = labelMax.get(qe.getLabel());
+				}
+				multiplier *= costTemp;
+				cost += multiplier;
+				visited.add(qe);
+				Long next = qe.getDestination().equals(crtNode) ? qe.getSource() : qe.getDestination();
+				estimateMaxCostWithLabelMaxNum(query, next, AVG_DEGREE, graph, visited, multiplier);
+			}
+	}
 	 
 	public static void estimateMaxCost(Multigraph query, Long crtNode, Multigraph graph, int avgDegree, Set<Edge> visited, double multiplier) {
 		Set<Edge> queryEdges = new HashSet<>();
