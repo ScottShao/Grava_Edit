@@ -44,6 +44,7 @@ import java.util.concurrent.Future;
  */
 public class IsomorphicQuerySearch extends RelatedQuerySearch {
 	private Long startingNode;//TODO: set the best starting node
+	public static long answerCount= 0;
     /**
      * Execute the algorithm
      *

@@ -83,7 +83,7 @@ public class Experiement {
 			ed.setQueryName(queryFile);
 			ed.runEditDistance();
 		}
-		ed.write(queryFolder+"/c.csv");
+//		ed.write(queryFolder+"/c.csv");
 		
 		}catch (IOException ioe) {
 			ioe.printStackTrace();

@@ -18,6 +18,7 @@ package eu.unitn.disi.db.exemplar.core.algorithms.steps;
 import eu.unitn.disi.db.exemplar.core.EditDistanceQuery;
 import eu.unitn.disi.db.exemplar.core.IsomorphicQuery;
 import eu.unitn.disi.db.exemplar.core.RelatedQuery;
+import eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch;
 import eu.unitn.disi.db.grava.graphs.Edge;
 import eu.unitn.disi.db.grava.graphs.MappedNode;
 import eu.unitn.disi.db.grava.graphs.Multigraph;
@@ -74,16 +75,17 @@ public class EDMatchingRecursiveStep extends AlgorithmStep<EditDistanceQuery> {
                     if(skipSave){
                         continue;
                     }
+                    EditDistanceQuerySearch.answerCount += relatedQueriesPartial.size();
 //                    relatedQueries.addAll(relatedQueriesPartial);
-                    for (EditDistanceQuery partial : relatedQueriesPartial) {
-                    	if(partial.getQuery().edgeSet().size() == query.edgeSet().size())
-                    		relatedQueries.add(partial);
-                    }
-                    if (!warned && watch.getElapsedTimeMillis() > WARN_TIME && relatedQueries.size() > MAX_RELATED) {
+//                    for (EditDistanceQuery partial : relatedQueriesPartial) {
+//                    	if(partial.getQuery().edgeSet().size() == query.edgeSet().size())
+//                    		relatedQueries.add(partial);
+//                    }
+                    if (!warned && watch.getElapsedTimeMillis() > WARN_TIME && EditDistanceQuerySearch.answerCount > MAX_RELATED) {
                         warn("More than " + MAX_RELATED + " partial isomorphic results");
                         warned = true;
                         if (limitComputation) {
-                            warn("Computation interrupted after " + relatedQueries.size() + " partial isomorphic results");
+                            warn("Computation interrupted after " + EditDistanceQuerySearch.answerCount + " partial isomorphic results");
                             break;
                         }
                     }

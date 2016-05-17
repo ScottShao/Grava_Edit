@@ -83,6 +83,7 @@ public class EditDistance {
 	private int count = 0;
 	private int answerNum;
 	private List<String> strList;
+	private double ss;
 	
 	public BufferedWriter getCmpBw() {
 		return cmpBw;
@@ -217,10 +218,10 @@ public class EditDistance {
 						edAlgorithm.setQueryToGraphMap(pruningAlgorithm
 								.getQueryGraphMapping());
 						edAlgorithm.setLimitedComputation(false);
-//						edAlgorithm.compute();
+						edAlgorithm.compute();
 //						relatedQueries = edAlgorithm.getRelatedQueries();
 //						relatedQueriesUnique.addAll(relatedQueries);
-						System.out.println(relatedQueriesUnique.size());
+						
 						Cost.cost = 0;
 //						Cost.estimateMaxCost(wildCardQuery, startingNode, G, this.AVG_DEGREE, new HashSet<Edge>(), 1);
 						Cost.estimateMaxCostWithLabelMaxNum(Q, startingNode, this.AVG_DEGREE, G, new HashSet<Edge>(), 1);
@@ -229,6 +230,8 @@ public class EditDistance {
 //						wcCost += Cost.estimateQueryCost(wildCardQuery, startingNode, G, AVG_DEGREE);
 //						System.out.println(wcCost + "  asd");
 //						comBw.newLine();
+						answerNum += IsomorphicQuerySearch.answerCount;
+						System.out.println(answerNum);
 						isoTime += watch.getElapsedTimeMillis();
 						wcCandidatesNum += pruningAlgorithm.getCandidates().get(startingNode);
 					}
@@ -261,7 +264,7 @@ public class EditDistance {
 //				System.out.println(wcUptCount);
 //				System.out.println(wcSearchCount);
 			}
-			answerNum = relatedQueriesUnique.size();
+//			answerNum = relatedQueriesUnique.size();
 //			System.out.println(answerNum);
 		} else {
 
@@ -359,13 +362,15 @@ public class EditDistance {
 					.getQueryGraphMapping());
 			edAlgorithm.setLimitedComputation(false);
 			edAlgorithm.setThreshold(threshold);
-//			edAlgorithm.compute();
-//			relatedQueries = edAlgorithm.getRelatedQueries();
-//			relatedQueriesUnique.addAll(relatedQueries);
+			edAlgorithm.compute();
+			relatedQueries = edAlgorithm.getRelatedQueries();
+			relatedQueriesUnique.addAll(relatedQueries);
 			Cost.cost = 0;
 //			Cost.estimateMaxCost(Q, startingNode, G, this.AVG_DEGREE, new HashSet<Edge>(), 1);
 			Cost.estimateMaxCostWithLabelMaxNum(Q, startingNode, this.AVG_DEGREE, G, new HashSet<Edge>(), 1);
 			edCost = Cost.getCandidatesNum(Q, startingNode, G) * Cost.cost;
+			QuerySel qs = new QuerySel(G, Q, startingNode);
+			ss = qs.computeSelAdjNotCorrelated(1, startingNode, new HashSet<>());
 			String[] temp = queryName.split("/");
 //			if (relatedQueriesUnique.size() != 0) {
 //				
@@ -455,9 +460,10 @@ public class EditDistance {
 //		exEstimatedCost = exEstimatedNum * (this.AVG_DEGREE + this.AVG_DEGREE * this.AVG_DEGREE + 
 //				Utilities.choose(this.AVG_DEGREE, 2)* (a+b) * this.AVG_DEGREE);
 //		sb.append("," + this.wcSearchCount + "," + wcEstimatedCost + "," + this.exSearchCount + "," + exEstimatedCost);
-		sb.append(temp[temp.length - 1] + ","  + this.wcSearchCount + "," + wcCost + "," + this.exSearchCount + "," + edCost + "," + answerNum);
+		sb.append(temp[temp.length - 1] + ","  + this.wcSearchCount + "," + wcCost + "," + this.exSearchCount + "," + edCost + "," + answerNum + "," + this.wcElapsedTime + "," + this.exElapsedTime);
 		System.out.println(answerNum);
-		this.append(strList, temp[temp.length - 1] , wcCost, edCost);
+//		this.append(strList, temp[temp.length - 1] , wcCost, edCost);
+//		this.append(strList, temp[temp.length - 1] , ss);
 		/*for (Edge e : Q.edgeSet()) {
 			double sel = ((BigMultigraph)G).getLabelFreq().get(e.getLabel()).getFrequency()/((double)G.edgeSet().size());
 			selSum += sel; 
@@ -495,9 +501,9 @@ public class EditDistance {
 //		}
 		System.out.println(a + " " + b + " " + sb.toString());
 		*/
-//		cmpBw.write(sb.toString());
-//		cmpBw.newLine();
-//		cmpBw.flush();
+		cmpBw.write(sb.toString());
+		cmpBw.newLine();
+		cmpBw.flush();
 	}
 	
 	public void write(String fileName) {
@@ -518,6 +524,21 @@ public class EditDistance {
 			e.printStackTrace();
 		}
 		
+	}
+	
+	public void append(List<String> strList, String fileName, double sel) {
+		String goal = null;
+		for (String str : strList) {
+			if (str.startsWith(fileName)) {
+				goal = str;
+				break;
+			}
+		}
+		strList.remove(goal);
+		if (goal != null) {
+		goal += "," + sel;
+		strList.add(goal);
+		}
 	}
 	public void append(List<String> strList, String fileName, double wcCost, double edCost) {
 		String goal = null;

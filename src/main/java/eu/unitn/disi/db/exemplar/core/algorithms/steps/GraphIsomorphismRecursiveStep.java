@@ -17,6 +17,7 @@ package eu.unitn.disi.db.exemplar.core.algorithms.steps;
 
 import eu.unitn.disi.db.exemplar.core.IsomorphicQuery;
 import eu.unitn.disi.db.exemplar.core.RelatedQuery;
+import eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch;
 import eu.unitn.disi.db.grava.graphs.BigMultigraph;
 import eu.unitn.disi.db.grava.graphs.Edge;
 import eu.unitn.disi.db.grava.graphs.MappedNode;
@@ -71,15 +72,16 @@ public class GraphIsomorphismRecursiveStep extends AlgorithmStep<RelatedQuery> {
                     if(skipSave){
                         continue;
                     }
-                    relatedQueries.addAll(relatedQueriesPartial);
+                    IsomorphicQuerySearch.answerCount += relatedQueriesPartial.size();
+//                    relatedQueries.addAll(relatedQueriesPartial);
 //                    for (RelatedQuery rq : relatedQueries){
 //                    	System.out.println(rq);
 //                    }
-                    if (!warned && watch.getElapsedTimeMillis() > WARN_TIME && relatedQueries.size() > MAX_RELATED) {
+                    if (!warned && watch.getElapsedTimeMillis() > WARN_TIME && IsomorphicQuerySearch.answerCount > MAX_RELATED) {
                         warn("More than " + MAX_RELATED + " partial isomorphic results");
                         warned = true;
                         if (limitComputation) {
-                            warn("Computation interrupted after " + relatedQueries.size() + " partial isomorphic results");
+                            warn("Computation interrupted after " + IsomorphicQuerySearch.answerCount + " partial isomorphic results");
                             break;
                         }
                     }

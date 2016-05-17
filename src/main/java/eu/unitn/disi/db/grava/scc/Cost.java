@@ -69,14 +69,14 @@ public class Cost {
 	
 	 public static List<Edge> getSortedEdges(Set<Edge> edges, Multigraph graph) {
 			List<Edge> sortedEdges = new ArrayList<>();
-	    	PriorityQueue<Edge> pq = new PriorityQueue<>( new Comparator<Edge>(){
+	    	PriorityQueue<Edge> pq = new PriorityQueue<>(new Comparator<Edge>(){
 	    		public int compare(Edge e1, Edge e2) {
 	    			if (e1.getLabel().equals(0L)) {
 	    				return 1;
 	    			} else if (e2.getLabel().equals(0L)) {
 	    				return -1;
 	    			} else {
-//	    				System.out.println(e1.getLabel() + " " + e2.getLabel());
+	    				
 	    				return (int)(((BigMultigraph)graph).getLabelFreq().get(e1.getLabel()).getFrequency() - ((BigMultigraph)graph).getLabelFreq().get(e2.getLabel()).getFrequency());
 	    			}
 	    		}
@@ -101,7 +101,6 @@ public class Cost {
 				if (!visited.contains(oe))
 					queryEdges.add(oe);
 			}
-			
 			List<Edge> sortedEdge = getSortedEdges(queryEdges, graph);
 			HashMap<Long, Integer> labelMax = ((BigMultigraph)graph).getLabelMax();
 //			System.out.println(labelMax.size());

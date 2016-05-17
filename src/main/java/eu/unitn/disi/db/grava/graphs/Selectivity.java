@@ -41,11 +41,11 @@ public class Selectivity {
 	}
 	public void compute(){
 		pruningCost += this.computeNeighbourNumber(startingNode)*graph.vertexSet().size()*Math.log(graph.edgeSet().size())/Math.log(2);
-//		this.computSelectivity(1, startingNode);
-//		this.computSelPathNotCorrelated(1, startingNode);
+		this.computSelectivity(1, startingNode);
+		this.computSelPathNotCorrelated(1, startingNode);
 		this.computSelAllNotCorrelated(1, startingNode);
-		this.computePruningCost(startingNode);
-		this.computeUpdateCost(startingNode);
+//		this.computePruningCost(startingNode);
+//		this.computeUpdateCost(startingNode);
 	}
 	public void computePruningCost(Long cur){
 		HashSet<Edge> ps = paths.get(cur);

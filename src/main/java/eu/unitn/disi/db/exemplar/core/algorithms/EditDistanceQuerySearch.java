@@ -48,6 +48,7 @@ public class EditDistanceQuerySearch extends RelatedQuerySearch {
 	private int threshold;
 	private Long startingNode;
 	private int searchCount;
+	public static long answerCount = 0;
     /**
      * Execute the algorithm
      *
