@@ -69,7 +69,7 @@ public class Experiement {
 		ed.setThreshold(threshold);
 		ed.setCmpBw(bw);
 		try{
-//		bw.write("avg degree: 8.97, wc candidates, wc estimated candidates, ex candidates, ex estimated candidates, wc cost, wc estimated cost, ex cost, ex estimated cost, wc running time, ex running time");
+//		bw.write("avg degree: 8.97, wc candidates, wc estimated candidates, ex candidates, ex estimated candidates, answer count, wc time, ex time, all, adj, path");
 		bw.newLine();
 		List<String> strList = ed.readFile(queryFolder+"/comparison.csv");
 		ed.setStrList(strList);
@@ -83,7 +83,7 @@ public class Experiement {
 			ed.setQueryName(queryFile);
 			ed.runEditDistance();
 		}
-//		ed.write(queryFolder+"/c.csv");
+		ed.write(queryFolder+"/c.csv");
 		
 		}catch (IOException ioe) {
 			ioe.printStackTrace();
