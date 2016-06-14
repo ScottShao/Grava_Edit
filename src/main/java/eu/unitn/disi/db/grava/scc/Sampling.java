@@ -446,7 +446,7 @@ public class Sampling {
 		for (Long node : nodes) {
 			if (count > queriesNum)
 				break;
-			if (Math.random() < 0.2) {
+			if (Math.random() < 0.4) {
 				for (int i = 2; i <= edgeNum; i++) {
 					try {
 						this.generateDifSizeQueries(i, node);
@@ -475,7 +475,11 @@ public class Sampling {
 			return;
 		}
 		if (edgeNum == 0) {
-			PrintWriter fw = new PrintWriter("./test/E" + edges.size() + "E"
+			File f = new File("./test/E" + edges.size() + "E/");
+			if (!f.exists()) {
+				f.mkdirs();
+			}
+			PrintWriter fw = new PrintWriter("./test/E" + edges.size() + "E/" + "E" + edges.size() + "E"
 					+ nodes.get(0) + ".txt", "UTF-8");
 			for (Edge e : edges) {
 				fw.write(e.getSource() + " " + e.getDestination() + " "
@@ -752,15 +756,15 @@ public class Sampling {
 	}
 
 	public static void main(String[] args) throws ParseException, IOException {
-		BigMultigraph G = new BigMultigraph("10000nodes-sin.graph",
-				"10000nodes-sout.graph", false);
-		int size = G.vertexSet().size();
-		Random rnd = new Random();
-		Long[] nodes = G.vertexSet().toArray(new Long[size]);
-		Sampling s = new Sampling(G);
-		for (int i = 2; i <= 10; i++){
-			s.randomlyGenerateQuery(i);
-		}
+		BigMultigraph G = new BigMultigraph("1000nodes-sin.graph",
+				"1000nodes-sout.graph", false);
+//		int size = G.vertexSet().size();
+//		Random rnd = new Random();
+//		Long[] nodes = G.vertexSet().toArray(new Long[size]);
+//		Sampling s = new Sampling(G);
+//		for (int i = 2; i <= 10; i++){
+//			s.randomlyGenerateQuery(i);
+//		}
 		// for (int i = 0; i < 10; i++) {
 		// System.out.println("Starting node " + nodes[rnd.nextInt(size)]);
 		// for (int j = 2; j <= 5; j++) {
@@ -771,8 +775,8 @@ public class Sampling {
 		// }
 		// }
 		// }
-//		 Sampling s = new Sampling(G);
-//		 s.generateQueries(10, 1000);
+		 Sampling s = new Sampling(G);
+		 s.generateQueries(10, 1000);
 		// s.generateClique(3, 0, new ArrayList<Long>());
 	}
 

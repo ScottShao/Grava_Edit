@@ -172,23 +172,65 @@ public class Cost {
 					queryEdges.add(oe);
 			}
 			List<Edge> sortedEdge = getSortedEdges(queryEdges, graph);
-			HashMap<Long, Integer> labelMax = ((BigMultigraph)graph).getLabelMax();
-//			System.out.println(labelMax.size());
 			for (Edge qe : sortedEdge) {
-				
+				if (visited.contains(qe)) {
+					continue;
+				}
+				System.out.println(qe);
 				double costTemp;
 				if (qe.getLabel().equals(0L)) {
+					double em;
 					costTemp = AVG_DEGREE;
+					for (Edge ee : visited) {
+						
+						em = AVG_DEGREE * ((BigMultigraph)graph).getLabelFreq().get(ee.getLabel()).getFrequency() / (double)graph.edgeSet().size();
+						costTemp -= em;
+					}
+					
 				} else {
-					costTemp = ((BigMultigraph)graph).getLabelFreq().get(qe.getLabel()).getFrequency() / (double)graph.edgeSet().size();
+					costTemp = AVG_DEGREE * ((BigMultigraph)graph).getLabelFreq().get(qe.getLabel()).getFrequency() / (double)graph.edgeSet().size();
 				}
-				multiplier *= AVG_DEGREE * costTemp;
+				multiplier *=  costTemp;
 				cost += multiplier;
 				visited.add(qe);
 				Long next = qe.getDestination().equals(crtNode) ? qe.getSource() : qe.getDestination();
 				estimateExactCost(query, next, AVG_DEGREE, graph, visited, multiplier);
 			}
 	}
+	 
+//	 public static void estimateEdExactCost(Multigraph query, Long crtNode, int AVG_DEGREE, Multigraph graph, List<Edge> visited) {
+//			List<Edge> queryEdges = new ArrayList<>();
+//			for (Edge ie : query.incomingEdgesOf(crtNode)) {
+//				if (!visited.contains(ie))
+//					queryEdges.add(ie);
+//			}
+//			
+//			for (Edge oe : query.outgoingEdgesOf(crtNode)) {
+//				if (!visited.contains(oe))
+//					queryEdges.add(oe);
+//			}
+//			List<Edge> sortedEdge = getSortedEdges(queryEdges, graph);
+//			HashMap<Long, Integer> labelMax = ((BigMultigraph)graph).getLabelMax();
+//			List<Long> nextNodes = new ArrayList<>();
+//			for (Edge qe : sortedEdge) {
+//				visited.add(qe);
+//				double total = 0;
+//				double temp = choose(AVG_DEGREE, visited.size());
+//				for (int i = 0; i < visited.size(); i++) {
+//					temp *= ((BigMultigraph)graph).getLabelFreq().get(visited.get(i).getLabel()).getFrequency() / (double)graph.edgeSet().size();
+//				}
+//				cost += Math.pow(AVG_DEGREE, visited.size()) * temp;
+//				for (int i = 0; i < visited.size(); i++) {
+//					double t = (((BigMultigraph)graph).getLabelFreq().get(visited.get(i).getLabel()).getFrequency() / (double)graph.edgeSet().size());
+//					total += Math.pow(AVG_DEGREE, visited.size()) * (1 - t) * temp / t;
+//				}
+//				
+//				cost += total;
+//				
+//				Long next = qe.getDestination().equals(crtNode) ? qe.getSource() : qe.getDestination();
+//				estimateEdExactCost(query, next, AVG_DEGREE, graph, visited);
+//			}
+//	}
 	 
 	 public static void estimateEdExactCost(Multigraph query, Long crtNode, int AVG_DEGREE, Multigraph graph, List<Edge> visited) {
 			List<Edge> queryEdges = new ArrayList<>();
@@ -202,28 +244,38 @@ public class Cost {
 					queryEdges.add(oe);
 			}
 			List<Edge> sortedEdge = getSortedEdges(queryEdges, graph);
-			HashMap<Long, Integer> labelMax = ((BigMultigraph)graph).getLabelMax();
-			List<Long> nextNodes = new ArrayList<>();
 			for (Edge qe : sortedEdge) {
+				System.out.println(qe);
+				double costTemp;
+				if (qe.getLabel().equals(0L)) {
+					costTemp = AVG_DEGREE;
+				} else {
+					costTemp = AVG_DEGREE * ((BigMultigraph)graph).getLabelFreq().get(qe.getLabel()).getFrequency() / (double)graph.edgeSet().size();
+				}
+				double crt = 0;
+				for (int i = 0; i < visited.size(); i++) {
+					double total = 1;
+					for (int j = 0; j < visited.size(); j++) {
+						double s = ((BigMultigraph)graph).getLabelFreq().get(visited.get(j).getLabel()).getFrequency() / (double)graph.edgeSet().size();
+						if (i == j) {
+							s = 1 - s;
+						}
+						total *= s * AVG_DEGREE;
+					}
+					crt += total;
+				}
+				cost += crt * costTemp;
+				double total = 1;
+				for (int i = 0; i < visited.size(); i++) {
+					double s = ((BigMultigraph)graph).getLabelFreq().get(visited.get(i).getLabel()).getFrequency() / (double)graph.edgeSet().size();
+					total *= s * AVG_DEGREE;
+				}
+				cost += total * AVG_DEGREE;
 				visited.add(qe);
-				double total = 0;
-				double temp = choose(AVG_DEGREE, visited.size());
-				for (int i = 0; i < visited.size(); i++) {
-					temp *= ((BigMultigraph)graph).getLabelFreq().get(visited.get(i).getLabel()).getFrequency() / (double)graph.edgeSet().size();
-				}
-				cost += Math.pow(AVG_DEGREE, visited.size()) * temp;
-				for (int i = 0; i < visited.size(); i++) {
-					double t = (((BigMultigraph)graph).getLabelFreq().get(visited.get(i).getLabel()).getFrequency() / (double)graph.edgeSet().size());
-					total += Math.pow(AVG_DEGREE, visited.size()) * (1 - t) * temp / t;
-				}
-				
-				cost += total;
-				
 				Long next = qe.getDestination().equals(crtNode) ? qe.getSource() : qe.getDestination();
 				estimateEdExactCost(query, next, AVG_DEGREE, graph, visited);
 			}
 	}
-	 
 	 public static double choose(int x, int y) {
 		    if (y < 0 || y > x) return 0;
 		    if (y > x/2) {

@@ -19,6 +19,7 @@ import eu.unitn.disi.db.exemplar.core.EditDistanceQuery;
 import eu.unitn.disi.db.exemplar.core.IsomorphicQuery;
 import eu.unitn.disi.db.exemplar.core.RelatedQuery;
 import eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch;
+import eu.unitn.disi.db.grava.graphs.BigMultigraph;
 import eu.unitn.disi.db.grava.graphs.Edge;
 import eu.unitn.disi.db.grava.graphs.MappedNode;
 import eu.unitn.disi.db.grava.graphs.Multigraph;
@@ -26,11 +27,13 @@ import eu.unitn.disi.db.grava.utils.Utilities;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Comparator;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+import java.util.PriorityQueue;
 import java.util.Set;
 
 /**
@@ -165,9 +168,10 @@ public class EDMatchingRecursiveStep extends AlgorithmStep<EditDistanceQuery> {
 
         queryEdgesIn = null;
         queryEdgesOut = null;
-
+        
+        List<Edge> sortedEdges = sortEdge(queryEdges, graph);
         //Look if we can map all the outgoing/ingoing graphEdges of the query node
-        for (Edge queryEdge : queryEdges) {
+        for (Edge queryEdge : sortedEdges) {
             //info("Trying to map the edge " + queryEdge);
             List<EditDistanceQuery> newRelatedQueries = new ArrayList<>();
             LinkedList<EditDistanceQuery> toTestRelatedQueries = new LinkedList<>();
@@ -335,6 +339,28 @@ public class EDMatchingRecursiveStep extends AlgorithmStep<EditDistanceQuery> {
         }
         return relatedQueries.size() > 0 ? relatedQueries : null;
     }
+    
+    public static List<Edge> sortEdge(Set<Edge> edges, Multigraph graph) {
+		List<Edge> sortedEdges = new ArrayList<>();
+    	PriorityQueue<Edge> pq = new PriorityQueue<>( new Comparator<Edge>(){
+    		public int compare(Edge e1, Edge e2) {
+    			if (e1.getLabel().equals(0L)) {
+    				return 1;
+    			} else if (e2.getLabel().equals(0L)) {
+    				return -1;
+    			} else {
+    				return (int)(((BigMultigraph)graph).getLabelFreq().get(e1.getLabel()).getFrequency() - ((BigMultigraph)graph).getLabelFreq().get(e2.getLabel()).getFrequency());
+    			}
+    		}
+    	});
+    	for (Edge qe : edges) {
+    		pq.add(qe);
+    	}
+    	while(!pq.isEmpty()) {
+    		sortedEdges.add(pq.poll());
+    	}
+    	return sortedEdges;
+	}
     protected boolean edgeMatch(Edge queryEdge, Edge graphEdge, MappedNode graphNode, MappedNode graphNextNode, EditDistanceQuery r, int threshold) {
     	
         if (queryEdge.getLabel() != graphEdge.getLabel().longValue() && r.getEdit() == threshold) {

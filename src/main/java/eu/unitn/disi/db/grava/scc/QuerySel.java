@@ -41,6 +41,17 @@ public class QuerySel {
 			return sel + " " + isPos;
 		}
 	}
+	
+	public void test() {
+		Event e1 = new Event(true, 7.938973456214836E-4);
+		Event e2 = new Event(true, 7.938973456214836E-4);
+		Event e3 = new Event(true, 0.009388699043871457);
+		List<Event> list = new ArrayList<>();
+		list.add(e1);
+		list.add(e2);
+		list.add(e3);
+		System.out.println("test:" + prob(list, 81));
+	}
 	public QuerySel(Multigraph graph, Multigraph query, Long startingNode) {
 		this.graph = graph;
 		this.query = query;
@@ -48,8 +59,90 @@ public class QuerySel {
 	}
 	
 	public double getCanNumber(Long crt, int degree, int dn) {
+//		System.out.println("wc :" + prob(crt, degree, dn));
 		return graph.vertexSet().size() * prob(crt, degree, dn);
 	}
+	
+	public double getEdCanNumber(Long crt, int degree, int dn) {
+		return graph.vertexSet().size() * edProb(crt, degree, dn);
+	}
+	
+	public double edProb(Long crt, int degree, int dn) {
+		Set<Long> visited = new HashSet<>();
+		LinkedList<Long> queue = new LinkedList<>();
+		List<List<Event>> neighbourhood = new ArrayList<>();
+		queue.add(crt);
+		int level = 1;
+		while(!queue.isEmpty()) {
+			if (level > dn) {
+				break;
+			}
+			List<Event> n = new ArrayList<>();
+			int len = queue.size();
+			for (int i = 0; i < len; i++) {
+				Long next = queue.poll();
+				if (visited.contains(next)) {
+					continue;
+				}
+				visited.add(next);
+				for (Edge e : query.outgoingEdgesOf(next)) {
+					Long nextNode = e.getDestination().equals(next) ? e.getSource() : e.getDestination();
+					if (!visited.contains(nextNode) || nextNode.equals(next)) {
+						double sel;
+						queue.add(nextNode);
+						if (e.getLabel().equals(0L)) {
+							sel = 1;
+						} else {
+							sel = ((BigMultigraph)graph).getLabelFreq().get(e.getLabel()).getFrequency() / (double)graph.edgeSet().size();
+							n.add(new Event(sel));
+						}
+						
+					}
+				}
+				for (Edge e : query.incomingEdgesOf(next)) {
+					Long nextNode = e.getDestination().equals(next) ? e.getSource() : e.getDestination();
+					if (!visited.contains(nextNode) || nextNode.equals(next)) {
+						double sel;
+						queue.add(nextNode);
+						if (e.getLabel().equals(0L)) {
+							sel = 1;
+						} else {
+							sel = ((BigMultigraph)graph).getLabelFreq().get(e.getLabel()).getFrequency() / (double)graph.edgeSet().size();
+							n.add(new Event(sel));
+						}
+						
+					}
+				}
+			}
+			neighbourhood.add(n);
+			level++;
+		}
+		
+		double p = 1;
+		for (int i = 0; i < neighbourhood.size(); i++){
+			p *= prob(neighbourhood.get(i), (int)Math.pow(degree, i + 1));
+		}
+		
+		for (int i = 0; i < dn; i++) {
+			List<Event> l = neighbourhood.get(i);
+			for (int j = 0; j < l.size(); j++) {
+				List<Event> newList = new ArrayList<>();
+				double temp = 1;
+				for (int k = 0; k < l.size(); k++) {
+					if (k == j) {
+						newList.add(new Event(!l.get(k).isPos, l.get(k).sel));
+					} else {
+						newList.add(new Event(l.get(k).isPos, l.get(k).sel));
+					}
+				}
+				temp *= prob(newList, (int)Math.pow(degree, i + 1));
+				temp *= prob(neighbourhood.get(i == 0 ? 1 : 0), (int)Math.pow(degree, i == 0 ? 2 : 1));
+				p += temp;
+			}
+		}
+		return p;
+	}
+	
 	public double prob(Long crt, int degree, int dn) {
 		Set<Long> visited = new HashSet<>();
 		LinkedList<Long> queue = new LinkedList<>();
@@ -101,7 +194,7 @@ public class QuerySel {
 		for (int i = 0; i < neighbourhood.size(); i++){
 			p *= prob(neighbourhood.get(i), (int)Math.pow(degree, i + 1));
 		}
-		System.out.println(p);
+//		System.out.println(p);
 		return p;
 	}
 	

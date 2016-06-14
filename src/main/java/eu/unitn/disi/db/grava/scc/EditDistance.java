@@ -86,7 +86,7 @@ public class EditDistance {
 	private double all;
 	private double path;
 	private double adj;
-	
+	private double edCandidates;
 	public BufferedWriter getCmpBw() {
 		return cmpBw;
 	}
@@ -111,6 +111,7 @@ public class EditDistance {
 		this.queryName = queryName;
 		this.outputFile = graphName + "_output/" + outputFile;
 		this.answerFile = answerFile;
+		
 	}
 
 	public void runWildCard() throws IOException, ParseException,
@@ -122,6 +123,7 @@ public class EditDistance {
 		wcUptCount = 0;
 		wcSearchCount = 0;
 		Utilities.searchCount = 0;
+		this.edCandidates = 0;
 		Map<Long, Set<MappedNode>> queryGraphMapping = null;
 		ComputeGraphNeighbors tableAlgorithm = null;
 		// ComputePathGraphNeighbors tableAlgorithm = null;
@@ -220,18 +222,23 @@ public class EditDistance {
 						edAlgorithm.setQueryToGraphMap(pruningAlgorithm
 								.getQueryGraphMapping());
 						edAlgorithm.setLimitedComputation(false);
-//						edAlgorithm.compute();
+						edAlgorithm.compute();
 //						relatedQueries = edAlgorithm.getRelatedQueries();
 //						relatedQueriesUnique.addAll(relatedQueries);
-						
+//						System.out.println(startingNode);
+						/**
 						QuerySel qs = new QuerySel(G, wildCardQuery, startingNode);
 						
 						Cost.cost = 0;
 //						Cost.estimateMaxCost(wildCardQuery, startingNode, G, this.AVG_DEGREE, new HashSet<Edge>(), 1);
 //						Cost.estimateMaxCostWithLabelMaxNum(Q, startingNode, this.AVG_DEGREE, G, new HashSet<Edge>(), 1);
 						Cost.estimateExactCost(Q, startingNode, this.AVG_DEGREE, G, new HashSet<Edge>(), 1);
-						
-						wcCost += qs.getCanNumber(startingNode, this.AVG_DEGREE, 1)* Cost.cost;
+//						System.out.println(qs.getCanNumber(startingNode, this.AVG_DEGREE, 2));
+						double tt = qs.getCanNumber(startingNode, this.AVG_DEGREE, 2);
+						this.edCandidates += tt;
+						wcCost += tt* Cost.cost;
+						**/
+//						System.out.println(tt + " wc " + Cost.cost);
 //						wcCost += Cost.getCandidatesNum(wildCardQuery, startingNode, G) * Cost.cost;
 //						wcCost += Cost.estimateQueryCost(wildCardQuery, startingNode, G, AVG_DEGREE);
 //						System.out.println(wcCost + "  asd");
@@ -369,21 +376,30 @@ public class EditDistance {
 					.getQueryGraphMapping());
 			edAlgorithm.setLimitedComputation(false);
 			edAlgorithm.setThreshold(threshold);
-//			edAlgorithm.compute();
+			edAlgorithm.compute();
 //			relatedQueries = edAlgorithm.getRelatedQueries();
 //			relatedQueriesUnique.addAll(relatedQueries);
+			/**
+			QuerySel qs = new QuerySel(G, Q, startingNode);
+			adj = qs.computeSelAdjNotCorrelated(1, startingNode, new HashSet<>(), 0, this.neighbourNum);
+			path = qs.computeSelPathNotCorrelated(1, startingNode, new HashSet<>(), 0, this.neighbourNum);
+			all = qs.computeSelAllNotCorrelated(Q);
+			this.edCandidates -=  (Q.edgeSet().size() - 1) * qs.getCanNumber(startingNode, this.AVG_DEGREE, 2);
+			
+//			System.out.println(G.vertexSet().size()*qs.edProb(startingNode, this.AVG_DEGREE, 2));
+//			System.out.println(qs.getEdCanNumber(startingNode, AVG_DEGREE, 2));
 			Cost.cost = 0;
 //			Cost.estimateMaxCost(Q, startingNode, G, this.AVG_DEGREE, new HashSet<Edge>(), 1);
 //			Cost.estimateMaxCostWithLabelMaxNum(Q, startingNode, this.AVG_DEGREE, G, new HashSet<Edge>(), 1);
 			Cost.estimateEdExactCost(Q, startingNode, AVG_DEGREE, G, new ArrayList<Edge>());
 //			System.out.println(Cost.cost);
-			edCost = Cost.getCandidatesNum(Q, startingNode, G) * Cost.cost;
-			QuerySel qs = new QuerySel(G, Q, startingNode);
-			adj = qs.computeSelAdjNotCorrelated(1, startingNode, new HashSet<>(), 0, this.neighbourNum);
-			path = qs.computeSelPathNotCorrelated(1, startingNode, new HashSet<>(), 0, this.neighbourNum);
-			all = qs.computeSelAllNotCorrelated(Q);
-			qs.prob(startingNode, AVG_DEGREE, 2);
+			double tt = qs.getEdCanNumber(startingNode, AVG_DEGREE, 2);
+			edCost = tt  * Cost.cost;
+			System.out.println(startingNode + " " + tt + " ed  " + Cost.cost);
+//			System.out.println(startingNode);
+//			System.out.println("eds:" +this.edCandidates);
 			String[] temp = queryName.split("/");
+			**/
 //			if (relatedQueriesUnique.size() != 0) {
 //				
 //				System.out.println(temp[temp.length - 1]);
@@ -444,7 +460,7 @@ public class EditDistance {
 			break;
 		case BOTH:
 			this.runWildCard();
-//			this.runExtension();
+			this.runExtension();
 			break;
 		default:
 			throw new IllegalArgumentException("Wrong running arguements");
@@ -472,11 +488,11 @@ public class EditDistance {
 //		exEstimatedCost = exEstimatedNum * (this.AVG_DEGREE + this.AVG_DEGREE * this.AVG_DEGREE + 
 //				Utilities.choose(this.AVG_DEGREE, 2)* (a+b) * this.AVG_DEGREE);
 //		sb.append("," + this.wcSearchCount + "," + wcEstimatedCost + "," + this.exSearchCount + "," + exEstimatedCost);
-		sb.append(temp[temp.length - 1] + ","  + this.wcSearchCount + "," + wcCost + "," + this.exSearchCount + "," + edCost + "," + answerNum + "," + this.wcElapsedTime + "," + this.exElapsedTime);
+		sb.append(temp[temp.length - 1] + ","  + this.wcSearchCount + ","  + this.exSearchCount + "," + this.wcCandidatesNum + ","  + exCandidatesNum + ","+ answerNum + "," + this.wcElapsedTime + "," + this.exElapsedTime);
 //		System.out.println(answerNum);
 //		System.out.println("size:" + G.edgeSet().size());
 //		this.append(strList, temp[temp.length - 1] , wcCost, edCost);
-		this.append(strList, temp[temp.length - 1] , wcCost);
+//		this.append(strList, temp[temp.length - 1] , wcCost, edCost);
 		/*for (Edge e : Q.edgeSet()) {
 			double sel = ((BigMultigraph)G).getLabelFreq().get(e.getLabel()).getFrequency()/((double)G.edgeSet().size());
 			selSum += sel; 
@@ -514,9 +530,9 @@ public class EditDistance {
 //		}
 		System.out.println(a + " " + b + " " + sb.toString());
 		*/
-//		cmpBw.write(sb.toString());
-//		cmpBw.newLine();
-//		cmpBw.flush();
+		cmpBw.write(sb.toString());
+		cmpBw.newLine();
+		cmpBw.flush();
 	}
 	
 	public void write(String fileName) {
