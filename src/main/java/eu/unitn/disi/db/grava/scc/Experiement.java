@@ -69,7 +69,7 @@ public class Experiement {
 		ed.setThreshold(threshold);
 		ed.setCmpBw(bw);
 		try{
-		bw.write("avg degree: 8.97, wc cost, ed cost, wc candidate, ed candidate, answer count, wc time, ex time");
+		bw.write("avg degree: 8.97, wc cost, ed cost, wc candidate, ed candidate, answer count, wc time, ex time, isWcBad, isEdBad, wcIntNum, wcIntSum, edIntNum");
 		bw.newLine();
 		List<String> strList = ed.readFile(queryFolder+"/comparison.csv");
 		ed.setStrList(strList);

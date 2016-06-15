@@ -49,6 +49,8 @@ public class EditDistanceQuerySearch extends RelatedQuerySearch {
 	private Long startingNode;
 	private int searchCount;
 	public static long answerCount = 0;
+	public static boolean isBad = false;
+	public static long interNum = 0;
     /**
      * Execute the algorithm
      *

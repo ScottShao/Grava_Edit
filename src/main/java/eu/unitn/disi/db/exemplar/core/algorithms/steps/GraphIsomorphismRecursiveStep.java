@@ -43,6 +43,7 @@ public class GraphIsomorphismRecursiveStep extends AlgorithmStep<RelatedQuery> {
 
     private final Long queryConcept;
     private int searchCount;
+    
     public GraphIsomorphismRecursiveStep(int threadNumber, Iterator<MappedNode> kbConcepts, Long queryConcept, Multigraph query, Multigraph targetSubgraph, boolean limitComputation, boolean skipSave) {
         super(threadNumber,kbConcepts,query, targetSubgraph, limitComputation, skipSave);
         this.queryConcept = queryConcept;
@@ -73,7 +74,7 @@ public class GraphIsomorphismRecursiveStep extends AlgorithmStep<RelatedQuery> {
                         continue;
                     }
                     IsomorphicQuerySearch.answerCount += relatedQueriesPartial.size();
-//                    relatedQueries.addAll(relatedQueriesPartial);
+                    relatedQueries.addAll(relatedQueriesPartial);
 //                    for (RelatedQuery rq : relatedQueries){
 //                    	System.out.println(rq);
 //                    }
@@ -84,6 +85,7 @@ public class GraphIsomorphismRecursiveStep extends AlgorithmStep<RelatedQuery> {
                             warn("Computation interrupted after " + IsomorphicQuerySearch.answerCount + " partial isomorphic results");
                             break;
                         }
+                        IsomorphicQuerySearch.isBad = true;
                     }
                 }
 //                System.out.println(Utilities.searchCount);
@@ -91,6 +93,7 @@ public class GraphIsomorphismRecursiveStep extends AlgorithmStep<RelatedQuery> {
                 if (relatedQueriesPartial != null) {
                     relatedQueriesPartial.clear();
                 }
+                IsomorphicQuerySearch.isBad = true;
                 error("Memory exausted, so we are returning something but not everything.");
                 System.gc();
                 return new LinkedList<>(relatedQueries);
@@ -177,7 +180,7 @@ public class GraphIsomorphismRecursiveStep extends AlgorithmStep<RelatedQuery> {
                     toTestRelatedQueries.add(current);
                 }
             }
-
+            IsomorphicQuerySearch.interNum = Math.max(toTestRelatedQueries.size(), IsomorphicQuerySearch.interNum);
             // reset, we do not want too many duplicates
             relatedQueries = new LinkedList<>();
 

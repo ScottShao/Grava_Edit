@@ -91,12 +91,14 @@ public class EDMatchingRecursiveStep extends AlgorithmStep<EditDistanceQuery> {
                             warn("Computation interrupted after " + EditDistanceQuerySearch.answerCount + " partial isomorphic results");
                             break;
                         }
+                        EditDistanceQuerySearch.isBad = true;
                     }
                 }
             } catch (OutOfMemoryError E) {
                 if (relatedQueriesPartial != null) {
                     relatedQueriesPartial.clear();
                 }
+                EditDistanceQuerySearch.isBad = true;
                 error("Memory exausted, so we are returning something but not everything.");
                 System.gc();
                 return new LinkedList<>(relatedQueries);
@@ -183,7 +185,7 @@ public class EDMatchingRecursiveStep extends AlgorithmStep<EditDistanceQuery> {
                     toTestRelatedQueries.add(current);
                 }
             }
-
+            EditDistanceQuerySearch.interNum = Math.max(EditDistanceQuerySearch.interNum, toTestRelatedQueries.size());
             // reset, we do not want too many duplicates
             relatedQueries = new LinkedList<>();
 
