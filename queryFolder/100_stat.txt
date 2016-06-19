@@ -1,0 +1,88 @@
+\\\\query1.txt
+Data graph's vertexex number is 83
+Data graph's maximum degree is 28
+Label 1000011399's selectivity is 0.18505338
+Label 1000011401's selectivity is 0.0071174377
+Label 1000011401's selectivity is 0.0071174377
+Label 1000011399's selectivity is 0.18505338
+Query's vertexex number is 5
+Query's maximum degree is 4
+node:5648  size:1
+node:765448  size:2
+node:815448  size:2
+node:755548  size:12
+node:5148  size:12
+total answer number:220
+Average loading time is 20.0 ms.
+Average neighbor computing time is 26.0 ms.
+Average pruning time is 7.0 ms.
+Average isomorphism time is 5175.0 ms.
+
+query2.txt
+Data graph's vertexex number is 83
+Data graph's maximum degree is 28
+Label 1000011400's selectivity is 0.035587188
+Label 1000011399's selectivity is 0.18505338
+Label 1000011401's selectivity is 0.0071174377
+Query's vertexex number is 4
+Query's maximum degree is 3
+node:5648  size:11
+node:765448  size:2
+node:755548  size:50
+node:5148  size:14
+total answer number:220
+Average loading time is 4.0 ms.
+Average neighbor computing time is 11.0 ms.
+Average pruning time is 1.0 ms.
+Average isomorphism time is 10558.0 ms.
+
+query3.txt
+Data graph's vertexex number is 83
+Data graph's maximum degree is 28
+Label 1000011399's selectivity is 0.18505338
+Label 1000011400's selectivity is 0.035587188
+Query's vertexex number is 2
+Query's maximum degree is 2
+node:765448  size:61
+node:495248  size:104
+node:495248  size:104
+total answer number:51
+Average loading time is 2.0 ms.
+Average neighbor computing time is 3.0 ms.
+Average pruning time is 5.0 ms.
+Average isomorphism time is 20387.0 ms.
+
+query4.txt
+Data graph's vertexex number is 83
+Data graph's maximum degree is 28
+Label 1000011410's selectivity is 0.017793594
+Label 1000011412's selectivity is 0.03202847
+Label 1000011404's selectivity is 0.042704627
+Label 1000010601's selectivity is 0.042704627
+Query's vertexex number is 5
+Query's maximum degree is 2
+node:815548  size:9
+node:865348  size:7
+node:765448  size:6
+node:554948  size:6
+node:89754982785048  size:11
+total answer number:15
+Average loading time is 2.0 ms.
+Average neighbor computing time is 5.0 ms.
+Average pruning time is 1.0 ms.
+Average isomorphism time is 8327.0 ms.
+
+query5.txt
+Data graph's vertexex number is 83
+Data graph's maximum degree is 28
+Label 1000011407's selectivity is 0.042704627
+Label 1000010601's selectivity is 0.042704627
+Query's vertexex number is 2
+Query's maximum degree is 2
+node:765448  size:20
+node:865348  size:22
+total answer number:11
+Average loading time is 1.0 ms.
+Average neighbor computing time is 2.0 ms.
+Average pruning time is 1.0 ms.
+Average isomorphism time is 29229.0 ms.

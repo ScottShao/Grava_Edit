@@ -1,0 +1,67 @@
+[Console output redirected to file:/Users/Zhaoyang/Documents/workspace/Grava_Edit/slow.txt]
+query1.txt
+IsomorphicQuerySearch DEBUG - Starting node is 765448
+ IsomorphicQuerySearch INFO - Number of Threads: 11/12 chunk size: 6 Number of nodes 61
+ IsomorphicQuerySearch ERROR - java.util.concurrent.ExecutionException: java.lang.IllegalArgumentException: Query edge 495248-[1000011399]->495248 is not present in the original query
+ count: 0
+49848283495348|56827482495348|1000011399 56827482495348|49848283495348|1000011400 
+count: 1
+5648|865548|1000011400 865548|5648|1000011399 
+count: 2
+56827482495348|72668283495348|1000011400 72668283495348|56827482495348|1000011399 
+count: 3
+958848|70704948|1000011400 70704948|958848|1000011399 
+count: 4
+80754982785048|68777666755048|1000011399 68777666755048|80754982785048|1000011400 
+count: 5
+765448|495248|1000011399 495248|765448|1000011400 
+count: 6
+68777666755048|71565551485248|1000011400 71565551485248|68777666755048|1000011399 
+7
+end
+query2.txt
+IsomorphicQuerySearch DEBUG - Starting node is 765448
+ IsomorphicQuerySearch INFO - Number of Threads: 11/12 chunk size: 2 Number of nodes 21
+ count: 0
+54544982785048|53534982785048|1000011407 54544982785048|53534982785048|1000010601 
+count: 1
+82688283495348|72668283495348|1000011407 82688283495348|72668283495348|1000010601 
+count: 2
+765448|865348|1000011407 765448|865348|1000010601 
+count: 3
+815548|865348|1000010601 815548|865348|1000011407 
+count: 4
+76557766905148|53545168725148|1000010601 76557766905148|53545168725148|1000011407 
+count: 5
+75577766905148|53545168725148|1000010601 75577766905148|53545168725148|1000011407 
+count: 6
+70704948|77664948|1000010601 70704948|77664948|1000011407 
+count: 7
+76504950756748|83749549756748|1000011407 76504950756748|83749549756748|1000010601 
+count: 8
+72577082496748|84557082496748|1000011407 72577082496748|84557082496748|1000010601 
+count: 9
+815448|865348|1000010601 815448|865348|1000011407 
+count: 10
+82506855717648|67755255717648|1000010601 82506855717648|67755255717648|1000011407 
+count: 11
+89754982785048|80754982785048|1000011407 89754982785048|80754982785048|1000010601 
+12
+end
+java.util.concurrent.ExecutionException: java.lang.IllegalArgumentException: Query edge 495248-[1000011399]->495248 is not present in the original query
+	at java.util.concurrent.FutureTask.report(FutureTask.java:122)
+	at java.util.concurrent.FutureTask.get(FutureTask.java:192)
+	at eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch.compute(IsomorphicQuerySearch.java:131)
+	at eu.unitn.disi.db.grava.scc.EditDistance.runEditDistance(EditDistance.java:243)
+	at eu.unitn.disi.db.grava.scc.Experiement.runExperiement(Experiement.java:57)
+	at eu.unitn.disi.db.grava.scc.Main.main(Main.java:25)
+Caused by: java.lang.IllegalArgumentException: Query edge 495248-[1000011399]->495248 is not present in the original query
+	at eu.unitn.disi.db.exemplar.core.IsomorphicQuery.map(IsomorphicQuery.java:144)
+	at eu.unitn.disi.db.exemplar.core.algorithms.steps.GraphIsomorphismRecursiveStep.createQueries(GraphIsomorphismRecursiveStep.java:232)
+	at eu.unitn.disi.db.exemplar.core.algorithms.steps.GraphIsomorphismRecursiveStep.createQueries(GraphIsomorphismRecursiveStep.java:266)
+	at eu.unitn.disi.db.exemplar.core.algorithms.steps.GraphIsomorphismRecursiveStep.call(GraphIsomorphismRecursiveStep.java:62)
+	at eu.unitn.disi.db.exemplar.core.algorithms.steps.AlgorithmStep.call(AlgorithmStep.java:1)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)

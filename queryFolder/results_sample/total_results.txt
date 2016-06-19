@@ -1,0 +1,163 @@
+query solution 0
+query solution 1
+query solution 1
+765448-[1000011399]->495248
+query solution 2
+83515448-[1000011399]->495248
+54515748-[1000011398]->495248
+query solution 3
+66775748-[1000011400]->495248
+query solution 2
+query solution 4
+query solution 10
+66775748-[1000011400]->495248
+query solution 5
+query solution 1
+83515448-[1000011399]->495248
+query solution 6
+54515748-[1000011398]->495248
+66775748-[1000011400]->495248
+query solution 7
+495248-[1000011400]->83515448
+765448-[1000011399]->495248
+query solution 8
+495248-[1000011400]->52665748
+52665748-[1000011399]->495248
+query solution 9
+54515748-[1000011398]->495248
+query solution 7
+query solution 10
+query solution 17
+query solution 10
+query solution 11
+495248-[1000011400]->765448
+83515448-[1000011399]->495248
+query solution 12
+query solution 2
+query solution 14
+query solution 13
+query solution 15
+query solution 4
+query solution 14
+495248-[1000011400]->66775748
+query solution 9
+query solution 15
+52665748-[1000011399]->495248
+54515748-[1000011398]->495248
+query solution 16
+495248-[1000011400]->52665748
+query solution 19
+query solution 17
+query solution 15
+495248-[1000011400]->765448
+query solution 18
+query solution 18
+765448-[1000011399]->495248
+query solution 19
+83515448-[1000011399]->495248
+query solution 22
+query solution 20
+query solution 6
+495248-[1000011400]->83515448
+query solution 21
+495248-[1000011400]->52665748
+765448-[1000011399]->495248
+query solution 22
+query solution 12
+495248-[1000011400]->83515448
+query solution 23
+query solution 1
+495248-[1000011400]->83515448
+query solution 24
+495248-[1000011400]->765448
+765448-[1000011407]->865348
+query solution 25
+query solution 27
+query solution 1
+query solution 26
+query solution 9
+query solution 7
+query solution 27
+54515748-[1000011398]->495248
+query solution 16
+query solution 28
+query solution 33
+query solution 23
+query solution 29
+54515748-[1000011398]->495248
+query solution 13
+query solution 30
+query solution 3
+83515448-[1000011399]->495248
+query solution 31
+495248-[1000011400]->66775748
+83515448-[1000011399]->495248
+query solution 32
+495248-[1000011400]->83515448
+83515448-[1000011399]->495248
+query solution 33
+query solution 1
+query solution 28
+query solution 34
+495248-[1000011400]->765448
+765448-[1000011399]->495248
+query solution 35
+query solution 5
+query solution 34
+query solution 36
+66775748-[1000011400]->495248
+query solution 31
+query solution 37
+query solution 24
+83515448-[1000011399]->495248
+query solution 38
+54515748-[1000011398]->495248
+query solution 2
+query solution 39
+54515748-[1000011398]->495248
+query solution 8
+query solution 40
+query solution 7
+495248-[1000011400]->66775748
+query solution 41
+54515748-[1000011398]->495248
+query solution 22
+query solution 42
+query solution 30
+query solution 11
+query solution 43
+query solution 7
+495248-[1000011400]->83515448
+query solution 44
+495248-[1000011400]->765448
+52665748-[1000011399]->495248
+query solution 45
+query solution 4
+495248-[1000011400]->52665748
+query solution 46
+54515748-[1000011398]->495248
+query solution 5
+query solution 47
+54515748-[1000011398]->495248
+query solution 25
+query solution 48
+765448-[1000010601]->865348
+765448-[1000011407]->865348
+query solution 49
+66775748-[1000011400]->495248
+query solution 4
+query solution 50
+495248-[1000011400]->66775748
+query solution 6
+query solution 51
+query solution 21
+495248-[1000011400]->66775748
+query solution 52
+765448-[1000011399]->495248
+54515748-[1000011398]->495248
+query solution 53
+765448-[1000011399]->495248
+query solution 5
+query solution 54
+83515448-[1000011399]->495248
+query solution 21
