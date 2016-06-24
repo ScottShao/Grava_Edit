@@ -47,6 +47,7 @@ public class EDMatchingRecursiveStep extends AlgorithmStep<EditDistanceQuery> {
     private final int threshold;
     private Map<Long, Set<MappedNode>> queryToGraph;
     private int cmpCount;
+    private boolean isQuit;
     public EDMatchingRecursiveStep(int threadNumber, Iterator<MappedNode> kbConcepts, Long queryConcept, Multigraph query, Multigraph targetSubgraph, boolean limitComputation, boolean skipSave, int threshold, Map<Long, Set<MappedNode>> queryToGraph) {
         super(threadNumber,kbConcepts,query, targetSubgraph, limitComputation, skipSave);
         this.queryConcept = queryConcept;
@@ -64,6 +65,7 @@ public class EDMatchingRecursiveStep extends AlgorithmStep<EditDistanceQuery> {
         boolean warned = false;
         watch.start();
         int i = 0;
+        this.isQuit = false;
         while (graphNodes.hasNext()) {
         	
         	MappedNode node = graphNodes.next();
@@ -74,6 +76,9 @@ public class EDMatchingRecursiveStep extends AlgorithmStep<EditDistanceQuery> {
                 relatedQuery.map(queryConcept, node);
 
                 relatedQueriesPartial = createQueries(query, queryConcept, node, relatedQuery);
+                if (this.isQuit) {
+                	break;
+                }
                 if (relatedQueriesPartial != null) {
                     if(skipSave){
                         continue;
@@ -223,7 +228,11 @@ public class EDMatchingRecursiveStep extends AlgorithmStep<EditDistanceQuery> {
                     //Cycle through all the possible related queries retrieved up to now
                     //A new related query is good if it finds a match
                     for (EditDistanceQuery tempRelatedQuery : toTestRelatedQueries) {
-                    	
+                    	if (watch.getElapsedTimeMillis() > QUIT_TIME) {
+                    		System.out.println("Time limit exceeded");
+                    		this.isQuit = true;
+                    		return relatedQueries.size() > 0 ? relatedQueries : null;
+                    	}
                         if (tempRelatedQuery.isUsing(graphEdge)) {
                             //Ok this option is already using this edge,
                             //not a good choice go away

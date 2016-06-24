@@ -21,10 +21,13 @@ import eu.unitn.disi.db.command.algorithmic.Algorithm;
 import eu.unitn.disi.db.command.algorithmic.AlgorithmInput;
 import eu.unitn.disi.db.command.algorithmic.AlgorithmOutput;
 import eu.unitn.disi.db.command.exceptions.AlgorithmExecutionException;
+import eu.unitn.disi.db.grava.graphs.BigMultigraph;
 import eu.unitn.disi.db.grava.graphs.Edge;
 import eu.unitn.disi.db.grava.graphs.Multigraph;
+import eu.unitn.disi.db.grava.utils.BloomFilter;
 import eu.unitn.disi.db.grava.vectorization.MemoryNeighborTables;
 import eu.unitn.disi.db.grava.vectorization.NeighborTables;
+
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
@@ -51,10 +54,10 @@ public class ComputeGraphNeighbors extends Algorithm {
 	private int numThreads;
 	@AlgorithmInput
 	private Collection<Long> nodeProcessed = null;
-
+	private Map<Long, BloomFilter<String>> pathTables;
 	@AlgorithmOutput
 	private NeighborTables neighborTables;
-
+	private int maxDegree;
 	private boolean debugThreads = false;
 
 	// private int tid;
@@ -162,7 +165,51 @@ public class ComputeGraphNeighbors extends Algorithm {
 			return tables;
 		}
 	}
-
+	
+	public void computePathFilter() {
+		pathTables = new HashMap<>();
+		Collection<Long> nodeSet = graph.vertexSet();
+		for (Long node : nodeSet) {
+			BloomFilter<String> bf = new BloomFilter<String>(0.1, 10000);
+			dfs(node, new HashSet<>(), new StringBuilder(), 0, bf);
+			this.pathTables.put(node, bf);
+		}
+	}
+	
+	public void dfs(Long node, Set<Edge> visited, StringBuilder sb, int depth, BloomFilter<String> bf) {
+		if (depth >= k) {
+			bf.add(sb.toString());
+			return;
+		}
+		int length = sb.length();
+		boolean hasEdge = false;
+		for (Edge e : graph.outgoingEdgesOf(node)) {
+			Long nextNode = e.getDestination().equals(node) ? e.getSource() : e.getDestination();
+			if (!visited.contains(e) && !e.getLabel().equals(0L) && !nextNode.equals(node)) {
+				sb.append(e.getLabel());
+				dfs(nextNode, visited, sb, depth + 1, bf);
+				sb.setLength(length);
+				hasEdge = true;
+			}
+		}
+		
+		for (Edge e : graph.incomingEdgesOf(node)) {
+			Long nextNode = e.getDestination().equals(node) ? e.getSource() : e.getDestination();
+			if (!visited.contains(e) && !e.getLabel().equals(0L) && !nextNode.equals(node)) {
+				sb.append(e.getLabel());
+				dfs(nextNode, visited, sb, depth + 1, bf);
+				sb.setLength(length);
+				hasEdge = true;
+			}
+		}
+		
+		if (!hasEdge) {
+			bf.add(sb.toString());
+		}
+	}
+	
+	
+	
 	@Override
 	public void compute() throws AlgorithmExecutionException {
 		// DECLARATIONS
@@ -242,4 +289,25 @@ public class ComputeGraphNeighbors extends Algorithm {
 	public void setNodeProcessed(Collection<Long> nodeProcessed) {
 		this.nodeProcessed = nodeProcessed;
 	}
+
+
+
+	public int getMaxDegree() {
+		return maxDegree;
+	}
+
+
+
+	public void setMaxDegree(int maxDegree) {
+		this.maxDegree = maxDegree;
+	}
+
+	public Map<Long, BloomFilter<String>> getPathTables() {
+		return pathTables;
+	}
+
+	public void setPathTables(Map<Long, BloomFilter<String>> pathTables) {
+		this.pathTables = pathTables;
+	}
+	
 }

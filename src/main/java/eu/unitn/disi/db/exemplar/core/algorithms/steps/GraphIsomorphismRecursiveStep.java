@@ -20,6 +20,7 @@ import eu.unitn.disi.db.exemplar.core.RelatedQuery;
 import eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch;
 import eu.unitn.disi.db.grava.graphs.BigMultigraph;
 import eu.unitn.disi.db.grava.graphs.Edge;
+import eu.unitn.disi.db.grava.graphs.LabelContainer;
 import eu.unitn.disi.db.grava.graphs.MappedNode;
 import eu.unitn.disi.db.grava.graphs.Multigraph;
 import eu.unitn.disi.db.grava.utils.Utilities;
@@ -27,6 +28,7 @@ import eu.unitn.disi.db.grava.utils.Utilities;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Comparator;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedList;
@@ -43,6 +45,8 @@ public class GraphIsomorphismRecursiveStep extends AlgorithmStep<RelatedQuery> {
 
     private final Long queryConcept;
     private int searchCount;
+    private HashMap<Long, LabelContainer> labelFreq;
+    private boolean isQuit;
     
     public GraphIsomorphismRecursiveStep(int threadNumber, Iterator<MappedNode> kbConcepts, Long queryConcept, Multigraph query, Multigraph targetSubgraph, boolean limitComputation, boolean skipSave) {
         super(threadNumber,kbConcepts,query, targetSubgraph, limitComputation, skipSave);
@@ -58,6 +62,7 @@ public class GraphIsomorphismRecursiveStep extends AlgorithmStep<RelatedQuery> {
         boolean warned = false;
         watch.start();
         int i = 0;
+        this.isQuit = false;
         while (graphNodes.hasNext()) {
         	MappedNode node = graphNodes.next();
 //        	System.out.println(node);
@@ -69,16 +74,20 @@ public class GraphIsomorphismRecursiveStep extends AlgorithmStep<RelatedQuery> {
 
                 relatedQueriesPartial = createQueries(query, queryConcept, node, relatedQuery);
 //                System.out.println(Utilities.searchCount);
+                if (this.isQuit) {
+                	break;
+                }
                 if (relatedQueriesPartial != null) {
                     if(skipSave){
                         continue;
                     }
                     IsomorphicQuerySearch.answerCount += relatedQueriesPartial.size();
-                    relatedQueries.addAll(relatedQueriesPartial);
+//                    relatedQueries.addAll(relatedQueriesPartial);
 //                    for (RelatedQuery rq : relatedQueries){
 //                    	System.out.println(rq);
 //                    }
-                    if (!warned && watch.getElapsedTimeMillis() > WARN_TIME && IsomorphicQuerySearch.answerCount > MAX_RELATED) {
+                    
+                    if ((!warned && watch.getElapsedTimeMillis() > WARN_TIME && IsomorphicQuerySearch.answerCount > MAX_RELATED)) {
                         warn("More than " + MAX_RELATED + " partial isomorphic results");
                         warned = true;
                         if (limitComputation) {
@@ -165,9 +174,10 @@ public class GraphIsomorphismRecursiveStep extends AlgorithmStep<RelatedQuery> {
 
         queryEdgesIn = null;
         queryEdgesOut = null;
-        List<Edge> sortedEdges = sortEdge(queryEdges, graph);
+        List<Edge> sortedEdges = sortEdge(queryEdges, this.labelFreq);
         //Look if we can map all the outgoing/ingoing graphEdges of the query node
         for (Edge queryEdge : sortedEdges) {
+        	
 //        	System.out.println(queryEdge);
 //            info("Trying to map the edge " + queryEdge);
             List<IsomorphicQuery> newRelatedQueries = new ArrayList<>();
@@ -217,7 +227,11 @@ public class GraphIsomorphismRecursiveStep extends AlgorithmStep<RelatedQuery> {
                     //Cycle through all the possible related queries retrieved up to now
                     //A new related query is good if it finds a match
                     for (IsomorphicQuery tempRelatedQuery : toTestRelatedQueries) {
-                    	
+                    	if (watch.getElapsedTimeMillis() > QUIT_TIME) {
+                    		System.out.println("Time limit exceeded");
+                    		this.isQuit = true;
+                    		return relatedQueries.size() > 0 ? relatedQueries : null;
+                    	}
                         if (tempRelatedQuery.isUsing(graphEdge)) {
                             //Ok this option is already using this edge,
                             //not a good choice go away
@@ -394,7 +408,7 @@ public class GraphIsomorphismRecursiveStep extends AlgorithmStep<RelatedQuery> {
         return true;
     }
     //todo: sort by frequency
-    public static List<Edge> sortEdge(Set<Edge> edges, Multigraph graph) {
+    public static List<Edge> sortEdge(Set<Edge> edges, HashMap<Long, LabelContainer> labelFreq) {
 		List<Edge> sortedEdges = new ArrayList<>();
     	PriorityQueue<Edge> pq = new PriorityQueue<>( new Comparator<Edge>(){
     		public int compare(Edge e1, Edge e2) {
@@ -403,7 +417,7 @@ public class GraphIsomorphismRecursiveStep extends AlgorithmStep<RelatedQuery> {
     			} else if (e2.getLabel().equals(0L)) {
     				return -1;
     			} else {
-    				return (int)(((BigMultigraph)graph).getLabelFreq().get(e1.getLabel()).getFrequency() - ((BigMultigraph)graph).getLabelFreq().get(e2.getLabel()).getFrequency());
+    				return (int)(labelFreq.get(e1.getLabel()).getFrequency() - labelFreq.get(e2.getLabel()).getFrequency());
     			}
     		}
     	});
@@ -436,4 +450,13 @@ public class GraphIsomorphismRecursiveStep extends AlgorithmStep<RelatedQuery> {
         return edges;
     }
 
+	public HashMap<Long, LabelContainer> getLabelFreq() {
+		return labelFreq;
+	}
+
+	public void setLabelFreq(HashMap<Long, LabelContainer> labelFreq) {
+		this.labelFreq = labelFreq;
+	}
+
+    
 }

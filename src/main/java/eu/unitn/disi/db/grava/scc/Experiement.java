@@ -12,6 +12,7 @@ import java.util.Set;
 import eu.unitn.disi.db.grava.utils.MethodOption;
 import eu.unitn.disi.db.command.exceptions.AlgorithmExecutionException;
 import eu.unitn.disi.db.exemplar.core.RelatedQuery;
+import eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors;
 import eu.unitn.disi.db.grava.exceptions.ParseException;
 import eu.unitn.disi.db.grava.graphs.BigMultigraph;
 import eu.unitn.disi.db.grava.graphs.Multigraph;
@@ -69,12 +70,24 @@ public class Experiement {
 		ed.setThreshold(threshold);
 		ed.setCmpBw(bw);
 		try{
-		bw.write("avg degree: 8.97, wc cost, ed cost, wc candidate, ed candidate, answer count, wc time, ex time, isWcBad, isEdBad, wcIntNum, wcIntSum, edIntNum");
+			bw.write("avg degree: 8.97, wc cost, ed cost, bf cost, wc time, ed time, bf time");
+//		bw.write("avg degree: 8.97, wc cost, ed cost, wc candidate, ed candidate, answer count, wc time, ex time, isWcBad, isEdBad, wcIntNum, wcIntSum, edIntNum");
 		bw.newLine();
 		List<String> strList = ed.readFile(queryFolder+"/comparison.csv");
 		ed.setStrList(strList);
+		List<String> candList = new ArrayList<>();
+		ed.setCandComp(candList);
+		List<String> selList = new ArrayList<>();
+		ed.setSelsComp(selList);
 		Multigraph G = new BigMultigraph(graphName + "-sin.graph", graphName
 				+ "-sout.graph");
+		ComputeGraphNeighbors tableAlgorithm = new ComputeGraphNeighbors();
+		tableAlgorithm.setK(neighbourNum);
+		tableAlgorithm.setGraph(G);
+		tableAlgorithm.setNumThreads(threadsNum);
+		tableAlgorithm.compute();
+		tableAlgorithm.computePathFilter();
+		ed.setgTableAlgorithm(tableAlgorithm);
 		ed.setG(G);
 		for (String queryFile : queryFiles) {
 			if (queryFile.contains("csv")) {
@@ -84,7 +97,8 @@ public class Experiement {
 			ed.runEditDistance();
 		}
 //		ed.write(queryFolder+"/c.csv");
-		
+//		ed.writeCand(queryFolder +"/cand.csv");
+//		ed.writeSels(queryFolder + "/sels.csv");
 		}catch (IOException ioe) {
 			ioe.printStackTrace();
 		}finally {

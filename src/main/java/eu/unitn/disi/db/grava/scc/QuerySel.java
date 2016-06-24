@@ -265,42 +265,107 @@ public class QuerySel {
 		return true;
 	}
 	
-	public double computeSelAdjNotCorrelated(double baseSel, Long crt, Set<Long> visited, int depth, int max) {
-		if (depth >= max) {
-			return 1;
+	public double computeAdjNotCand(Long crt, int degree, int dn) {
+		return graph.vertexSet().size() * computeSelAdjNotCorrelated(crt, degree, dn);
+	}
+	public double computeSelAdjNotCorrelated(Long crt, int degree, int dn) {
+		Set<Edge> visited = new HashSet<>();
+		Set<Long> nextNodes = new HashSet<>();
+		double min = findMin(crt, visited, nextNodes);
+		List<List<Event>> neighbourhood = new ArrayList<>();
+		List<Event> one = new ArrayList<>();
+		one.add(new Event(min));
+		List<Event> two = new ArrayList<>();
+		for (Long node : nextNodes) {
+			min = findMin(node, visited, new HashSet<>());
+			if (min == 0) continue;
+			two.add(new Event(min));
 		}
+		double p = 1;
+		neighbourhood.add(one);
+		neighbourhood.add(two);
+		for (int i = 0; i < neighbourhood.size(); i++){
+			p *= prob(neighbourhood.get(i), (int)Math.pow(degree, i + 1));
+		}
+		return p;
+	}
+	
+	public double findMin(Long crt, Set<Edge> visited, Set<Long> nextNodes){
 		Set<Edge> adjEdges = new HashSet<>();
-		visited.add(crt);
+		boolean hasEdge = false;
 		for (Edge e : query.outgoingEdgesOf(crt)) {
 			Long nextNode = e.getDestination().equals(crt) ? e.getSource() : e.getDestination();
-			if (!visited.contains(nextNode)) {
+			if (!visited.contains(e)) {
 				adjEdges.add(e);
+				visited.add(e);
+				hasEdge = true;
 			}
 		}
 		for (Edge e : query.incomingEdgesOf(crt)) {
 			Long nextNode = e.getDestination().equals(crt) ? e.getSource() : e.getDestination();
-			if (!visited.contains(nextNode)) {
+			if (!visited.contains(e)) {
 				adjEdges.add(e);
+				visited.add(e);
+				hasEdge = true;
 			}
 		}
-		if (adjEdges.size() == 0) {
-			return baseSel;
-		}
-		double min = baseSel;
+
+		double min = 1;
 		for (Edge e: adjEdges) {
-			double labelSel = ((BigMultigraph)graph).getLabelFreq().get(e.getLabel()).getFrequency() / (double)graph.edgeSet().size();
-			double nextSel = baseSel * labelSel;
+			double labelSel;
+			if (e.getLabel().equals(0L)) {
+				labelSel = 1;
+			} else {
+				labelSel = ((BigMultigraph)graph).getLabelFreq().get(e.getLabel()).getFrequency() / (double)graph.edgeSet().size();
+			}
+			min = Math.min(min, labelSel);
 			
 			if (e.getDestination().equals(e.getSource())) {
-				min = Math.min(min, nextSel);
 				continue;
 			}
+			
 			Long nextNode = e.getDestination().equals(crt) ? e.getSource() : e.getDestination();
-//			System.out.println(crt + " " + nextNode + " " + nextSel + " " + labelSel);
-			min = Math.min(min, computeSelAdjNotCorrelated(nextSel, nextNode, visited, depth + 1, max));
+			nextNodes.add(nextNode);
 		}
-		return min;
+		return min == 1 ? 0 : min;
 	}
+	
+//	public double computeSelAdjNotCorrelated(double baseSel, Long crt, Set<Long> visited, int depth, int max) {
+//		if (depth >= max) {
+//			return 1;
+//		}
+//		Set<Edge> adjEdges = new HashSet<>();
+//		visited.add(crt);
+//		for (Edge e : query.outgoingEdgesOf(crt)) {
+//			Long nextNode = e.getDestination().equals(crt) ? e.getSource() : e.getDestination();
+//			if (!visited.contains(nextNode)) {
+//				adjEdges.add(e);
+//			}
+//		}
+//		for (Edge e : query.incomingEdgesOf(crt)) {
+//			Long nextNode = e.getDestination().equals(crt) ? e.getSource() : e.getDestination();
+//			if (!visited.contains(nextNode)) {
+//				adjEdges.add(e);
+//			}
+//		}
+//		if (adjEdges.size() == 0) {
+//			return baseSel;
+//		}
+//		double min = baseSel;
+//		for (Edge e: adjEdges) {
+//			double labelSel = ((BigMultigraph)graph).getLabelFreq().get(e.getLabel()).getFrequency() / (double)graph.edgeSet().size();
+//			double nextSel = baseSel * labelSel;
+//			
+//			if (e.getDestination().equals(e.getSource())) {
+//				min = Math.min(min, nextSel);
+//				continue;
+//			}
+//			Long nextNode = e.getDestination().equals(crt) ? e.getSource() : e.getDestination();
+////			System.out.println(crt + " " + nextNode + " " + nextSel + " " + labelSel);
+//			min = Math.min(min, computeSelAdjNotCorrelated(nextSel, nextNode, visited, depth + 1, max));
+//		}
+//		return min;
+//	}
 	
 	public double computeSelAllNotCorrelated(Multigraph query) {
 		double sel = 1;
@@ -375,35 +440,46 @@ public class QuerySel {
 			Long nextNode = e.getDestination().equals(crt) ? e.getSource() : e.getDestination();
 //			System.out.println(crt + " " + e.getLabel() + " " + nextNode +" " + labelSel + " " + nextSel + " " + adjEdges.size());
 //			System.out.println(crt + " " + nextNode + " " + nextSel + " " + labelSel);
-			computeSelPathNotCorrelated(nextSel, nextNode, visited, depth + 1, max);
+//			computeSelPathNotCorrelated(nextSel, nextNode, visited, depth + 1, max);
 		}
 	}
 	
-	public double computeSelPathNotCorrelated(double baseSel,  Long crt, Set<Long> visited, int depth, int max) {
+	public double computePathNotCand(Long crt, int degree, int dn) {
+		List<Event> one = new ArrayList<>();
+		computeSelPathNotCorrelated(1, crt, new HashSet<>(), 0, dn, one);
+		return graph.vertexSet().size() * prob(one, (int)Math.pow(degree, dn));
+	}
+	public void computeSelPathNotCorrelated(double min,  Long crt, Set<Edge> visited, int depth, int max, List<Event> one) {
 		if (depth >= max) {
-			return baseSel;
+			one.add(new Event(min));
+			return;
 		}
 		Set<Edge> adjEdges = new HashSet<>();
-		visited.add(crt);
 		for (Edge e : query.outgoingEdgesOf(crt)) {
 			Long nextNode = e.getDestination().equals(crt) ? e.getSource() : e.getDestination();
-			if (!visited.contains(nextNode)) {
+			if (!visited.contains(e)) {
 				adjEdges.add(e);
 			}
 		}
 		for (Edge e : query.incomingEdgesOf(crt)) {
 			Long nextNode = e.getDestination().equals(crt) ? e.getSource() : e.getDestination();
-			if (!visited.contains(nextNode)) {
+			if (!visited.contains(e)) {
 				adjEdges.add(e);
 			}
 		}
 		if (adjEdges.size() == 0) {
-			return baseSel;
+			one.add(new Event(min));
+			return;
 		}
-		double sel = 1;
 		for (Edge e: adjEdges) {
-			double labelSel = ((BigMultigraph)graph).getLabelFreq().get(e.getLabel()).getFrequency() / (double)graph.edgeSet().size();
-			double nextSel = Math.min(labelSel, baseSel);
+			visited.add(e);
+			double labelSel;
+			if (e.getLabel().equals(0L)) {
+				labelSel = 1;
+			} else {
+				labelSel = ((BigMultigraph)graph).getLabelFreq().get(e.getLabel()).getFrequency() / (double)graph.edgeSet().size();
+			}
+				min = Math.min(labelSel, min);
 			
 			if (e.getDestination().equals(e.getSource())) {
 //				nextSel = Math.min(baseSel, labelSel);
@@ -412,9 +488,45 @@ public class QuerySel {
 			Long nextNode = e.getDestination().equals(crt) ? e.getSource() : e.getDestination();
 //			System.out.println(crt + " " + e.getLabel() + " " + nextNode +" " + labelSel + " " + nextSel + " " + adjEdges.size());
 //			System.out.println(crt + " " + nextNode + " " + nextSel + " " + labelSel);
-			sel *= computeSelPathNotCorrelated(nextSel, nextNode, visited, depth + 1, max);
+			computeSelPathNotCorrelated(min, nextNode, visited, depth + 1, max, one);
 		}
-		return sel;
 	}
+//	public double computeSelPathNotCorrelated(double baseSel,  Long crt, Set<Long> visited, int depth, int max) {
+//		if (depth >= max) {
+//			return baseSel;
+//		}
+//		Set<Edge> adjEdges = new HashSet<>();
+//		visited.add(crt);
+//		for (Edge e : query.outgoingEdgesOf(crt)) {
+//			Long nextNode = e.getDestination().equals(crt) ? e.getSource() : e.getDestination();
+//			if (!visited.contains(nextNode)) {
+//				adjEdges.add(e);
+//			}
+//		}
+//		for (Edge e : query.incomingEdgesOf(crt)) {
+//			Long nextNode = e.getDestination().equals(crt) ? e.getSource() : e.getDestination();
+//			if (!visited.contains(nextNode)) {
+//				adjEdges.add(e);
+//			}
+//		}
+//		if (adjEdges.size() == 0) {
+//			return baseSel;
+//		}
+//		double sel = 1;
+//		for (Edge e: adjEdges) {
+//			double labelSel = ((BigMultigraph)graph).getLabelFreq().get(e.getLabel()).getFrequency() / (double)graph.edgeSet().size();
+//			double nextSel = Math.min(labelSel, baseSel);
+//			
+//			if (e.getDestination().equals(e.getSource())) {
+////				nextSel = Math.min(baseSel, labelSel);
+//				continue;
+//			}
+//			Long nextNode = e.getDestination().equals(crt) ? e.getSource() : e.getDestination();
+////			System.out.println(crt + " " + e.getLabel() + " " + nextNode +" " + labelSel + " " + nextSel + " " + adjEdges.size());
+////			System.out.println(crt + " " + nextNode + " " + nextSel + " " + labelSel);
+//			sel *= computeSelPathNotCorrelated(nextSel, nextNode, visited, depth + 1, max);
+//		}
+//		return sel;
+//	}
 
 }

@@ -32,6 +32,7 @@ import eu.unitn.disi.db.grava.graphs.Multigraph;
 import eu.unitn.disi.db.grava.graphs.Path;
 import eu.unitn.disi.db.grava.graphs.PathNeighbor;
 import eu.unitn.disi.db.grava.graphs.StructureMapping;
+import eu.unitn.disi.db.grava.utils.BloomFilter;
 import eu.unitn.disi.db.grava.utils.Utilities;
 import eu.unitn.disi.db.grava.vectorization.NeighborTables;
 import eu.unitn.disi.db.grava.vectorization.PathNeighborTables;
@@ -78,9 +79,12 @@ public class PruningAlgorithm extends Algorithm {
     private HashMap<Long, Double> nodeSelectivities;
     private HashMap<Long, Integer> neighborLabels;
     private HashMap<Long, Integer> candidates;
+    private Map<Long, BloomFilter<String>> gPathTables;
+    private Map<Long, BloomFilter<String>> qPathTables;
     private long bsCount;
     private int cmpNbLabel;
     private int uptCount;
+    private int k;
     private ArrayList<Long> visitSeq;
     private HashMap<Pair<Long,Long>, Set<StructureMapping>> gNodesNextEdgeMapping;
     private HashMap<Pair<Long,Long>, Set<StructureMapping>> gNodesPrevEdgeMapping;
@@ -243,6 +247,113 @@ public class PruningAlgorithm extends Algorithm {
     }
     
     
+    public void pathFilter() {
+    	Set<MappedNode> filteredSet = new HashSet<>();
+    	Set<MappedNode> oldSet = queryGraphMapping.get(this.startingNode);
+    	Set<String> queryPaths = new HashSet<>();
+    	dfs(startingNode, new HashSet<>(), new StringBuilder(), 0, queryPaths);
+    	for (MappedNode mn : oldSet) {
+    		BloomFilter<String> bf = gPathTables.get(mn.getNodeID());
+    		int count = 0;
+    		boolean isGood = true;
+    		for (String path : queryPaths) {
+    			if (!bf.contains(path)) {
+    				count++;
+    				if (count > this.threshold) {
+    					isGood = false;
+    					break;
+    				}
+    			}
+    		}
+    		if (isGood) {
+    			filteredSet.add(mn);
+    		}
+    	}
+    	queryGraphMapping.put(startingNode, filteredSet);
+    }
+    
+    public void pathFilter(boolean filterAll) {
+    	
+    	for (Entry<Long, Set<MappedNode>> en : queryGraphMapping.entrySet()) {
+    		Long crt = en.getKey();
+    		Set<MappedNode> filteredSet = new HashSet<>();
+        	Set<MappedNode> oldSet = queryGraphMapping.get(crt);
+        	Set<String> queryPaths = new HashSet<>();
+        	dfs(crt, new HashSet<>(), new StringBuilder(), 0, queryPaths);
+        	for (MappedNode mn : oldSet) {
+        		BloomFilter<String> bf = gPathTables.get(mn.getNodeID());
+        		int count = 0;
+        		boolean isGood = true;
+        		for (String path : queryPaths) {
+        			if (!bf.contains(path)) {
+        				count++;
+        				if (count > this.threshold) {
+        					isGood = false;
+        					break;
+        				}
+        			}
+        		}
+        		if (isGood) {
+        			filteredSet.add(mn);
+        		}
+        	}
+        	queryGraphMapping.put(crt, filteredSet);
+    	}
+    	
+    }
+    
+    public int onlyPath() {
+    	int number = 0;
+    	Set<String> queryPaths = new HashSet<>();
+    	dfs(startingNode, new HashSet<>(), new StringBuilder(), 0, queryPaths);
+    	for (Long mn : graph.vertexSet()) {
+    		BloomFilter<String> bf = gPathTables.get(mn);
+    		int count = 0;
+    		boolean isGood = true;
+    		for (String path : queryPaths) {
+    			if (!bf.contains(path)) {
+    				count++;
+    				if (count > this.threshold) {
+    					isGood = false;
+    					break;
+    				}
+    			}
+    		}
+    		if (isGood) {
+    			number++;
+    		}
+    	}
+    	return number;
+    }
+    
+    
+    public void dfs(Long node, Set<Edge> visited, StringBuilder sb, int depth, Set<String> paths) {
+		if (depth >= k) {
+			paths.add(sb.toString());
+			return;
+		}
+		int length = sb.length();
+		boolean hasEdge = false;
+		for (Edge e : query.outgoingEdgesOf(node)) {
+			Long nextNode = e.getDestination().equals(node) ? e.getSource() : e.getDestination();
+			if (!visited.contains(e) && !e.getLabel().equals(0L) && !nextNode.equals(node)) {
+				sb.append(e.getLabel());
+				dfs(nextNode, visited, sb, depth + 1, paths);
+				sb.setLength(length);
+				hasEdge = true;
+			}
+		}
+		
+		for (Edge e : query.incomingEdgesOf(node)) {
+			Long nextNode = e.getDestination().equals(node) ? e.getSource() : e.getDestination();
+			if (!visited.contains(e) && !e.getLabel().equals(0L) && !nextNode.equals(node)) {
+				sb.append(e.getLabel());
+				dfs(nextNode, visited, sb, depth + 1, paths);
+				sb.setLength(length);
+				hasEdge = true;
+			}
+		}
+	}
     public void fastCompute()
             throws AlgorithmExecutionException
     {
@@ -798,7 +909,7 @@ public class PruningAlgorithm extends Algorithm {
         Collection<Long> queryNodes = query.vertexSet();
         Collection<Edge> graphEdges = graph.edgeSet();
 
-        Set<MappedNode> goodNodes = new HashSet<>();
+        Set<Long> goodNodes = new HashSet<>();
 
         Multigraph restricted = new BaseMultigraph(graph.edgeSet().size());
 
@@ -811,8 +922,8 @@ public class PruningAlgorithm extends Algorithm {
                 //TODO Long should be converted to redable
                 throw new AlgorithmExecutionException("Query tables do not contain maps for the node " + node);
             }
-
-            goodNodes.addAll(queryGraphMapping.get(node));
+            this.addAll(goodNodes, queryGraphMapping.get(node));
+//            goodNodes.addAll(queryGraphMapping.get(node));
         }
 
         for (Iterator<Edge> it = graphEdges.iterator(); it.hasNext();) {
@@ -828,6 +939,12 @@ public class PruningAlgorithm extends Algorithm {
         debug("kept %d, removed %d over %d edges non mapping edges in %dms", restricted.edgeSet().size(), removed, graphEdges.size(), watch.getElapsedTimeMillis());
 
         return restricted;
+    }
+    
+    private void addAll(Set<Long> goodNodes, Set<MappedNode> mns) {
+    	for (MappedNode n : mns) {
+    		goodNodes.add(n.getNodeID());
+    	}
     }
 
 
@@ -930,6 +1047,36 @@ public class PruningAlgorithm extends Algorithm {
 
 	public NeighborTables getGraphTables() {
 		return graphTables;
+	}
+
+
+	public Map<Long, BloomFilter<String>> getgPathTables() {
+		return gPathTables;
+	}
+
+
+	public void setgPathTables(Map<Long, BloomFilter<String>> gPathTables) {
+		this.gPathTables = gPathTables;
+	}
+
+
+	public Map<Long, BloomFilter<String>> getqPathTables() {
+		return qPathTables;
+	}
+
+
+	public void setqPathTables(Map<Long, BloomFilter<String>> qPathTables) {
+		this.qPathTables = qPathTables;
+	}
+
+
+	public int getK() {
+		return k;
+	}
+
+
+	public void setK(int k) {
+		this.k = k;
 	}
     
     

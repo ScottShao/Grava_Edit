@@ -21,11 +21,13 @@ import eu.unitn.disi.db.exemplar.core.algorithms.steps.GraphIsomorphismRecursive
 import eu.unitn.disi.db.command.exceptions.AlgorithmExecutionException;
 import eu.unitn.disi.db.command.util.StopWatch;
 import eu.unitn.disi.db.exemplar.core.RelatedQuery;
+import eu.unitn.disi.db.grava.graphs.LabelContainer;
 import eu.unitn.disi.db.grava.graphs.MappedNode;
 import eu.unitn.disi.db.grava.graphs.Multigraph;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
@@ -47,6 +49,7 @@ public class IsomorphicQuerySearch extends RelatedQuerySearch {
 	public static long answerCount= 0;
 	public static boolean isBad = false;
 	public static long interNum = 0;
+	private HashMap<Long, LabelContainer> labelFreq;
     /**
      * Execute the algorithm
      *
@@ -119,6 +122,7 @@ public class IsomorphicQuerySearch extends RelatedQuerySearch {
         for (List<MappedNode> chunk : nodesChunks) {
             threadNum++;
             GraphIsomorphismRecursiveStep graphI = new GraphIsomorphismRecursiveStep(threadNum, chunk.iterator(), startingNode, query, graph, true, this.getSkipSave());
+            graphI.setLabelFreq(this.labelFreq);
             lists.add(pool.submit(graphI));
         }
 
@@ -153,6 +157,12 @@ public class IsomorphicQuerySearch extends RelatedQuerySearch {
 	}
 	public void setStartingNode(Long startingNode) {
 		this.startingNode = startingNode;
+	}
+	public HashMap<Long, LabelContainer> getLabelFreq() {
+		return labelFreq;
+	}
+	public void setLabelFreq(HashMap<Long, LabelContainer> labelFreq) {
+		this.labelFreq = labelFreq;
 	}
     
 }

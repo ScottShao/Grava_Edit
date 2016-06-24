@@ -126,7 +126,7 @@ public class Sampling {
 		while (flag && !queue.isEmpty()) {
 			top = queue.poll();
 			cur = distance.poll();
-
+			count++;
 			if (visited.contains(top)) {
 				continue;
 			}
@@ -186,7 +186,7 @@ public class Sampling {
 					// ansNum);
 					// // System.out.println("printing " + rate + " " + dis);
 					// }
-					count++;
+					
 					degree++; // out degree
 				}
 
@@ -756,8 +756,10 @@ public class Sampling {
 	}
 
 	public static void main(String[] args) throws ParseException, IOException {
-		BigMultigraph G = new BigMultigraph("1000nodes-sin.graph",
-				"1000nodes-sout.graph", false);
+		BigMultigraph G = new BigMultigraph(args[4] + "nodes-sin.graph",
+				args[4] + "nodes-sout.graph", false);
+		System.out.println(args[3]);
+		Sampling s = new Sampling(G, Integer.parseInt(args[0]), Integer.parseInt(args[1]), Long.parseLong(args[2]), args[3]);
 //		int size = G.vertexSet().size();
 //		Random rnd = new Random();
 //		Long[] nodes = G.vertexSet().toArray(new Long[size]);
@@ -765,18 +767,18 @@ public class Sampling {
 //		for (int i = 2; i <= 10; i++){
 //			s.randomlyGenerateQuery(i);
 //		}
-		// for (int i = 0; i < 10; i++) {
-		// System.out.println("Starting node " + nodes[rnd.nextInt(size)]);
-		// for (int j = 2; j <= 5; j++) {
-		// for (int k = 1; k <= 5; k++) {
-		// Sampling s = new Sampling(G, j * 10, k,
-		// nodes[rnd.nextInt(size)], "Q" + j * 10 + "N" + k
-		// + "D_" + (i + 1) + ".txt");
-		// }
-		// }
-		// }
-		 Sampling s = new Sampling(G);
-		 s.generateQueries(10, 1000);
+//		 for (int i = 0; i < 10; i++) {
+//		 System.out.println("Starting node " + nodes[rnd.nextInt(size)]);
+//		 for (int j = 2; j <= 5; j++) {
+//			for (int k = 1; k <= 5; k++) {
+//				 Sampling s = new Sampling(G, j * 10, k,
+//				 nodes[rnd.nextInt(size)], "Q" + j * 10 + "N" + k
+//				 + "D_" + (i + 1) + ".txt");
+//				 }
+//		 	}
+//		 }
+//		 Sampling s = new Sampling(G);
+//		 s.generateQueries(10, 1000);
 		// s.generateClique(3, 0, new ArrayList<Long>());
 	}
 

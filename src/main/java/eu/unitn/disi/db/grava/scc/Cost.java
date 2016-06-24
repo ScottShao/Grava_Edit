@@ -176,7 +176,7 @@ public class Cost {
 				if (visited.contains(qe)) {
 					continue;
 				}
-				System.out.println(qe);
+//				System.out.println(qe);
 				double costTemp;
 				if (qe.getLabel().equals(0L)) {
 					double em;
@@ -245,7 +245,7 @@ public class Cost {
 			}
 			List<Edge> sortedEdge = getSortedEdges(queryEdges, graph);
 			for (Edge qe : sortedEdge) {
-				System.out.println(qe);
+//				System.out.println(qe);
 				double costTemp;
 				if (qe.getLabel().equals(0L)) {
 					costTemp = AVG_DEGREE;

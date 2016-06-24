@@ -65,6 +65,7 @@ public class EditDistance {
 	private long wcBsCount;
 	private int wcCmpCount;
 	private int wcUptCount;
+	private long bfSearchCount;
 	private long wcSearchCount;
 	private long exBsCount;
 	private int exCmpCount;
@@ -74,8 +75,13 @@ public class EditDistance {
 	private BufferedWriter cmpBw;
 	private double wcElapsedTime;
 	private double exElapsedTime;
+	private double bfElapsedTime;
 	private int wcCandidatesNum;
 	private int exCandidatesNum;
+	private int wcAfterNum;
+	private int exAfterNum;
+	private int wcPathOnly;
+	private int exPathOnly;
 	private double wcCost;
 	private double edCost;
 	private final int AVG_DEGREE = 9;
@@ -92,6 +98,16 @@ public class EditDistance {
 	private long wcIntNum;
 	private long edIntNum;
 	private long wcIntSum;
+	private List<String> candComp;
+	private List<String> selsComp;
+	private ComputeGraphNeighbors gTableAlgorithm;
+	private double wcAllEst;
+	private double wcPathEst;
+	private double wcAdjEdt;
+	private double edAllEst;
+	private double edPathEst;
+	private double edAdjEdt;
+
 	public BufferedWriter getCmpBw() {
 		return cmpBw;
 	}
@@ -148,9 +164,14 @@ public class EditDistance {
 		String temp[] = null;
 		String comFile = "comparison.txt";
 		wcCandidatesNum = 0;
+		this.wcAfterNum = 0;
+		this.wcPathOnly = 0;
 		wcCost = 0;
 		this.wcIntNum = 0;
 		this.wcIntSum = 0;
+		this.wcAllEst = 0;
+		this.wcAdjEdt = 0;
+		this.wcPathEst = 0;
 		if (threshold != 0) {
 			HashSet<RelatedQuery> relatedQueriesUnique = new HashSet<RelatedQuery>();
 			WildCardQuery wcq = new WildCardQuery(threshold);
@@ -178,25 +199,33 @@ public class EditDistance {
 
 						tableAlgorithm = new ComputeGraphNeighbors();
 						watch.reset();
-						tableAlgorithm.setK(neighbourNum);
-						tableAlgorithm.setGraph(G);
 						tableAlgorithm.setNumThreads(threadsNum);
+						tableAlgorithm.setK(neighbourNum);
+						tableAlgorithm.setMaxDegree(this.MAX_DEGREE);
+						/**
+						tableAlgorithm.setGraph(G);
 						tableAlgorithm.compute();
-						graphTables = tableAlgorithm.getNeighborTables();
+						tableAlgorithm.computePathFilter();
+						**/
+						graphTables = gTableAlgorithm.getNeighborTables();
 						tableAlgorithm.setGraph(Q);
+						tableAlgorithm.setMaxDegree(this.MAX_DEGREE);
 						tableAlgorithm.compute();
+						
 						queryTables = tableAlgorithm.getNeighborTables();
 						computingNeighborTime += watch.getElapsedTimeMillis();
 						// System.out.println(queryTables.toString());
 						watch.reset();
 						startingNode = this.getRootNode(true);
-						InfoNode info = new InfoNode(startingNode);
+//						InfoNode info = new InfoNode(startingNode);
 						// System.out.println("starting node:" + startingNode);
 						pruningAlgorithm = new PruningAlgorithm();
 						// Set starting node according to sels of nodes.
 						pruningAlgorithm.setStartingNode(startingNode);
 						pruningAlgorithm.setGraph(G);
 						pruningAlgorithm.setQuery(Q);
+						pruningAlgorithm.setK(neighbourNum);
+						pruningAlgorithm.setgPathTables(gTableAlgorithm.getPathTables());
 						pruningAlgorithm.setGraphTables(graphTables);
 						pruningAlgorithm.setQueryTables(queryTables);
 //						System.out.println("startingNode:" + startingNode + " degree:" + (Q.inDegreeOf(startingNode) + Q.outDegreeOf(startingNode))); 
@@ -205,17 +234,25 @@ public class EditDistance {
 						
 						pruningAlgorithm.setThreshold(0);
 						pruningAlgorithm.compute();
+						
+						
 						// pruningAlgorithm.fastCompute();
-						this.wcBsCount += pruningAlgorithm.getBsCount();
-						this.wcCmpCount += pruningAlgorithm.getCmpNbLabel();
-						this.wcUptCount += pruningAlgorithm.getUptCount();
-						info.setBsCount(pruningAlgorithm.getBsCount());
-						info.setCmpCount(pruningAlgorithm.getCmpNbLabel());
-						info.setUptCount(pruningAlgorithm.getUptCount());
+//						this.wcBsCount += pruningAlgorithm.getBsCount();
+//						this.wcCmpCount += pruningAlgorithm.getCmpNbLabel();
+//						this.wcUptCount += pruningAlgorithm.getUptCount();
+//						info.setBsCount(pruningAlgorithm.getBsCount());
+//						info.setCmpCount(pruningAlgorithm.getCmpNbLabel());
+//						info.setUptCount(pruningAlgorithm.getUptCount());
 						// info.setSel(nqv.getNodeSelectivities().get(startingNode));
-						infoNodes.add(info);
+//						infoNodes.add(info);
 						queryGraphMapping = pruningAlgorithm
 								.getQueryGraphMapping();
+//						wcCandidatesNum += queryGraphMapping.get(startingNode).size();
+//						System.out.println("before filtering:" + queryGraphMapping.get(startingNode).size());
+//						pruningAlgorithm.pathFilter();
+//						this.wcAfterNum += queryGraphMapping.get(startingNode).size();
+//						this.wcPathOnly += pruningAlgorithm.onlyPath();
+//						System.out.println("after filtering:" + queryGraphMapping.get(startingNode).size());
 						// watch.getElapsedTimeMillis());
 						pruningTime += watch.getElapsedTimeMillis();
 						watch.reset();
@@ -224,6 +261,7 @@ public class EditDistance {
 
 						IsomorphicQuerySearch edAlgorithm = new IsomorphicQuerySearch();
 						edAlgorithm.setStartingNode(startingNode);
+						edAlgorithm.setLabelFreq(((BigMultigraph)G).getLabelFreq());
 						edAlgorithm.setQuery(Q);
 						edAlgorithm.setGraph(G);
 						edAlgorithm.setNumThreads(this.threadsNum);
@@ -231,24 +269,29 @@ public class EditDistance {
 								.getQueryGraphMapping());
 						edAlgorithm.setLimitedComputation(false);
 						edAlgorithm.compute();
-						this.isWcBad = this.isWcBad || IsomorphicQuerySearch.isBad;
-						this.wcIntNum = Math.max(this.wcIntNum, IsomorphicQuerySearch.interNum);
-						this.wcIntSum = this.wcIntSum + IsomorphicQuerySearch.interNum;
-						relatedQueries = edAlgorithm.getRelatedQueries();
-						relatedQueriesUnique.addAll(relatedQueries);
+//						this.isWcBad = this.isWcBad || IsomorphicQuerySearch.isBad;
+//						this.wcIntNum = Math.max(this.wcIntNum, IsomorphicQuerySearch.interNum);
+//						this.wcIntSum = this.wcIntSum + IsomorphicQuerySearch.interNum;
+//						relatedQueries = edAlgorithm.getRelatedQueries();
+//						relatedQueriesUnique.addAll(relatedQueries);
 //						System.out.println(startingNode);
-						/**
-						QuerySel qs = new QuerySel(G, wildCardQuery, startingNode);
 						
-						Cost.cost = 0;
+//						QuerySel qs = new QuerySel(G, wildCardQuery, startingNode);
+//						
+//						Cost.cost = 0;
 //						Cost.estimateMaxCost(wildCardQuery, startingNode, G, this.AVG_DEGREE, new HashSet<Edge>(), 1);
-//						Cost.estimateMaxCostWithLabelMaxNum(Q, startingNode, this.AVG_DEGREE, G, new HashSet<Edge>(), 1);
-						Cost.estimateExactCost(Q, startingNode, this.AVG_DEGREE, G, new HashSet<Edge>(), 1);
+//						Cost.estimateMaxCostWithLabelMaxNum(wildCardQuery, startingNode, this.AVG_DEGREE, G, new HashSet<Edge>(), 1);
+//						Cost.estimateExactCost(Q, startingNode, this.AVG_DEGREE, G, new HashSet<Edge>(), 1);
 //						System.out.println(qs.getCanNumber(startingNode, this.AVG_DEGREE, 2));
-						double tt = qs.getCanNumber(startingNode, this.AVG_DEGREE, 2);
-						this.edCandidates += tt;
-						wcCost += tt* Cost.cost;
-						**/
+//						double tt = qs.getCanNumber(startingNode, this.AVG_DEGREE, 2);
+//						this.edCandidates += tt;
+//						wcCost += tt* Cost.cost;
+//						wcCost += qs.getCanNumber(startingNode, AVG_DEGREE, 2) * Cost.cost;
+//						wcCost += Cost.getCandidatesNum(wildCardQuery, startingNode, G) * Cost.cost;
+//						wcCost += qs.computeAdjNotCand(startingNode, AVG_DEGREE, this.neighbourNum) * Cost.cost;
+//						this.wcAllEst += qs.getCanNumber(startingNode, this.AVG_DEGREE, this.neighbourNum);
+//						this.wcAdjEdt += qs.computeAdjNotCand(startingNode, AVG_DEGREE, this.neighbourNum);
+//						this.wcPathEst += qs.computePathNotCand(startingNode, AVG_DEGREE, this.neighbourNum);
 //						System.out.println(tt + " wc " + Cost.cost);
 //						wcCost += Cost.getCandidatesNum(wildCardQuery, startingNode, G) * Cost.cost;
 //						wcCost += Cost.estimateQueryCost(wildCardQuery, startingNode, G, AVG_DEGREE);
@@ -256,17 +299,17 @@ public class EditDistance {
 //						comBw.newLine();
 //						answerNum += IsomorphicQuerySearch.answerCount;
 //						System.out.println(answerNum);
-						isoTime += watch.getElapsedTimeMillis();
-						wcCandidatesNum += pruningAlgorithm.getCandidates().get(startingNode);
+//						isoTime += watch.getElapsedTimeMillis();
+						
 					}
 					
 //					comBw.close();
 					Q = null;
 					
-					loadingTime = loadingTime / repititions;
-					computingNeighborTime = computingNeighborTime / repititions;
-					pruningTime = pruningTime / repititions;
-					isoTime = isoTime / repititions;
+//					loadingTime = loadingTime / repititions;
+//					computingNeighborTime = computingNeighborTime / repititions;
+//					pruningTime = pruningTime / repititions;
+//					isoTime = isoTime / repititions;
 
 					// relatedQueriesUnique.addAll(this.getRelatedQueriesUnique());
 					// bsCount += this.getBsCount();
@@ -274,30 +317,192 @@ public class EditDistance {
 					// uptCount += this.getUptCount();
 				}
 //				System.out.println("asd:" + wcCost);
-				int queriesCount = 0;
+//				int queriesCount = 0;
 //				for (RelatedQuery related : relatedQueriesUnique) {
 //					queriesCount++;
 //				}
 				wcSearchCount = Utilities.searchCount / repititions;
-				wcBsCount /= repititions;
-				wcCmpCount /= repititions;
-				wcUptCount /= repititions;
-				wcSearchCount /= repititions;
+//				wcBsCount /= repititions;
+//				wcCmpCount /= repititions;
+//				wcUptCount /= repititions;
+//				wcSearchCount /= repititions;
 //				System.out.println("c:" + wcSearchCount);
 //				System.out.println(wcBsCount);
 //				System.out.println(wcCmpCount);
 //				System.out.println(wcUptCount);
 //				System.out.println(wcSearchCount);
 			}
-			answerNum = relatedQueriesUnique.size();
-			System.out.println(this.wcIntNum + " " + this.wcIntSum);
+//			answerNum = relatedQueriesUnique.size();
+//			System.out.println(this.wcIntNum + " " + this.wcIntSum);
 		} else {
 
 		}
 		
 		wcElapsedTime = (double)(System.nanoTime() - startTime) / 1000000000.0;
 	}
-
+	
+	
+	public void runBFWildCard() throws IOException, ParseException,
+	AlgorithmExecutionException {
+		long startTime = System.nanoTime();
+		System.out.println("running bf wild card");
+		Map<Long, Set<MappedNode>> queryGraphMapping = null;
+		ComputeGraphNeighbors tableAlgorithm = null;
+		// ComputePathGraphNeighbors tableAlgorithm = null;
+		// PathNeighborTables queryTables = null;
+		// PathNeighborTables graphTables = null;
+		NeighborTables queryTables = null;
+		NeighborTables graphTables = null;
+		PruningAlgorithm pruningAlgorithm = null;
+		float loadingTime = 0;
+		float computingNeighborTime = 0;
+		float pruningTime = 0;
+		float isoTime = 0;
+		Utilities.searchCount = 0;
+		if (threshold != 0) {
+			HashSet<RelatedQuery> relatedQueriesUnique = new HashSet<RelatedQuery>();
+			WildCardQuery wcq = new WildCardQuery(threshold);
+			wcq.run(queryName);
+			Set<Multigraph> wildCardQueries = wcq.getWcQueries();
+		//	relatedQueriesUnique = new HashSet<>();
+			for (int exprimentTime = 0; exprimentTime < repititions; exprimentTime++) {
+				// ed.setThreshold(0);
+				for (Multigraph wildCardQuery : wildCardQueries) {
+		//			for (Edge e : wildCardQuery.edgeSet()){
+		//				System.out.println(e);
+		//			}
+					this.setQ(wildCardQuery);
+					Long startingNode;
+					ArrayList<InfoNode> infoNodes = new ArrayList<>();
+					for (int exprimentTime1 = 0; exprimentTime1 < repititions; exprimentTime1++) {
+						StopWatch watch = new StopWatch();
+						watch.start();
+		
+						loadingTime += watch.getElapsedTimeMillis();
+		
+						tableAlgorithm = new ComputeGraphNeighbors();
+						watch.reset();
+						tableAlgorithm.setNumThreads(threadsNum);
+						tableAlgorithm.setK(neighbourNum);
+						tableAlgorithm.setMaxDegree(this.MAX_DEGREE);
+						/**
+						tableAlgorithm.setGraph(G);
+						tableAlgorithm.compute();
+						tableAlgorithm.computePathFilter();
+						**/
+						graphTables = gTableAlgorithm.getNeighborTables();
+						tableAlgorithm.setGraph(Q);
+						tableAlgorithm.setMaxDegree(this.MAX_DEGREE);
+						tableAlgorithm.compute();
+						
+						queryTables = tableAlgorithm.getNeighborTables();
+						computingNeighborTime += watch.getElapsedTimeMillis();
+						// System.out.println(queryTables.toString());
+						watch.reset();
+						startingNode = this.getRootNode(true);
+						// System.out.println("starting node:" + startingNode);
+						pruningAlgorithm = new PruningAlgorithm();
+						// Set starting node according to sels of nodes.
+						pruningAlgorithm.setStartingNode(startingNode);
+						pruningAlgorithm.setGraph(G);
+						pruningAlgorithm.setQuery(Q);
+						pruningAlgorithm.setK(neighbourNum);
+						pruningAlgorithm.setgPathTables(gTableAlgorithm.getPathTables());
+						pruningAlgorithm.setGraphTables(graphTables);
+						pruningAlgorithm.setQueryTables(queryTables);
+						
+						pruningAlgorithm.setThreshold(0);
+						pruningAlgorithm.compute();
+						
+						
+//						wcCandidatesNum += queryGraphMapping.get(startingNode).size();
+						pruningAlgorithm.pathFilter(true);
+//						this.wcAfterNum += queryGraphMapping.get(startingNode).size();
+						pruningTime += watch.getElapsedTimeMillis();
+						Multigraph prunedG = pruningAlgorithm.pruneGraph();
+						watch.reset();
+		
+						List<RelatedQuery> relatedQueries;
+		
+						IsomorphicQuerySearch edAlgorithm = new IsomorphicQuerySearch();
+						edAlgorithm.setStartingNode(startingNode);
+						edAlgorithm.setLabelFreq(((BigMultigraph)G).getLabelFreq());
+						edAlgorithm.setQuery(Q);
+						edAlgorithm.setGraph(prunedG);
+						edAlgorithm.setNumThreads(this.threadsNum);
+						edAlgorithm.setQueryToGraphMap(pruningAlgorithm
+								.getQueryGraphMapping());
+						edAlgorithm.setLimitedComputation(true);
+						edAlgorithm.compute();
+		//				relatedQueries = edAlgorithm.getRelatedQueries();
+		//				relatedQueriesUnique.addAll(relatedQueries);
+		//				System.out.println(startingNode);
+						
+//						QuerySel qs = new QuerySel(G, wildCardQuery, startingNode);
+//						
+//						Cost.cost = 0;
+//		//				Cost.estimateMaxCost(wildCardQuery, startingNode, G, this.AVG_DEGREE, new HashSet<Edge>(), 1);
+//						Cost.estimateMaxCostWithLabelMaxNum(wildCardQuery, startingNode, this.AVG_DEGREE, G, new HashSet<Edge>(), 1);
+//		//				Cost.estimateExactCost(Q, startingNode, this.AVG_DEGREE, G, new HashSet<Edge>(), 1);
+//		//				System.out.println(qs.getCanNumber(startingNode, this.AVG_DEGREE, 2));
+//		//				double tt = qs.getCanNumber(startingNode, this.AVG_DEGREE, 2);
+//		//				this.edCandidates += tt;
+//		//				wcCost += tt* Cost.cost;
+//		//				wcCost += qs.getCanNumber(startingNode, AVG_DEGREE, 2) * Cost.cost;
+//		//				wcCost += Cost.getCandidatesNum(wildCardQuery, startingNode, G) * Cost.cost;
+//						wcCost += qs.computeAdjNotCand(startingNode, AVG_DEGREE, this.neighbourNum) * Cost.cost;
+//						this.wcAllEst += qs.getCanNumber(startingNode, this.AVG_DEGREE, this.neighbourNum);
+//						this.wcAdjEdt += qs.computeAdjNotCand(startingNode, AVG_DEGREE, this.neighbourNum);
+//						this.wcPathEst += qs.computePathNotCand(startingNode, AVG_DEGREE, this.neighbourNum);
+		//				System.out.println(tt + " wc " + Cost.cost);
+		//				wcCost += Cost.getCandidatesNum(wildCardQuery, startingNode, G) * Cost.cost;
+		//				wcCost += Cost.estimateQueryCost(wildCardQuery, startingNode, G, AVG_DEGREE);
+		//				System.out.println(wcCost + "  asd");
+		//				comBw.newLine();
+		//				answerNum += IsomorphicQuerySearch.answerCount;
+		//				System.out.println(answerNum);
+						isoTime += watch.getElapsedTimeMillis();
+						
+					}
+					
+		//			comBw.close();
+					Q = null;
+					
+//					loadingTime = loadingTime / repititions;
+//					computingNeighborTime = computingNeighborTime / repititions;
+//					pruningTime = pruningTime / repititions;
+//					isoTime = isoTime / repititions;
+					
+					// relatedQueriesUnique.addAll(this.getRelatedQueriesUnique());
+					// bsCount += this.getBsCount();
+					// cmpCount += this.getCmpCount();
+					// uptCount += this.getUptCount();
+				}
+		//		System.out.println("asd:" + wcCost);
+//				int queriesCount = 0;
+		//		for (RelatedQuery related : relatedQueriesUnique) {
+		//			queriesCount++;
+		//		}
+//				wcSearchCount = Utilities.searchCount / repititions;
+//				wcBsCount /= repititions;
+//				wcCmpCount /= repititions;
+//				wcUptCount /= repititions;
+//				wcSearchCount /= repititions;
+		//		System.out.println("c:" + wcSearchCount);
+		//		System.out.println(wcBsCount);
+		//		System.out.println(wcCmpCount);
+		//		System.out.println(wcUptCount);
+		//		System.out.println(wcSearchCount);
+				this.bfSearchCount = Utilities.searchCount / repititions;
+			}
+			answerNum = relatedQueriesUnique.size();
+//			System.out.println(this.wcIntNum + " " + this.wcIntSum);
+		} else {
+		
+		}
+		//to do
+		this.bfElapsedTime = (double)(System.nanoTime() - startTime) / 1000000000.0;
+	}
 	public void runExtension() throws IOException, ParseException,
 			AlgorithmExecutionException {
 		long startTime = System.nanoTime();
@@ -307,12 +512,12 @@ public class EditDistance {
 		NeighborTables queryTables = null;
 		NeighborTables graphTables = null;
 		PruningAlgorithm pruningAlgorithm = null;
-		NextQueryVertexes nqv = null;
-		Isomorphism iso = null;
-		float loadingTime = 0;
-		float computingNeighborTime = 0;
-		float pruningTime = 0;
-		float isoTime = 0;
+//		NextQueryVertexes nqv = null;
+//		Isomorphism iso = null;
+//		float loadingTime = 0;
+//		float computingNeighborTime = 0;
+//		float pruningTime = 0;
+//		float isoTime = 0;
 		this.exBsCount = 0;
 		this.exCmpCount = 0;
 		this.exUptCount = 0;
@@ -325,6 +530,7 @@ public class EditDistance {
 		Selectivity sel = new Selectivity();
 		ArrayList<InfoNode> infoNodes = new ArrayList<>();
 		this.exCandidatesNum = 0;
+		this.exAfterNum = 0;
 		relatedQueriesUnique = new HashSet<>();
 		this.isEdBad = false;
 		for (int exprimentTime = 0; exprimentTime < repititions; exprimentTime++) {
@@ -338,42 +544,55 @@ public class EditDistance {
 //			if (!this.isQueryMappable(Q)) {
 //				break;
 //			}
-			loadingTime += watch.getElapsedTimeMillis();
+//			loadingTime += watch.getElapsedTimeMillis();
 
 			tableAlgorithm = new ComputeGraphNeighbors();
 			watch.reset();
-			tableAlgorithm.setK(neighbourNum);
-			tableAlgorithm.setGraph(G);
 			tableAlgorithm.setNumThreads(threadsNum);
+			tableAlgorithm.setK(neighbourNum);
+			/**
+			tableAlgorithm.setGraph(G);
 			tableAlgorithm.compute();
-			graphTables = tableAlgorithm.getNeighborTables();
+			tableAlgorithm.computePathFilter();
+			**/
+			graphTables = gTableAlgorithm.getNeighborTables();
 			tableAlgorithm.setGraph(Q);
 			tableAlgorithm.compute();
 			queryTables = tableAlgorithm.getNeighborTables();
-			computingNeighborTime += watch.getElapsedTimeMillis();
+//			computingNeighborTime += watch.getElapsedTimeMillis();
 			watch.reset();
 //			startingNode = this.getRootNode(true);
 			startingNode = this.getRootNode(true);
-			InfoNode info = new InfoNode(startingNode);
+//			InfoNode info = new InfoNode(startingNode);
 			// System.out.println("starting node:" + startingNode);
 			pruningAlgorithm = new PruningAlgorithm();
 			// Set starting node according to sels of nodes.
 			pruningAlgorithm.setStartingNode(startingNode);
 			pruningAlgorithm.setGraph(G);
 			pruningAlgorithm.setQuery(Q);
+			pruningAlgorithm.setK(this.neighbourNum);
 			pruningAlgorithm.setGraphTables(graphTables);
 			pruningAlgorithm.setQueryTables(queryTables);
-			pruningAlgorithm.setThreshold(threshold);
+			pruningAlgorithm.setThreshold(this.threshold);
+			pruningAlgorithm.setgPathTables(gTableAlgorithm.getPathTables());
 			pruningAlgorithm.compute();
-			this.exBsCount = pruningAlgorithm.getBsCount();
-			this.exCmpCount = pruningAlgorithm.getCmpNbLabel();
-			this.exUptCount = pruningAlgorithm.getUptCount();
-			info.setBsCount(pruningAlgorithm.getBsCount());
-			info.setCmpCount(pruningAlgorithm.getCmpNbLabel());
-			info.setUptCount(pruningAlgorithm.getUptCount());
-			infoNodes.add(info);
+			
+			
+//			this.exBsCount = pruningAlgorithm.getBsCount();
+//			this.exCmpCount = pruningAlgorithm.getCmpNbLabel();
+//			this.exUptCount = pruningAlgorithm.getUptCount();
+//			info.setBsCount(pruningAlgorithm.getBsCount());
+//			info.setCmpCount(pruningAlgorithm.getCmpNbLabel());
+//			info.setUptCount(pruningAlgorithm.getUptCount());
+//			infoNodes.add(info);
 			queryGraphMapping = pruningAlgorithm.getQueryGraphMapping();
-			pruningTime += watch.getElapsedTimeMillis();
+//			this.exCandidatesNum = queryGraphMapping.get(startingNode).size();
+//			System.out.println("ex before:" + exCandidatesNum);
+//			pruningAlgorithm.pathFilter();
+//			this.exAfterNum = queryGraphMapping.get(startingNode).size();
+//			this.exPathOnly = pruningAlgorithm.onlyPath();
+//			System.out.println("ex after:" + queryGraphMapping.get(startingNode).size());
+//			pruningTime += watch.getElapsedTimeMillis();
 			watch.reset();
 
 			List<RelatedQuery> relatedQueries;
@@ -389,32 +608,38 @@ public class EditDistance {
 			edAlgorithm.setLimitedComputation(false);
 			edAlgorithm.setThreshold(threshold);
 			edAlgorithm.compute();
-			this.isEdBad = EditDistanceQuerySearch.isBad;
-			this.edIntNum = Math.max(this.edIntNum, EditDistanceQuerySearch.interNum);
+//			this.isEdBad = EditDistanceQuerySearch.isBad;
+//			this.edIntNum = Math.max(this.edIntNum, EditDistanceQuerySearch.interNum);
 //			relatedQueries = edAlgorithm.getRelatedQueries();
 //			relatedQueriesUnique.addAll(relatedQueries);
-			System.out.println("intermediate:" + this.edIntNum);
-			/**
-			QuerySel qs = new QuerySel(G, Q, startingNode);
-			adj = qs.computeSelAdjNotCorrelated(1, startingNode, new HashSet<>(), 0, this.neighbourNum);
-			path = qs.computeSelPathNotCorrelated(1, startingNode, new HashSet<>(), 0, this.neighbourNum);
-			all = qs.computeSelAllNotCorrelated(Q);
-			this.edCandidates -=  (Q.edgeSet().size() - 1) * qs.getCanNumber(startingNode, this.AVG_DEGREE, 2);
+//			System.out.println("intermediate:" + this.edIntNum);
+			
+//			QuerySel qs = new QuerySel(G, Q, startingNode);
+//			adj = qs.computeSelAdjNotCorrelated(1, startingNode, new HashSet<>(), 0, this.neighbourNum);
+//			path = qs.computeSelPathNotCorrelated(1, startingNode, new HashSet<>(), 0, this.neighbourNum);
+//			all = qs.computeSelAllNotCorrelated(Q);
+//			this.edCandidates -=  (Q.edgeSet().size() - 1) * qs.getCanNumber(startingNode, this.AVG_DEGREE, 2);
 			
 //			System.out.println(G.vertexSet().size()*qs.edProb(startingNode, this.AVG_DEGREE, 2));
 //			System.out.println(qs.getEdCanNumber(startingNode, AVG_DEGREE, 2));
-			Cost.cost = 0;
+//			Cost.cost = 0;
 //			Cost.estimateMaxCost(Q, startingNode, G, this.AVG_DEGREE, new HashSet<Edge>(), 1);
 //			Cost.estimateMaxCostWithLabelMaxNum(Q, startingNode, this.AVG_DEGREE, G, new HashSet<Edge>(), 1);
-			Cost.estimateEdExactCost(Q, startingNode, AVG_DEGREE, G, new ArrayList<Edge>());
+//			Cost.estimateEdExactCost(Q, startingNode, AVG_DEGREE, G, new ArrayList<Edge>());
 //			System.out.println(Cost.cost);
-			double tt = qs.getEdCanNumber(startingNode, AVG_DEGREE, 2);
-			edCost = tt  * Cost.cost;
-			System.out.println(startingNode + " " + tt + " ed  " + Cost.cost);
+//			double tt = qs.getEdCanNumber(startingNode, AVG_DEGREE, 2);
+//			edCost = tt  * Cost.cost;
+//			edCost = qs.getEdCanNumber(startingNode, AVG_DEGREE, 2) * Cost.cost;
+//			edCost = Cost.getCandidatesNum(Q, startingNode, G) * Cost.cost;
+//			edCost = qs.computeAdjNotCand(startingNode, AVG_DEGREE, this.neighbourNum) * Cost.cost;
+//			this.edAllEst = qs.getEdCanNumber(startingNode, AVG_DEGREE, this.neighbourNum);
+//			this.edAdjEdt = qs.computeAdjNotCand(startingNode, AVG_DEGREE, this.neighbourNum);
+//			this.edPathEst = qs.computePathNotCand(startingNode, AVG_DEGREE, this.neighbourNum);
+//			System.out.println(startingNode + " " + tt + " ed  " + Cost.cost);
 //			System.out.println(startingNode);
 //			System.out.println("eds:" +this.edCandidates);
 			String[] temp = queryName.split("/");
-			**/
+			
 //			if (relatedQueriesUnique.size() != 0) {
 //				
 //				System.out.println(temp[temp.length - 1]);
@@ -432,21 +657,21 @@ public class EditDistance {
 //			}
 //			count = tempCount;
 //			comBw.newLine();
-			isoTime += watch.getElapsedTimeMillis();
-			this.exCandidatesNum += pruningAlgorithm.getCandidates().get(startingNode);
+//			isoTime += watch.getElapsedTimeMillis();
+			
 		}
 
 //		comBw.close();
 //		Q = null;
-		loadingTime = loadingTime / repititions;
-		computingNeighborTime = computingNeighborTime / repititions;
-		pruningTime = pruningTime / repititions;
-		isoTime = isoTime / repititions;
-		exSearchCount = Utilities.searchCount;
-		exBsCount = exBsCount / repititions;
-		exCmpCount = exCmpCount / repititions;
-		exUptCount = exUptCount / repititions;
-		exSearchCount = exSearchCount / repititions;
+//		loadingTime = loadingTime / repititions;
+//		computingNeighborTime = computingNeighborTime / repititions;
+//		pruningTime = pruningTime / repititions;
+//		isoTime = isoTime / repititions;
+//		exSearchCount = Utilities.searchCount;
+//		exBsCount = exBsCount / repititions;
+//		exCmpCount = exCmpCount / repititions;
+//		exUptCount = exUptCount / repititions;
+		exSearchCount = Utilities.searchCount / repititions;
 		exElapsedTime = (double)(System.nanoTime() - startTime) / 1000000000;
 //		System.out.println(exBsCount);
 //		System.out.println(exCmpCount);
@@ -475,6 +700,7 @@ public class EditDistance {
 			break;
 		case BOTH:
 			this.runWildCard();
+			this.runBFWildCard();
 			this.runExtension();
 			break;
 		default:
@@ -503,10 +729,13 @@ public class EditDistance {
 //		exEstimatedCost = exEstimatedNum * (this.AVG_DEGREE + this.AVG_DEGREE * this.AVG_DEGREE + 
 //				Utilities.choose(this.AVG_DEGREE, 2)* (a+b) * this.AVG_DEGREE);
 //		sb.append("," + this.wcSearchCount + "," + wcEstimatedCost + "," + this.exSearchCount + "," + exEstimatedCost);
-		sb.append(temp[temp.length - 1] + ","  + this.wcSearchCount + ","  + this.exSearchCount + "," + this.wcCandidatesNum + ","  + exCandidatesNum + ","+ answerNum + "," + this.wcElapsedTime + "," + this.exElapsedTime + "," + (this.isWcBad ? 1 : 0) + "," + (this.isEdBad ? 1 : 0) + "," + this.wcIntNum + "," + this.wcIntSum + "," + this.edIntNum);
-//		System.out.println(answerNum);
+//		sb.append(temp[temp.length - 1] + ","  + this.wcSearchCount + ","  + this.exSearchCount + "," + this.wcCandidatesNum + ","  + exCandidatesNum + ","+ answerNum + "," + this.wcElapsedTime + "," + this.exElapsedTime + "," + (this.isWcBad ? 1 : 0) + "," + (this.isEdBad ? 1 : 0) + "," + this.wcIntNum + "," + this.wcIntSum + "," + this.edIntNum);
+		sb.append(temp[temp.length - 1] + "," + this.wcSearchCount + ","  + this.exSearchCount + "," + this.bfSearchCount + "," + this.wcElapsedTime + "," + this.exElapsedTime + "," + this.bfElapsedTime);
+		//		System.out.println(answerNum);
 //		System.out.println("size:" + G.edgeSet().size());
-//		this.append(strList, temp[temp.length - 1] , wcCost, edCost);
+//		this.appendCand(this.candComp, temp[temp.length - 1] , this.wcCandidatesNum, this.wcAfterNum, this.wcPathOnly, this.exCandidatesNum, this.exAfterNum, this.exPathOnly);
+//		this.appendSels(this.selsComp, temp[temp.length - 1] , this.wcCandidatesNum, this.wcAllEst, this.wcAdjEdt, this.wcPathEst, this.exCandidatesNum, this.edAllEst, this.edAdjEdt, this.edPathEst);
+		
 		/*for (Edge e : Q.edgeSet()) {
 			double sel = ((BigMultigraph)G).getLabelFreq().get(e.getLabel()).getFrequency()/((double)G.edgeSet().size());
 			selSum += sel; 
@@ -556,7 +785,7 @@ public class EditDistance {
 			bw.write("avg degree: 8.97, wc cost, ed cost, wc candidate, ed candidate, answer count, wc time, ex time, isWcBad, isEdBad, wcIntNum, wcIntSum, edIntNum");
 			bw.newLine();
 			for (String str : strList) {
-				if (str.length() == 0 || !str.startsWith("E")) {
+				if (str.length() == 0 || str.startsWith("avg degree")) {
 					continue;
 				}
 				System.out.println(str);
@@ -569,8 +798,59 @@ public class EditDistance {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
 	}
+	
+	public void writeCand(String fileName) {
+		try {
+			BufferedWriter bw = new BufferedWriter(new FileWriter(fileName));
+			bw.write(" , wc, wc path, wc after, ed, ed path, ed after");
+			bw.newLine();
+			for (String str : this.candComp) {
+				if (str.length() == 0) {
+					continue;
+				}
+				bw.write(str);
+				bw.newLine();
+				bw.flush();
+			}
+			bw.close();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	public void writeSels(String fileName) {
+		try {
+			BufferedWriter bw = new BufferedWriter(new FileWriter(fileName));
+			bw.write(" , wc, wcAllEst, wcAdj, wcPath, ed, edAllest, edAdj, edPath");
+			bw.newLine();
+			for (String str : this.selsComp) {
+				if (str.length() == 0) {
+					continue;
+				}
+				System.out.println(str);
+				bw.write(str);
+				bw.newLine();
+				bw.flush();
+			}
+			bw.close();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	public void appendCand(List<String> strList, String fileName, int wc, int wcAfter, int wcPath, int ex, int exAfter, int exPath) {
+		String goal = fileName + "," + wc +  "," + wcPath + "," + wcAfter +"," + ex + ","  + exPath+ "," + exAfter;
+		strList.add(goal);
+	}
+	
+	public void appendSels(List<String> strList, String fileName, int wc, double wcAllEst, double wcAdjEst, double wcPathEst, int ed, double edAllEst, double edAdjEst, double edPathEst) {
+		String goal = fileName + "," + wc +  "," + wcAllEst + "," + wcAdjEst +"," + wcPathEst + "," + ed + "," + edAllEst + "," + edAdjEst +"," + edPathEst;
+		strList.add(goal);
+	}
+	
 	public void append(List<String> strList, String fileName, double all, double adj, double path) {
 		String goal = null;
 		for (String str : strList) {
@@ -772,6 +1052,14 @@ public class EditDistance {
 		return graphName;
 	}
 
+	public List<String> getSelsComp() {
+		return selsComp;
+	}
+
+	public void setSelsComp(List<String> selsComp) {
+		this.selsComp = selsComp;
+	}
+
 	public void setGraphName(String graphName) {
 		this.graphName = graphName;
 	}
@@ -865,6 +1153,22 @@ public class EditDistance {
 
 	public void setG(Multigraph g) {
 		G = g;
+	}
+
+	public List<String> getCandComp() {
+		return candComp;
+	}
+
+	public void setCandComp(List<String> candComp) {
+		this.candComp = candComp;
+	}
+
+	public ComputeGraphNeighbors getgTableAlgorithm() {
+		return gTableAlgorithm;
+	}
+
+	public void setgTableAlgorithm(ComputeGraphNeighbors gTableAlgorithm) {
+		this.gTableAlgorithm = gTableAlgorithm;
 	}
 	
 
