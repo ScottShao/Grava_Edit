@@ -62,7 +62,7 @@ public class IsomorphicQuerySearch extends RelatedQuerySearch {
         if (startingNode == null) {
             throw new AlgorithmExecutionException("no root node has been found, and this is plain WR0NG!");
         }
-
+        interNum = 0;
         // FreebaseConstants.convertLongToMid(
         // debug("Root node %s ", startingNode);
         if (this.getGraph().edgeSet().isEmpty()) {

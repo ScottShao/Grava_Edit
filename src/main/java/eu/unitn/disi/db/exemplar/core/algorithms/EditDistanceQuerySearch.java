@@ -60,6 +60,7 @@ public class EditDistanceQuerySearch extends RelatedQuerySearch {
     public void compute() throws AlgorithmExecutionException {
 //        Long startingNode = this.getRootNode(true);
         searchCount = 0;
+        interNum = 0;
 //    	debug("Starting node is %s",startingNode );
         if (startingNode == null) {
             throw new AlgorithmExecutionException("no root node has been found, and this is plain WR0NG!");

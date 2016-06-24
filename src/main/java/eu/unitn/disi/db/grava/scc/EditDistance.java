@@ -98,6 +98,8 @@ public class EditDistance {
 	private long wcIntNum;
 	private long edIntNum;
 	private long wcIntSum;
+	private long bfIntNum;
+	private long bfIntSum;
 	private List<String> candComp;
 	private List<String> selsComp;
 	private ComputeGraphNeighbors gTableAlgorithm;
@@ -270,8 +272,8 @@ public class EditDistance {
 						edAlgorithm.setLimitedComputation(false);
 						edAlgorithm.compute();
 //						this.isWcBad = this.isWcBad || IsomorphicQuerySearch.isBad;
-//						this.wcIntNum = Math.max(this.wcIntNum, IsomorphicQuerySearch.interNum);
-//						this.wcIntSum = this.wcIntSum + IsomorphicQuerySearch.interNum;
+						this.wcIntNum = Math.max(this.wcIntNum, IsomorphicQuerySearch.interNum);
+						this.wcIntSum = this.wcIntSum + IsomorphicQuerySearch.interNum;
 //						relatedQueries = edAlgorithm.getRelatedQueries();
 //						relatedQueriesUnique.addAll(relatedQueries);
 //						System.out.println(startingNode);
@@ -354,11 +356,13 @@ public class EditDistance {
 		NeighborTables queryTables = null;
 		NeighborTables graphTables = null;
 		PruningAlgorithm pruningAlgorithm = null;
-		float loadingTime = 0;
-		float computingNeighborTime = 0;
-		float pruningTime = 0;
-		float isoTime = 0;
+//		float loadingTime = 0;
+//		float computingNeighborTime = 0;
+//		float pruningTime = 0;
+//		float isoTime = 0;
 		Utilities.searchCount = 0;
+		this.bfIntNum = 0;
+		this.bfIntSum = 0;
 		if (threshold != 0) {
 			HashSet<RelatedQuery> relatedQueriesUnique = new HashSet<RelatedQuery>();
 			WildCardQuery wcq = new WildCardQuery(threshold);
@@ -378,7 +382,7 @@ public class EditDistance {
 						StopWatch watch = new StopWatch();
 						watch.start();
 		
-						loadingTime += watch.getElapsedTimeMillis();
+//						loadingTime += watch.getElapsedTimeMillis();
 		
 						tableAlgorithm = new ComputeGraphNeighbors();
 						watch.reset();
@@ -396,7 +400,7 @@ public class EditDistance {
 						tableAlgorithm.compute();
 						
 						queryTables = tableAlgorithm.getNeighborTables();
-						computingNeighborTime += watch.getElapsedTimeMillis();
+//						computingNeighborTime += watch.getElapsedTimeMillis();
 						// System.out.println(queryTables.toString());
 						watch.reset();
 						startingNode = this.getRootNode(true);
@@ -418,7 +422,7 @@ public class EditDistance {
 //						wcCandidatesNum += queryGraphMapping.get(startingNode).size();
 						pruningAlgorithm.pathFilter(true);
 //						this.wcAfterNum += queryGraphMapping.get(startingNode).size();
-						pruningTime += watch.getElapsedTimeMillis();
+//						pruningTime += watch.getElapsedTimeMillis();
 						Multigraph prunedG = pruningAlgorithm.pruneGraph();
 						watch.reset();
 		
@@ -434,6 +438,9 @@ public class EditDistance {
 								.getQueryGraphMapping());
 						edAlgorithm.setLimitedComputation(true);
 						edAlgorithm.compute();
+						
+						this.bfIntNum = Math.max(this.bfIntNum, IsomorphicQuerySearch.interNum);
+						this.bfIntSum += IsomorphicQuerySearch.interNum;
 		//				relatedQueries = edAlgorithm.getRelatedQueries();
 		//				relatedQueriesUnique.addAll(relatedQueries);
 		//				System.out.println(startingNode);
@@ -461,7 +468,7 @@ public class EditDistance {
 		//				comBw.newLine();
 		//				answerNum += IsomorphicQuerySearch.answerCount;
 		//				System.out.println(answerNum);
-						isoTime += watch.getElapsedTimeMillis();
+//						isoTime += watch.getElapsedTimeMillis();
 						
 					}
 					
@@ -609,7 +616,7 @@ public class EditDistance {
 			edAlgorithm.setThreshold(threshold);
 			edAlgorithm.compute();
 //			this.isEdBad = EditDistanceQuerySearch.isBad;
-//			this.edIntNum = Math.max(this.edIntNum, EditDistanceQuerySearch.interNum);
+			this.edIntNum = Math.max(this.edIntNum, EditDistanceQuerySearch.interNum);
 //			relatedQueries = edAlgorithm.getRelatedQueries();
 //			relatedQueriesUnique.addAll(relatedQueries);
 //			System.out.println("intermediate:" + this.edIntNum);
@@ -730,7 +737,7 @@ public class EditDistance {
 //				Utilities.choose(this.AVG_DEGREE, 2)* (a+b) * this.AVG_DEGREE);
 //		sb.append("," + this.wcSearchCount + "," + wcEstimatedCost + "," + this.exSearchCount + "," + exEstimatedCost);
 //		sb.append(temp[temp.length - 1] + ","  + this.wcSearchCount + ","  + this.exSearchCount + "," + this.wcCandidatesNum + ","  + exCandidatesNum + ","+ answerNum + "," + this.wcElapsedTime + "," + this.exElapsedTime + "," + (this.isWcBad ? 1 : 0) + "," + (this.isEdBad ? 1 : 0) + "," + this.wcIntNum + "," + this.wcIntSum + "," + this.edIntNum);
-		sb.append(temp[temp.length - 1] + "," + this.wcSearchCount + ","  + this.exSearchCount + "," + this.bfSearchCount + "," + this.wcElapsedTime + "," + this.exElapsedTime + "," + this.bfElapsedTime);
+		sb.append(temp[temp.length - 1] + "," + this.wcSearchCount + ","  + this.exSearchCount + "," + this.bfSearchCount + "," + this.wcElapsedTime + "," + this.exElapsedTime + "," + this.bfElapsedTime + "," + this.wcIntNum +"," + this.wcIntSum + "," + this.edIntNum + "," + this.bfIntNum + "," + this.bfIntSum);
 		//		System.out.println(answerNum);
 //		System.out.println("size:" + G.edgeSet().size());
 //		this.appendCand(this.candComp, temp[temp.length - 1] , this.wcCandidatesNum, this.wcAfterNum, this.wcPathOnly, this.exCandidatesNum, this.exAfterNum, this.exPathOnly);
