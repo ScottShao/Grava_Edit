@@ -126,11 +126,12 @@ public class Sampling {
 		while (flag && !queue.isEmpty()) {
 			top = queue.poll();
 			cur = distance.poll();
-			count++;
+			
 			if (visited.contains(top)) {
 				continue;
 			}
 			visited.add(top);
+			count++;
 			System.out.println("current visiting:" + top);
 			adjEdges = G.adjEdges(top);
 			// System.out.println(adjEdges.size());

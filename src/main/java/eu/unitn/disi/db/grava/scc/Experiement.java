@@ -60,7 +60,7 @@ public class Experiement {
 		
 //		ed.setAnswerFile(answerFile);
 		ArrayList<String> queryFiles = FileOperator.getFileName(queryFolder);
-		BufferedWriter bw = new BufferedWriter(new FileWriter(new File(queryFolder+"/comparison.csv"), true));
+		BufferedWriter bw = new BufferedWriter(new FileWriter(new File(queryFolder+"/g" +graphName + "comparisonT" + threshold + ".csv"), true));
 		int count = 0;
 		int bsCount;
 		int cmpCount;
@@ -73,12 +73,12 @@ public class Experiement {
 			bw.write("avg degree: 8.97, wc cost, ed cost, bf cost, wc time, ed time, bf time");
 //		bw.write("avg degree: 8.97, wc cost, ed cost, wc candidate, ed candidate, answer count, wc time, ex time, isWcBad, isEdBad, wcIntNum, wcIntSum, edIntNum");
 		bw.newLine();
-		List<String> strList = ed.readFile(queryFolder+"/comparison.csv");
-		ed.setStrList(strList);
-		List<String> candList = new ArrayList<>();
-		ed.setCandComp(candList);
-		List<String> selList = new ArrayList<>();
-		ed.setSelsComp(selList);
+//		List<String> strList = ed.readFile(queryFolder+"/comparison.csv");
+//		ed.setStrList(strList);
+//		List<String> candList = new ArrayList<>();
+//		ed.setCandComp(candList);
+//		List<String> selList = new ArrayList<>();
+//		ed.setSelsComp(selList);
 		Multigraph G = new BigMultigraph(graphName + "-sin.graph", graphName
 				+ "-sout.graph");
 		ComputeGraphNeighbors tableAlgorithm = new ComputeGraphNeighbors();
