@@ -377,7 +377,7 @@ public class EditDistance {
 		//			}
 					this.setQ(wildCardQuery);
 					Long startingNode;
-					ArrayList<InfoNode> infoNodes = new ArrayList<>();
+//					ArrayList<InfoNode> infoNodes = new ArrayList<>();
 					for (int exprimentTime1 = 0; exprimentTime1 < repititions; exprimentTime1++) {
 						StopWatch watch = new StopWatch();
 						watch.start();
@@ -417,7 +417,7 @@ public class EditDistance {
 						
 						pruningAlgorithm.setThreshold(0);
 						pruningAlgorithm.compute();
-						
+						queryGraphMapping = pruningAlgorithm.getQueryGraphMapping();
 						
 //						wcCandidatesNum += queryGraphMapping.get(startingNode).size();
 						pruningAlgorithm.pathFilter(true);

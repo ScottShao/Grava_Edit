@@ -919,6 +919,7 @@ public class PruningAlgorithm extends Algorithm {
         for (Long node : queryNodes) {
 
             if (!queryGraphMapping.containsKey(node) || queryGraphMapping.get(node).isEmpty()) {
+            	System.out.println(queryGraphMapping.containsKey(node));
                 //TODO Long should be converted to redable
                 throw new AlgorithmExecutionException("Query tables do not contain maps for the node " + node);
             }
