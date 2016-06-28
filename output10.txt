@@ -1,0 +1,445 @@
+Processed 50000 lines of 50000-10nodes-sin.graph
+Processed 100000 lines of 50000-10nodes-sin.graph
+Processed 150000 lines of 50000-10nodes-sin.graph
+Processed 200000 lines of 50000-10nodes-sin.graph
+Processed 250000 lines of 50000-10nodes-sin.graph
+Processed 50000 lines of 50000-10nodes-sout.graph
+Processed 100000 lines of 50000-10nodes-sout.graph
+Processed 150000 lines of 50000-10nodes-sout.graph
+Processed 200000 lines of 50000-10nodes-sout.graph
+Processed 250000 lines of 50000-10nodes-sout.graph
+12.txt
+running wild card
+time:0
+time:0
+time:0
+time:0
+time:0
+time:0
+time:0
+time:0
+running bf wild card
+PruningAlgorithm DEBUG - kept 34, removed 290762 over 290796 edges non mapping edges in 89ms
+ time:0
+PruningAlgorithm DEBUG - kept 26, removed 290770 over 290796 edges non mapping edges in 84ms
+ time:0
+PruningAlgorithm DEBUG - kept 22, removed 290774 over 290796 edges non mapping edges in 76ms
+ time:0
+PruningAlgorithm DEBUG - kept 38, removed 290758 over 290796 edges non mapping edges in 71ms
+ time:0
+PruningAlgorithm DEBUG - kept 22, removed 290774 over 290796 edges non mapping edges in 71ms
+ time:0
+PruningAlgorithm DEBUG - kept 22, removed 290774 over 290796 edges non mapping edges in 75ms
+ time:0
+PruningAlgorithm DEBUG - kept 33, removed 290763 over 290796 edges non mapping edges in 70ms
+ time:0
+PruningAlgorithm DEBUG - kept 49, removed 290747 over 290796 edges non mapping edges in 71ms
+ time:0
+Running extension
+15.txt
+running wild card
+time:0
+time:0
+time:0
+time:0
+time:0
+running bf wild card
+PruningAlgorithm DEBUG - kept 10, removed 290786 over 290796 edges non mapping edges in 107ms
+ time:0
+PruningAlgorithm DEBUG - kept 10, removed 290786 over 290796 edges non mapping edges in 85ms
+ time:0
+PruningAlgorithm DEBUG - kept 56, removed 290740 over 290796 edges non mapping edges in 88ms
+ time:0
+PruningAlgorithm DEBUG - kept 10, removed 290786 over 290796 edges non mapping edges in 88ms
+ time:0
+PruningAlgorithm DEBUG - kept 10, removed 290786 over 290796 edges non mapping edges in 88ms
+ time:0
+Running extension
+8.txt
+running wild card
+time:0
+time:0
+time:0
+time:0
+running bf wild card
+PruningAlgorithm DEBUG - kept 31, removed 290765 over 290796 edges non mapping edges in 33ms
+ time:0
+PruningAlgorithm DEBUG - kept 25, removed 290771 over 290796 edges non mapping edges in 34ms
+ time:0
+PruningAlgorithm DEBUG - kept 31, removed 290765 over 290796 edges non mapping edges in 34ms
+ time:0
+PruningAlgorithm DEBUG - kept 30, removed 290766 over 290796 edges non mapping edges in 34ms
+ time:0
+Running extension
+6.txt
+running wild card
+time:0
+time:0
+time:0
+time:0
+running bf wild card
+PruningAlgorithm DEBUG - kept 67, removed 290729 over 290796 edges non mapping edges in 34ms
+ time:0
+PruningAlgorithm DEBUG - kept 102, removed 290694 over 290796 edges non mapping edges in 35ms
+ time:0
+PruningAlgorithm DEBUG - kept 34, removed 290762 over 290796 edges non mapping edges in 34ms
+ time:0
+PruningAlgorithm DEBUG - kept 112, removed 290684 over 290796 edges non mapping edges in 44ms
+ time:0
+Running extension
+1.txt
+running wild card
+time:0
+time:0
+time:0
+time:0
+time:0
+time:0
+time:0
+running bf wild card
+PruningAlgorithm DEBUG - kept 30, removed 290766 over 290796 edges non mapping edges in 34ms
+ time:0
+PruningAlgorithm DEBUG - kept 29, removed 290767 over 290796 edges non mapping edges in 36ms
+ time:0
+PruningAlgorithm DEBUG - kept 29, removed 290767 over 290796 edges non mapping edges in 34ms
+ time:0
+PruningAlgorithm DEBUG - kept 32, removed 290764 over 290796 edges non mapping edges in 34ms
+ time:0
+PruningAlgorithm DEBUG - kept 29, removed 290767 over 290796 edges non mapping edges in 35ms
+ time:0
+PruningAlgorithm DEBUG - kept 29, removed 290767 over 290796 edges non mapping edges in 35ms
+ time:0
+PruningAlgorithm DEBUG - kept 32, removed 290764 over 290796 edges non mapping edges in 34ms
+ time:0
+Running extension
+0.txt
+running wild card
+time:0
+time:0
+time:0
+time:0
+time:0
+time:0
+time:0
+running bf wild card
+PruningAlgorithm DEBUG - kept 8, removed 290788 over 290796 edges non mapping edges in 34ms
+ time:0
+PruningAlgorithm DEBUG - kept 8, removed 290788 over 290796 edges non mapping edges in 34ms
+ time:0
+PruningAlgorithm DEBUG - kept 8, removed 290788 over 290796 edges non mapping edges in 46ms
+ time:0
+PruningAlgorithm DEBUG - kept 8, removed 290788 over 290796 edges non mapping edges in 32ms
+ time:0
+PruningAlgorithm DEBUG - kept 8, removed 290788 over 290796 edges non mapping edges in 32ms
+ time:0
+PruningAlgorithm DEBUG - kept 12, removed 290784 over 290796 edges non mapping edges in 32ms
+ time:0
+PruningAlgorithm DEBUG - kept 13, removed 290783 over 290796 edges non mapping edges in 33ms
+ time:0
+Running extension
+7.txt
+running wild card
+time:0
+time:0
+time:0
+time:0
+time:0
+time:0
+time:0
+time:0
+running bf wild card
+PruningAlgorithm DEBUG - kept 12, removed 290784 over 290796 edges non mapping edges in 35ms
+ time:0
+PruningAlgorithm DEBUG - kept 14, removed 290782 over 290796 edges non mapping edges in 35ms
+ time:0
+PruningAlgorithm DEBUG - kept 17, removed 290779 over 290796 edges non mapping edges in 36ms
+ time:0
+PruningAlgorithm DEBUG - kept 13, removed 290783 over 290796 edges non mapping edges in 38ms
+ time:0
+PruningAlgorithm DEBUG - kept 13, removed 290783 over 290796 edges non mapping edges in 35ms
+ time:0
+PruningAlgorithm DEBUG - kept 14, removed 290782 over 290796 edges non mapping edges in 35ms
+ time:0
+PruningAlgorithm DEBUG - kept 13, removed 290783 over 290796 edges non mapping edges in 34ms
+ time:0
+PruningAlgorithm DEBUG - kept 14, removed 290782 over 290796 edges non mapping edges in 44ms
+ time:0
+Running extension
+14.txt
+running wild card
+GraphIsomorphismRecursiveStep WARN - More than 100000 partial isomorphic results
+ GraphIsomorphismRecursiveStep WARN - Computation interrupted after 8728177 partial isomorphic results
+ time:220
+time:0
+Time limit exceeded
+time:1009
+time:0
+GraphIsomorphismRecursiveStep ERROR - Memory exausted, so we are returning something but not everything.
+ time:3744
+GraphIsomorphismRecursiveStep WARN - More than 100000 partial isomorphic results
+ GraphIsomorphismRecursiveStep WARN - Computation interrupted after 9226792 partial isomorphic results
+ time:48
+running bf wild card
+PruningAlgorithm DEBUG - kept 608, removed 290188 over 290796 edges non mapping edges in 33ms
+ GraphIsomorphismRecursiveStep ERROR - Memory exausted, so we are returning something but not everything.
+ time:3005
+PruningAlgorithm DEBUG - kept 533, removed 290263 over 290796 edges non mapping edges in 34ms
+ time:0
+PruningAlgorithm DEBUG - kept 570, removed 290226 over 290796 edges non mapping edges in 38ms
+ Time limit exceeded
+time:1043
+PruningAlgorithm DEBUG - kept 503, removed 290293 over 290796 edges non mapping edges in 46ms
+ time:0
+PruningAlgorithm DEBUG - kept 1556, removed 289240 over 290796 edges non mapping edges in 42ms
+ GraphIsomorphismRecursiveStep ERROR - Memory exausted, so we are returning something but not everything.
+ time:3592
+PruningAlgorithm DEBUG - kept 881, removed 289915 over 290796 edges non mapping edges in 40ms
+ GraphIsomorphismRecursiveStep WARN - More than 100000 partial isomorphic results
+ GraphIsomorphismRecursiveStep WARN - Computation interrupted after 576616 partial isomorphic results
+ time:34
+Running extension
+EDMatchingRecursiveStep WARN - More than 100000 partial isomorphic results
+ EDMatchingRecursiveStep WARN - Computation interrupted after 325297 partial isomorphic results
+ 9.txt
+running wild card
+time:0
+time:0
+time:0
+time:0
+running bf wild card
+PruningAlgorithm DEBUG - kept 2795, removed 288001 over 290796 edges non mapping edges in 44ms
+ time:0
+PruningAlgorithm DEBUG - kept 1617, removed 289179 over 290796 edges non mapping edges in 40ms
+ time:0
+PruningAlgorithm DEBUG - kept 1292, removed 289504 over 290796 edges non mapping edges in 39ms
+ time:0
+PruningAlgorithm DEBUG - kept 759, removed 290037 over 290796 edges non mapping edges in 39ms
+ time:0
+Running extension
+13.txt
+running wild card
+time:0
+time:0
+running bf wild card
+PruningAlgorithm DEBUG - kept 3501, removed 287295 over 290796 edges non mapping edges in 45ms
+ time:0
+PruningAlgorithm DEBUG - kept 3532, removed 287264 over 290796 edges non mapping edges in 45ms
+ time:0
+Running extension
+19.txt
+running wild card
+time:0
+time:0
+time:0
+time:0
+time:0
+time:0
+time:0
+time:0
+running bf wild card
+PruningAlgorithm DEBUG - kept 11, removed 290785 over 290796 edges non mapping edges in 36ms
+ time:0
+PruningAlgorithm DEBUG - kept 9, removed 290787 over 290796 edges non mapping edges in 35ms
+ time:0
+PruningAlgorithm DEBUG - kept 9, removed 290787 over 290796 edges non mapping edges in 36ms
+ time:0
+PruningAlgorithm DEBUG - kept 9, removed 290787 over 290796 edges non mapping edges in 36ms
+ time:0
+PruningAlgorithm DEBUG - kept 11, removed 290785 over 290796 edges non mapping edges in 44ms
+ time:0
+PruningAlgorithm DEBUG - kept 13, removed 290783 over 290796 edges non mapping edges in 37ms
+ time:0
+PruningAlgorithm DEBUG - kept 9, removed 290787 over 290796 edges non mapping edges in 36ms
+ time:0
+PruningAlgorithm DEBUG - kept 13, removed 290783 over 290796 edges non mapping edges in 36ms
+ time:0
+Running extension
+4.txt
+running wild card
+time:0
+time:0
+time:0
+time:0
+time:0
+time:0
+time:0
+running bf wild card
+PruningAlgorithm DEBUG - kept 53, removed 290743 over 290796 edges non mapping edges in 35ms
+ time:0
+PruningAlgorithm DEBUG - kept 121, removed 290675 over 290796 edges non mapping edges in 36ms
+ time:0
+PruningAlgorithm DEBUG - kept 35, removed 290761 over 290796 edges non mapping edges in 36ms
+ time:0
+PruningAlgorithm DEBUG - kept 62, removed 290734 over 290796 edges non mapping edges in 36ms
+ time:0
+PruningAlgorithm DEBUG - kept 35, removed 290761 over 290796 edges non mapping edges in 35ms
+ time:0
+PruningAlgorithm DEBUG - kept 35, removed 290761 over 290796 edges non mapping edges in 36ms
+ time:0
+PruningAlgorithm DEBUG - kept 35, removed 290761 over 290796 edges non mapping edges in 36ms
+ time:0
+Running extension
+3.txt
+running wild card
+time:0
+time:0
+time:0
+time:0
+time:0
+time:0
+running bf wild card
+PruningAlgorithm DEBUG - kept 249, removed 290547 over 290796 edges non mapping edges in 37ms
+ time:0
+PruningAlgorithm DEBUG - kept 302, removed 290494 over 290796 edges non mapping edges in 36ms
+ time:0
+PruningAlgorithm DEBUG - kept 398, removed 290398 over 290796 edges non mapping edges in 37ms
+ time:0
+PruningAlgorithm DEBUG - kept 678, removed 290118 over 290796 edges non mapping edges in 38ms
+ time:0
+PruningAlgorithm DEBUG - kept 261, removed 290535 over 290796 edges non mapping edges in 38ms
+ time:0
+PruningAlgorithm DEBUG - kept 275, removed 290521 over 290796 edges non mapping edges in 36ms
+ time:0
+Running extension
+10.txt
+running wild card
+time:0
+time:0
+time:0
+time:0
+time:0
+time:0
+time:0
+running bf wild card
+PruningAlgorithm DEBUG - kept 76, removed 290720 over 290796 edges non mapping edges in 36ms
+ time:0
+PruningAlgorithm DEBUG - kept 56, removed 290740 over 290796 edges non mapping edges in 36ms
+ time:0
+PruningAlgorithm DEBUG - kept 47, removed 290749 over 290796 edges non mapping edges in 35ms
+ time:0
+PruningAlgorithm DEBUG - kept 54, removed 290742 over 290796 edges non mapping edges in 35ms
+ time:0
+PruningAlgorithm DEBUG - kept 200, removed 290596 over 290796 edges non mapping edges in 36ms
+ time:0
+PruningAlgorithm DEBUG - kept 60, removed 290736 over 290796 edges non mapping edges in 36ms
+ time:0
+PruningAlgorithm DEBUG - kept 83, removed 290713 over 290796 edges non mapping edges in 37ms
+ time:0
+Running extension
+17.txt
+running wild card
+time:0
+time:0
+time:0
+time:0
+time:0
+time:0
+running bf wild card
+PruningAlgorithm DEBUG - kept 27, removed 290769 over 290796 edges non mapping edges in 38ms
+ time:0
+PruningAlgorithm DEBUG - kept 18, removed 290778 over 290796 edges non mapping edges in 36ms
+ time:0
+PruningAlgorithm DEBUG - kept 74, removed 290722 over 290796 edges non mapping edges in 38ms
+ time:0
+PruningAlgorithm DEBUG - kept 18, removed 290778 over 290796 edges non mapping edges in 36ms
+ time:0
+PruningAlgorithm DEBUG - kept 18, removed 290778 over 290796 edges non mapping edges in 35ms
+ time:0
+PruningAlgorithm DEBUG - kept 27, removed 290769 over 290796 edges non mapping edges in 36ms
+ time:0
+Running extension
+16.txt
+running wild card
+time:0
+time:0
+time:0
+time:0
+time:0
+time:0
+time:0
+running bf wild card
+PruningAlgorithm DEBUG - kept 13, removed 290783 over 290796 edges non mapping edges in 36ms
+ time:0
+PruningAlgorithm DEBUG - kept 19, removed 290777 over 290796 edges non mapping edges in 35ms
+ time:0
+PruningAlgorithm DEBUG - kept 14, removed 290782 over 290796 edges non mapping edges in 36ms
+ time:0
+PruningAlgorithm DEBUG - kept 11, removed 290785 over 290796 edges non mapping edges in 42ms
+ time:0
+PruningAlgorithm DEBUG - kept 14, removed 290782 over 290796 edges non mapping edges in 35ms
+ time:0
+PruningAlgorithm DEBUG - kept 13, removed 290783 over 290796 edges non mapping edges in 36ms
+ time:0
+PruningAlgorithm DEBUG - kept 13, removed 290783 over 290796 edges non mapping edges in 36ms
+ time:0
+Running extension
+11.txt
+running wild card
+time:0
+time:0
+time:0
+time:0
+time:0
+running bf wild card
+PruningAlgorithm DEBUG - kept 13, removed 290783 over 290796 edges non mapping edges in 35ms
+ time:0
+PruningAlgorithm DEBUG - kept 52, removed 290744 over 290796 edges non mapping edges in 36ms
+ time:0
+PruningAlgorithm DEBUG - kept 13, removed 290783 over 290796 edges non mapping edges in 37ms
+ time:0
+PruningAlgorithm DEBUG - kept 46, removed 290750 over 290796 edges non mapping edges in 35ms
+ time:0
+PruningAlgorithm DEBUG - kept 68, removed 290728 over 290796 edges non mapping edges in 38ms
+ time:0
+Running extension
+2.txt
+running wild card
+time:0
+time:0
+time:0
+time:0
+time:0
+time:0
+running bf wild card
+PruningAlgorithm DEBUG - kept 26, removed 290770 over 290796 edges non mapping edges in 35ms
+ time:0
+PruningAlgorithm DEBUG - kept 68, removed 290728 over 290796 edges non mapping edges in 36ms
+ time:0
+PruningAlgorithm DEBUG - kept 60, removed 290736 over 290796 edges non mapping edges in 37ms
+ time:0
+PruningAlgorithm DEBUG - kept 261, removed 290535 over 290796 edges non mapping edges in 36ms
+ time:0
+PruningAlgorithm DEBUG - kept 63, removed 290733 over 290796 edges non mapping edges in 36ms
+ time:0
+PruningAlgorithm DEBUG - kept 48, removed 290748 over 290796 edges non mapping edges in 36ms
+ time:0
+Running extension
+18.txt
+running wild card
+time:0
+time:0
+time:0
+time:0
+running bf wild card
+PruningAlgorithm DEBUG - kept 5332, removed 285464 over 290796 edges non mapping edges in 50ms
+ time:0
+PruningAlgorithm DEBUG - kept 920, removed 289876 over 290796 edges non mapping edges in 38ms
+ time:0
+PruningAlgorithm DEBUG - kept 995, removed 289801 over 290796 edges non mapping edges in 39ms
+ time:0
+PruningAlgorithm DEBUG - kept 1059, removed 289737 over 290796 edges non mapping edges in 44ms
+ time:0
+Running extension
+5.txt
+running wild card
+time:11
+time:12
+running bf wild card
+PruningAlgorithm DEBUG - kept 273, removed 290523 over 290796 edges non mapping edges in 37ms
+ time:11
+PruningAlgorithm DEBUG - kept 273, removed 290523 over 290796 edges non mapping edges in 37ms
+ time:12
+Running extension
+EDMatchingRecursiveStep WARN - More than 100000 partial isomorphic results
+ EDMatchingRecursiveStep WARN - Computation interrupted after 4994032 partial isomorphic results
+ 

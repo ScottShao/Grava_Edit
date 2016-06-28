@@ -30,7 +30,7 @@ public class WildCardQuery {
 	}
 	
 	public WildCardQuery(int threshold){
-		this.wcQueries = new HashSet<Multigraph>();
+		this.wcQueries = new HashSet<>();
 		this.wildCardQuery = new LinkedList<String>();
 		this.threshold = threshold;
 		count = 0;

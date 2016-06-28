@@ -30,6 +30,13 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 
+import eu.unitn.disi.db.command.exceptions.AlgorithmExecutionException;
+import eu.unitn.disi.db.exemplar.core.RelatedQuery;
+import eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors;
+import eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch;
+import eu.unitn.disi.db.exemplar.core.algorithms.PruningAlgorithm;
+import eu.unitn.disi.db.grava.vectorization.NeighborTables;
+
 /**
  * This class represents a multigraph that is a structure that holds a set of
  * vertices and labeled edges
@@ -41,6 +48,7 @@ public class BaseMultigraph implements Multigraph {
 
     protected Map<Long, EdgeContainer> nodeEdges;
     protected Collection<Edge> edges;
+    private HashMap<Long, LabelContainer> labelFreq;
 
     //Used to initialize ArrayList of Out/In Edges
     private int avgNodeDegree;
@@ -71,6 +79,7 @@ public class BaseMultigraph implements Multigraph {
         this.avgNodeDegree = (int)Math.ceil(avgDegree);
         nodeEdges = new HashMap<>(initialCapacity);
         edges = new HashSet<>((int)Math.ceil(initialCapacity * avgDegree));
+        labelFreq = new HashMap<>();
     }
 
 
@@ -116,6 +125,15 @@ public class BaseMultigraph implements Multigraph {
             edges.add(e);
             dstC.addIncomingEdge(e);
         }
+        
+        LabelContainer lc = null;
+        if(labelFreq.containsKey(label)){
+        	lc = labelFreq.get(label);
+        }else{
+        	lc = new LabelContainer(label);
+        }
+        lc.addNode(src);
+        labelFreq.put(label, lc);
     }
 
     /**
@@ -399,4 +417,170 @@ public class BaseMultigraph implements Multigraph {
 		}
 		return infoVertex;
 	}
+	
+	public boolean equals(Object o) {
+		BaseMultigraph bm = (BaseMultigraph)o;
+		ComputeGraphNeighbors tableAlgorithm = new ComputeGraphNeighbors();
+		tableAlgorithm.setNumThreads(1);
+		tableAlgorithm.setK(2);
+		tableAlgorithm.setGraph(bm);
+		try {
+			tableAlgorithm.compute();
+		} catch (AlgorithmExecutionException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		NeighborTables graphTables = tableAlgorithm.getNeighborTables();
+		tableAlgorithm.setGraph(this);
+		try {
+			tableAlgorithm.compute();
+		} catch (AlgorithmExecutionException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		NeighborTables queryTables = tableAlgorithm.getNeighborTables();
+		Long startingNode = null;
+		try {
+			startingNode = this.getRootNode(true, this);
+		} catch (AlgorithmExecutionException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+//		InfoNode info = new InfoNode(startingNode);
+		// System.out.println("starting node:" + startingNode);
+		PruningAlgorithm pruningAlgorithm = new PruningAlgorithm();
+		// Set starting node according to sels of nodes.
+		pruningAlgorithm.setStartingNode(startingNode);
+		pruningAlgorithm.setGraph(bm);
+		pruningAlgorithm.setQuery(this);
+		pruningAlgorithm.setK(2);
+		pruningAlgorithm.setGraphTables(graphTables);
+		pruningAlgorithm.setQueryTables(queryTables);
+//		System.out.println("startingNode:" + startingNode + " degree:" + (Q.inDegreeOf(startingNode) + Q.outDegreeOf(startingNode))); 
+		// pruningAlgorithm.setGraphPathTables(graphTables);
+		// pruningAlgorithm.setQueryPathTables(queryTables);
+		
+		pruningAlgorithm.setThreshold(0);
+		try {
+			pruningAlgorithm.compute();
+		} catch (AlgorithmExecutionException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+		// pruningAlgorithm.fastCompute();
+//		this.wcBsCount += pruningAlgorithm.getBsCount();
+//		this.wcCmpCount += pruningAlgorithm.getCmpNbLabel();
+//		this.wcUptCount += pruningAlgorithm.getUptCount();
+//		info.setBsCount(pruningAlgorithm.getBsCount());
+//		info.setCmpCount(pruningAlgorithm.getCmpNbLabel());
+//		info.setUptCount(pruningAlgorithm.getUptCount());
+		// info.setSel(nqv.getNodeSelectivities().get(startingNode));
+//		infoNodes.add(info);
+//		wcCandidatesNum += queryGraphMapping.get(startingNode).size();
+//		System.out.println("before filtering:" + queryGraphMapping.get(startingNode).size());
+//		pruningAlgorithm.pathFilter();
+//		this.wcAfterNum += queryGraphMapping.get(startingNode).size();
+//		this.wcPathOnly += pruningAlgorithm.onlyPath();
+//		System.out.println("after filtering:" + queryGraphMapping.get(startingNode).size());
+		// watch.getElapsedTimeMillis());
+
+		List<RelatedQuery> relatedQueries;
+
+		IsomorphicQuerySearch edAlgorithm = new IsomorphicQuerySearch();
+		IsomorphicQuerySearch.answerCount = 0;
+		edAlgorithm.setStartingNode(startingNode);
+		edAlgorithm.setLabelFreq(bm.getLabelFreq());
+		edAlgorithm.setQuery(this);
+		edAlgorithm.setGraph(bm);
+		edAlgorithm.setNumThreads(1);
+		edAlgorithm.setQueryToGraphMap(pruningAlgorithm
+				.getQueryGraphMapping());
+		edAlgorithm.setLimitedComputation(false);
+		try {
+			edAlgorithm.compute();
+		} catch (AlgorithmExecutionException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		if (IsomorphicQuerySearch.answerCount > 0) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+	public Long getRootNode(boolean minimumFrquency, Multigraph Q) throws AlgorithmExecutionException {
+        Collection<Long> nodes = Q.vertexSet();
+        Set<Long> edgeLabels = new HashSet<>();
+        int maxFreq = 0, tempFreq = 0;
+        Long goodNode = null;
+
+
+        for (Edge l : Q.edgeSet()) {
+            edgeLabels.add(l.getLabel());
+        }
+
+        Long bestLabel = -1L;
+
+        for( Edge e : Q.edgeSet()){
+            bestLabel = e.getLabel() > bestLabel ? e.getLabel() : bestLabel;
+        }
+
+//        if(minimumFrquency) {
+//         bestLabel =this.findLessFrequentLabel(edgeLabels);
+//        } else {
+//         bestLabel =this.findMostFrequentLabel(edgeLabels);
+//        }
+
+        if(bestLabel == null || bestLabel == -1L ){
+            throw new AlgorithmExecutionException("Best Label not found when looking for a root node!");
+        }
+
+
+        Collection<Edge> edgesIn, edgesOut;
+
+        for (Long concept : nodes) {
+            tempFreq = Q.inDegreeOf(concept)+ Q.outDegreeOf(concept);
+
+            edgesIn = Q.incomingEdgesOf(concept);
+
+            for (Edge Edge : edgesIn) {
+                if (Edge.getLabel().equals(bestLabel)) {
+                    if(tempFreq > maxFreq){
+                        goodNode = concept;
+                        maxFreq = tempFreq;
+                    }
+                }
+            }
+
+            edgesOut = Q.outgoingEdgesOf(concept);
+            for (Edge Edge : edgesOut) {
+                if (Edge.getLabel().equals(bestLabel)) {
+                    if(tempFreq > maxFreq){
+                        goodNode = concept;
+                        maxFreq = tempFreq;
+                    }
+                }
+            }
+        }
+
+        return goodNode;
+    }
+	public int hashCode() {
+		Long re = 0L;
+		for (Edge e : this.edgeSet())
+			re += e.getLabel();
+		return re.hashCode();
+	}
+
+	public HashMap<Long, LabelContainer> getLabelFreq() {
+		return labelFreq;
+	}
+
+	public void setLabelFreq(HashMap<Long, LabelContainer> labelFreq) {
+		this.labelFreq = labelFreq;
+	}
+	
+	
 }

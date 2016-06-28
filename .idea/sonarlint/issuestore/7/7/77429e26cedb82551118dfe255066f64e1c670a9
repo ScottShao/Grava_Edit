@@ -1,0 +1,81 @@
+
+Dsquid:EmptyStatementUsageCheck"Remove this empty statement.(úğ§
+Dsquid:EmptyStatementUsageCheck"Remove this empty statement.(šØ¹Æ
+qsquid:S2737"WAdd logic to this catch clause or eliminate it and rethrow the exception automatically.(¤­—Îşÿÿÿÿ
+¾%squid:RedundantThrowsDeclarationCheck"‰Remove the declaration of thrown exception 'eu.unitn.disi.db.grava.exceptions.ParseException', as it cannot be thrown from method's body.(íı¼òıÿÿÿÿ
+—%squid:RedundantThrowsDeclarationCheck"iRemove the declaration of thrown exception 'java.lang.NullPointerException' which is a runtime exception.(‡€â
+
+¡%squid:RedundantThrowsDeclarationCheck"mRemove the declaration of thrown exception 'java.lang.IllegalArgumentException' which is a runtime exception.(Òƒğÿÿÿÿÿ
+%squid:RedundantThrowsDeclarationCheck"iRemove the declaration of thrown exception 'java.lang.NullPointerException' which is a runtime exception.(Òƒğÿÿÿÿÿ
+›%squid:RedundantThrowsDeclarationCheck"mRemove the declaration of thrown exception 'java.lang.IllegalArgumentException' which is a runtime exception.(—ô–1
+—%squid:RedundantThrowsDeclarationCheck"iRemove the declaration of thrown exception 'java.lang.NullPointerException' which is a runtime exception.(—ô–1
+%squid:RedundantThrowsDeclarationCheck"iRemove the declaration of thrown exception 'java.lang.NullPointerException' which is a runtime exception.(ış—ÿùÿÿÿÿ
+%squid:RedundantThrowsDeclarationCheck"iRemove the declaration of thrown exception 'java.lang.NullPointerException' which is a runtime exception.(–Ö™ãùÿÿÿÿ
+˜%squid:RedundantThrowsDeclarationCheck"iRemove the declaration of thrown exception 'java.lang.NullPointerException' which is a runtime exception.(Ë´ıÄ
+%squid:RedundantThrowsDeclarationCheck"iRemove the declaration of thrown exception 'java.lang.NullPointerException' which is a runtime exception.(ÿı®öÿÿÿÿÿ
+%squid:RedundantThrowsDeclarationCheck"iRemove the declaration of thrown exception 'java.lang.NullPointerException' which is a runtime exception.(Ç¿åÒúÿÿÿÿ
+%squid:RedundantThrowsDeclarationCheck"iRemove the declaration of thrown exception 'java.lang.NullPointerException' which is a runtime exception.(ñ¦€©üÿÿÿÿ
+%squid:RedundantThrowsDeclarationCheck"iRemove the declaration of thrown exception 'java.lang.NullPointerException' which is a runtime exception.(©–ƒüÿÿÿÿ
+¡%squid:RedundantThrowsDeclarationCheck"mRemove the declaration of thrown exception 'java.lang.IllegalArgumentException' which is a runtime exception.(­šŠúÿÿÿÿ
+%squid:RedundantThrowsDeclarationCheck"iRemove the declaration of thrown exception 'java.lang.NullPointerException' which is a runtime exception.(­šŠúÿÿÿÿ
+œ%squid:RedundantThrowsDeclarationCheck"mRemove the declaration of thrown exception 'java.lang.IllegalArgumentException' which is a runtime exception.(Õ¨³’
+˜%squid:RedundantThrowsDeclarationCheck"iRemove the declaration of thrown exception 'java.lang.NullPointerException' which is a runtime exception.(Õ¨³’
+gsquid:ModifiersOrderCheck"EReorder the modifiers to comply with the Java Language Specification.(äÎ©M
+squid:S1192"xDefine a constant instead of duplicating this literal "This graph is immutable, this operation is not allowed." 7 times.(ÙøÆ¢
+Esquid:S1068"0Remove this unused "calLabelFreq" private field.(‹¤ı£
+ssquid:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(Í–Óûøÿÿÿÿ
+nsquid:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(¿ûêö
+ssquid:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(€Ñ«šşÿÿÿÿ
+ssquid:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(Çôøÿÿÿÿ
+ssquid:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(ÊÅï–ÿÿÿÿÿ
+nsquid:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(—²­¼
+ssquid:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(„ĞÇıÿÿÿÿ
+ssquid:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(ï™öÑşÿÿÿÿ
+nsquid:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(ıŞ…¼
+Csquid:S2095".Close this "FileReader" in a "finally" clause.(ÑÌ¼‡
+dsquid:S2886"JSynchronize this method to match the synchronization on "getLastInBounds".(˜¾™îûÿÿÿÿ
+`squid:S2886"KSynchronize this method to match the synchronization on "getLastOutBounds".(ŠŸÁ×
+_squid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(Šİê^
+`squid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(„Š¿
+`squid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(¼‰Ûß
+esquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(—¨È„ÿÿÿÿÿ
+esquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(Í…¥¾ùÿÿÿÿ
+esquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(Ó¾¦ıÿÿÿÿ
+`squid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(¾©¥í
+esquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(çà°Ÿıÿÿÿÿ
+_squid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(Å²‚d
+esquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(åÊœàÿÿÿÿÿ
+esquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(í˜Õšùÿÿÿÿ
+‚squid:S1319"mThe return type of this method should be an interface such as "Map" rather than the implementation "HashMap".(¡»Øú
+Œsquid:S1319"rThe type of the "nodeDegree" object should be an interface such as "Map" rather than the implementation "HashMap".(±ÀÏóşÿÿÿÿ
+‚squid:S1319"mThe return type of this method should be an interface such as "Map" rather than the implementation "HashMap".(ï…®ğ
+…squid:S1319"qThe type of the "labelFreq" object should be an interface such as "Map" rather than the implementation "HashMap".(öÎ¶
+‡squid:S1319"mThe return type of this method should be an interface such as "Map" rather than the implementation "HashMap".(Ñ‡ıÇÿÿÿÿÿ
+ˆsquid:S1319"nThe type of the "maxRep" object should be an interface such as "Map" rather than the implementation "HashMap".(óÎ¼Òşÿÿÿÿ
+„squid:S1319"pThe type of the "labelMax" object should be an interface such as "Map" rather than the implementation "HashMap".(Ìß-
+‚squid:S1319"mThe return type of this method should be an interface such as "Map" rather than the implementation "HashMap".(²„á®
+M
+squid:S106"9Replace this use of System.out or System.err by a logger.(ùİ°á
+R
+squid:S106"9Replace this use of System.out or System.err by a logger.(İ»Ôùøÿÿÿÿ
+R
+squid:S106"9Replace this use of System.out or System.err by a logger.(Ùäª¾ùÿÿÿÿ
+R
+squid:S106"9Replace this use of System.out or System.err by a logger.(Š£–íùÿÿÿÿ
+R
+squid:S106"9Replace this use of System.out or System.err by a logger.(é¹‘ıÿÿÿÿ
+[squid:S1126"AReplace this if-then-else statement by a single return statement.(÷ãäˆşÿÿÿÿ
+Lsquid:S1135"2Complete the task associated to this TODO comment.(ª¯éÚÿÿÿÿÿ
+Lsquid:S1135"2Complete the task associated to this TODO comment.(÷î€İÿÿÿÿÿ
+\squid:S1226"BIntroduce a new variable instead of reusing the parameter "edges".(õ¢Üòÿÿÿÿÿ
+fsquid:S3776"RRefactor this method to reduce its Cognitive Complexity from 23 to the 15 allowed.(İ‹Œ7
+lsquid:S3776"RRefactor this method to reduce its Cognitive Complexity from 39 to the 15 allowed.(íı¼òıÿÿÿÿ
+;squid:S1168"&Return an empty array instead of null.(¥¹ï
+psquid:S00115"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(úğ§
+psquid:S00115"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(úğ§
+psquid:S00115"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(úğ§
+gsquid:UselessImportCheck"@Remove this unused import 'eu.unitn.disi.db.grava.utils.StdOut'.(ĞÖ’ƒøÿÿÿÿ
+}squid:UselessImportCheck"\Remove this unused import 'eu.unitn.disi.db.command.exceptions.AlgorithmExecutionException'.(›ˆíW
+=squid:S1148"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ
+8squid:S1148"#Use a logger to log this exception.(Ç’Çê
+fsquid:S3457"Q%n should be used in place of \n to produce the platform-specific line separator.(ùİ°á

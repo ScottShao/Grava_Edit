@@ -22,6 +22,7 @@ import eu.unitn.disi.db.command.algorithmic.AlgorithmInput;
 import eu.unitn.disi.db.command.algorithmic.AlgorithmOutput;
 import eu.unitn.disi.db.command.exceptions.AlgorithmExecutionException;
 import eu.unitn.disi.db.grava.graphs.BigMultigraph;
+import eu.unitn.disi.db.grava.graphs.Connection;
 import eu.unitn.disi.db.grava.graphs.Edge;
 import eu.unitn.disi.db.grava.graphs.Multigraph;
 import eu.unitn.disi.db.grava.utils.BloomFilter;
@@ -59,6 +60,7 @@ public class ComputeGraphNeighbors extends Algorithm {
 	private NeighborTables neighborTables;
 	private int maxDegree;
 	private boolean debugThreads = false;
+	private Map<Connection, int[]> conCount;
 
 	// private int tid;
 
@@ -93,6 +95,7 @@ public class ComputeGraphNeighbors extends Algorithm {
 //			debug("[T%d] Table computation started with %d nodes to process",
 //					id, end - start);
 			for (int i = start; i < end && i < graphNodes.length; i++) {
+//				if ((i - start) % 200 == 0) System.out.println("computed nodes number " + (i - start));
 				node = graphNodes[i];
 				toVisit = new HashSet<>();
 				toVisit.add(node);
@@ -168,44 +171,56 @@ public class ComputeGraphNeighbors extends Algorithm {
 	
 	public void computePathFilter() {
 		pathTables = new HashMap<>();
+		conCount = new HashMap<>();
 		Collection<Long> nodeSet = graph.vertexSet();
 		for (Long node : nodeSet) {
 			BloomFilter<String> bf = new BloomFilter<String>(0.1, 10000);
-			dfs(node, new HashSet<>(), new StringBuilder(), 0, bf);
+			dfs(node, new HashSet<Edge>(), new StringBuilder(), 0, bf, new ArrayList<Long>());
 			this.pathTables.put(node, bf);
 		}
 	}
 	
-	public void dfs(Long node, Set<Edge> visited, StringBuilder sb, int depth, BloomFilter<String> bf) {
+	public void dfs(Long node, Set<Edge> visited, StringBuilder sb, int depth, BloomFilter<String> bf, List<Long> labels) {
 		if (depth >= k) {
 			bf.add(sb.toString());
+			Connection con = new Connection(labels.get(0), labels.get(1));
+			int[] count = conCount.get(con);
+			if (count == null) {
+				count = new int[1];
+				conCount.put(con, count);
+			} 
+			count[0]++;
 			return;
 		}
 		int length = sb.length();
-		boolean hasEdge = false;
+//		boolean hasEdge = false;
+		int size = labels.size();
 		for (Edge e : graph.outgoingEdgesOf(node)) {
 			Long nextNode = e.getDestination().equals(node) ? e.getSource() : e.getDestination();
 			if (!visited.contains(e) && !e.getLabel().equals(0L) && !nextNode.equals(node)) {
-				sb.append(e.getLabel());
-				dfs(nextNode, visited, sb, depth + 1, bf);
+				Long temp = e.getLabel();
+				sb.append(temp);
+				labels.add(temp);
+				dfs(nextNode, visited, sb, depth + 1, bf, labels);
 				sb.setLength(length);
-				hasEdge = true;
+				labels.remove(size);
+//				hasEdge = true;
 			}
 		}
 		
 		for (Edge e : graph.incomingEdgesOf(node)) {
 			Long nextNode = e.getDestination().equals(node) ? e.getSource() : e.getDestination();
 			if (!visited.contains(e) && !e.getLabel().equals(0L) && !nextNode.equals(node)) {
-				sb.append(e.getLabel());
-				dfs(nextNode, visited, sb, depth + 1, bf);
+				Long temp = -e.getLabel();
+				sb.append(temp);
+				labels.add(temp);
+				dfs(nextNode, visited, sb, depth + 1, bf, labels);
+				labels.remove(size);
 				sb.setLength(length);
-				hasEdge = true;
+//				hasEdge = true;
 			}
 		}
 		
-		if (!hasEdge) {
-			bf.add(sb.toString());
-		}
 	}
 	
 	
@@ -220,7 +235,7 @@ public class ComputeGraphNeighbors extends Algorithm {
 		NeighborTables tables;
 		neighborTables = new MemoryNeighborTables(k);
 		// END DECLARATIONS
-
+		numThreads = 8;
 		try {
 			// Start a BFS on the whole graph
 			if (nodeProcessed != null) {
@@ -308,6 +323,14 @@ public class ComputeGraphNeighbors extends Algorithm {
 
 	public void setPathTables(Map<Long, BloomFilter<String>> pathTables) {
 		this.pathTables = pathTables;
+	}
+
+	public Map<Connection, int[]> getConCount() {
+		return conCount;
+	}
+
+	public void setConCount(Map<Connection, int[]> conCount) {
+		this.conCount = conCount;
 	}
 	
 }

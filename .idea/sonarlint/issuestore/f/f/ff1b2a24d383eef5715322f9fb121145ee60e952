@@ -1,0 +1,15 @@
+
+Í%squid:RedundantThrowsDeclarationCheck"˜Remove the declaration of thrown exception 'eu.unitn.disi.db.command.exceptions.AlgorithmExecutionException', as it cannot be thrown from method's body.(”¢²¯øÿÿÿÿ
+@squid:S1659"&Declare "tempFreq" on a separate line.(ò»èýúÿÿÿÿ
+@squid:S1659"&Declare "edgesOut" on a separate line.(þ­ºìûÿÿÿÿ
+Isquid:S1066"/Merge this if statement with the enclosing one.(Ðª†ýþÿÿÿÿ
+Isquid:S1066"/Merge this if statement with the enclosing one.(Ðª†ýþÿÿÿÿ
+_squid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(—‘­
+Gsquid:S1135"2Complete the task associated to this TODO comment.(µüÇö
+lsquid:S3776"RRefactor this method to reduce its Cognitive Complexity from 25 to the 15 allowed.(”¢²¯øÿÿÿÿ
+Psquid:S1172"6Remove this unused method parameter "minimumFrquency".(”¢²¯øÿÿÿÿ
+Csquid:S1172")Remove this unused method parameter "c1".(¸ìŸñúÿÿÿÿ
+Osquid:S1854"5Remove this useless assignment to local variable "f".(èàºÖþÿÿÿÿ
+Osquid:S1854"5Remove this useless assignment to local variable "f".(èàºÖþÿÿÿÿ
+msquid:UselessImportCheck"KRemove this unused import 'eu.unitn.disi.db.exemplar.core.IsomorphicQuery'.(ÝàÐµ
+Osquid:UselessImportCheck".Remove this unused import 'java.util.TreeSet'.(½îB

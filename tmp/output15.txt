@@ -1,0 +1,461 @@
+Processed 50000 lines of 50000-15nodes-sin.graph
+Processed 100000 lines of 50000-15nodes-sin.graph
+Processed 150000 lines of 50000-15nodes-sin.graph
+Processed 200000 lines of 50000-15nodes-sin.graph
+Processed 250000 lines of 50000-15nodes-sin.graph
+Processed 300000 lines of 50000-15nodes-sin.graph
+Processed 350000 lines of 50000-15nodes-sin.graph
+Processed 50000 lines of 50000-15nodes-sout.graph
+Processed 100000 lines of 50000-15nodes-sout.graph
+Processed 150000 lines of 50000-15nodes-sout.graph
+Processed 200000 lines of 50000-15nodes-sout.graph
+Processed 250000 lines of 50000-15nodes-sout.graph
+Processed 300000 lines of 50000-15nodes-sout.graph
+Processed 350000 lines of 50000-15nodes-sout.graph
+13.txt
+running wild card
+time:0
+time:0
+time:7
+running bf wild card
+PruningAlgorithm DEBUG - kept 17, removed 365843 over 365860 edges non mapping edges in 64ms
+ time:0
+PruningAlgorithm DEBUG - kept 17, removed 365843 over 365860 edges non mapping edges in 57ms
+ time:0
+PruningAlgorithm DEBUG - kept 695, removed 365165 over 365860 edges non mapping edges in 54ms
+ time:6
+Running extension
+EDMatchingRecursiveStep WARN - More than 100000 partial isomorphic results
+ EDMatchingRecursiveStep WARN - Computation interrupted after 1174608 partial isomorphic results
+ 14.txt
+running wild card
+time:0
+time:0
+time:0
+time:0
+time:0
+time:0
+time:0
+time:0
+running bf wild card
+PruningAlgorithm DEBUG - kept 28, removed 365832 over 365860 edges non mapping edges in 48ms
+ time:0
+PruningAlgorithm DEBUG - kept 28, removed 365832 over 365860 edges non mapping edges in 54ms
+ time:0
+PruningAlgorithm DEBUG - kept 28, removed 365832 over 365860 edges non mapping edges in 48ms
+ time:0
+PruningAlgorithm DEBUG - kept 179, removed 365681 over 365860 edges non mapping edges in 48ms
+ time:0
+PruningAlgorithm DEBUG - kept 34, removed 365826 over 365860 edges non mapping edges in 48ms
+ time:0
+PruningAlgorithm DEBUG - kept 55, removed 365805 over 365860 edges non mapping edges in 48ms
+ time:0
+PruningAlgorithm DEBUG - kept 37, removed 365823 over 365860 edges non mapping edges in 49ms
+ time:0
+PruningAlgorithm DEBUG - kept 100, removed 365760 over 365860 edges non mapping edges in 48ms
+ time:0
+Running extension
+5.txt
+running wild card
+GraphIsomorphismRecursiveStep ERROR - Memory exausted, so we are returning something but not everything.
+ time:1924
+time:4
+running bf wild card
+PruningAlgorithm DEBUG - kept 5471, removed 360389 over 365860 edges non mapping edges in 65ms
+ GraphIsomorphismRecursiveStep ERROR - Memory exausted, so we are returning something but not everything.
+ time:1651
+PruningAlgorithm DEBUG - kept 269, removed 365591 over 365860 edges non mapping edges in 47ms
+ time:4
+Running extension
+EDMatchingRecursiveStep WARN - More than 100000 partial isomorphic results
+ EDMatchingRecursiveStep WARN - Computation interrupted after 7555903 partial isomorphic results
+ 2.txt
+running wild card
+time:0
+time:0
+time:0
+time:0
+running bf wild card
+PruningAlgorithm DEBUG - kept 26, removed 365834 over 365860 edges non mapping edges in 46ms
+ time:0
+PruningAlgorithm DEBUG - kept 1999, removed 363861 over 365860 edges non mapping edges in 51ms
+ time:0
+PruningAlgorithm DEBUG - kept 30, removed 365830 over 365860 edges non mapping edges in 46ms
+ time:0
+PruningAlgorithm DEBUG - kept 1198, removed 364662 over 365860 edges non mapping edges in 50ms
+ time:0
+Running extension
+3.txt
+running wild card
+time:0
+time:0
+time:0
+time:0
+time:0
+running bf wild card
+PruningAlgorithm DEBUG - kept 51, removed 365809 over 365860 edges non mapping edges in 48ms
+ time:0
+PruningAlgorithm DEBUG - kept 293, removed 365567 over 365860 edges non mapping edges in 47ms
+ time:0
+PruningAlgorithm DEBUG - kept 47, removed 365813 over 365860 edges non mapping edges in 51ms
+ time:0
+PruningAlgorithm DEBUG - kept 79, removed 365781 over 365860 edges non mapping edges in 45ms
+ time:0
+PruningAlgorithm DEBUG - kept 125, removed 365735 over 365860 edges non mapping edges in 44ms
+ time:0
+Running extension
+4.txt
+running wild card
+GraphIsomorphismRecursiveStep WARN - More than 100000 partial isomorphic results
+ GraphIsomorphismRecursiveStep WARN - Computation interrupted after 1974030 partial isomorphic results
+ time:759
+GraphIsomorphismRecursiveStep ERROR - Memory exausted, so we are returning something but not everything.
+ time:3419
+GraphIsomorphismRecursiveStep WARN - More than 100000 partial isomorphic results
+ GraphIsomorphismRecursiveStep WARN - Computation interrupted after 3948054 partial isomorphic results
+ time:728
+GraphIsomorphismRecursiveStep WARN - More than 100000 partial isomorphic results
+ GraphIsomorphismRecursiveStep WARN - Computation interrupted after 5922078 partial isomorphic results
+ time:817
+GraphIsomorphismRecursiveStep WARN - More than 100000 partial isomorphic results
+ GraphIsomorphismRecursiveStep WARN - Computation interrupted after 7896102 partial isomorphic results
+ time:748
+GraphIsomorphismRecursiveStep WARN - More than 100000 partial isomorphic results
+ GraphIsomorphismRecursiveStep WARN - Computation interrupted after 9870126 partial isomorphic results
+ time:43
+running bf wild card
+PruningAlgorithm DEBUG - kept 155, removed 365705 over 365860 edges non mapping edges in 49ms
+ GraphIsomorphismRecursiveStep WARN - More than 100000 partial isomorphic results
+ GraphIsomorphismRecursiveStep WARN - Computation interrupted after 1974030 partial isomorphic results
+ time:580
+PruningAlgorithm DEBUG - kept 443, removed 365417 over 365860 edges non mapping edges in 51ms
+ GraphIsomorphismRecursiveStep ERROR - Memory exausted, so we are returning something but not everything.
+ time:23650
+PruningAlgorithm DEBUG - kept 154, removed 365706 over 365860 edges non mapping edges in 50ms
+ GraphIsomorphismRecursiveStep WARN - More than 100000 partial isomorphic results
+ GraphIsomorphismRecursiveStep WARN - Computation interrupted after 3948054 partial isomorphic results
+ time:634
+PruningAlgorithm DEBUG - kept 150, removed 365710 over 365860 edges non mapping edges in 53ms
+ GraphIsomorphismRecursiveStep WARN - More than 100000 partial isomorphic results
+ GraphIsomorphismRecursiveStep WARN - Computation interrupted after 5922078 partial isomorphic results
+ time:696
+PruningAlgorithm DEBUG - kept 159, removed 365701 over 365860 edges non mapping edges in 52ms
+ GraphIsomorphismRecursiveStep WARN - More than 100000 partial isomorphic results
+ GraphIsomorphismRecursiveStep WARN - Computation interrupted after 7896102 partial isomorphic results
+ time:804
+PruningAlgorithm DEBUG - kept 147, removed 365713 over 365860 edges non mapping edges in 46ms
+ GraphIsomorphismRecursiveStep WARN - More than 100000 partial isomorphic results
+ GraphIsomorphismRecursiveStep WARN - Computation interrupted after 9870126 partial isomorphic results
+ time:44
+Running extension
+Time limit exceeded
+Time limit exceeded
+15.txt
+running wild card
+time:16
+time:8
+time:3
+time:2
+time:4
+time:6
+time:6
+time:4
+running bf wild card
+PruningAlgorithm DEBUG - kept 31, removed 365829 over 365860 edges non mapping edges in 58ms
+ time:56
+PruningAlgorithm DEBUG - kept 46, removed 365814 over 365860 edges non mapping edges in 55ms
+ time:7
+PruningAlgorithm DEBUG - kept 25, removed 365835 over 365860 edges non mapping edges in 49ms
+ time:2
+PruningAlgorithm DEBUG - kept 25, removed 365835 over 365860 edges non mapping edges in 48ms
+ time:3
+PruningAlgorithm DEBUG - kept 25, removed 365835 over 365860 edges non mapping edges in 46ms
+ time:3
+PruningAlgorithm DEBUG - kept 81, removed 365779 over 365860 edges non mapping edges in 47ms
+ time:5
+PruningAlgorithm DEBUG - kept 27, removed 365833 over 365860 edges non mapping edges in 61ms
+ time:7
+PruningAlgorithm DEBUG - kept 25, removed 365835 over 365860 edges non mapping edges in 50ms
+ time:3
+Running extension
+EDMatchingRecursiveStep WARN - More than 100000 partial isomorphic results
+ EDMatchingRecursiveStep WARN - Computation interrupted after 11321179 partial isomorphic results
+ 12.txt
+running wild card
+time:0
+time:0
+time:0
+time:0
+running bf wild card
+PruningAlgorithm DEBUG - kept 1768, removed 364092 over 365860 edges non mapping edges in 59ms
+ time:0
+PruningAlgorithm DEBUG - kept 1795, removed 364065 over 365860 edges non mapping edges in 56ms
+ time:0
+PruningAlgorithm DEBUG - kept 5304, removed 360556 over 365860 edges non mapping edges in 63ms
+ time:0
+PruningAlgorithm DEBUG - kept 4603, removed 361257 over 365860 edges non mapping edges in 68ms
+ time:0
+Running extension
+18.txt
+running wild card
+time:0
+time:1
+time:0
+running bf wild card
+PruningAlgorithm DEBUG - kept 211, removed 365649 over 365860 edges non mapping edges in 49ms
+ time:0
+PruningAlgorithm DEBUG - kept 9376, removed 356484 over 365860 edges non mapping edges in 67ms
+ time:0
+PruningAlgorithm DEBUG - kept 98, removed 365762 over 365860 edges non mapping edges in 50ms
+ time:0
+Running extension
+7.txt
+running wild card
+time:0
+time:0
+time:0
+time:0
+running bf wild card
+PruningAlgorithm DEBUG - kept 18, removed 365842 over 365860 edges non mapping edges in 51ms
+ time:0
+PruningAlgorithm DEBUG - kept 15, removed 365845 over 365860 edges non mapping edges in 51ms
+ time:0
+PruningAlgorithm DEBUG - kept 94, removed 365766 over 365860 edges non mapping edges in 52ms
+ time:0
+PruningAlgorithm DEBUG - kept 47, removed 365813 over 365860 edges non mapping edges in 52ms
+ time:0
+Running extension
+0.txt
+running wild card
+time:0
+time:1
+time:0
+time:3
+time:0
+time:0
+running bf wild card
+PruningAlgorithm DEBUG - kept 157, removed 365703 over 365860 edges non mapping edges in 45ms
+ time:0
+PruningAlgorithm DEBUG - kept 120, removed 365740 over 365860 edges non mapping edges in 47ms
+ time:1
+PruningAlgorithm DEBUG - kept 58, removed 365802 over 365860 edges non mapping edges in 45ms
+ time:0
+PruningAlgorithm DEBUG - kept 31, removed 365829 over 365860 edges non mapping edges in 45ms
+ time:1
+PruningAlgorithm DEBUG - kept 59, removed 365801 over 365860 edges non mapping edges in 57ms
+ time:0
+PruningAlgorithm DEBUG - kept 58, removed 365802 over 365860 edges non mapping edges in 46ms
+ time:0
+Running extension
+11.txt
+running wild card
+time:0
+time:0
+time:0
+time:0
+time:0
+time:0
+time:0
+time:0
+running bf wild card
+PruningAlgorithm DEBUG - kept 16, removed 365844 over 365860 edges non mapping edges in 50ms
+ time:0
+PruningAlgorithm DEBUG - kept 12, removed 365848 over 365860 edges non mapping edges in 50ms
+ time:0
+PruningAlgorithm DEBUG - kept 12, removed 365848 over 365860 edges non mapping edges in 51ms
+ time:0
+PruningAlgorithm DEBUG - kept 12, removed 365848 over 365860 edges non mapping edges in 50ms
+ time:0
+PruningAlgorithm DEBUG - kept 16, removed 365844 over 365860 edges non mapping edges in 47ms
+ time:0
+PruningAlgorithm DEBUG - kept 17, removed 365843 over 365860 edges non mapping edges in 47ms
+ time:0
+PruningAlgorithm DEBUG - kept 12, removed 365848 over 365860 edges non mapping edges in 47ms
+ time:0
+PruningAlgorithm DEBUG - kept 16, removed 365844 over 365860 edges non mapping edges in 47ms
+ time:0
+Running extension
+16.txt
+running wild card
+time:0
+time:0
+time:0
+time:0
+time:0
+running bf wild card
+PruningAlgorithm DEBUG - kept 18, removed 365842 over 365860 edges non mapping edges in 49ms
+ time:0
+PruningAlgorithm DEBUG - kept 21, removed 365839 over 365860 edges non mapping edges in 48ms
+ time:0
+PruningAlgorithm DEBUG - kept 18, removed 365842 over 365860 edges non mapping edges in 48ms
+ time:0
+PruningAlgorithm DEBUG - kept 18, removed 365842 over 365860 edges non mapping edges in 49ms
+ time:0
+PruningAlgorithm DEBUG - kept 18, removed 365842 over 365860 edges non mapping edges in 48ms
+ time:0
+Running extension
+9.txt
+running wild card
+time:0
+time:0
+time:0
+time:0
+time:0
+time:0
+running bf wild card
+PruningAlgorithm DEBUG - kept 14, removed 365846 over 365860 edges non mapping edges in 50ms
+ time:0
+PruningAlgorithm DEBUG - kept 8, removed 365852 over 365860 edges non mapping edges in 48ms
+ time:0
+PruningAlgorithm DEBUG - kept 8, removed 365852 over 365860 edges non mapping edges in 53ms
+ time:0
+PruningAlgorithm DEBUG - kept 8, removed 365852 over 365860 edges non mapping edges in 48ms
+ time:0
+PruningAlgorithm DEBUG - kept 8, removed 365852 over 365860 edges non mapping edges in 49ms
+ time:0
+PruningAlgorithm DEBUG - kept 8, removed 365852 over 365860 edges non mapping edges in 48ms
+ time:0
+Running extension
+17.txt
+running wild card
+time:0
+time:0
+time:0
+time:0
+time:0
+running bf wild card
+PruningAlgorithm DEBUG - kept 152, removed 365708 over 365860 edges non mapping edges in 48ms
+ time:0
+PruningAlgorithm DEBUG - kept 471, removed 365389 over 365860 edges non mapping edges in 50ms
+ time:0
+PruningAlgorithm DEBUG - kept 84, removed 365776 over 365860 edges non mapping edges in 48ms
+ time:0
+PruningAlgorithm DEBUG - kept 698, removed 365162 over 365860 edges non mapping edges in 50ms
+ time:0
+PruningAlgorithm DEBUG - kept 439, removed 365421 over 365860 edges non mapping edges in 49ms
+ time:0
+Running extension
+8.txt
+running wild card
+time:0
+time:0
+time:0
+time:0
+time:0
+time:0
+running bf wild card
+PruningAlgorithm DEBUG - kept 1312, removed 364548 over 365860 edges non mapping edges in 52ms
+ time:0
+PruningAlgorithm DEBUG - kept 33, removed 365827 over 365860 edges non mapping edges in 49ms
+ time:0
+PruningAlgorithm DEBUG - kept 41, removed 365819 over 365860 edges non mapping edges in 47ms
+ time:0
+PruningAlgorithm DEBUG - kept 552, removed 365308 over 365860 edges non mapping edges in 51ms
+ time:0
+PruningAlgorithm DEBUG - kept 33, removed 365827 over 365860 edges non mapping edges in 49ms
+ time:0
+PruningAlgorithm DEBUG - kept 47, removed 365813 over 365860 edges non mapping edges in 49ms
+ time:0
+Running extension
+EDMatchingRecursiveStep WARN - More than 100000 partial isomorphic results
+ EDMatchingRecursiveStep WARN - Computation interrupted after 11809246 partial isomorphic results
+ 10.txt
+running wild card
+time:0
+time:0
+running bf wild card
+PruningAlgorithm DEBUG - kept 10010, removed 355850 over 365860 edges non mapping edges in 74ms
+ time:0
+PruningAlgorithm DEBUG - kept 2568, removed 363292 over 365860 edges non mapping edges in 52ms
+ time:0
+Running extension
+1.txt
+running wild card
+GraphIsomorphismRecursiveStep WARN - More than 100000 partial isomorphic results
+ GraphIsomorphismRecursiveStep WARN - Computation interrupted after 7603252 partial isomorphic results
+ time:122
+GraphIsomorphismRecursiveStep WARN - More than 100000 partial isomorphic results
+ GraphIsomorphismRecursiveStep WARN - Computation interrupted after 15206404 partial isomorphic results
+ time:198
+GraphIsomorphismRecursiveStep WARN - More than 100000 partial isomorphic results
+ GraphIsomorphismRecursiveStep WARN - Computation interrupted after 22809556 partial isomorphic results
+ time:187
+GraphIsomorphismRecursiveStep WARN - More than 100000 partial isomorphic results
+ GraphIsomorphismRecursiveStep WARN - Computation interrupted after 23172436 partial isomorphic results
+ time:64
+GraphIsomorphismRecursiveStep WARN - More than 100000 partial isomorphic results
+ GraphIsomorphismRecursiveStep WARN - Computation interrupted after 30775588 partial isomorphic results
+ time:291
+GraphIsomorphismRecursiveStep WARN - More than 100000 partial isomorphic results
+ GraphIsomorphismRecursiveStep WARN - Computation interrupted after 38431276 partial isomorphic results
+ time:258
+GraphIsomorphismRecursiveStep WARN - More than 100000 partial isomorphic results
+ GraphIsomorphismRecursiveStep WARN - Computation interrupted after 38794156 partial isomorphic results
+ time:82
+running bf wild card
+PruningAlgorithm DEBUG - kept 335, removed 365525 over 365860 edges non mapping edges in 49ms
+ GraphIsomorphismRecursiveStep WARN - More than 100000 partial isomorphic results
+ GraphIsomorphismRecursiveStep WARN - Computation interrupted after 7603156 partial isomorphic results
+ time:271
+PruningAlgorithm DEBUG - kept 266, removed 365594 over 365860 edges non mapping edges in 51ms
+ GraphIsomorphismRecursiveStep WARN - More than 100000 partial isomorphic results
+ GraphIsomorphismRecursiveStep WARN - Computation interrupted after 15206308 partial isomorphic results
+ time:257
+PruningAlgorithm DEBUG - kept 234, removed 365626 over 365860 edges non mapping edges in 49ms
+ GraphIsomorphismRecursiveStep WARN - More than 100000 partial isomorphic results
+ GraphIsomorphismRecursiveStep WARN - Computation interrupted after 22445764 partial isomorphic results
+ time:252
+PruningAlgorithm DEBUG - kept 241, removed 365619 over 365860 edges non mapping edges in 48ms
+ GraphIsomorphismRecursiveStep WARN - More than 100000 partial isomorphic results
+ GraphIsomorphismRecursiveStep WARN - Computation interrupted after 22808644 partial isomorphic results
+ time:43
+PruningAlgorithm DEBUG - kept 229, removed 365631 over 365860 edges non mapping edges in 43ms
+ GraphIsomorphismRecursiveStep WARN - More than 100000 partial isomorphic results
+ GraphIsomorphismRecursiveStep WARN - Computation interrupted after 30048100 partial isomorphic results
+ time:307
+PruningAlgorithm DEBUG - kept 323, removed 365537 over 365860 edges non mapping edges in 49ms
+ GraphIsomorphismRecursiveStep WARN - More than 100000 partial isomorphic results
+ GraphIsomorphismRecursiveStep WARN - Computation interrupted after 37703788 partial isomorphic results
+ time:124
+PruningAlgorithm DEBUG - kept 295, removed 365565 over 365860 edges non mapping edges in 52ms
+ GraphIsomorphismRecursiveStep WARN - More than 100000 partial isomorphic results
+ GraphIsomorphismRecursiveStep WARN - Computation interrupted after 38066668 partial isomorphic results
+ time:96
+Running extension
+EDMatchingRecursiveStep WARN - More than 100000 partial isomorphic results
+ EDMatchingRecursiveStep WARN - Computation interrupted after 13413898 partial isomorphic results
+ 19.txt
+running wild card
+time:0
+time:0
+time:0
+time:0
+time:0
+time:0
+running bf wild card
+PruningAlgorithm DEBUG - kept 248, removed 365612 over 365860 edges non mapping edges in 56ms
+ time:0
+PruningAlgorithm DEBUG - kept 325, removed 365535 over 365860 edges non mapping edges in 53ms
+ time:0
+PruningAlgorithm DEBUG - kept 315, removed 365545 over 365860 edges non mapping edges in 49ms
+ time:0
+PruningAlgorithm DEBUG - kept 471, removed 365389 over 365860 edges non mapping edges in 50ms
+ time:0
+PruningAlgorithm DEBUG - kept 328, removed 365532 over 365860 edges non mapping edges in 50ms
+ time:0
+PruningAlgorithm DEBUG - kept 1094, removed 364766 over 365860 edges non mapping edges in 55ms
+ time:0
+Running extension
+6.txt
+running wild card
+time:0
+time:0
+time:0
+running bf wild card
+PruningAlgorithm DEBUG - kept 12, removed 365848 over 365860 edges non mapping edges in 48ms
+ time:0
+PruningAlgorithm DEBUG - kept 12, removed 365848 over 365860 edges non mapping edges in 50ms
+ time:0
+PruningAlgorithm DEBUG - kept 27, removed 365833 over 365860 edges non mapping edges in 51ms
+ time:0
+Running extension

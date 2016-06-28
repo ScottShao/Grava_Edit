@@ -1,0 +1,201 @@
+
+Dsquid:S1481"*Remove this unused "limit" local variable.(•ƒúÕıÿÿÿÿ
+esquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(€©ÄÓşÿÿÿÿ
+>squid:S1481")Remove this unused "prob" local variable.(Ìñ¿
+lsquid:S3776"RRefactor this method to reduce its Cognitive Complexity from 35 to the 15 allowed.(ÿîÌéüÿÿÿÿ
+Lsquid:S1135"2Complete the task associated to this TODO comment.(ÕÌ®şÿÿÿÿ
+gsquid:S00117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(œ¸¡ö
+Gsquid:S1481"-Remove this unused "prevNode" local variable.(åÒö­øÿÿÿÿ
+=squid:S1148"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ
+M
+squid:S106"9Replace this use of System.out or System.err by a logger.(‡œ£Ñ
+R
+squid:S106"9Replace this use of System.out or System.err by a logger.(Åâœ×øÿÿÿÿ
+Asquid:S1068"'Remove this unused "dis" private field.(ğ­ÿ•øÿÿÿÿ
+M
+squid:S106"9Replace this use of System.out or System.err by a logger.(ÿş«Ä
+gsquid:S3776"RRefactor this method to reduce its Cognitive Complexity from 22 to the 15 allowed.(œ¸¡ö
+_squid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(º”µ5
+R
+squid:S106"9Replace this use of System.out or System.err by a logger.(Ò†ûÿÿÿÿ
+Ksquid:S1854"6Remove this useless assignment to local variable "fw".(¡´¾¯
+asquid:S00116"LRename this field "G" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ã±ì
+Dsquid:S2095"/Close this "PrintWriter" in a "finally" clause.(±É
+esquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(éØ»Úûÿÿÿÿ
+Ysquid:HiddenFieldCheck"9Rename "count" which hides the field declared at line 39.(æÕ¿¼
+;squid:S1481"'Remove this unused "en" local variable.(Â»â0
+M
+squid:S106"9Replace this use of System.out or System.err by a logger.(×üš£
+¡squid:S2681"†This line will not be executed conditionally; only the first line of this 2-line block will be. The rest will execute unconditionally.(†¬›Äûÿÿÿÿ
+`squid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ìÉïĞ
+esquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(§ôàšÿÿÿÿÿ
+@squid:S1481"&Remove this unused "j" local variable.(„í¥ ûÿÿÿÿ
+`squid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(íÆ·ş
+Osquid:S1854"5Remove this useless assignment to local variable "w".(ş´š¥ÿÿÿÿÿ
+esquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ış€œûÿÿÿÿ
+M
+squid:S106"9Replace this use of System.out or System.err by a logger.(ûÈÌ”
+lsquid:S3776"RRefactor this method to reduce its Cognitive Complexity from 25 to the 15 allowed.(ÄÂ¯èıÿÿÿÿ
+Usquid:S1226"@Introduce a new variable instead of reusing the parameter "crt".(«úù¹
+Msquid:S1854"8Remove this useless assignment to local variable "prob".(Ìñ¿
+Bsquid:S1481"-Remove this unused "edgeSize" local variable.(‡¬ÿı
+Dsquid:S2093"*Change this "try" to a try-with-resources.(¡»¢üùÿÿÿÿ
+R
+squid:S106"9Replace this use of System.out or System.err by a logger.(”«‡¶úÿÿÿÿ
+`squid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(€„Úû
+ssquid:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(§øÿÿÿÿ
+Ysquid:S1226"DIntroduce a new variable instead of reusing the parameter "edgeNum".(¯Ê¶Æ
+`squid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ß±ÂÌ
+nsquid:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(óÖÔñ
+ssquid:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(áÔû¬ÿÿÿÿÿ
+Lsquid:S1135"2Complete the task associated to this TODO comment.(ÕÌ®şÿÿÿÿ
+isquid:S00100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ôÛÄ‚ûÿÿÿÿ
+Zsquid:S1192"FDefine a constant instead of duplicating this literal "UTF-8" 8 times.(ßÚÁo
+`squid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(†å³£
+_squid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(·‚À
+fsquid:S00117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‡ß½G
+esquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ÇÔÙæÿÿÿÿÿ
+`squid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(¯Úœ
+nsquid:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(Î™†¬
+Ssquid:UselessImportCheck",Remove this unused import 'java.util.Stack'.(ŞÈ†üúÿÿÿÿ
+nsquid:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(‚îùŞ
+Lsquid:S1135"2Complete the task associated to this TODO comment.(ÕÌ®şÿÿÿÿ
+Msquid:S1068"3Remove this unused "visitedNodesNum" private field.(ã•‡×şÿÿÿÿ
+Vsquid:UselessImportCheck"5Remove this unused import 'java.io.FileOutputStream'.(˜«ªg
+]squid:S1226"CIntroduce a new variable instead of reusing the parameter "repeat".(óÖ£íÿÿÿÿÿ
+esquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(¶ µåúÿÿÿÿ
+lsquid:S3776"RRefactor this method to reduce its Cognitive Complexity from 36 to the 15 allowed.(§éä·ûÿÿÿÿ
+gsquid:S00117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ö£ÅÏ
+esquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(¤€­ğúÿÿÿÿ
+`squid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ãìŞÓ
+esquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ÚÏéâıÿÿÿÿ
+Ysquid:HiddenFieldCheck"9Rename "count" which hides the field declared at line 39.(æÕ¿¼
+Ysquid:HiddenFieldCheck"9Rename "count" which hides the field declared at line 39.(æÕ¿¼
+esquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(Ö´—èùÿÿÿÿ
+@squid:S1481"+Remove this unused "pCount" local variable.(˜² Ç
+Asquid:S1068"'Remove this unused "pre" private field.(×Ÿ·¼ıÿÿÿÿ
+‚squid:S1319"mThe return type of this method should be an interface such as "Map" rather than the implementation "HashMap".(³õú’
+Dsquid:S1068"*Remove this unused "ansNum" private field.(½Éô”ûÿÿÿÿ
+nsquid:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(àŸåå
+=squid:S1068"(Remove this unused "rate" private field.(³ï™
+esquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(¥¢ğ©úÿÿÿÿ
+esquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(Ö´—èùÿÿÿÿ
+`squid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(¶Ú£
+`squid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ãìŞÓ
+`squid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ë¡¹Õ
+M
+squid:S106"9Replace this use of System.out or System.err by a logger.(ş¢•Ù
+Lsquid:S1135"2Complete the task associated to this TODO comment.(ÕÌ®şÿÿÿÿ
+=squid:S1481"(Remove this unused "crt" local variable.(ÜÚÊÓ
+isquid:S00100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(œ½´Ùúÿÿÿÿ
+9squid:S1659"$Declare "fCount" on a separate line.(˜² Ç
+R
+squid:S106"9Replace this use of System.out or System.err by a logger.(£‰Ğ­ÿÿÿÿÿ
+esquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(Ö´—èùÿÿÿÿ
+`squid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(œéµè
+esquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(¬²Èüÿÿÿÿÿ
+Ksquid:S1854"6Remove this useless assignment to local variable "fw".(¡´¾¯
+lsquid:S3776"RRefactor this method to reduce its Cognitive Complexity from 59 to the 15 allowed.(½øåÀüÿÿÿÿ
+esquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(‡ıçŠùÿÿÿÿ
+esquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(Ö´—èùÿÿÿÿ
+`squid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ñ—ıŠ
+=squid:S1148"#Use a logger to log this exception.(Âşÿâûÿÿÿÿ
+esquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(–ç¨Èúÿÿÿÿ
+`squid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(×¡ƒ
+esquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(¢Ûıÿÿÿÿ
+esquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(íºÇšùÿÿÿÿ
+M
+squid:S106"9Replace this use of System.out or System.err by a logger.(‡œ£Ñ
+Ysquid:UselessImportCheck"7Remove this unused import 'java.io.OutputStreamWriter'.(Ÿ“¸
+nsquid:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(‚îùŞ
+Csquid:S2095".Close this "FileWriter" in a "finally" clause.(­ò‹á
+`squid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(›ñóà
+esquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(Â·õÿÿÿÿÿ
+esquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(Ç¨Ûòüÿÿÿÿ
+R
+squid:S106"9Replace this use of System.out or System.err by a logger.(¾¢”ƒşÿÿÿÿ
+=squid:S1148"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ
+r
+squid:S135"YReduce the total number of break and continue statements in this loop to use at most one.(ïĞŸöıÿÿÿÿ
+Msquid:S1854"8Remove this useless assignment to local variable "prob".(Ìñ¿
+>squid:S1481")Remove this unused "prob" local variable.(Ìñ¿
+Zsquid:UnusedPrivateMethod"2Remove this unused private "generateQuery" method.(§éä·ûÿÿÿÿ
+R
+squid:S106"9Replace this use of System.out or System.err by a logger.(Î¨Œåúÿÿÿÿ
+gsquid:S3776"RRefactor this method to reduce its Cognitive Complexity from 16 to the 15 allowed.(æŒ¾
+Tsquid:S1854"?Remove this useless assignment to local variable "currentNode".(İéåò
+bsquid:S1226"HIntroduce a new variable instead of reusing the parameter "currentNode".(Ğ‹Ôşÿÿÿÿ
+esquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(Ÿ¤®Åÿÿÿÿÿ
+<squid:S1068"'Remove this unused "ans" private field.(Àîğ¬
+Ksquid:S1068"1Remove this unused "numberOfNodes" private field.(èùç¶ÿÿÿÿÿ
+Bsquid:S1481"(Remove this unused "cur" local variable.(Î´ì•øÿÿÿÿ
+lsquid:S3776"RRefactor this method to reduce its Cognitive Complexity from 23 to the 15 allowed.(Ü¡Ì¨şÿÿÿÿ
+=squid:S1148"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ
+=squid:S1148"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ
+@squid:S1481"&Remove this unused "w" local variable.(¥¡ßúÿÿÿÿ
+m
+squid:S135"YReduce the total number of break and continue statements in this loop to use at most one.(˜÷“Ş
+R
+squid:S106"9Replace this use of System.out or System.err by a logger.(’åŞ¦ıÿÿÿÿ
+ssquid:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(ş’–Öúÿÿÿÿ
+nsquid:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(Î™†¬
+Osquid:S1854"5Remove this useless assignment to local variable "w".(ş´š¥ÿÿÿÿÿ
+9squid:S1659"$Declare "fCount" on a separate line.(˜² Ç
+_squid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(·‚À
+Ysquid:S1226"DIntroduce a new variable instead of reusing the parameter "edgeNum".(¯Ê¶Æ
+Ksquid:S1854"6Remove this useless assignment to local variable "fw".(¡´¾¯
+`squid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(£Ô®‚
+lsquid:S00117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¤ªæıÿÿÿÿ
+esquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(¦¿åÏùÿÿÿÿ
+Hsquid:S1481".Remove this unused "prevLabel" local variable.(½µ˜¶üÿÿÿÿ
+fsquid:UnusedPrivateMethod">Remove this unused private "generateQueriesWithAtMost" method.(Ü¡Ì¨şÿÿÿÿ
+R
+squid:S106"9Replace this use of System.out or System.err by a logger.(­å±úÿÿÿÿ
+msquid:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(‘œÿ-
+Ysquid:S1226"DIntroduce a new variable instead of reusing the parameter "edgeNum".(¯Ê¶Æ
+`squid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(Â“ä­
+msquid:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(‘œÿ-
+esquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(îºì¬üÿÿÿÿ
+@squid:S1481"&Remove this unused "e" local variable.(Œîå€ÿÿÿÿÿ
+esquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(‡ıçŠùÿÿÿÿ
+M
+squid:S106"9Replace this use of System.out or System.err by a logger.(ÓÑÙú
+esquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(€ì³‘ùÿÿÿÿ
+esquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ˆóş¾ûÿÿÿÿ
+gsquid:S3776"RRefactor this method to reduce its Cognitive Complexity from 18 to the 15 allowed.(¤†Ñ½
+bsquid:UnusedPrivateMethod":Remove this unused private "randomlyGenerateQuery" method.(ÿîÌéüÿÿÿÿ
+R
+squid:S106"9Replace this use of System.out or System.err by a logger.(§ºÿæøÿÿÿÿ
+Jsquid:S1068"0Remove this unused "startingNode" private field.(â÷Ş²ÿÿÿÿÿ
+`squid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(°•©›
+esquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ÅœØùûÿÿÿÿ
+Jsquid:S1854"6Remove this useless assignment to local variable "en".(Â»â0
+`squid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(³œï 
+R
+squid:S106"9Replace this use of System.out or System.err by a logger.(¨¶ÑÍşÿÿÿÿ
+esquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(çÒ’¾ıÿÿÿÿ
+@squid:S1481"&Remove this unused "j" local variable.(„í¥ ûÿÿÿÿ
+Esquid:S1481"0Remove this unused "currentNode" local variable.(¨÷Ï«
+Hsquid:S1481".Remove this unused "prevLabel" local variable.(½µ˜¶üÿÿÿÿ
+Ysquid:HiddenFieldCheck"9Rename "count" which hides the field declared at line 39.(æÕ¿¼
+Wsquid:UnusedPrivateMethod"4Remove this unused private "generateQueries" method.(øÕ–•
+Isquid:EmptyStatementUsageCheck"Remove this empty statement.(Åñ­õşÿÿÿÿ
+`squid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ëû
+m
+squid:S135"YReduce the total number of break and continue statements in this loop to use at most one.(¢ßÀ³
+esquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(÷±°§øÿÿÿÿ
+‡squid:S1319"mThe return type of this method should be an interface such as "Map" rather than the implementation "HashMap".(‹åœüÿÿÿÿ
+Tsquid:UselessImportCheck"-Remove this unused import 'java.util.Arrays'.(î–˜Éüÿÿÿÿ
+Qsquid:S1854"<Remove this useless assignment to local variable "edgeSize".(‡¬ÿı
+M
+squid:S106"9Replace this use of System.out or System.err by a logger.(ÿş«Ä
+R
+squid:S106"9Replace this use of System.out or System.err by a logger.(æŠé½üÿÿÿÿ
+Ysquid:S1226"DIntroduce a new variable instead of reusing the parameter "edgeNum".(¯Ê¶Æ
+Tsquid:S1854"?Remove this useless assignment to local variable "currentNode".(İéåò
+§%squid:RedundantThrowsDeclarationCheck"qRemove the declaration of thrown exception 'java.io.IOException', as it cannot be thrown from constructor's body.(·ÊƒÇ8ì§­—¿-
+Psquid:S2095"/Close this "PrintWriter" in a "finally" clause.(¼”–´üÿÿÿÿ8ì§­—¿-
+Lsquid:S1905"0Remove this unnecessary cast to "BigMultigraph".(¨ËĞì8ì§­—¿-
+Lsquid:S1905"0Remove this unnecessary cast to "BigMultigraph".(¨ËĞì8ì§­—¿-
+Qsquid:S1905"0Remove this unnecessary cast to "BigMultigraph".(óğâ¿şÿÿÿÿ8ì§­—¿-
+bsquid:S2259"AA "NullPointerException" could be thrown; "out" is nullable here.(›«¨¥øÿÿÿÿ8ì§­—¿-

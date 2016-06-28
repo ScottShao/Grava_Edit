@@ -1,0 +1,22 @@
+Input: Database D, query Q, nodes that matches can start from startingNodes and threshold T
+Output: a set of mapping nodes: mappedNodes
+
+threshold = T
+
+for each node n in startingNodes 
+	visitedNodes = empty set
+	mappedNodes(is Edge e visited) = false
+	nodesToVisit.add(mappedNode(n))
+	while(nodesToVisit is not empty)
+		mappedNode mn = nodesToVisit.top()
+		if(visitedNodes contains nodeID in mn) then
+			continue;
+		else then
+			for each edge e that is not visited till mn
+				mn(is Edge e visited) = true
+				visitedNodes.add(mn.nodeID)
+				for each outgoingEdge ote of mn
+				if(e.label == ote.label) then
+					nodesToVisit.add(new mappedNode(ote.destinationNode, mn.distance))
+				else if(mn.distance + 1 <= T)then
+					nodesToVisit.add(new mappedNode(ote.destinationNode, mn.distance + 1))

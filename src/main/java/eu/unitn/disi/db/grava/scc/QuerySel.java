@@ -277,7 +277,7 @@ public class QuerySel {
 		one.add(new Event(min));
 		List<Event> two = new ArrayList<>();
 		for (Long node : nextNodes) {
-			min = findMin(node, visited, new HashSet<>());
+			min = findMin(node, visited, new HashSet<Long>());
 			if (min == 0) continue;
 			two.add(new Event(min));
 		}
@@ -446,7 +446,7 @@ public class QuerySel {
 	
 	public double computePathNotCand(Long crt, int degree, int dn) {
 		List<Event> one = new ArrayList<>();
-		computeSelPathNotCorrelated(1, crt, new HashSet<>(), 0, dn, one);
+		computeSelPathNotCorrelated(1, crt, new HashSet<Edge>(), 0, dn, one);
 		return graph.vertexSet().size() * prob(one, (int)Math.pow(degree, dn));
 	}
 	public void computeSelPathNotCorrelated(double min,  Long crt, Set<Edge> visited, int depth, int max, List<Event> one) {

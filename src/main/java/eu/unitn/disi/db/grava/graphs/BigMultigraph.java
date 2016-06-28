@@ -55,6 +55,7 @@ public class BigMultigraph implements Multigraph, Iterable<Long>  {
     private int[] lastOutBounds;
     private int nodeNumber;
     private Set<Edge> edgeSet;
+    private Collection<Long> vertexes;
     private boolean calLabelFreq;
     private HashMap<Long, LabelContainer> labelFreq;
     private HashMap<Long, Long> nodeDegree;
@@ -106,6 +107,7 @@ public class BigMultigraph implements Multigraph, Iterable<Long>  {
             Utilities.binaryTableSort(outEdges);
         }
         this.findLabelMax();
+        vertexes = null;
 //        System.out.println(labelMax.size() + "size");
 //        for (Entry<Long, Integer> en : labelMax.entrySet()) {
 //        	System.out.println(en.getKey() + " " + en.getValue());
@@ -295,17 +297,19 @@ public class BigMultigraph implements Multigraph, Iterable<Long>  {
 
     @Override
     public Collection<Long> vertexSet() {
-        Set<Long> verteces = new HashSet<Long>();
-        try{
-	        for (int i = 0; i < inEdges.length; i++) {
-	            verteces.add(inEdges[i][0]);
-	            verteces.add(outEdges[i][0]);
+    	if (vertexes == null) {
+    		vertexes = new HashSet<>();
+	        try{
+		        for (int i = 0; i < inEdges.length; i++) {
+		        	vertexes.add(inEdges[i][0]);
+		        	vertexes.add(inEdges[i][1]);
+		        }
+	        }catch(Exception e){
+	        	System.out.println(vertexes==null);
+	        	System.out.println(inEdges==null);
 	        }
-        }catch(Exception e){
-        	System.out.println(verteces==null);
-        	System.out.println(inEdges==null);
-        }
-        return verteces;
+    	}
+        return vertexes;
     }
 
     @Override

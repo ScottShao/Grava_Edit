@@ -27,7 +27,9 @@ import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
+import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * This class extends the RelatedQuery class with the Isomorphic Query thus the
@@ -150,6 +152,10 @@ public class EditDistanceQuery extends RelatedQuery {
         }
 
         if (!this.mappedEdges.containsKey(queryEdge)) {
+        	System.out.println(Thread.currentThread().getName() + " " +"missing query edge " + queryEdge);
+        	for (Entry<Edge, Edge> en : mappedEdges.entrySet()) {
+        		System.out.println(Thread.currentThread().getName() + " " + en.getKey());
+        	}
             throw new IllegalArgumentException("Query edge " + queryEdge + " is not present in the original query");
         } else if (mappedEdges.get(queryEdge) == null) {
             mappedEdges.put(queryEdge, graphEdge);
@@ -313,13 +319,13 @@ public class EditDistanceQuery extends RelatedQuery {
         }
         return queryGraph;
     }
-
     @Override
     public boolean equals(Object obj) {
         if (obj == null) {
             return false;
         }
         if (getClass() != obj.getClass()) {
+        	
             return false;
         }
         if (obj instanceof EditDistanceQuery) {
@@ -341,6 +347,7 @@ public class EditDistanceQuery extends RelatedQuery {
 
             if (otherEdges.size() == this.usedEdgesIDs.size()) {
                 for (String otherEdge : otherEdges) {
+//                	System.out.println(otherEdge + " "  + usedEdgesIDs.contains(otherEdge));
                     if (!this.usedEdgesIDs.contains(otherEdge)) {
                         return false;
                     }
@@ -348,21 +355,54 @@ public class EditDistanceQuery extends RelatedQuery {
                 return true;
             }
         }
+//        System.out.println("not this");
         return false;
     }
+//    @Override
+//    public boolean equals(Object obj) {
+//        if (obj == null) {
+//            return false;
+//        }
+//        if (getClass() != obj.getClass()) {
+//        	System.out.println("class not same");
+//            return false;
+//        }
+//        if (obj instanceof EditDistanceQuery) {
+//            final EditDistanceQuery other = (EditDistanceQuery) obj;
+//            List<Edge> list = other.getEdgeSet();
+//            Set<Edge> crt = new HashSet<>(this.getEdgeSet());
+//            System.out.println("crt");
+//            for (Edge e : crt) {
+//            	System.out.println(e);
+//            }
+//            System.out.println("checking");
+//            for (Edge e : list) {
+//            	System.out.println(e);
+//            	if (!crt.contains(e)) {
+//            		return false;
+//            	}
+//            }
+//            return true;
+//        } 
+//        return false;
+//    }
 
     @Override
     public String toString() {
         String s = "";
-        for (String e : usedEdgesIDs) {
-            s += e + " ";
+        for (Entry<Edge, Edge> en : this.mappedEdges.entrySet()) {
+        	s += en.getValue() + " \n";
         }
-        return s + " " + this.getEdit();
+//        for (String e : usedEdgesIDs) {
+//            s += e + " \n";
+//        }
+        return s;
     }
 
     @Override
     public int hashCode() {
-        return this.usedEdgesIDs.hashCode();
+//        return this.usedEdgesIDs.hashCode();
+    	return 0;
     }
 
 	@Override
@@ -387,6 +427,14 @@ public class EditDistanceQuery extends RelatedQuery {
 	public boolean isUsing(Long graphNode) {
 		// TODO Auto-generated method stub
 		return false;
+	}
+
+	public Map<Edge, Edge> getMappedEdges() {
+		return mappedEdges;
+	}
+
+	public void setMappedEdges(Map<Edge, Edge> mappedEdges) {
+		this.mappedEdges = mappedEdges;
 	}
 	
 	

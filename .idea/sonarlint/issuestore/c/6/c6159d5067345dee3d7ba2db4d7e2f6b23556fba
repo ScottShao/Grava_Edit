@@ -1,0 +1,65 @@
+
+esquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ÚÓ¡·üÿÿÿÿ
+Psquid:S1068"/Remove this unused "searchCount" private field.(ÍÎœîøÿÿÿÿ8À¬—¿-
+esquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ÅÇ®áüÿÿÿÿ
+esquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ýûêžþÿÿÿÿ
+isquid:S1215"TDon't try to be smarter than the JVM, remove this call to run the garbage collector.(Ì°¬“
+\squid:S00107"AConstructor has 8 parameters, which is greater than 7 authorized.(ØóðÄþÿÿÿÿ
+Gsquid:S1068"-Remove this unused "chunkSize" private field.(ðÛ”¡øÿÿÿÿ
+¡squid:S2681"†This line will not be executed conditionally; only the first line of this 4-line block will be. The rest will execute unconditionally.(ãÓŽ‡ýÿÿÿÿ
+@squid:S1168"+Return an empty collection instead of null.(¥¹ï
+Lsquid:S1135"2Complete the task associated to this TODO comment.(¦ˆÚ–ýÿÿÿÿ
+Rsquid:S2696"6Make the enclosing method "static" or remove this set.(˜íá÷8À¬—¿-
+jsquid:UselessImportCheck"HRemove this unused import 'eu.unitn.disi.db.grava.graphs.BigMultigraph'.(‹áÿ‘
+@squid:S1905"&Remove this unnecessary cast to "int".(Ú¸Í’ýÿÿÿÿ
+`squid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ì¾õ
+esquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(Ç‡Üûüÿÿÿÿ
+@squid:S1168"+Return an empty collection instead of null.(¥¹ï
+gsquid:S00117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(žÆ•ö
+`squid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(»øìŒ
+esquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(î€Ä¹øÿÿÿÿ
+@squid:S1168"+Return an empty collection instead of null.(¥¹ï
+‚squid:S1319"mThe return type of this method should be an interface such as "Map" rather than the implementation "HashMap".(ï…®ð
+esquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ªŸåÞþÿÿÿÿ
+Xsquid:S1155">Use isEmpty() to check whether the collection is empty or not.(ÁžŸ–üÿÿÿÿ
+esquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ìÉäÿÿÿÿÿ
+Ssquid:S1155">Use isEmpty() to check whether the collection is empty or not.(Ñ¹Œ…
+Ssquid:S1155">Use isEmpty() to check whether the collection is empty or not.(ö†•—
+`squid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(Êýè¶
+`squid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(¬ïØ§
+Wsquid:S2696"6Make the enclosing method "static" or remove this set.(ÞÿÐ¤ÿÿÿÿÿ8À¬—¿-
+csquid:S1854"IRemove this useless assignment to local variable "relatedQueriesPartial".(œÄ±Úýÿÿÿÿ
+Osquid:S1854":Remove this useless assignment to local variable "warned".(‹Ëú­
+esquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ÓÚ•ãüÿÿÿÿ
+Usquid:S1854"@Remove this useless assignment to local variable "queryEdgesIn".(±ú¹¤
+`squid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(›—íï
+esquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ÚÓ¡·üÿÿÿÿ
+Rsquid:S2696"6Make the enclosing method "static" or remove this set.(ø’ïË8À¬—¿-
+…squid:S1319"qThe type of the "labelFreq" object should be an interface such as "Map" rather than the implementation "HashMap".(öÎ¶
+esquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(§’ùÑúÿÿÿÿ
+esquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ò¥ËÐøÿÿÿÿ
+Wsquid:S2696"6Make the enclosing method "static" or remove this set.(ÞÿÐ¤ÿÿÿÿÿ8À¬—¿-
+@squid:S1481"&Remove this unused "i" local variable.(ùó›Ìøÿÿÿÿ
+[squid:S1854"ARemove this useless assignment to local variable "queryEdgesOut".(û¹šûüÿÿÿÿ
+Ssquid:S1155">Use isEmpty() to check whether the collection is empty or not.(ö†•—
+Jsquid:S2209"5Change this instance-reference to a static reference.(“ªüå
+esquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(çÙü¥üÿÿÿÿ
+‹squid:S1319"qThe type of the "labelFreq" object should be an interface such as "Map" rather than the implementation "HashMap".(ÆÒÿÿÿÿÿ
+`squid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(Õ–¨–
+msquid:S3776"SRefactor this method to reduce its Cognitive Complexity from 153 to the 15 allowed.(­àÉ­ÿÿÿÿÿ
+`squid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(é£¨ë
+`squid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(Úýæƒ
+r
+squid:S135"YReduce the total number of break and continue statements in this loop to use at most one.(´ª¥¦ÿÿÿÿÿ
+esquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(î€Ä¹øÿÿÿÿ
+Wsquid:S2696"6Make the enclosing method "static" or remove this set.(…ßƒûüÿÿÿÿ8À¬—¿-
+gsquid:S3776"RRefactor this method to reduce its Cognitive Complexity from 21 to the 15 allowed.(ÛíÝÍ
+`squid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ôžÎ›
+esquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ä›¨§üÿÿÿÿ
+@squid:S1481"+Remove this unused "warned" local variable.(§€½·
+_squid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(¾×ß(
+esquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ÝÓßÿÿÿÿÿ
+`squid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(âÀÝÞ
+_squid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ß¿è
+`squid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(î¢ ñ
+lsquid:S3776"RRefactor this method to reduce its Cognitive Complexity from 23 to the 15 allowed.(µÍ…ÿÿÿÿÿ

@@ -1,0 +1,22 @@
+
+esquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(þ™Æíúÿÿÿÿ
+_squid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ÌÒ³]
+1squid:S1643"Use a StringBuilder instead.(öÚˆÃ
+esquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(œÂ†äùÿÿÿÿ
+M
+squid:S106"9Replace this use of System.out or System.err by a logger.(†µª·
+Fsquid:S1135"2Complete the task associated to this TODO comment.(´ÌÐR
+`squid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(¯Ÿ¤û
+Isquid:S1481"/Remove this unused "otherNodes" local variable.(¥­– üÿÿÿÿ
+R
+squid:S106"9Replace this use of System.out or System.err by a logger.(›¸§øúÿÿÿÿ
+R
+squid:S106"9Replace this use of System.out or System.err by a logger.(¸‚‚¬ûÿÿÿÿ
+Lsquid:S1135"2Complete the task associated to this TODO comment.(» æžÿÿÿÿÿ
+`squid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(Âá˜Ý
+Xsquid:S1854">Remove this useless assignment to local variable "otherNodes".(¥­– üÿÿÿÿ
+esquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ë¤—™ûÿÿÿÿ
+esquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(•Ð±¹ùÿÿÿÿ
+esquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(–úâüÿÿÿÿÿ
+Lsquid:S1135"2Complete the task associated to this TODO comment.(» æžÿÿÿÿÿ
+jsquid:UselessImportCheck"CRemove this unused import 'java.util.concurrent.ConcurrentHashMap'.(ÓŠÓøúÿÿÿÿ

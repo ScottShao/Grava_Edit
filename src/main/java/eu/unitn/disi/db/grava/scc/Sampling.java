@@ -37,7 +37,7 @@ public class Sampling {
 	private int visitedNodesNum;
 	private int numberOfNodes;
 	private int count;
-	private Queue<Integer> distance;
+//	private Queue<Integer> distance;
 	private HashSet<Long> visited;
 	private int dis;
 	private int pre;
@@ -59,7 +59,7 @@ public class Sampling {
 		// IntToLong = this.constructIntToLong(vertexSet);
 		// LongToInt = this.constructLongToInt(vertexSet);
 		queue = new LinkedList<Long>();
-		distance = new LinkedList<Integer>();
+//		distance = new LinkedList<Integer>();
 		visited = new HashSet<Long>();
 		// marked = new boolean[G.numberOfNodes()];
 		this.maxDegree = maxDegree;
@@ -70,7 +70,7 @@ public class Sampling {
 		count = 0;
 		dis = 0;
 		pre = -1;
-		distance.add(dis);
+//		distance.add(dis);
 		rate = 0.1;
 		this.bfs(G, startingNode, fileName);
 	}
@@ -99,8 +99,7 @@ public class Sampling {
 
 	}
 
-	private void bfs(BigMultigraph G, Long v, String fileName)
-			throws IOException {
+	private void bfs(BigMultigraph G, Long v, String fileName) {
 		// marked[v] = true;
 		// System.out.println("bfs: " + v);
 		// Long test = queue.poll();
@@ -112,8 +111,7 @@ public class Sampling {
 		// }
 		// long temp = Int2Long(v);
 		// System.out.println("long:" + temp);
-		File out = new File(fileName);
-		BufferedWriter bw = new BufferedWriter(new FileWriter(out));
+		
 		queue.add(v);
 		count++;
 		Collection<Edge> adjEdges = null;
@@ -123,28 +121,41 @@ public class Sampling {
 		int degree;
 		int cur;
 		boolean flag = true;
+		double limit = 0.05;
+		double crt = 0;
+//		List<String> results = new ArrayList<>();
+		File out = new File(fileName);
+		BufferedWriter bw = null;
+		try {
+			bw = new BufferedWriter(new FileWriter(out, true));
 		while (flag && !queue.isEmpty()) {
 			top = queue.poll();
-			cur = distance.poll();
+//			cur = distance.poll();
 			
 			if (visited.contains(top)) {
 				continue;
 			}
 			visited.add(top);
 			count++;
-			System.out.println("current visiting:" + top);
+			if (count % 100 == 0) System.out.println("Processed nodes " + count );
+//			System.out.println("current visiting:" + top);
 			adjEdges = G.adjEdges(top);
 			// System.out.println(adjEdges.size());
 			degree = 0;
-			if (cur != pre) {
-				dis++;
-				pre = cur;
-				rate *= 1 / Math.exp(dis);
-				// System.out.println("distance " + cur +" rate " + rate);
-			}
+//			if (cur != pre) {
+//				dis++;
+//				pre = cur;
+//				rate *= 1 / Math.exp(dis);
+//				// System.out.println("distance " + cur +" rate " + rate);
+//			}
 			for (Edge e : adjEdges) {
 				// System.out.println("Count:" + count);
 				// System.out.println("degree:" + degree);
+//				double sel = ((double)G.getLabelFreq().get(e.getLabel()).getFrequency()) / G.edgeSet().size();
+//				if (sel + crt > limit) {
+//					continue;
+//				}
+//				crt += sel;
 				if (count > this.maxNodesNum - 1) {
 					flag = false;
 					System.out.println("maximum nodes num");
@@ -159,18 +170,17 @@ public class Sampling {
 				// System.out.println("new Nodes" + newNode);
 				if (!visited.contains(newNode)) {
 					queue.add(newNode);
-					distance.add(dis);
+//					distance.add(dis);
 					// System.out.println(e.getSource() + " " +
 					// e.getDestination() + " " + e.getLabel());
 					// bw.write(e.getSource() + " " + e.getDestination() + " " +
 					// e.getLabel());
-					System.out.println(newNode);
-					System.out.println(e.getSource() + " " + e.getDestination()
-							+ " " + e.getLabel());
+//					System.out.println(newNode);
+//					System.out.println(e.getSource() + " " + e.getDestination()
+//							+ " " + e.getLabel());
 					bw.write(e.getSource() + " " + e.getDestination() + " "
 							+ e.getLabel());
 					bw.newLine();
-
 					// if(ans <= ansNum && Math.random() <= rate){
 					//
 					// ans++;
@@ -187,7 +197,6 @@ public class Sampling {
 					// ansNum);
 					// // System.out.println("printing " + rate + " " + dis);
 					// }
-					
 					degree++; // out degree
 				}
 
@@ -196,7 +205,29 @@ public class Sampling {
 			// System.out.println("rate:" + rate);
 
 		}
-		bw.close();
+		
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		} finally {
+			try {
+				bw.flush();
+				bw.close();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+//		if (results.size() >= 3) {
+//		File out = new File(fileName);
+//		BufferedWriter bw = new BufferedWriter(new FileWriter(out));
+//		for (String str : results) {
+//			bw.write(str);
+//			bw.newLine();
+//		}
+//		bw.close();
+//		}
+//		System.out.println("crt fre:" + crt);
 
 		// if(count > this.maxNodesNum){
 		// System.out.println("Exceed the maximum nodes number");
@@ -440,25 +471,104 @@ public class Sampling {
 		}
 
 	}
+	
+	private void generateQueries(double limit, int queriesNum, String folder) {
+		File ff = new File(folder);
+		if (!ff.exists()) {
+			ff.mkdir();
+		}
+		Collection<Long> nodes = G.vertexSet();
+		int count = 0;
+		Random rnd = new Random();
+		for (Long node : nodes) {
+			if (rnd.nextFloat() < 0.2) continue;
+			if (count > queriesNum) break;
+			try {
+				List<Long> newNodes = new ArrayList<>();
+				newNodes.add(node);
+				if (this.generateQueriesWittLimits(folder, newNodes, new ArrayList<Edge>(), 1, limit, count)) {
+					count++;
+				}
+			} catch (FileNotFoundException | UnsupportedEncodingException e) {
+				e.printStackTrace();
+			}
+		}
+		
+	}
+	
+	private boolean generateQueriesWittLimits(String folder, List<Long> nodes,
+			List<Edge> edges, double crt, double limit, int count) throws FileNotFoundException,
+			UnsupportedEncodingException {
+		if (crt <= limit) {
+			if (edges.size() < 4) return false;
+			PrintWriter fw = new PrintWriter(folder + count + ".txt", "UTF-8");
+			for (Edge e : edges) {
+				fw.write(e.getSource() + " " + e.getDestination() + " "
+						+ e.getLabel() + "\n");
+			}
+			fw.close();
+			return true;
+		}
 
+		double choice = Math.random();
+			// System.out.println(choice);
+		int nodeIdx = (int) (choice * nodes.size());
+		Long node = nodes.get(nodeIdx);
+		System.out.println("crt " + crt + " " + limit);
+//		System.out.println(nodeIdx + " " + nodes.size());
+		Collection<Edge> oes = G.outgoingEdgesOf(node);
+		double prob = 1 / (double) oes.size();
+		double next = crt;
+		for (Edge e : oes) {
+			double sel = ((BigMultigraph) G).getLabelFreq().get(e.getLabel()).getFrequency() / (double)G.edgeSet().size();
+			
+			if (!edges.contains(e) && !e.getDestination().equals(node)) {
+				edges.add(e);
+				System.out.println(e);
+				nodes.add(e.getDestination());
+				next *= sel;
+				break;
+			}
+		}
+		if (crt == next) {
+			oes = G.incomingEdgesOf(node);
+			for (Edge e : oes) {
+				double sel = ((BigMultigraph) G).getLabelFreq().get(e.getLabel()).getFrequency() / (double)G.edgeSet().size();
+				
+				if (!edges.contains(e) && !e.getDestination().equals(node)) {
+					edges.add(e);
+//					System.out.println(e);
+					nodes.add(e.getDestination());
+					next *= sel;
+					break;
+				}
+			}
+			if (crt == next) return false;
+		}
+		return generateQueriesWittLimits(folder, nodes, edges, next, limit, count);
+	}
+	
 	private void generateQueries(int edgeNum, int queriesNum) {
 		Collection<Long> nodes = G.vertexSet();
 		int count = 0;
+		Random rn = new Random();
 		for (Long node : nodes) {
 			if (count > queriesNum)
 				break;
-			if (Math.random() < 0.4) {
-				for (int i = 2; i <= edgeNum; i++) {
+				int num = 0;
+				while (num < 6 || num > edgeNum) {
+					num = rn.nextInt(9);
+				}
+//				for (int i = 6; i <= edgeNum; i++) {
 					try {
-						this.generateDifSizeQueries(i, node);
+						this.generateDifSizeQueries(num, node);
 					} catch (FileNotFoundException
 							| UnsupportedEncodingException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
 					count++;
-				}
-			}
+//				}
 		}
 	}
 
@@ -466,21 +576,21 @@ public class Sampling {
 			throws FileNotFoundException, UnsupportedEncodingException {
 		List<Long> nodes = new ArrayList<>();
 		nodes.add(node);
-		generateQueriesWithAtMost(edgeNum, nodes, new ArrayList<Edge>(), 0);
+		generateQueriesWithAtMost(edgeNum, nodes, new ArrayList<Edge>(), 0, 0);
 	}
 
 	private void generateQueriesWithAtMost(int edgeNum, List<Long> nodes,
-			List<Edge> edges, int depth) throws FileNotFoundException,
+			List<Edge> edges, int depth, double crt) throws FileNotFoundException,
 			UnsupportedEncodingException {
 		if (depth > edges.size() * 10 + 10) {
 			return;
 		}
 		if (edgeNum == 0) {
-			File f = new File("./test/E" + edges.size() + "E/");
-			if (!f.exists()) {
-				f.mkdirs();
-			}
-			PrintWriter fw = new PrintWriter("./test/E" + edges.size() + "E/" + "E" + edges.size() + "E"
+//			File f = new File("./test/test/E1E/");
+//			if (!f.exists()) {
+//				f.mkdirs();
+//			}
+			PrintWriter fw = new PrintWriter("./queryFolder/10000nodes/" + "E" + edges.size() + "E"
 					+ nodes.get(0) + ".txt", "UTF-8");
 			for (Edge e : edges) {
 				fw.write(e.getSource() + " " + e.getDestination() + " "
@@ -498,17 +608,19 @@ public class Sampling {
 			double prob = 1 / (double) oes.size();
 			for (Edge e : oes) {
 //				if (((BigMultigraph) G).getLabelFreq().get(e.getLabel())
-//						.getFrequency() > 100) {
+//						.getFrequency() > 150) {
 //					continue;
 //				}
-				if (Math.random() <= prob && !edges.contains(e)) {
+				double sel = ((BigMultigraph) G).getLabelFreq().get(e.getLabel()).getFrequency() / (double)G.vertexSet().size();
+				if ( !edges.contains(e) && crt + sel<= 0.05) {
 					edgeNum--;
 					edges.add(e);
 					nodes.add(e.getDestination());
+					crt += sel;
 					break;
 				}
 			}
-			generateQueriesWithAtMost(edgeNum, nodes, edges, depth + 1);
+			generateQueriesWithAtMost(edgeNum, nodes, edges, depth + 1, crt);
 		}
 	}
 
@@ -757,10 +869,23 @@ public class Sampling {
 	}
 
 	public static void main(String[] args) throws ParseException, IOException {
-		BigMultigraph G = new BigMultigraph(args[4] + "nodes-sin.graph",
-				args[4] + "nodes-sout.graph", false);
-		System.out.println(args[3]);
-		Sampling s = new Sampling(G, Integer.parseInt(args[0]), Integer.parseInt(args[1]), Long.parseLong(args[2]), args[3]);
+		String graph = args[0];
+		BigMultigraph G = new BigMultigraph(graph + "-sin.graph",
+				graph + "-sout.graph", false);
+//		int k = 20;
+//		int maxNodes = 1000000;
+//		int maxDegree = 100000;
+//		Long node = 67678472568248L;
+//		Sampling s = new Sampling(G, maxNodes, maxDegree, node, "1M.txt");
+//		int size = G.vertexSet().size();
+//		Random rnd = new Random();
+//		Long[] nodes = G.vertexSet().toArray(new Long[size]);
+//		for (int i = 0; i < k; i++) {
+//			System.out.println(rnd.nextInt());
+//			Long node = nodes[rnd.nextInt(size)];
+//			System.out.println(node);
+//			Sampling s = new Sampling(G, maxNodes, maxDegree, node, "queryFolder/100000nodes/" + i + ".txt");
+//		}
 //		int size = G.vertexSet().size();
 //		Random rnd = new Random();
 //		Long[] nodes = G.vertexSet().toArray(new Long[size]);
@@ -778,8 +903,11 @@ public class Sampling {
 //				 }
 //		 	}
 //		 }
-//		 Sampling s = new Sampling(G);
-//		 s.generateQueries(10, 1000);
+		 Sampling s = new Sampling(G);
+//		 double limit = 0.0001 / G.edgeSet().size();
+//		 System.out.println(limit);
+//		 s.generateQueries(limit, 20, "./queryFolder/" + graph + "/limit/");
+		 s.generateQueries(8, 300);
 		// s.generateClique(3, 0, new ArrayList<Long>());
 	}
 

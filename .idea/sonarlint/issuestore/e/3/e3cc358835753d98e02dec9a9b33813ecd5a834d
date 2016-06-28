@@ -1,0 +1,148 @@
+
+zsquid:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(Ì÷£ôşÿÿÿÿ8Ñë³¯Ê-
+lsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(Á¶îÖıÿÿÿÿ8Ñë³¯Ê-
+Y
+squid:S106"9Replace this use of System.out or System.err by a logger.(¨¶ÑÍşÿÿÿÿ8Ñë³¯Ê-
+T
+squid:S106"9Replace this use of System.out or System.err by a logger.(×•œ²8Ñë³¯Ê-
+ssquid:S3776"RRefactor this method to reduce its Cognitive Complexity from 20 to the 15 allowed.(Æåõ£ÿÿÿÿÿ8Ñë³¯Ê-
+gsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(éÓ¯8Ñë³¯Ê-
+gsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(±åÕ“8Ñë³¯Ê-
+nsquid:S3776"RRefactor this method to reduce its Cognitive Complexity from 29 to the 15 allowed.(ÎĞ„¿8Ñë³¯Ê-
+msquid:S00117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(İÿ³8Ñë³¯Ê-
+“squid:S1319"rThe type of the "candidates" object should be an interface such as "Map" rather than the implementation "HashMap".(Ú°¹àıÿÿÿÿ8Ñë³¯Ê-
+Ä%squid:RedundantThrowsDeclarationCheck"ˆRemove the declaration of thrown exception 'eu.unitn.disi.db.grava.exceptions.DataException', as it cannot be thrown from method's body.(à¬˜«ÿÿÿÿÿ8Ñë³¯Ê-
+tsquid:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(¢ïÿd8Ñë³¯Ê-
+lsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ËÙ€ğøÿÿÿÿ8Ñë³¯Ê-
+lsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ÊÚ¿ûşÿÿÿÿ8Ñë³¯Ê-
+lsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(Á¶îÖıÿÿÿÿ8Ñë³¯Ê-
+lsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(©ìòüÿÿÿÿ8Ñë³¯Ê-
+lsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(‚ôØÀùÿÿÿÿ8Ñë³¯Ê-
+lsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(‰ôËıÿÿÿÿ8Ñë³¯Ê-
+Osquid:S1481".Remove this unused "tempLabel" local variable.(²õ—ÿúÿÿÿÿ8Ñë³¯Ê-
+lsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(«¶çØÿÿÿÿÿ8Ñë³¯Ê-
+asquid:S1854"@Remove this useless assignment to local variable "labeledNodes".(ÎÀ¿áÿÿÿÿÿ8Ñë³¯Ê-
+gsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ÛˆºŞ8Ñë³¯Ê-
+Rsquid:S2696"6Make the enclosing method "static" or remove this set.(•î«8Ñë³¯Ê-
+nsquid:S3776"RRefactor this method to reduce its Cognitive Complexity from 23 to the 15 allowed.(Ó¿ï8Ñë³¯Ê-
+gsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(¦€†–8Ñë³¯Ê-
+zsquid:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(´¹é„ûÿÿÿÿ8Ñë³¯Ê-
+T
+squid:S106"9Replace this use of System.out or System.err by a logger.(×•œ²8Ñë³¯Ê-
+zsquid:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(Øîïşÿÿÿÿ8Ñë³¯Ê-
+ssquid:S3776"RRefactor this method to reduce its Cognitive Complexity from 18 to the 15 allowed.(¢•ÿÿÿÿÿÿ8Ñë³¯Ê-
+lsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(¬Î§ıÿÿÿÿ8Ñë³¯Ê-
+^squid:S1854"=Remove this useless assignment to local variable "tempLabel".(²õ—ÿúÿÿÿÿ8Ñë³¯Ê-
+nsquid:S00117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ü“¹Ö8Ñë³¯Ê-
+lsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(œÄÔÓøÿÿÿÿ8Ñë³¯Ê-
+?squid:S1148"#Use a logger to log this exception.(Ç’Çê8Ñë³¯Ê-
+lsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ã®äƒúÿÿÿÿ8Ñë³¯Ê-
+zsquid:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(Øîïşÿÿÿÿ8Ñë³¯Ê-
+Ksquid:S1481"*Remove this unused "first" local variable.(èó»Ïøÿÿÿÿ8Ñë³¯Ê-
+zsquid:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(”Ãñáøÿÿÿÿ8Ñë³¯Ê-
+gsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(í’˜¶8Ñë³¯Ê-
+Ï%squid:RedundantThrowsDeclarationCheck"˜Remove the declaration of thrown exception 'eu.unitn.disi.db.command.exceptions.AlgorithmExecutionException', as it cannot be thrown from method's body.(«çë“8Ñë³¯Ê-
+gsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ó¯ğê8Ñë³¯Ê-
+lsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ŞÈÍÿÿÿÿÿ8Ñë³¯Ê-
+‰squid:S1319"mThe type of the "paths" object should be an interface such as "Map" rather than the implementation "HashMap".(¨øó†8Ñë³¯Ê-
+Xsquid:S1854"<Remove this useless assignment to local variable "nextNode".(Ò€ßè8Ñë³¯Ê-
+usquid:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(ç¸ã»8Ñë³¯Ê-
+Dsquid:S1481"(Remove this unused "mns" local variable.(ÉöŠ8Ñë³¯Ê-
+zsquid:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(»¼ŒÇÿÿÿÿÿ8Ñë³¯Ê-
+zsquid:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(Öí÷ûÿÿÿÿ8Ñë³¯Ê-
+usquid:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(¶à¯¤8Ñë³¯Ê-
+lsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(—“Ë±ûÿÿÿÿ8Ñë³¯Ê-
+gsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ÂÌî³8Ñë³¯Ê-
+Hsquid:S1481",Remove this unused "removed" local variable.(øÖõ8Ñë³¯Ê-
+zsquid:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(ÙÍ€›şÿÿÿÿ8Ñë³¯Ê-
+usquid:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(‚“ºŒ8Ñë³¯Ê-
+lsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(‰ôËıÿÿÿÿ8Ñë³¯Ê-
+lsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ã®äƒúÿÿÿÿ8Ñë³¯Ê-
+usquid:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(ô”ªå8Ñë³¯Ê-
+lsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(±é°«ûÿÿÿÿ8Ñë³¯Ê-
+‘squid:S1319"pThe return type of this method should be an interface such as "List" rather than the implementation "ArrayList".(’á­¯ùÿÿÿÿ8Ñë³¯Ê-
+nsquid:S3776"RRefactor this method to reduce its Cognitive Complexity from 38 to the 15 allowed.(É–à³8Ñë³¯Ê-
+usquid:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(‚“ºŒ8Ñë³¯Ê-
+usquid:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(¶à¯¤8Ñë³¯Ê-
+Isquid:S1481"-Remove this unused "nextNode" local variable.(”¨ì¡8Ñë³¯Ê-
+gsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(´È¤¸8Ñë³¯Ê-
+Qsquid:S1172"0Remove this unused method parameter "filterAll".(¢•ÿÿÿÿÿÿ8Ñë³¯Ê-
+gsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(… ¥Ü8Ñë³¯Ê-
+?squid:S1148"#Use a logger to log this exception.(Ç’Çê8Ñë³¯Ê-
+Hsquid:S1481"'Remove this unused "pt" local variable.(ñóâ¸ıÿÿÿÿ8Ñë³¯Ê-
+¿%squid:RedundantThrowsDeclarationCheck"ˆRemove the declaration of thrown exception 'eu.unitn.disi.db.grava.exceptions.DataException', as it cannot be thrown from method's body.(Ôæ£×8Ñë³¯Ê-
+lsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(¼ê¶çÿÿÿÿÿ8Ñë³¯Ê-
+T
+squid:S106"9Replace this use of System.out or System.err by a logger.(÷¤¶Ç8Ñë³¯Ê-
+Rsquid:S2696"6Make the enclosing method "static" or remove this set.(•î«8Ñë³¯Ê-
+lsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(Š¹÷„ùÿÿÿÿ8Ñë³¯Ê-
+lsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(‘å¦–ùÿÿÿÿ8Ñë³¯Ê-
+Ksquid:S1481"*Remove this unused "first" local variable.(èó»Ïøÿÿÿÿ8Ñë³¯Ê-
+zsquid:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(´¹é„ûÿÿÿÿ8Ñë³¯Ê-
+gsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(í’˜¶8Ñë³¯Ê-
+lsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ŞÈÍÿÿÿÿÿ8Ñë³¯Ê-
+gsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(… ¥Ü8Ñë³¯Ê-
+lsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(«¶çØÿÿÿÿÿ8Ñë³¯Ê-
+fsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(™è¢8Ñë³¯Ê-
+nsquid:S3776"RRefactor this method to reduce its Cognitive Complexity from 26 to the 15 allowed.(Ôæ£×8Ñë³¯Ê-
+Jsquid:S1659".Declare "currentQueryNode" on a separate line.(ä³º¡8Ñë³¯Ê-
+|squid:S3923"[Remove this conditional structure or edit its code blocks so that they're not all the same.(´ˆœşÿÿÿÿ8Ñë³¯Ê-
+Psquid:S1481"/Remove this unused "queryEdges" local variable.(ª€Îàûÿÿÿÿ8Ñë³¯Ê-
+nsquid:S00117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‡â˜“8Ñë³¯Ê-
+Hsquid:S1481"'Remove this unused "st" local variable.(ƒ÷¨ûÿÿÿÿÿ8Ñë³¯Ê-
+zsquid:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(Öí÷ûÿÿÿÿ8Ñë³¯Ê-
+lsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ËÙ€ğøÿÿÿÿ8Ñë³¯Ê-
+zsquid:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(”Ãñáøÿÿÿÿ8Ñë³¯Ê-
+gsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ó¯ğê8Ñë³¯Ê-
+lsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(—“Ë±ûÿÿÿÿ8Ñë³¯Ê-
+lsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(Ì¾ÙÕøÿÿÿÿ8Ñë³¯Ê-
+gsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ÁÙ«—8Ñë³¯Ê-
+lsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(Éã®çúÿÿÿÿ8Ñë³¯Ê-
+lsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(˜©Úşÿÿÿÿ8Ñë³¯Ê-
+Ssquid:UnusedPrivateMethod"*Remove this unused private "print" method.(ªõ·a8Ñë³¯Ê-
+squid:S1319"sThe type of the "visitSeq" object should be an interface such as "List" rather than the implementation "ArrayList".(Õü§ğ8Ñë³¯Ê-
+gsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(óñÎ¿8Ñë³¯Ê-
+T
+squid:S106"9Replace this use of System.out or System.err by a logger.(×•œ²8Ñë³¯Ê-
+Nsquid:S1481"-Remove this unused "tempEdge" local variable.(ëÉ·şÿÿÿÿ8Ñë³¯Ê-
+zsquid:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(ÙÍ€›şÿÿÿÿ8Ñë³¯Ê-
+Qsquid:S1854"6Remove this useless assignment to local variable "Vq".(İÿ³8Ñë³¯Ê-
+lsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(©ìòüÿÿÿÿ8Ñë³¯Ê-
+lsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(˜÷±şøÿÿÿÿ8Ñë³¯Ê-
+Dsquid:S1659"(Declare "gNodeLevel" on a separate line.(ÁŞ¨8Ñë³¯Ê-
+lsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(Á¶îÖıÿÿÿÿ8Ñë³¯Ê-
+lsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(Ò„ÿëüÿÿÿÿ8Ñë³¯Ê-
+Ô%squid:RedundantThrowsDeclarationCheck"˜Remove the declaration of thrown exception 'eu.unitn.disi.db.command.exceptions.AlgorithmExecutionException', as it cannot be thrown from method's body.(ûÃ˜²úÿÿÿÿ8Ñë³¯Ê-
+ksquid:UnusedPrivateMethod"<Remove this unused private "matchesWithPathNeighbor" method.(à¬˜«ÿÿÿÿÿ8Ñë³¯Ê-
+Dsquid:S1659"(Declare "gNodeLevel" on a separate line.(Ò¾Âî8Ñë³¯Ê-
+gsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(·ãšÀ8Ñë³¯Ê-
+squid:S1319"mThe return type of this method should be an interface such as "Map" rather than the implementation "HashMap".(ˆñÂçúÿÿÿÿ8Ñë³¯Ê-
+gsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(Ğµ¢«8Ñë³¯Ê-
+Jsquid:S1481".Remove this unused "qNodeTemp" local variable.(¿ÅŞ8Ñë³¯Ê-
+Bsquid:S1481"'Remove this unused "Vq" local variable.(İÿ³8Ñë³¯Ê-
+Jsquid:S1659".Declare "currentQueryNode" on a separate line.(ä³º¡8Ñë³¯Ê-
+gsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(í’˜¶8Ñë³¯Ê-
+ssquid:S3776"RRefactor this method to reduce its Cognitive Complexity from 35 to the 15 allowed.(‰ŞåÊüÿÿÿÿ8Ñë³¯Ê-
+lsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(«ıç¶øÿÿÿÿ8Ñë³¯Ê-
+Nsquid:S1135"2Complete the task associated to this TODO comment.(øäîì8Ñë³¯Ê-
+Nsquid:S1135"2Complete the task associated to this TODO comment.(“ÑíÕ8Ñë³¯Ê-
+gsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ÉÌè8Ñë³¯Ê-
+msquid:S00117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(æĞš8Ñë³¯Ê-
+lsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(« Æüÿÿÿÿÿ8Ñë³¯Ê-
+Ysquid:S1155">Use isEmpty() to check whether the collection is empty or not.(Ò¬½08Ñë³¯Ê-
+ssquid:S3776"RRefactor this method to reduce its Cognitive Complexity from 18 to the 15 allowed.(à¬˜«ÿÿÿÿÿ8Ñë³¯Ê-
+Dsquid:S1481"(Remove this unused "sel" local variable.(ÛâÅ™8Ñë³¯Ê-
+lsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ã®äƒúÿÿÿÿ8Ñë³¯Ê-
+Psquid:S1481"/Remove this unused "queryEdges" local variable.(ª€Îàûÿÿÿÿ8Ñë³¯Ê-
+Hsquid:S1481"'Remove this unused "ut" local variable.(îßæùÿÿÿÿ8Ñë³¯Ê-
+lsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(˜©Úşÿÿÿÿ8Ñë³¯Ê-
+usquid:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(í‚ü8Ñë³¯Ê-
+lsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ã®äƒúÿÿÿÿ8Ñë³¯Ê-
+lsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(Á¶îÖıÿÿÿÿ8Ñë³¯Ê-
+lsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ÑóĞÖùÿÿÿÿ8Ñë³¯Ê-
+zsquid:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(Ì÷£ôşÿÿÿÿ8Ñë³¯Ê-
+lsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(éØ»Úûÿÿÿÿ8Ñë³¯Ê-
+lsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(Š¹÷„ùÿÿÿÿ8Ñë³¯Ê-
+lsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(«ıç¶øÿÿÿÿ8Ñë³¯Ê-
+lsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(Ò„ÿëüÿÿÿÿ8Ñë³¯Ê-
+squid:S1319"mThe return type of this method should be an interface such as "Map" rather than the implementation "HashMap".(¢Â±ıÿÿÿÿ8Ñë³¯Ê-

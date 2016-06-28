@@ -21,6 +21,7 @@ import eu.unitn.disi.db.command.algorithmic.Algorithm;
 import eu.unitn.disi.db.command.algorithmic.AlgorithmInput;
 import eu.unitn.disi.db.command.algorithmic.AlgorithmOutput;
 import eu.unitn.disi.db.command.exceptions.AlgorithmExecutionException;
+import eu.unitn.disi.db.exemplar.core.IsomorphicQuery;
 import eu.unitn.disi.db.exemplar.core.RelatedQuery;
 import eu.unitn.disi.db.grava.graphs.Edge;
 import eu.unitn.disi.db.grava.graphs.MappedNode;

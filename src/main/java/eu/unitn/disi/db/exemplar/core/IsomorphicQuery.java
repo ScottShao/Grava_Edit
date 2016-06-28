@@ -337,6 +337,7 @@ public class IsomorphicQuery extends RelatedQuery {
 
             if (otherEdges.size() == this.usedEdgesIDs.size()) {
                 for (String otherEdge : otherEdges) {
+                	
                     if (!this.usedEdgesIDs.contains(otherEdge)) {
                         return false;
                     }
@@ -385,4 +386,13 @@ public class IsomorphicQuery extends RelatedQuery {
 		
 	}
 
+	public Map<Edge, Edge> getMappedEdges() {
+		return mappedEdges;
+	}
+
+	public void setMappedEdges(Map<Edge, Edge> mappedEdges) {
+		this.mappedEdges = mappedEdges;
+	}
+
+	
 }

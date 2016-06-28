@@ -109,7 +109,7 @@ public class PruningAlgorithm extends Algorithm {
         //Map<Long,Integer> nodeFrequency;
         Map<Long,Integer> labelFrequency = new HashMap<>();
         Map<Long, Set<MappedNode>> candidateNextLevel = new HashMap<>();
-        labelFreq = ((BigMultigraph)graph).getLabelFreq();
+        labelFreq = graph.getLabelFreq();
         nodeSelectivities = new HashMap<Long, Double>();
         neighborLabels = new HashMap<Long, Integer>();
         visitSeq = new ArrayList<Long>();
@@ -251,7 +251,7 @@ public class PruningAlgorithm extends Algorithm {
     	Set<MappedNode> filteredSet = new HashSet<>();
     	Set<MappedNode> oldSet = queryGraphMapping.get(this.startingNode);
     	Set<String> queryPaths = new HashSet<>();
-    	dfs(startingNode, new HashSet<>(), new StringBuilder(), 0, queryPaths);
+    	dfs(startingNode, new HashSet<Edge>(), new StringBuilder(), 0, queryPaths);
     	for (MappedNode mn : oldSet) {
     		BloomFilter<String> bf = gPathTables.get(mn.getNodeID());
     		int count = 0;
@@ -279,7 +279,7 @@ public class PruningAlgorithm extends Algorithm {
     		Set<MappedNode> filteredSet = new HashSet<>();
         	Set<MappedNode> oldSet = queryGraphMapping.get(crt);
         	Set<String> queryPaths = new HashSet<>();
-        	dfs(crt, new HashSet<>(), new StringBuilder(), 0, queryPaths);
+        	dfs(crt, new HashSet<Edge>(), new StringBuilder(), 0, queryPaths);
         	for (MappedNode mn : oldSet) {
         		BloomFilter<String> bf = gPathTables.get(mn.getNodeID());
         		int count = 0;
@@ -305,7 +305,7 @@ public class PruningAlgorithm extends Algorithm {
     public int onlyPath() {
     	int number = 0;
     	Set<String> queryPaths = new HashSet<>();
-    	dfs(startingNode, new HashSet<>(), new StringBuilder(), 0, queryPaths);
+    	dfs(startingNode, new HashSet<Edge>(), new StringBuilder(), 0, queryPaths);
     	for (Long mn : graph.vertexSet()) {
     		BloomFilter<String> bf = gPathTables.get(mn);
     		int count = 0;
@@ -333,24 +333,23 @@ public class PruningAlgorithm extends Algorithm {
 			return;
 		}
 		int length = sb.length();
-		boolean hasEdge = false;
 		for (Edge e : query.outgoingEdgesOf(node)) {
 			Long nextNode = e.getDestination().equals(node) ? e.getSource() : e.getDestination();
 			if (!visited.contains(e) && !e.getLabel().equals(0L) && !nextNode.equals(node)) {
-				sb.append(e.getLabel());
+				Long temp = e.getLabel();
+				sb.append(temp);
 				dfs(nextNode, visited, sb, depth + 1, paths);
 				sb.setLength(length);
-				hasEdge = true;
 			}
 		}
 		
 		for (Edge e : query.incomingEdgesOf(node)) {
 			Long nextNode = e.getDestination().equals(node) ? e.getSource() : e.getDestination();
 			if (!visited.contains(e) && !e.getLabel().equals(0L) && !nextNode.equals(node)) {
-				sb.append(e.getLabel());
+				Long temp = -e.getLabel();
+				sb.append(temp);
 				dfs(nextNode, visited, sb, depth + 1, paths);
 				sb.setLength(length);
-				hasEdge = true;
 			}
 		}
 	}
@@ -919,7 +918,7 @@ public class PruningAlgorithm extends Algorithm {
         for (Long node : queryNodes) {
 
             if (!queryGraphMapping.containsKey(node) || queryGraphMapping.get(node).isEmpty()) {
-            	System.out.println(queryGraphMapping.containsKey(node));
+//            	System.out.println(queryGraphMapping.containsKey(node));
                 //TODO Long should be converted to redable
                 throw new AlgorithmExecutionException("Query tables do not contain maps for the node " + node);
             }
@@ -937,7 +936,7 @@ public class PruningAlgorithm extends Algorithm {
                 removed++;
             }
         }
-        debug("kept %d, removed %d over %d edges non mapping edges in %dms", restricted.edgeSet().size(), removed, graphEdges.size(), watch.getElapsedTimeMillis());
+//        debug("kept %d, removed %d over %d edges non mapping edges in %dms", restricted.edgeSet().size(), removed, graphEdges.size(), watch.getElapsedTimeMillis());
 
         return restricted;
     }

@@ -109,7 +109,7 @@ public class ComputePathGraphNeighbors extends Algorithm {
 				lastLevelTable = new HashMap<>();
 				
 				for (short l = 0; l < k; l++) {
-					lastLevelPath = new HashMap<Long, Set<PathNeighbor>>();
+					lastLevelPath = new HashMap<>();
 					levelTable = new HashMap<>();
 					
 					nextLevelToSee = new HashSet<>();
@@ -136,19 +136,19 @@ public class ComputePathGraphNeighbors extends Algorithm {
 									if (!visited.contains(nodeToAdd)) {
 										
 										if((pn = lastLevelPath.get(current)) == null){
-											pn = new HashSet<PathNeighbor>();
+											pn = new HashSet<>();
 											PathNeighbor newPn = new PathNeighbor();
 											newPn.add(new EdgeLabel(label, in == 0));
 											pn.add(newPn);
 											
 										}else{
-											pn = new HashSet<PathNeighbor>(pn);
+											pn = new HashSet<>(pn);
 											Iterator<PathNeighbor> it = pn.iterator();
 											while(it.hasNext()){
 												PathNeighbor newPn = it.next();
 												newPn.add(new EdgeLabel(label, in == 0));
 												pn.add(newPn);
-												pn.remove(it);
+//												pn.remove(it);
 											}
 										}
 										

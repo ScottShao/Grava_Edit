@@ -1,0 +1,373 @@
+
+tsquid:S1450"XRemove the "exBsCount" field and declare it as a local variable in the relevant methods.(†ýŠë8Ïë³¯Ê-
+lsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(™×¯ùÿÿÿÿ8Ïë³¯Ê-
+Rsquid:S2696"6Make the enclosing method "static" or remove this set.(Ÿ£ê8Ïë³¯Ê-
+Lsquid:S1481"+Remove this unused "selSum" local variable.(ô¿•…øÿÿÿÿ8Ïë³¯Ê-
+lsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(Çžüìûÿÿÿÿ8Ïë³¯Ê-
+Ssquid:S1135"2Complete the task associated to this TODO comment.(ÕÌ®þÿÿÿÿ8Ïë³¯Ê-
+Dsquid:S1148"#Use a logger to log this exception.(€ÉÔ…ýÿÿÿÿ8Ïë³¯Ê-
+fsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ÃŽ´%8Ïë³¯Ê-
+Jsquid:S1068".Remove this unused "exCmpCount" private field.(¥Þê8Ïë³¯Ê-
+lsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(õœÐêøÿÿÿÿ8Ïë³¯Ê-
+bsquid:HiddenFieldCheck";Rename "strList" which hides the field declared at line 96.(Äµ„…8Ïë³¯Ê-
+Ysquid:S00107"<Method has 8 parameters, which is greater than 7 authorized.(¯µˆñ8Ïë³¯Ê-
+nsquid:S00116"LRename this field "G" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(§Žèéþÿÿÿÿ8Ïë³¯Ê-
+lsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ŒÒÿüÿÿÿÿ8ÄÄ¯Ê-
+Isquid:S1481"(Remove this unused "sel" local variable.(¶ÿ§Ÿýÿÿÿÿ8Ïë³¯Ê-
+y
+squid:S135"YReduce the total number of break and continue statements in this loop to use at most one.(å‹…êþÿÿÿÿ8Ïë³¯Ê-
+Osquid:S2095".Close this "FileWriter" in a "finally" clause.(”¾ó¦ûÿÿÿÿ8Ïë³¯Ê-
+gsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ƒÏÙ§8Ïë³¯Ê-
+Tsquid:S1197"8Move the array designator from the variable to the type.(Ò±ÛÂ8Ïë³¯Ê-
+gsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(³¹•8Ïë³¯Ê-
+gsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(¾çÚ…8Ïë³¯Ê-
+Dsquid:S1481"(Remove this unused "ind" local variable.(ïñýœ8Ïë³¯Ê-
+Ssquid:S1135"2Complete the task associated to this TODO comment.(ÕÌ®þÿÿÿÿ8Ïë³¯Ê-
+lsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(–ã’©úÿÿÿÿ8Ïë³¯Ê-
+Zsquid:S00107"=Method has 10 parameters, which is greater than 7 authorized.(¦¹«÷8Ïë³¯Ê-
+Dsquid:S1148"#Use a logger to log this exception.(€ÉÔ…ýÿÿÿÿ8Ïë³¯Ê-
+Jsquid:S1068".Remove this unused "exAfterNum" private field.(›¶¼£8Ïë³¯Ê-
+Osquid:S2095".Close this "FileWriter" in a "finally" clause.(”¾ó¦ûÿÿÿÿ8Ïë³¯Ê-
+Jsquid:S1481".Remove this unused "infoNodes" local variable.(æŸ8Ïë³¯Ê-
+tsquid:HiddenFieldCheck"HRename "relatedQueriesUnique" which hides the field declared at line 67.(’ÿŒŠûÿÿÿÿ8Ïë³¯Ê-
+lsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ÉÀô¿ùÿÿÿÿ8Ïë³¯Ê-
+Lsquid:S1481"0Remove this unused "loadingTime" local variable.(»ßýµ8Ïë³¯Ê-
+lsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ßÿÁüÿÿÿÿ8Ïë³¯Ê-
+lsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ÉÀô¿ùÿÿÿÿ8Ïë³¯Ê-
+gsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(€ÏŒÙ8Ïë³¯Ê-
+usquid:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(Äµ„…8Ïë³¯Ê-
+lsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(æÝ¾Áÿÿÿÿÿ8Ïë³¯Ê-
+lsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(øØÿ´üÿÿÿÿ8Ïë³¯Ê-
+Y
+squid:S106"9Replace this use of System.out or System.err by a logger.( ùÍìùÿÿÿÿ8Ïë³¯Ê-
+gsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ö—ß“8Ïë³¯Ê-
+lsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(éÍ…£ýÿÿÿÿ8Ïë³¯Ê-
+qsquid:S1450"URemove the "wcCost" field and declare it as a local variable in the relevant methods.(©öÔŒ8Ïë³¯Ê-
+fsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(Ó¬ð8Ïë³¯Ê-
+gsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(Å´Äô8Ïë³¯Ê-
+lsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(®ˆÑÁþÿÿÿÿ8Ïë³¯Ê-
+gsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(¿ÿ¥Û8Ïë³¯Ê-
+Y
+squid:S106"9Replace this use of System.out or System.err by a logger.(¢óÿÌùÿÿÿÿ8Ïë³¯Ê-
+Csquid:S1068"'Remove this unused "all" private field.(Ï±ìÜ8Ïë³¯Ê-
+gsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(Æ¨®®8Ïë³¯Ê-
+Y
+squid:S106"9Replace this use of System.out or System.err by a logger.(ø©ñûÿÿÿÿ8Ïë³¯Ê-
+S
+squid:S106"9Replace this use of System.out or System.err by a logger.(ÇäÓB8Ïë³¯Ê-
+usquid:S1450"YRemove the "exAfterNum" field and declare it as a local variable in the relevant methods.(›¶¼£8Ïë³¯Ê-
+tsquid:HiddenFieldCheck"HRename "relatedQueriesUnique" which hides the field declared at line 67.(È©Çýøÿÿÿÿ8Ïë³¯Ê-
+osquid:HiddenFieldCheck"HRename "relatedQueriesUnique" which hides the field declared at line 67.(Å»ƒÝ8Ïë³¯Ê-
+Wsquid:S1481"6Remove this unused "queryGraphMapping" local variable.(Æš¼˜ÿÿÿÿÿ8Ïë³¯Ê-
+fsquid:S1854"ERemove this useless assignment to local variable "queryGraphMapping".(«Žûÿÿÿÿ8Ïë³¯Ê-
+tsquid:UselessImportCheck"FRemove this unused import 'eu.unitn.disi.db.grava.utils.FileOperator'.(÷ý³ÿýÿÿÿÿ8Ïë³¯Ê-
+lsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(àÉ¬¦üÿÿÿÿ8Ïë³¯Ê-
+Hsquid:S1068"-Remove this unused "wcPathEst" private field.(¸­»8Ïë³¯Ê-
+gsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(•â·ý8¸ƒ×¯Ê-
+Fsquid:S00108")Either remove or fill this block of code.(å¥ž‡8Ïë³¯Ê-
+lsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(îÕÐ­ûÿÿÿÿ8Ïë³¯Ê-
+Ysquid:S1854"=Remove this useless assignment to local variable "infoNodes".(æŸ8Ïë³¯Ê-
+Å%squid:RedundantThrowsDeclarationCheck"‰Remove the declaration of thrown exception 'eu.unitn.disi.db.grava.exceptions.ParseException', as it cannot be thrown from method's body.(²É˜øûÿÿÿÿ8Ïë³¯Ê-
+lsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(Ò²¢þÿÿÿÿ8Ïë³¯Ê-
+Tsquid:S1068"3Remove this unused "wcCandidatesNum" private field.(Äéú‚øÿÿÿÿ8Ïë³¯Ê-
+ssquid:S1450"XRemove the "wcPathEst" field and declare it as a local variable in the relevant methods.(¸­»8Ïë³¯Ê-
+Osquid:S1481"3Remove this unused "wcEstimatedNum" local variable.(‰­Úï8Ïë³¯Ê-
+gsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(´¤°ü8Ïë³¯Ê-
+`squid:UselessImportCheck"7Remove this unused import 'java.io.OutputStreamWriter'.(Ÿ“¸8Ïë³¯Ê-
+Isquid:S1481"(Remove this unused "sel" local variable.(¶ÿ§Ÿýÿÿÿÿ8Ïë³¯Ê-
+bsquid:S2147"FCombine this catch with the one at line 1219, which has the same body.(ï­£Ä8Ïë³¯Ê-
+wsquid:UselessImportCheck"IRemove this unused import 'eu.unitn.disi.db.grava.graphs.BaseMultigraph'.(í½½”ùÿÿÿÿ8Ïë³¯Ê-
+lsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(è»º•úÿÿÿÿ8Ïë³¯Ê-
+Y
+squid:S106"9Replace this use of System.out or System.err by a logger.(úÖ‹ëýÿÿÿÿ8Ïë³¯Ê-
+gsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(Š€üô8Ïë³¯Ê-
+Dsquid:S1148"#Use a logger to log this exception.(€ÉÔ…ýÿÿÿÿ8Ïë³¯Ê-
+Dsquid:S1148"#Use a logger to log this exception.(€ÉÔ…ýÿÿÿÿ8Ïë³¯Ê-
+Lsquid:S1068"+Remove this unused "answers" private field.(×Å›îÿÿÿÿÿ8Ïë³¯Ê-
+y
+squid:S135"YReduce the total number of break and continue statements in this loop to use at most one.(Î“Éùÿÿÿÿ8Ïë³¯Ê-
+Psquid:S1066"/Merge this if statement with the enclosing one.(Ðª†ýþÿÿÿÿ8Ïë³¯Ê-
+Ksquid:S1068"0Remove this unused "edCandidates" private field.(ã¢ÑC8Ïë³¯Ê-
+Y
+squid:S106"9Replace this use of System.out or System.err by a logger.(ñ—¸½úÿÿÿÿ8Ïë³¯Ê-
+T
+squid:S106"9Replace this use of System.out or System.err by a logger.(Ð•ª“8Ïë³¯Ê-
+Dsquid:S1068"(Remove this unused "path" private field.(Ù’êÒ8Ïë³¯Ê-
+Rsquid:S2696"6Make the enclosing method "static" or remove this set.(ÿÛ‚ 8Ïë³¯Ê-
+gsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ö—ß“8Ïë³¯Ê-
+lsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(Ç“óÏúÿÿÿÿ8Ïë³¯Ê-
+gsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ö×Ð¢8Ïë³¯Ê-
+Gsquid:S1068",Remove this unused "wcAdjEdt" private field.(§ÕÕd8Ïë³¯Ê-
+Usquid:S1481"4Remove this unused "wcEstimatedCost" local variable.(Ã£Ë°ÿÿÿÿÿ8Ïë³¯Ê-
+T
+squid:S106"9Replace this use of System.out or System.err by a logger.(ØÜ£š8Ïë³¯Ê-
+Ssquid:S1135"2Complete the task associated to this TODO comment.(ÕÌ®þÿÿÿÿ8Ïë³¯Ê-
+Isquid:S1481"(Remove this unused "nqv" local variable.(º”çÇûÿÿÿÿ8Ïë³¯Ê-
+fsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(±ˆ£8¹…Ó¯Ê-
+Ssquid:S1854"7Remove this useless assignment to local variable "ind".(ïñýœ8Ïë³¯Ê-
+Zsquid:S1481"9Remove this unused "relatedQueriesUnique" local variable.(’ÿŒŠûÿÿÿÿ8Ïë³¯Ê-
+zsquid:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(’ÿŒŠûÿÿÿÿ8Ïë³¯Ê-
+csquid:S00107"AConstructor has 8 parameters, which is greater than 7 authorized.(Þž°šþÿÿÿÿ8Ïë³¯Ê-
+Wsquid:S1481"6Remove this unused "queryGraphMapping" local variable.(Æš¼˜ÿÿÿÿÿ8Ïë³¯Ê-
+lsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(Ä½èêüÿÿÿÿ8Ïë³¯Ê-
+S
+squid:S106"9Replace this use of System.out or System.err by a logger.(ƒÚáB8Ïë³¯Ê-
+isquid:S1854"HRemove this useless assignment to local variable "relatedQueriesUnique".(’ÿŒŠûÿÿÿÿ8Ïë³¯Ê-
+‰squid:S1319"mThe return type of this method should be an interface such as "Set" rather than the implementation "HashSet".(’ß»„8Ïë³¯Ê-
+Xsquid:S1854"7Remove this useless assignment to local variable "dst".(ˆ­÷€ùÿÿÿÿ8¹…Ó¯Ê-
+T
+squid:S106"9Replace this use of System.out or System.err by a logger.(ØÜ£š8Ïë³¯Ê-
+Isquid:S1481"(Remove this unused "dst" local variable.(ˆ­÷€ùÿÿÿÿ8¹…Ó¯Ê-
+`squid:HiddenFieldCheck"9Rename "count" which hides the field declared at line 94.(æÕ¿¼8Ïë³¯Ê-
+Dsquid:S1148"#Use a logger to log this exception.(€ÉÔ…ýÿÿÿÿ8Ïë³¯Ê-
+usquid:S1450"YRemove the "exCmpCount" field and declare it as a local variable in the relevant methods.(¥Þê8Ïë³¯Ê-
+Y
+squid:S106"9Replace this use of System.out or System.err by a logger.(æó×‹ÿÿÿÿÿ8Ïë³¯Ê-
+S
+squid:S106"9Replace this use of System.out or System.err by a logger.(ƒÚáB8Ïë³¯Ê-
+Rsquid:S2696"6Make the enclosing method "static" or remove this set.(ÿÛ‚ 8Ïë³¯Ê-
+lsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(áûí„üÿÿÿÿ8Ïë³¯Ê-
+Zsquid:UnusedPrivateMethod"0Remove this unused private "printAnswer" method.(§ü¢­8Ïë³¯Ê-
+Rsquid:S2696"6Make the enclosing method "static" or remove this set.(ÿÛ‚ 8Ïë³¯Ê-
+ssquid:S3776"RRefactor this method to reduce its Cognitive Complexity from 25 to the 15 allowed.(”¢²¯øÿÿÿÿ8Ïë³¯Ê-
+Ysquid:S00107"<Method has 8 parameters, which is greater than 7 authorized.(”Ùë¡8Ïë³¯Ê-
+lsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(–ã’©úÿÿÿÿ8Ïë³¯Ê-
+Lsquid:S1068"+Remove this unused "isEdBad" private field.(ãð›ÿÿÿÿÿ8Ïë³¯Ê-
+usquid:S1450"YRemove the "exUptCount" field and declare it as a local variable in the relevant methods.(†Œ•”8Ïë³¯Ê-
+T
+squid:S106"9Replace this use of System.out or System.err by a logger.(ØÜ£š8Ïë³¯Ê-
+lsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ã‹­úþÿÿÿÿ8Ïë³¯Ê-
+Ssquid:S1135"2Complete the task associated to this TODO comment.(ÕÌ®þÿÿÿÿ8Ïë³¯Ê-
+rsquid:S00116"URename this field "MAX_DEGREE" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÁÆ‹Ò8Ïë³¯Ê-
+Xsquid:S1854"7Remove this useless assignment to local variable "sel".(¶ÿ§Ÿýÿÿÿÿ8Ïë³¯Ê-
+lsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(‚ôØÀùÿÿÿÿ8Ïë³¯Ê-
+lsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(…õ‹çûÿÿÿÿ8Ïë³¯Ê-
+lsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(þÆêªúÿÿÿÿ8Ïë³¯Ê-
+Y
+squid:S106"9Replace this use of System.out or System.err by a logger.(©üÃõüÿÿÿÿ8Ïë³¯Ê-
+Y
+squid:S106"9Replace this use of System.out or System.err by a logger.(ºÐÕœþÿÿÿÿ8Ïë³¯Ê-
+Hsquid:S1481",Remove this unused "comFile" local variable.(ØÐ”8Ïë³¯Ê-
+fsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(Ó¬ð8Ïë³¯Ê-
+Ó%squid:RedundantThrowsDeclarationCheck"Remove the declaration of thrown exception 'eu.unitn.disi.db.command.exceptions.AlgorithmExecutionException', as it cannot be thrown from constructor's body.(ŠØü8Ïë³¯Ê-
+fsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(º•ÂZ8þˆÔ¯Ê-
+Gsquid:S1659"&Declare "edgesOut" on a separate line.(þ­ºìûÿÿÿÿ8Ïë³¯Ê-
+lsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(½´ßþÿÿÿÿ8Ïë³¯Ê-
+lsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(áûí„üÿÿÿÿ8Ïë³¯Ê-
+Y
+squid:S106"9Replace this use of System.out or System.err by a logger.(¼íùûÿÿÿÿ8Ïë³¯Ê-
+gsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ƒÏÙ§8Ïë³¯Ê-
+Ssquid:S1135"2Complete the task associated to this TODO comment.(ÕÌ®þÿÿÿÿ8Ïë³¯Ê-
+Zsquid:UselessImportCheck"1Remove this unused import 'java.math.BigDecimal'.(êêŠ8Ïë³¯Ê-
+usquid:S1450"YRemove the "wcCmpCount" field and declare it as a local variable in the relevant methods.(Ýù×Œ8Ïë³¯Ê-
+csquid:S1192"GDefine a constant instead of duplicating this literal "count:" 3 times.(šÈÞ§8Ïë³¯Ê-
+gsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(Ù¼Ìü8Ïë³¯Ê-
+lsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(¹¤‚¡ÿÿÿÿÿ8Ïë³¯Ê-
+squid:S1319"|The type of the "relatedQueriesUnique" object should be an interface such as "Set" rather than the implementation "HashSet".(¸ÓÀþÿÿÿÿ8Ïë³¯Ê-
+Y
+squid:S106"9Replace this use of System.out or System.err by a logger.(Œ“ú‘üÿÿÿÿ8Ïë³¯Ê-
+lsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(´ÌÅ­ùÿÿÿÿ8Ïë³¯Ê-
+gsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ö—ß“8Ïë³¯Ê-
+lsquid:S1192"PDefine a constant instead of duplicating this literal "===============" 3 times.(ØÜ£š8Ïë³¯Ê-
+gsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(—ãÎÒ8Ïë³¯Ê-
+T
+squid:S106"9Replace this use of System.out or System.err by a logger.(¬ÈÛÀ8Ïë³¯Ê-
+gsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(Æ¶ãÈ8Ïë³¯Ê-
+Usquid:S1481"4Remove this unused "exEstimatedCost" local variable.(•ÂÞçýÿÿÿÿ8Ïë³¯Ê-
+Psquid:S1066"/Merge this if statement with the enclosing one.(Ðª†ýþÿÿÿÿ8Ïë³¯Ê-
+Xsquid:S1854"7Remove this useless assignment to local variable "sel".(¶ÿ§Ÿýÿÿÿÿ8Ïë³¯Ê-
+Dsquid:S1481"(Remove this unused "ind" local variable.(ïñýœ8Ïë³¯Ê-
+Hsquid:S1481",Remove this unused "comFile" local variable.(ØÐ”8Ïë³¯Ê-
+Dsquid:S1148"#Use a logger to log this exception.(€ÉÔ…ýÿÿÿÿ8Ïë³¯Ê-
+gsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(íÄÃ§8Ïë³¯Ê-
+Nsquid:S1068"-Remove this unused "wcBsCount" private field.(èÕ¿€þÿÿÿÿ8Ïë³¯Ê-
+nsquid:S00116"LRename this field "Q" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(æª¢Œùÿÿÿÿ8Ïë³¯Ê-
+rsquid:S1450"WRemove the "wcAdjEdt" field and declare it as a local variable in the relevant methods.(§ÕÕd8Ïë³¯Ê-
+T
+squid:S106"9Replace this use of System.out or System.err by a logger.(õþ‚ÿ8Ïë³¯Ê-
+gsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ÇÞ–‡8Ïë³¯Ê-
+Y
+squid:S106"9Replace this use of System.out or System.err by a logger.(¦Ê²ôøÿÿÿÿ8Ïë³¯Ê-
+gsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ð ©€8Ïë³¯Ê-
+gsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(¾¬Ì„8Ïë³¯Ê-
+Dsquid:S1148"#Use a logger to log this exception.(€ÉÔ…ýÿÿÿÿ8Ïë³¯Ê-
+Esquid:S1068")Remove this unused "count" private field.(˜ì’ˆ8Ïë³¯Ê-
+gsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(³Îº±8Ïë³¯Ê-
+lsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ÆÏ¼Ÿùÿÿÿÿ8Ïë³¯Ê-
+lsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ª‘¾¼þÿÿÿÿ8Ïë³¯Ê-
+gsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(êÁõþ8Ïë³¯Ê-
+Ssquid:S1135"2Complete the task associated to this TODO comment.(ÕÌ®þÿÿÿÿ8Ïë³¯Ê-
+rsquid:S00116"URename this field "AVG_DEGREE" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(íõœ8Ïë³¯Ê-
+Dsquid:S1148"#Use a logger to log this exception.(€ÉÔ…ýÿÿÿÿ8Ïë³¯Ê-
+lsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(àÉ¬¦üÿÿÿÿ8Ïë³¯Ê-
+lsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(Ä½èêüÿÿÿÿ8Ïë³¯Ê-
+Msquid:S1068",Remove this unused "wcAllEst" private field.(Ô”ò¶ûÿÿÿÿ8Ïë³¯Ê-
+Y
+squid:S106"9Replace this use of System.out or System.err by a logger.(ùÂèÈúÿÿÿÿ8Ïë³¯Ê-
+Y
+squid:S106"9Replace this use of System.out or System.err by a logger.(Âû¯Ðüÿÿÿÿ8Ïë³¯Ê-
+Y
+squid:S106"9Replace this use of System.out or System.err by a logger.(æó×‹ÿÿÿÿÿ8Ïë³¯Ê-
+usquid:S1450"YRemove the "wcUptCount" field and declare it as a local variable in the relevant methods.(í‚²Ã8Ïë³¯Ê-
+bsquid:S2147"FCombine this catch with the one at line 1199, which has the same body.(ï­£Ä8Ïë³¯Ê-
+lsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(´ÌÅ­ùÿÿÿÿ8Ïë³¯Ê-
+Y
+squid:S106"9Replace this use of System.out or System.err by a logger.( ùÍìùÿÿÿÿ8Ïë³¯Ê-
+Jsquid:S1068".Remove this unused "wcUptCount" private field.(í‚²Ã8Ïë³¯Ê-
+Gsquid:S1168"+Return an empty collection instead of null.(¥¹ï8Ïë³¯Ê-
+lsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(Ìë¹îúÿÿÿÿ8Ïë³¯Ê-
+Jsquid:S1481".Remove this unused "infoNodes" local variable.(æŸ8Ïë³¯Ê-
+`squid:UselessImportCheck"2Remove this unused import 'java.util.Collections'.(¢³ïÓþÿÿÿÿ8Ïë³¯Ê-
+Y
+squid:S106"9Replace this use of System.out or System.err by a logger.(¼íùûÿÿÿÿ8Ïë³¯Ê-
+Osquid:S1481".Remove this unused "maxDegree" local variable.(”—’üÿÿÿÿ8Ïë³¯Ê-
+Osquid:S1068".Remove this unused "wcPathOnly" private field.(†“¸Ôùÿÿÿÿ8Ïë³¯Ê-
+=squid:S1170"!Make this final field static too.(íõœ8Ïë³¯Ê-
+Hsquid:S1068"'Remove this unused "adj" private field.(‘Ê›µüÿÿÿÿ8Ïë³¯Ê-
+Osquid:S2095".Close this "FileReader" in a "finally" clause.(õñûºÿÿÿÿÿ8Ïë³¯Ê-
+gsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ÿäÆž8Ïë³¯Ê-
+T
+squid:S106"9Replace this use of System.out or System.err by a logger.(ÆÆö™8Ïë³¯Ê-
+T
+squid:S106"9Replace this use of System.out or System.err by a logger.(Õáž8Ïë³¯Ê-
+Jsquid:S1068".Remove this unused "exUptCount" private field.(†Œ•”8Ïë³¯Ê-
+gsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ö¸¸Ç8Ïë³¯Ê-
+gsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(¾çÚ…8Ïë³¯Ê-
+Gsquid:S1659"&Declare "tempFreq" on a separate line.(ò»èýúÿÿÿÿ8Ïë³¯Ê-
+gsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ñ¥–ì8Ïë³¯Ê-
+Gsquid:S1905"&Remove this unnecessary cast to "int".(†™‡¤ÿÿÿÿÿ8Ïë³¯Ê-
+gsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(Š€üô8Ïë³¯Ê-
+gsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(²ß¨Ã8Ïë³¯Ê-
+fsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(—‘­8Ïë³¯Ê-
+Y
+squid:S106"9Replace this use of System.out or System.err by a logger.(ñ—¸½úÿÿÿÿ8Ïë³¯Ê-
+Osquid:S2095".Close this "FileWriter" in a "finally" clause.(Ó¿û´üÿÿÿÿ8Ïë³¯Ê-
+gsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(êÁõþ8Ïë³¯Ê-
+gsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ÿò‘¯8Ïë³¯Ê-
+gsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(àåÕí8Ïë³¯Ê-
+lsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(¥ôÔÇúÿÿÿÿ8Ïë³¯Ê-
+Y
+squid:S106"9Replace this use of System.out or System.err by a logger.(Ñ…‰ëûÿÿÿÿ8Ïë³¯Ê-
+T
+squid:S106"9Replace this use of System.out or System.err by a logger.(Ø˜¨š8Ïë³¯Ê-
+=squid:S1170"!Make this final field static too.(ÁÆ‹Ò8Ïë³¯Ê-
+T
+squid:S106"9Replace this use of System.out or System.err by a logger.(îÿä‹8Ïë³¯Ê-
+Wsquid:S1854";Remove this useless assignment to local variable "comFile".(ØÐ”8Ïë³¯Ê-
+^squid:S1854"=Remove this useless assignment to local variable "maxDegree".(”—’üÿÿÿÿ8Ïë³¯Ê-
+ysquid:UselessImportCheck"KRemove this unused import 'eu.unitn.disi.db.grava.utils.NodeSelComparator'.(Ý¦Ï©ÿÿÿÿÿ8Ïë³¯Ê-
+Y
+squid:S106"9Replace this use of System.out or System.err by a logger.(¦Ê²ôøÿÿÿÿ8Ïë³¯Ê-
+Y
+squid:S106"9Replace this use of System.out or System.err by a logger.(ø©ñûÿÿÿÿ8Ïë³¯Ê-
+Tsquid:S1481"3Remove this unused "relatedQueries" local variable.(ŒîÜ÷üÿÿÿÿ8Ïë³¯Ê-
+T
+squid:S106"9Replace this use of System.out or System.err by a logger.(þ»Þ8Ïë³¯Ê-
+ssquid:S3776"RRefactor this method to reduce its Cognitive Complexity from 27 to the 15 allowed.(ÏÏºÂüÿÿÿÿ8Ïë³¯Ê-
+gsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(èè¨¿8Ïë³¯Ê-
+Isquid:S1068"-Remove this unused "exBsCount" private field.(†ýŠë8Ïë³¯Ê-
+gsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(¾¬Ì„8Ïë³¯Ê-
+[squid:S1481":Remove this unused "computingNeighborTime" local variable.(¤›í„úÿÿÿÿ8Ïë³¯Ê-
+bsquid:S2147"FCombine this catch with the one at line 1369, which has the same body.(ï­£Ä8Ïë³¯Ê-
+squid:S1450"^Remove the "exCandidatesNum" field and declare it as a local variable in the relevant methods.(Ý´Žòøÿÿÿÿ8Ïë³¯Ê-
+Ä%squid:RedundantThrowsDeclarationCheck"ŽRemove the declaration of thrown exception 'eu.unitn.disi.db.grava.exceptions.ParseException', as it cannot be thrown from constructor's body.(ŠØü8Ïë³¯Ê-
+Tsquid:S1068"3Remove this unused "exCandidatesNum" private field.(Ý´Žòøÿÿÿÿ8Ïë³¯Ê-
+gsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(Ò¤È8Ïë³¯Ê-
+Jsquid:S1068".Remove this unused "exPathOnly" private field.(»†ÔÑ8Ïë³¯Ê-
+Y
+squid:S106"9Replace this use of System.out or System.err by a logger.(Ç¿Ãùÿÿÿÿ8Ïë³¯Ê-
+Fsquid:S1068"*Remove this unused "wcCost" private field.(©öÔŒ8Ïë³¯Ê-
+Y
+squid:S106"9Replace this use of System.out or System.err by a logger.(êä„Æÿÿÿÿÿ8Ïë³¯Ê-
+osquid:HiddenFieldCheck"HRename "relatedQueriesUnique" which hides the field declared at line 67.(Ý«°¯8Ïë³¯Ê-
+Ssquid:S1135"2Complete the task associated to this TODO comment.(ÕÌ®þÿÿÿÿ8Ïë³¯Ê-
+gsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(î¬ú÷8Ïë³¯Ê-
+]squid:UselessImportCheck"5Remove this unused import 'java.io.FileOutputStream'.(˜«ªg8Ïë³¯Ê-
+ssquid:S3776"RRefactor this method to reduce its Cognitive Complexity from 42 to the 15 allowed.(ú€–ùÿÿÿÿ8Ïë³¯Ê-
+fsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ö•ÁU8Ïë³¯Ê-
+Jsquid:S1068".Remove this unused "wcAfterNum" private field.(¹×™—8Ïë³¯Ê-
+Lsquid:S1481"0Remove this unused "pruningTime" local variable.(¸¡Ð‘8Ïë³¯Ê-
+gsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(Ã±ÄÀ8Ïë³¯Ê-
+gsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(èè¨¿8Ïë³¯Ê-
+lsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ÃÒ×·üÿÿÿÿ8Ïë³¯Ê-
+gsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(Ã±ÄÀ8Ïë³¯Ê-
+gsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(©å÷å8Ïë³¯Ê-
+lsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(Ìë¹îúÿÿÿÿ8Ïë³¯Ê-
+gsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(„›°Î8¸ƒ×¯Ê-
+Y
+squid:S106"9Replace this use of System.out or System.err by a logger.(÷è³Úüÿÿÿÿ8Ïë³¯Ê-
+Ksquid:S1068"*Remove this unused "edCost" private field.(ŽÔÿÕøÿÿÿÿ8Ïë³¯Ê-
+T
+squid:S106"9Replace this use of System.out or System.err by a logger.(ºœ½…8Ïë³¯Ê-
+Qsquid:S1068"0Remove this unused "nodeToSearch" private field.(óà¤Áýÿÿÿÿ8Ïë³¯Ê-
+lsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(½Òçäùÿÿÿÿ8Ïë³¯Ê-
+gsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(Å´Äô8Ïë³¯Ê-
+Esquid:S1481")Remove this unused "temp" local variable.(Ò±ÛÂ8Ïë³¯Ê-
+qsquid:S1450"VRemove the "isWcBad" field and declare it as a local variable in the relevant methods.(¾¸¥8Ïë³¯Ê-
+Csquid:S1481"(Remove this unused "src" local variable.(öÛ²C8¹…Ó¯Ê-
+lsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(¥ÒþÐûÿÿÿÿ8Ïë³¯Ê-
+gsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(Å´Äô8Ïë³¯Ê-
+T
+squid:S106"9Replace this use of System.out or System.err by a logger.(šÈÞ§8Ïë³¯Ê-
+¦%squid:RedundantThrowsDeclarationCheck"qRemove the declaration of thrown exception 'java.io.IOException', as it cannot be thrown from constructor's body.(ŠØü8Ïë³¯Ê-
+T
+squid:S106"9Replace this use of System.out or System.err by a logger.(šÈÞ§8Ïë³¯Ê-
+Tsquid:S1481"3Remove this unused "exEstimatedNum" local variable.(è“¯ÿûÿÿÿÿ8Ïë³¯Ê-
+Wsquid:S1854";Remove this useless assignment to local variable "comFile".(ØÐ”8Ïë³¯Ê-
+Ysquid:S1854"8Remove this useless assignment to local variable "temp".(Ë¾Ùµùÿÿÿÿ8Ïë³¯Ê-
+Jsquid:S1068".Remove this unused "wcCmpCount" private field.(Ýù×Œ8Ïë³¯Ê-
+vsquid:UselessImportCheck"MRemove this unused import 'eu.unitn.disi.db.grava.utils.NodeExSelComparator'.(Û¿¶˜8Ïë³¯Ê-
+Dsquid:S1148"#Use a logger to log this exception.(€ÉÔ…ýÿÿÿÿ8Ïë³¯Ê-
+Hsquid:S1068",Remove this unused "edAllEst" private field.(¥àá®8Ïë³¯Ê-
+Isquid:S1068"-Remove this unused "edPathEst" private field.(Óåð¸8Ïë³¯Ê-
+gsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(Å´Äô8Ïë³¯Ê-
+lsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(Ìë¹îúÿÿÿÿ8Ïë³¯Ê-
+lsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(Ù¢Ú¬ýÿÿÿÿ8Ïë³¯Ê-
+Xsquid:UselessImportCheck"/Remove this unused import 'java.util.Iterator'.(¥ÍòÕ8Ïë³¯Ê-
+zsquid:S1450"YRemove the "wcPathOnly" field and declare it as a local variable in the relevant methods.(†“¸Ôùÿÿÿÿ8Ïë³¯Ê-
+Isquid:S1481"(Remove this unused "iso" local variable.(Ëë—îýÿÿÿÿ8Ïë³¯Ê-
+lsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(É«†Çÿÿÿÿÿ8Ïë³¯Ê-
+lsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(‚†ŸÒúÿÿÿÿ8Ïë³¯Ê-
+ysquid:S1450"XRemove the "wcBsCount" field and declare it as a local variable in the relevant methods.(èÕ¿€þÿÿÿÿ8Ïë³¯Ê-
+T
+squid:S106"9Replace this use of System.out or System.err by a logger.(ó‘¯Í8Ïë³¯Ê-
+Ô%squid:RedundantThrowsDeclarationCheck"˜Remove the declaration of thrown exception 'eu.unitn.disi.db.command.exceptions.AlgorithmExecutionException', as it cannot be thrown from method's body.(”¢²¯øÿÿÿÿ8Ïë³¯Ê-
+gsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(¾çÚ…8Ïë³¯Ê-
+gsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ù€«Î8Ïë³¯Ê-
+Msquid:S1068",Remove this unused "edAdjEdt" private field.(»œ£çüÿÿÿÿ8Ïë³¯Ê-
+Ksquid:S1481"*Remove this unused "comBw" local variable.(ò£¯Éøÿÿÿÿ8Ïë³¯Ê-
+Ssquid:S1854"7Remove this useless assignment to local variable "ind".(ïñýœ8Ïë³¯Ê-
+Rsquid:S2696"6Make the enclosing method "static" or remove this set.(Ÿ£ê8Ïë³¯Ê-
+Dsquid:S1148"#Use a logger to log this exception.(€ÉÔ…ýÿÿÿÿ8Ïë³¯Ê-
+lsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(Âêœôøÿÿÿÿ8Ïë³¯Ê-
+Msquid:S1481",Remove this unused "isoTime" local variable.(þŠýÿÿÿÿ8Ïë³¯Ê-
+vsquid:S1450"[Remove the "edCandidates" field and declare it as a local variable in the relevant methods.(ã¢ÑC8Ïë³¯Ê-
+xsquid:S1450"WRemove the "wcAllEst" field and declare it as a local variable in the relevant methods.(Ô”ò¶ûÿÿÿÿ8Ïë³¯Ê-
+gsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ñ¥–ì8Ïë³¯Ê-
+gsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(äìƒŸ8Ïë³¯Ê-
+wsquid:S1450"VRemove the "answers" field and declare it as a local variable in the relevant methods.(×Å›îÿÿÿÿÿ8Ïë³¯Ê-
+gsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(Õ­þÄ8Ïë³¯Ê-
+T
+squid:S106"9Replace this use of System.out or System.err by a logger.(šÈÞ§8Ïë³¯Ê-
+T
+squid:S106"9Replace this use of System.out or System.err by a logger.(•ò®ù8Ïë³¯Ê-
+Wsquid:S2696"6Make the enclosing method "static" or remove this set.(æ§­–üÿÿÿÿ8Ïë³¯Ê-
+Y
+squid:S106"9Replace this use of System.out or System.err by a logger.(¦Ê²ôøÿÿÿÿ8Ïë³¯Ê-
+Ssquid:S1135"2Complete the task associated to this TODO comment.(ÕÌ®þÿÿÿÿ8Ïë³¯Ê-
+lsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(é©Â¼ÿÿÿÿÿ8Ïë³¯Ê-
+fsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ƒŸÆI8Ïë³¯Ê-
+Rsquid:S2696"6Make the enclosing method "static" or remove this set.(ÿÛ‚ 8Ïë³¯Ê-
+Fsquid:S1068"+Remove this unused "isWcBad" private field.(¾¸¥8Ïë³¯Ê-
+Jsquid:S1481")Remove this unused "temp" local variable.(Ë¾Ùµùÿÿÿÿ8Ïë³¯Ê-
+Fsquid:S00108")Either remove or fill this block of code.(å¥ž‡8Ïë³¯Ê-
+gsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ð ©€8Ïë³¯Ê-
+¢squid:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Ô¿¾Íÿÿÿÿÿ8Ïë³¯Ê-
+Ysquid:S1854"=Remove this useless assignment to local variable "infoNodes".(æŸ8Ïë³¯Ê-
+Wsquid:S1172"6Remove this unused method parameter "minimumFrquency".(”¢²¯øÿÿÿÿ8Ïë³¯Ê-
+Rsquid:S1854"7Remove this useless assignment to local variable "src".(öÛ²C8¹…Ó¯Ê-
+Dsquid:S1148"#Use a logger to log this exception.(€ÉÔ…ýÿÿÿÿ8Ïë³¯Ê-
+Y
+squid:S106"9Replace this use of System.out or System.err by a logger.(©üÃõüÿÿÿÿ8Ïë³¯Ê-
+zsquid:UselessImportCheck"LRemove this unused import 'eu.unitn.disi.db.grava.utils.NodeCostComparator'.(á‘Ê•üÿÿÿÿ8Ïë³¯Ê-
+Ssquid:S1135"2Complete the task associated to this TODO comment.(ÕÌ®þÿÿÿÿ8Ïë³¯Ê-
