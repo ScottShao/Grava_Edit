@@ -18,6 +18,7 @@
 package eu.unitn.disi.db.grava.graphs;
 
 import java.util.Collection;
+import java.util.HashMap;
 import java.util.concurrent.ExecutionException;
 
 /**
@@ -174,4 +175,5 @@ public interface Multigraph extends Iterable<Long> {
      * @throws NullPointerException If the vertwx is null
      */
     public boolean containsVertex(Long vertex) throws NullPointerException;
+    public HashMap<Long, LabelContainer> getLabelFreq();
 }

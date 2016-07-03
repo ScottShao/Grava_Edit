@@ -109,7 +109,7 @@ public class PruningAlgorithm extends Algorithm {
         //Map<Long,Integer> nodeFrequency;
         Map<Long,Integer> labelFrequency = new HashMap<>();
         Map<Long, Set<MappedNode>> candidateNextLevel = new HashMap<>();
-        labelFreq = ((BigMultigraph)graph).getLabelFreq();
+        labelFreq = graph.getLabelFreq();
         nodeSelectivities = new HashMap<Long, Double>();
         neighborLabels = new HashMap<Long, Integer>();
         visitSeq = new ArrayList<Long>();
