@@ -182,7 +182,7 @@ public class Cost {
 					double em;
 					costTemp = AVG_DEGREE;
 					for (Edge ee : visited) {
-						
+						if (ee.getLabel().equals(0L)) continue;//
 						em = AVG_DEGREE * ((BigMultigraph)graph).getLabelFreq().get(ee.getLabel()).getFrequency() / (double)graph.edgeSet().size();
 						costTemp -= em;
 					}

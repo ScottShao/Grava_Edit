@@ -66,6 +66,7 @@ public class EditDistance {
 	private int wcCmpCount;
 	private int wcUptCount;
 	private long bfSearchCount;
+	private long exBFSearchCount;
 	private long wcSearchCount;
 	private long exBsCount;
 	private int exCmpCount;
@@ -76,6 +77,7 @@ public class EditDistance {
 	private double wcElapsedTime;
 	private double exElapsedTime;
 	private double bfElapsedTime;
+	private double exBFTime;
 	private int wcCandidatesNum;
 	private int exCandidatesNum;
 	private int wcAfterNum;
@@ -183,8 +185,9 @@ public class EditDistance {
 			for (int exprimentTime = 0; exprimentTime < repititions; exprimentTime++) {
 				// ed.setThreshold(0);
 				for (Multigraph wildCardQuery : wildCardQueries) {
+//					System.out.println("wc query");
 //					for (Edge e : wildCardQuery.edgeSet()){
-//						System.out.println(e);
+//						System.out.println(e.getSource() + " " + e.getDestination() + " " + e.getLabel());
 //					}
 					this.setQ(wildCardQuery);
 					// System.out.println("queryfile:" + queryName);
@@ -196,7 +199,6 @@ public class EditDistance {
 					for (int exprimentTime1 = 0; exprimentTime1 < repititions; exprimentTime1++) {
 						StopWatch watch = new StopWatch();
 						watch.start();
-
 						loadingTime += watch.getElapsedTimeMillis();
 
 						tableAlgorithm = new ComputeGraphNeighbors();
@@ -218,6 +220,7 @@ public class EditDistance {
 						computingNeighborTime += watch.getElapsedTimeMillis();
 						// System.out.println(queryTables.toString());
 						watch.reset();
+						watch.getElapsedTimeSecs();
 						startingNode = this.getRootNode(true);
 //						InfoNode info = new InfoNode(startingNode);
 						// System.out.println("starting node:" + startingNode);
@@ -249,11 +252,11 @@ public class EditDistance {
 //						infoNodes.add(info);
 						queryGraphMapping = pruningAlgorithm
 								.getQueryGraphMapping();
-//						wcCandidatesNum += queryGraphMapping.get(startingNode).size();
+						wcCandidatesNum += queryGraphMapping.get(startingNode).size();
 //						System.out.println("before filtering:" + queryGraphMapping.get(startingNode).size());
-//						pruningAlgorithm.pathFilter();
-//						this.wcAfterNum += queryGraphMapping.get(startingNode).size();
-//						this.wcPathOnly += pruningAlgorithm.onlyPath();
+						pruningAlgorithm.pathFilter();
+						this.wcAfterNum += queryGraphMapping.get(startingNode).size();
+						this.wcPathOnly += pruningAlgorithm.onlyPath();
 //						System.out.println("after filtering:" + queryGraphMapping.get(startingNode).size());
 						// watch.getElapsedTimeMillis());
 						pruningTime += watch.getElapsedTimeMillis();
@@ -278,12 +281,12 @@ public class EditDistance {
 //						relatedQueriesUnique.addAll(relatedQueries);
 //						System.out.println(startingNode);
 						
-//						QuerySel qs = new QuerySel(G, wildCardQuery, startingNode);
+						QuerySel qs = new QuerySel(G, wildCardQuery, startingNode);
 //						
-//						Cost.cost = 0;
+						Cost.cost = 0;
 //						Cost.estimateMaxCost(wildCardQuery, startingNode, G, this.AVG_DEGREE, new HashSet<Edge>(), 1);
 //						Cost.estimateMaxCostWithLabelMaxNum(wildCardQuery, startingNode, this.AVG_DEGREE, G, new HashSet<Edge>(), 1);
-//						Cost.estimateExactCost(Q, startingNode, this.AVG_DEGREE, G, new HashSet<Edge>(), 1);
+						Cost.estimateExactCost(wildCardQuery, startingNode, this.AVG_DEGREE, G, new HashSet<Edge>(), 1);
 //						System.out.println(qs.getCanNumber(startingNode, this.AVG_DEGREE, 2));
 //						double tt = qs.getCanNumber(startingNode, this.AVG_DEGREE, 2);
 //						this.edCandidates += tt;
@@ -291,9 +294,9 @@ public class EditDistance {
 //						wcCost += qs.getCanNumber(startingNode, AVG_DEGREE, 2) * Cost.cost;
 //						wcCost += Cost.getCandidatesNum(wildCardQuery, startingNode, G) * Cost.cost;
 //						wcCost += qs.computeAdjNotCand(startingNode, AVG_DEGREE, this.neighbourNum) * Cost.cost;
-//						this.wcAllEst += qs.getCanNumber(startingNode, this.AVG_DEGREE, this.neighbourNum);
-//						this.wcAdjEdt += qs.computeAdjNotCand(startingNode, AVG_DEGREE, this.neighbourNum);
-//						this.wcPathEst += qs.computePathNotCand(startingNode, AVG_DEGREE, this.neighbourNum);
+						this.wcAllEst += qs.getCanNumber(startingNode, this.AVG_DEGREE, this.neighbourNum) * Cost.cost;
+						this.wcAdjEdt += qs.computeAdjNotCand(startingNode, AVG_DEGREE, this.neighbourNum) * Cost.cost;
+						this.wcPathEst += qs.computePathNotCand(startingNode, AVG_DEGREE, this.neighbourNum) * Cost.cost;
 //						System.out.println(tt + " wc " + Cost.cost);
 //						wcCost += Cost.getCandidatesNum(wildCardQuery, startingNode, G) * Cost.cost;
 //						wcCost += Cost.estimateQueryCost(wildCardQuery, startingNode, G, AVG_DEGREE);
@@ -419,9 +422,9 @@ public class EditDistance {
 						pruningAlgorithm.compute();
 						queryGraphMapping = pruningAlgorithm.getQueryGraphMapping();
 						
-//						wcCandidatesNum += queryGraphMapping.get(startingNode).size();
+						wcCandidatesNum += queryGraphMapping.get(startingNode).size();
 						pruningAlgorithm.pathFilter(true);
-//						this.wcAfterNum += queryGraphMapping.get(startingNode).size();
+						this.wcAfterNum += queryGraphMapping.get(startingNode).size();
 //						pruningTime += watch.getElapsedTimeMillis();
 						Multigraph prunedG = pruningAlgorithm.pruneGraph();
 						watch.reset();
@@ -448,7 +451,7 @@ public class EditDistance {
 //						QuerySel qs = new QuerySel(G, wildCardQuery, startingNode);
 //						
 //						Cost.cost = 0;
-//		//				Cost.estimateMaxCost(wildCardQuery, startingNode, G, this.AVG_DEGREE, new HashSet<Edge>(), 1);
+		//				Cost.estimateMaxCost(wildCardQuery, startingNode, G, this.AVG_DEGREE, new HashSet<Edge>(), 1);
 //						Cost.estimateMaxCostWithLabelMaxNum(wildCardQuery, startingNode, this.AVG_DEGREE, G, new HashSet<Edge>(), 1);
 //		//				Cost.estimateExactCost(Q, startingNode, this.AVG_DEGREE, G, new HashSet<Edge>(), 1);
 //		//				System.out.println(qs.getCanNumber(startingNode, this.AVG_DEGREE, 2));
@@ -540,6 +543,7 @@ public class EditDistance {
 		this.exAfterNum = 0;
 		relatedQueriesUnique = new HashSet<>();
 		this.isEdBad = false;
+		this.edIntNum = 0;
 		for (int exprimentTime = 0; exprimentTime < repititions; exprimentTime++) {
 			StopWatch watch = new StopWatch();
 			watch.start();
@@ -550,7 +554,7 @@ public class EditDistance {
 
 //			if (!this.isQueryMappable(Q)) {
 //				break;
-//			}
+//			} 
 //			loadingTime += watch.getElapsedTimeMillis();
 
 			tableAlgorithm = new ComputeGraphNeighbors();
@@ -621,7 +625,7 @@ public class EditDistance {
 //			relatedQueriesUnique.addAll(relatedQueries);
 //			System.out.println("intermediate:" + this.edIntNum);
 			
-//			QuerySel qs = new QuerySel(G, Q, startingNode);
+			QuerySel qs = new QuerySel(G, Q, startingNode);
 //			adj = qs.computeSelAdjNotCorrelated(1, startingNode, new HashSet<>(), 0, this.neighbourNum);
 //			path = qs.computeSelPathNotCorrelated(1, startingNode, new HashSet<>(), 0, this.neighbourNum);
 //			all = qs.computeSelAllNotCorrelated(Q);
@@ -629,19 +633,19 @@ public class EditDistance {
 			
 //			System.out.println(G.vertexSet().size()*qs.edProb(startingNode, this.AVG_DEGREE, 2));
 //			System.out.println(qs.getEdCanNumber(startingNode, AVG_DEGREE, 2));
-//			Cost.cost = 0;
+			Cost.cost = 0;
 //			Cost.estimateMaxCost(Q, startingNode, G, this.AVG_DEGREE, new HashSet<Edge>(), 1);
 //			Cost.estimateMaxCostWithLabelMaxNum(Q, startingNode, this.AVG_DEGREE, G, new HashSet<Edge>(), 1);
-//			Cost.estimateEdExactCost(Q, startingNode, AVG_DEGREE, G, new ArrayList<Edge>());
+			Cost.estimateEdExactCost(Q, startingNode, AVG_DEGREE, G, new ArrayList<Edge>());
 //			System.out.println(Cost.cost);
 //			double tt = qs.getEdCanNumber(startingNode, AVG_DEGREE, 2);
 //			edCost = tt  * Cost.cost;
 //			edCost = qs.getEdCanNumber(startingNode, AVG_DEGREE, 2) * Cost.cost;
 //			edCost = Cost.getCandidatesNum(Q, startingNode, G) * Cost.cost;
 //			edCost = qs.computeAdjNotCand(startingNode, AVG_DEGREE, this.neighbourNum) * Cost.cost;
-//			this.edAllEst = qs.getEdCanNumber(startingNode, AVG_DEGREE, this.neighbourNum);
-//			this.edAdjEdt = qs.computeAdjNotCand(startingNode, AVG_DEGREE, this.neighbourNum);
-//			this.edPathEst = qs.computePathNotCand(startingNode, AVG_DEGREE, this.neighbourNum);
+			this.edAllEst = qs.getEdCanNumber(startingNode, AVG_DEGREE, this.neighbourNum) * Cost.cost;
+			this.edAdjEdt = qs.computeAdjNotCand(startingNode, AVG_DEGREE, this.neighbourNum) * Cost.cost;
+			this.edPathEst = qs.computePathNotCand(startingNode, AVG_DEGREE, this.neighbourNum) * Cost.cost;
 //			System.out.println(startingNode + " " + tt + " ed  " + Cost.cost);
 //			System.out.println(startingNode);
 //			System.out.println("eds:" +this.edCandidates);
@@ -685,7 +689,181 @@ public class EditDistance {
 //		System.out.println(exUptCount);
 //		System.out.println(exSearchCount);
 	}
-
+	
+	public void runBFExtension() throws IOException, ParseException,
+	AlgorithmExecutionException {
+		long startTime = System.nanoTime();
+		System.out.println("Running extension");
+		Map<Long, Set<MappedNode>> queryGraphMapping = null;
+		ComputeGraphNeighbors tableAlgorithm = null;
+		NeighborTables queryTables = null;
+		NeighborTables graphTables = null;
+		PruningAlgorithm pruningAlgorithm = null;
+		//NextQueryVertexes nqv = null;
+		//Isomorphism iso = null;
+		//float loadingTime = 0;
+		//float computingNeighborTime = 0;
+		//float pruningTime = 0;
+		//float isoTime = 0;
+		this.exBFTime = 0;
+		this.exBFSearchCount = 0;
+		Utilities.searchCount = 0;
+//		String comFile = "comparison.txt";
+		//BufferedWriter comBw = new BufferedWriter(new FileWriter(comFile, true));
+		Long startingNode;
+//		Indexing ind = new Indexing();
+//		Selectivity sel = new Selectivity();
+//		ArrayList<InfoNode> infoNodes = new ArrayList<>();
+//		this.exCandidatesNum = 0;
+//		this.exAfterNum = 0;
+		relatedQueriesUnique = new HashSet<>();
+		this.isEdBad = false;
+		this.edIntNum = 0;
+		for (int exprimentTime = 0; exprimentTime < repititions; exprimentTime++) {
+			StopWatch watch = new StopWatch();
+			watch.start();
+		
+			Q = new BigMultigraph(queryName, queryName, true);
+			
+		//	ind.indexing((BigMultigraph) G);
+		
+		//	if (!this.isQueryMappable(Q)) {
+		//		break;
+		//	} 
+		//	loadingTime += watch.getElapsedTimeMillis();
+		
+			tableAlgorithm = new ComputeGraphNeighbors();
+			watch.reset();
+			tableAlgorithm.setNumThreads(threadsNum);
+			tableAlgorithm.setK(neighbourNum);
+			/**
+			tableAlgorithm.setGraph(G);
+			tableAlgorithm.compute();
+			tableAlgorithm.computePathFilter();
+			**/
+			graphTables = gTableAlgorithm.getNeighborTables();
+			tableAlgorithm.setGraph(Q);
+			tableAlgorithm.compute();
+			queryTables = tableAlgorithm.getNeighborTables();
+		//	computingNeighborTime += watch.getElapsedTimeMillis();
+			watch.reset();
+		//	startingNode = this.getRootNode(true);
+			startingNode = this.getRootNode(true);
+		//	InfoNode info = new InfoNode(startingNode);
+			// System.out.println("starting node:" + startingNode);
+			pruningAlgorithm = new PruningAlgorithm();
+			// Set starting node according to sels of nodes.
+			pruningAlgorithm.setStartingNode(startingNode);
+			pruningAlgorithm.setGraph(G);
+			pruningAlgorithm.setQuery(Q);
+			pruningAlgorithm.setK(this.neighbourNum);
+			pruningAlgorithm.setGraphTables(graphTables);
+			pruningAlgorithm.setQueryTables(queryTables);
+			pruningAlgorithm.setThreshold(this.threshold);
+			pruningAlgorithm.setgPathTables(gTableAlgorithm.getPathTables());
+			pruningAlgorithm.compute();
+			
+			
+		//	this.exBsCount = pruningAlgorithm.getBsCount();
+		//	this.exCmpCount = pruningAlgorithm.getCmpNbLabel();
+		//	this.exUptCount = pruningAlgorithm.getUptCount();
+		//	info.setBsCount(pruningAlgorithm.getBsCount());
+		//	info.setCmpCount(pruningAlgorithm.getCmpNbLabel());
+		//	info.setUptCount(pruningAlgorithm.getUptCount());
+		//	infoNodes.add(info);
+//			queryGraphMapping = pruningAlgorithm.getQueryGraphMapping();
+//			this.exCandidatesNum = queryGraphMapping.get(startingNode).size();
+		//	System.out.println("ex before:" + exCandidatesNum);
+			pruningAlgorithm.pathFilter();
+//			this.exAfterNum = queryGraphMapping.get(startingNode).size();
+//			this.exPathOnly = pruningAlgorithm.onlyPath();
+		//	System.out.println("ex after:" + queryGraphMapping.get(startingNode).size());
+		//	pruningTime += watch.getElapsedTimeMillis();
+			watch.reset();
+		
+			List<RelatedQuery> relatedQueries;
+		
+			EditDistanceQuerySearch edAlgorithm = new EditDistanceQuerySearch();
+			edAlgorithm.setStartingNode(startingNode);
+			
+			edAlgorithm.setQuery(Q);
+			edAlgorithm.setGraph(G);
+			edAlgorithm.setNumThreads(this.threadsNum);
+			edAlgorithm.setQueryToGraphMap(pruningAlgorithm
+					.getQueryGraphMapping());
+			edAlgorithm.setLimitedComputation(false);
+			edAlgorithm.setThreshold(threshold);
+			edAlgorithm.compute();
+		//	this.isEdBad = EditDistanceQuerySearch.isBad;
+//			this.edIntNum = Math.max(this.edIntNum, EditDistanceQuerySearch.interNum);
+		//	relatedQueries = edAlgorithm.getRelatedQueries();
+		//	relatedQueriesUnique.addAll(relatedQueries);
+		//	System.out.println("intermediate:" + this.edIntNum);
+			/**
+			QuerySel qs = new QuerySel(G, Q, startingNode);
+		//	adj = qs.computeSelAdjNotCorrelated(1, startingNode, new HashSet<>(), 0, this.neighbourNum);
+		//	path = qs.computeSelPathNotCorrelated(1, startingNode, new HashSet<>(), 0, this.neighbourNum);
+		//	all = qs.computeSelAllNotCorrelated(Q);
+		//	this.edCandidates -=  (Q.edgeSet().size() - 1) * qs.getCanNumber(startingNode, this.AVG_DEGREE, 2);
+			
+		//	System.out.println(G.vertexSet().size()*qs.edProb(startingNode, this.AVG_DEGREE, 2));
+		//	System.out.println(qs.getEdCanNumber(startingNode, AVG_DEGREE, 2));
+			Cost.cost = 0;
+		//	Cost.estimateMaxCost(Q, startingNode, G, this.AVG_DEGREE, new HashSet<Edge>(), 1);
+		//	Cost.estimateMaxCostWithLabelMaxNum(Q, startingNode, this.AVG_DEGREE, G, new HashSet<Edge>(), 1);
+			Cost.estimateEdExactCost(Q, startingNode, AVG_DEGREE, G, new ArrayList<Edge>());
+		//	System.out.println(Cost.cost);
+		//	double tt = qs.getEdCanNumber(startingNode, AVG_DEGREE, 2);
+		//	edCost = tt  * Cost.cost;
+		//	edCost = qs.getEdCanNumber(startingNode, AVG_DEGREE, 2) * Cost.cost;
+		//	edCost = Cost.getCandidatesNum(Q, startingNode, G) * Cost.cost;
+		//	edCost = qs.computeAdjNotCand(startingNode, AVG_DEGREE, this.neighbourNum) * Cost.cost;
+			this.edAllEst = qs.getEdCanNumber(startingNode, AVG_DEGREE, this.neighbourNum) * Cost.cost;
+			this.edAdjEdt = qs.computeAdjNotCand(startingNode, AVG_DEGREE, this.neighbourNum) * Cost.cost;
+			this.edPathEst = qs.computePathNotCand(startingNode, AVG_DEGREE, this.neighbourNum) * Cost.cost;
+		//	System.out.println(startingNode + " " + tt + " ed  " + Cost.cost);
+		//	System.out.println(startingNode);
+		//	System.out.println("eds:" +this.edCandidates);
+			String[] temp = queryName.split("/");
+			**/
+		//	if (relatedQueriesUnique.size() != 0) {
+		//		
+		//		System.out.println(temp[temp.length - 1]);
+		//	}
+		//	int tempCount = count;
+		//	for (RelatedQuery rq : relatedQueriesUnique) {
+		//		if (tempCount - count >= 1) break;
+		//		BufferedWriter bw = new BufferedWriter(new FileWriter("./queryFolder/AOL_Sim/" + temp[temp.length - 1]));
+		//		for (Edge e : rq.getEdgeSet()) {
+		//			bw.write(e.getSource() + " " + e.getDestination() + " " + e.getLabel());
+		//			bw.newLine();
+		//		}
+		//		bw.close();
+		//		tempCount++;
+		//	}
+		//	count = tempCount;
+		//	comBw.newLine();
+		//	isoTime += watch.getElapsedTimeMillis();
+			
+		}
+		
+		//comBw.close();
+		//Q = null;
+		//loadingTime = loadingTime / repititions;
+		//computingNeighborTime = computingNeighborTime / repititions;
+		//pruningTime = pruningTime / repititions;
+		//isoTime = isoTime / repititions;
+		//exSearchCount = Utilities.searchCount;
+		//exBsCount = exBsCount / repititions;
+		//exCmpCount = exCmpCount / repititions;
+		//exUptCount = exUptCount / repititions;
+		this.exBFSearchCount = Utilities.searchCount / repititions;
+		this.exBFTime = (double)(System.nanoTime() - startTime) / 1000000000;
+		//System.out.println(exBsCount);
+		//System.out.println(exCmpCount);
+		//System.out.println(exUptCount);
+		//System.out.println(exSearchCount);
+	}
 	public void runEditDistance() throws AlgorithmExecutionException,
 			ParseException, IOException {
 		String[] temp = queryName.split("/");
@@ -709,6 +887,7 @@ public class EditDistance {
 			this.runWildCard();
 			this.runBFWildCard();
 			this.runExtension();
+			this.runBFExtension();
 			break;
 		default:
 			throw new IllegalArgumentException("Wrong running arguements");
@@ -737,12 +916,14 @@ public class EditDistance {
 //				Utilities.choose(this.AVG_DEGREE, 2)* (a+b) * this.AVG_DEGREE);
 //		sb.append("," + this.wcSearchCount + "," + wcEstimatedCost + "," + this.exSearchCount + "," + exEstimatedCost);
 //		sb.append(temp[temp.length - 1] + ","  + this.wcSearchCount + ","  + this.exSearchCount + "," + this.wcCandidatesNum + ","  + exCandidatesNum + ","+ answerNum + "," + this.wcElapsedTime + "," + this.exElapsedTime + "," + (this.isWcBad ? 1 : 0) + "," + (this.isEdBad ? 1 : 0) + "," + this.wcIntNum + "," + this.wcIntSum + "," + this.edIntNum);
-		sb.append(temp[temp.length - 1] + "," + this.wcSearchCount + ","  + this.exSearchCount + "," + this.bfSearchCount + "," + this.wcElapsedTime + "," + this.exElapsedTime + "," + this.bfElapsedTime + "," + this.wcIntNum +"," + this.wcIntSum + "," + this.edIntNum + "," + this.bfIntNum + "," + this.bfIntSum);
+		sb.append(temp[temp.length - 1] + "," + this.wcSearchCount + ","  + this.exSearchCount + "," + this.bfSearchCount + ","  + this.exBFSearchCount+ "," + this.wcElapsedTime + "," + this.exElapsedTime + "," + this.bfElapsedTime + "," + this.exBFTime + ","+ this.wcIntNum +"," + this.wcIntSum + "," + this.edIntNum + "," + this.bfIntNum + "," + this.bfIntSum);
 		//		System.out.println(answerNum);
 //		System.out.println("size:" + G.edgeSet().size());
-//		this.appendCand(this.candComp, temp[temp.length - 1] , this.wcCandidatesNum, this.wcAfterNum, this.wcPathOnly, this.exCandidatesNum, this.exAfterNum, this.exPathOnly);
+//		if (this.exPathOnly > 10) {
+//			this.appendCand(this.candComp, temp[temp.length - 1] , this.wcCandidatesNum, this.wcAfterNum, this.wcPathOnly, this.exCandidatesNum, this.exAfterNum, this.exPathOnly);
+//		}
 //		this.appendSels(this.selsComp, temp[temp.length - 1] , this.wcCandidatesNum, this.wcAllEst, this.wcAdjEdt, this.wcPathEst, this.exCandidatesNum, this.edAllEst, this.edAdjEdt, this.edPathEst);
-		
+//		this.append(strList, temp[temp.length - 1], this.wcAllEst, this.wcAdjEdt, this.wcPathEst, this.edAllEst, this.edAdjEdt, this.edPathEst);
 		/*for (Edge e : Q.edgeSet()) {
 			double sel = ((BigMultigraph)G).getLabelFreq().get(e.getLabel()).getFrequency()/((double)G.edgeSet().size());
 			selSum += sel; 
@@ -779,7 +960,7 @@ public class EditDistance {
 //			sb.append("," + ((BigMultigraph)G).getLabelFreq().get(e.getLabel()).getFrequency()/((double)G.edgeSet().size()));
 //		}
 		System.out.println(a + " " + b + " " + sb.toString());
-		*/
+//		*/
 		cmpBw.write(sb.toString());
 		cmpBw.newLine();
 		cmpBw.flush();
@@ -809,7 +990,7 @@ public class EditDistance {
 	
 	public void writeCand(String fileName) {
 		try {
-			BufferedWriter bw = new BufferedWriter(new FileWriter(fileName));
+			BufferedWriter bw = new BufferedWriter(new FileWriter(fileName, true));
 			bw.write(" , wc, wc path, wc after, ed, ed path, ed after");
 			bw.newLine();
 			for (String str : this.candComp) {
@@ -869,6 +1050,21 @@ public class EditDistance {
 		strList.remove(goal);
 		if (goal != null) {
 		goal += "," + all + "," + adj + "," + path;
+		strList.add(goal);
+		}
+	}
+	
+	public void append(List<String> strList, String fileName, double wcAll, double wcAdj, double wcPath, double edAll, double edAdj, double edPath) {
+		String goal = null;
+		for (String str : strList) {
+			if (str.startsWith(fileName)) {
+				goal = str;
+				break;
+			}
+		}
+		strList.remove(goal);
+		if (goal != null) {
+		goal += "," + wcAll + "," + wcAdj + "," + wcPath +  "," + edAll + "," + edAdj + "," + edPath;
 		strList.add(goal);
 		}
 	}

@@ -333,24 +333,23 @@ public class PruningAlgorithm extends Algorithm {
 			return;
 		}
 		int length = sb.length();
-		boolean hasEdge = false;
 		for (Edge e : query.outgoingEdgesOf(node)) {
 			Long nextNode = e.getDestination().equals(node) ? e.getSource() : e.getDestination();
 			if (!visited.contains(e) && !e.getLabel().equals(0L) && !nextNode.equals(node)) {
-				sb.append(e.getLabel());
+				Long temp = e.getLabel();
+				sb.append(temp);
 				dfs(nextNode, visited, sb, depth + 1, paths);
 				sb.setLength(length);
-				hasEdge = true;
 			}
 		}
 		
 		for (Edge e : query.incomingEdgesOf(node)) {
 			Long nextNode = e.getDestination().equals(node) ? e.getSource() : e.getDestination();
 			if (!visited.contains(e) && !e.getLabel().equals(0L) && !nextNode.equals(node)) {
-				sb.append(e.getLabel());
+				Long temp = -e.getLabel();
+				sb.append(temp);
 				dfs(nextNode, visited, sb, depth + 1, paths);
 				sb.setLength(length);
-				hasEdge = true;
 			}
 		}
 	}

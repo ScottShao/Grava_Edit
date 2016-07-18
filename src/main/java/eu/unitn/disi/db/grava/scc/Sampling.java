@@ -112,8 +112,7 @@ public class Sampling {
 		// }
 		// long temp = Int2Long(v);
 		// System.out.println("long:" + temp);
-		File out = new File(fileName);
-		BufferedWriter bw = new BufferedWriter(new FileWriter(out));
+		
 		queue.add(v);
 		count++;
 		Collection<Edge> adjEdges = null;
@@ -123,6 +122,9 @@ public class Sampling {
 		int degree;
 		int cur;
 		boolean flag = true;
+		double limit = 0.05;
+		double crt = 0;
+		List<String> results = new ArrayList<>();
 		while (flag && !queue.isEmpty()) {
 			top = queue.poll();
 			cur = distance.poll();
@@ -132,7 +134,7 @@ public class Sampling {
 			}
 			visited.add(top);
 			count++;
-			System.out.println("current visiting:" + top);
+//			System.out.println("current visiting:" + top);
 			adjEdges = G.adjEdges(top);
 			// System.out.println(adjEdges.size());
 			degree = 0;
@@ -145,6 +147,11 @@ public class Sampling {
 			for (Edge e : adjEdges) {
 				// System.out.println("Count:" + count);
 				// System.out.println("degree:" + degree);
+				double sel = ((double)G.getLabelFreq().get(e.getLabel()).getFrequency()) / G.edgeSet().size();
+				if (sel + crt > limit) {
+					continue;
+				}
+				crt += sel;
 				if (count > this.maxNodesNum - 1) {
 					flag = false;
 					System.out.println("maximum nodes num");
@@ -164,12 +171,11 @@ public class Sampling {
 					// e.getDestination() + " " + e.getLabel());
 					// bw.write(e.getSource() + " " + e.getDestination() + " " +
 					// e.getLabel());
-					System.out.println(newNode);
-					System.out.println(e.getSource() + " " + e.getDestination()
-							+ " " + e.getLabel());
-					bw.write(e.getSource() + " " + e.getDestination() + " "
+//					System.out.println(newNode);
+//					System.out.println(e.getSource() + " " + e.getDestination()
+//							+ " " + e.getLabel());
+					results.add(e.getSource() + " " + e.getDestination() + " "
 							+ e.getLabel());
-					bw.newLine();
 
 					// if(ans <= ansNum && Math.random() <= rate){
 					//
@@ -196,7 +202,16 @@ public class Sampling {
 			// System.out.println("rate:" + rate);
 
 		}
+		if (results.size() >= 3) {
+		File out = new File(fileName);
+		BufferedWriter bw = new BufferedWriter(new FileWriter(out));
+		for (String str : results) {
+			bw.write(str);
+			bw.newLine();
+		}
 		bw.close();
+		}
+		System.out.println("crt fre:" + crt);
 
 		// if(count > this.maxNodesNum){
 		// System.out.println("Exceed the maximum nodes number");
@@ -757,10 +772,21 @@ public class Sampling {
 	}
 
 	public static void main(String[] args) throws ParseException, IOException {
-		BigMultigraph G = new BigMultigraph(args[4] + "nodes-sin.graph",
-				args[4] + "nodes-sout.graph", false);
-		System.out.println(args[3]);
-		Sampling s = new Sampling(G, Integer.parseInt(args[0]), Integer.parseInt(args[1]), Long.parseLong(args[2]), args[3]);
+		String graph = "100000";
+		BigMultigraph G = new BigMultigraph(graph + "nodes-sin.graph",
+				graph + "nodes-sout.graph", false);
+		int k = 20;
+		int maxNodes = 5;
+		int maxDegree = 4;
+		int size = G.vertexSet().size();
+		Random rnd = new Random();
+		Long[] nodes = G.vertexSet().toArray(new Long[size]);
+		for (int i = 0; i < k; i++) {
+			System.out.println(rnd.nextInt());
+			Long node = nodes[rnd.nextInt(size)];
+			System.out.println(node);
+			Sampling s = new Sampling(G, maxNodes, maxDegree, node, "queryFolder/100000nodes/" + i + ".txt");
+		}
 //		int size = G.vertexSet().size();
 //		Random rnd = new Random();
 //		Long[] nodes = G.vertexSet().toArray(new Long[size]);
