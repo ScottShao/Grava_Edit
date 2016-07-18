@@ -1,0 +1,28 @@
+E2E508148.txt
+running wild card
+running bf wild card
+PruningAlgorithm DEBUG - kept 1730, removed 27241 over 28971 edges non mapping edges in 35ms
+ PruningAlgorithm DEBUG - kept 15466, removed 13505 over 28971 edges non mapping edges in 86ms
+ Running extension
+Running extension
+E2E705148.txt
+running wild card
+running bf wild card
+PruningAlgorithm DEBUG - kept 2403, removed 26568 over 28971 edges non mapping edges in 35ms
+ PruningAlgorithm DEBUG - kept 1741, removed 27230 over 28971 edges non mapping edges in 10ms
+ Running extension
+Running extension
+E2E705548.txt
+running wild card
+running bf wild card
+PruningAlgorithm DEBUG - kept 9487, removed 19484 over 28971 edges non mapping edges in 65ms
+ PruningAlgorithm DEBUG - kept 15466, removed 13505 over 28971 edges non mapping edges in 45ms
+ Running extension
+Running extension
+E2E88704948.txt
+running wild card
+running bf wild card
+PruningAlgorithm DEBUG - kept 9195, removed 19776 over 28971 edges non mapping edges in 17ms
+ PruningAlgorithm DEBUG - kept 15466, removed 13505 over 28971 edges non mapping edges in 39ms
+ Running extension
+Running extension
