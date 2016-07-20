@@ -1,7 +1,7 @@
 1
 t # 0 3 2
-v 0 null
-v 1 null
-v 2 null
+v 0 75
+v 1 10
+v 2 50
 e 50 75 6
 e 75 10 4
