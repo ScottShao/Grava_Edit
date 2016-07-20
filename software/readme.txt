@@ -1,0 +1,32 @@
+GraphM v0.1
+
+Command:
+
+	./ filenameofdatabases filenameofquery threshold
+
+
+Example: 
+
+	Grapham d.txt q.txt
+
+
+Input Format:
+
+	NumberofGraphs
+	t # 0 NumberofVerticesofgraph_0 NumberofEdgesofgraph_0
+	v 0 LabelofVertex_0
+	......
+	v N-1 LabelofVertex_N-1
+	e x_0 y_0 LabelofEdge_0
+	......
+	e x_NumberofEdges-1 y_NumberofEdges-1 LabelofEdge_NumberofEdges-1
+	......
+	t # NumberofGraphs-1  NumberofVerticesofgraph_NumberofGraphs-1 NumberofEdgesofgraph_NumberofGraphs-1
+
+//note that the number of graphs in the database graph file should be ONE.
+USAGE AGREEMENT
+
+Redistribution and commercial usage are not permitted. 
+
+Shijie Zhang
+shijie.zhang@gmail.com
