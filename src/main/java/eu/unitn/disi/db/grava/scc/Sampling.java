@@ -481,21 +481,21 @@ public class Sampling {
 			throws FileNotFoundException, UnsupportedEncodingException {
 		List<Long> nodes = new ArrayList<>();
 		nodes.add(node);
-		generateQueriesWithAtMost(edgeNum, nodes, new ArrayList<Edge>(), 0);
+		generateQueriesWithAtMost(edgeNum, nodes, new ArrayList<Edge>(), 0, 0);
 	}
 
 	private void generateQueriesWithAtMost(int edgeNum, List<Long> nodes,
-			List<Edge> edges, int depth) throws FileNotFoundException,
+			List<Edge> edges, int depth, double crt) throws FileNotFoundException,
 			UnsupportedEncodingException {
 		if (depth > edges.size() * 10 + 10) {
 			return;
 		}
 		if (edgeNum == 0) {
-			File f = new File("./test/E" + edges.size() + "E/");
+			File f = new File("./test/test/E1E/");
 			if (!f.exists()) {
 				f.mkdirs();
 			}
-			PrintWriter fw = new PrintWriter("./test/E" + edges.size() + "E/" + "E" + edges.size() + "E"
+			PrintWriter fw = new PrintWriter("./test/test/E1E/" + "E" + edges.size() + "E"
 					+ nodes.get(0) + ".txt", "UTF-8");
 			for (Edge e : edges) {
 				fw.write(e.getSource() + " " + e.getDestination() + " "
@@ -516,14 +516,16 @@ public class Sampling {
 //						.getFrequency() > 100) {
 //					continue;
 //				}
-				if (Math.random() <= prob && !edges.contains(e)) {
+				double sel = ((BigMultigraph) G).getLabelFreq().get(e.getLabel()).getFrequency() / (double)G.vertexSet().size();
+				if ( !edges.contains(e) && crt + sel<= 0.05) {
 					edgeNum--;
 					edges.add(e);
 					nodes.add(e.getDestination());
+					crt += sel;
 					break;
 				}
 			}
-			generateQueriesWithAtMost(edgeNum, nodes, edges, depth + 1);
+			generateQueriesWithAtMost(edgeNum, nodes, edges, depth + 1, crt);
 		}
 	}
 
@@ -772,21 +774,21 @@ public class Sampling {
 	}
 
 	public static void main(String[] args) throws ParseException, IOException {
-		String graph = "100000";
+		String graph = "o10000";
 		BigMultigraph G = new BigMultigraph(graph + "nodes-sin.graph",
 				graph + "nodes-sout.graph", false);
-		int k = 20;
-		int maxNodes = 5;
-		int maxDegree = 4;
-		int size = G.vertexSet().size();
-		Random rnd = new Random();
-		Long[] nodes = G.vertexSet().toArray(new Long[size]);
-		for (int i = 0; i < k; i++) {
-			System.out.println(rnd.nextInt());
-			Long node = nodes[rnd.nextInt(size)];
-			System.out.println(node);
-			Sampling s = new Sampling(G, maxNodes, maxDegree, node, "queryFolder/100000nodes/" + i + ".txt");
-		}
+//		int k = 20;
+//		int maxNodes = 5;
+//		int maxDegree = 4;
+//		int size = G.vertexSet().size();
+//		Random rnd = new Random();
+//		Long[] nodes = G.vertexSet().toArray(new Long[size]);
+//		for (int i = 0; i < k; i++) {
+//			System.out.println(rnd.nextInt());
+//			Long node = nodes[rnd.nextInt(size)];
+//			System.out.println(node);
+//			Sampling s = new Sampling(G, maxNodes, maxDegree, node, "queryFolder/100000nodes/" + i + ".txt");
+//		}
 //		int size = G.vertexSet().size();
 //		Random rnd = new Random();
 //		Long[] nodes = G.vertexSet().toArray(new Long[size]);
@@ -804,8 +806,8 @@ public class Sampling {
 //				 }
 //		 	}
 //		 }
-//		 Sampling s = new Sampling(G);
-//		 s.generateQueries(10, 1000);
+		 Sampling s = new Sampling(G);
+		 s.generateQueries(10, 100);
 		// s.generateClique(3, 0, new ArrayList<Long>());
 	}
 

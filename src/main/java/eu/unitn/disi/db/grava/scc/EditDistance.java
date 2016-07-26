@@ -89,7 +89,7 @@ public class EditDistance {
 	private final int AVG_DEGREE = 9;
 	private final int MAX_DEGREE = 688;
 	private int count = 0;
-	private int answerNum;
+	private long answerNum;
 	private List<String> strList;
 	private double all;
 	private double path;
@@ -505,7 +505,7 @@ public class EditDistance {
 		//		System.out.println(wcSearchCount);
 				this.bfSearchCount = Utilities.searchCount / repititions;
 			}
-			answerNum = relatedQueriesUnique.size();
+//			answerNum = relatedQueriesUnique.size();
 //			System.out.println(this.wcIntNum + " " + this.wcIntSum);
 		} else {
 		
@@ -717,6 +717,7 @@ public class EditDistance {
 //		this.exCandidatesNum = 0;
 //		this.exAfterNum = 0;
 		relatedQueriesUnique = new HashSet<>();
+		EditDistanceQuerySearch.answerCount = 0;
 		this.isEdBad = false;
 		this.edIntNum = 0;
 		for (int exprimentTime = 0; exprimentTime < repititions; exprimentTime++) {
@@ -796,8 +797,8 @@ public class EditDistance {
 			edAlgorithm.compute();
 		//	this.isEdBad = EditDistanceQuerySearch.isBad;
 //			this.edIntNum = Math.max(this.edIntNum, EditDistanceQuerySearch.interNum);
-		//	relatedQueries = edAlgorithm.getRelatedQueries();
-		//	relatedQueriesUnique.addAll(relatedQueries);
+//			relatedQueries = edAlgorithm.getRelatedQueries();
+//			relatedQueriesUnique.addAll(relatedQueries);
 		//	System.out.println("intermediate:" + this.edIntNum);
 			/**
 			QuerySel qs = new QuerySel(G, Q, startingNode);
@@ -859,6 +860,7 @@ public class EditDistance {
 		//exUptCount = exUptCount / repititions;
 		this.exBFSearchCount = Utilities.searchCount / repititions;
 		this.exBFTime = (double)(System.nanoTime() - startTime) / 1000000000;
+		this.answerNum = EditDistanceQuerySearch.answerCount;
 		//System.out.println(exBsCount);
 		//System.out.println(exCmpCount);
 		//System.out.println(exUptCount);
@@ -884,9 +886,9 @@ public class EditDistance {
 			this.runExtension();
 			break;
 		case BOTH:
-			this.runWildCard();
+//			this.runWildCard();
 			this.runBFWildCard();
-			this.runExtension();
+//			this.runExtension();
 			this.runBFExtension();
 			break;
 		default:
@@ -916,7 +918,7 @@ public class EditDistance {
 //				Utilities.choose(this.AVG_DEGREE, 2)* (a+b) * this.AVG_DEGREE);
 //		sb.append("," + this.wcSearchCount + "," + wcEstimatedCost + "," + this.exSearchCount + "," + exEstimatedCost);
 //		sb.append(temp[temp.length - 1] + ","  + this.wcSearchCount + ","  + this.exSearchCount + "," + this.wcCandidatesNum + ","  + exCandidatesNum + ","+ answerNum + "," + this.wcElapsedTime + "," + this.exElapsedTime + "," + (this.isWcBad ? 1 : 0) + "," + (this.isEdBad ? 1 : 0) + "," + this.wcIntNum + "," + this.wcIntSum + "," + this.edIntNum);
-		sb.append(temp[temp.length - 1] + "," + this.wcSearchCount + ","  + this.exSearchCount + "," + this.bfSearchCount + ","  + this.exBFSearchCount+ "," + this.wcElapsedTime + "," + this.exElapsedTime + "," + this.bfElapsedTime + "," + this.exBFTime + ","+ this.wcIntNum +"," + this.wcIntSum + "," + this.edIntNum + "," + this.bfIntNum + "," + this.bfIntSum);
+		sb.append(temp[temp.length - 1] + "," + this.wcSearchCount + ","  + this.exSearchCount + "," + this.bfSearchCount + ","  + this.exBFSearchCount+ "," + this.wcElapsedTime + "," + this.exElapsedTime + "," + this.bfElapsedTime + "," + this.exBFTime + ","+ this.wcIntNum +"," + this.wcIntSum + "," + this.edIntNum + "," + this.bfIntNum + "," + this.bfIntSum + "," + this.answerNum);
 		//		System.out.println(answerNum);
 //		System.out.println("size:" + G.edgeSet().size());
 //		if (this.exPathOnly > 10) {
