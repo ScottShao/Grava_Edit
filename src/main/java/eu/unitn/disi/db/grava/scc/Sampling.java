@@ -495,7 +495,7 @@ public class Sampling {
 			if (!f.exists()) {
 				f.mkdirs();
 			}
-			PrintWriter fw = new PrintWriter("./test/test/E1E/" + "E" + edges.size() + "E"
+			PrintWriter fw = new PrintWriter("./SAPPER/100000/" + "E" + edges.size() + "E"
 					+ nodes.get(0) + ".txt", "UTF-8");
 			for (Edge e : edges) {
 				fw.write(e.getSource() + " " + e.getDestination() + " "
