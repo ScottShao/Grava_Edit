@@ -82,10 +82,10 @@ public class Sapper {
 		}
 	}
 	public static void main(String[] args) throws ParseException, IOException  {
-		String graph = "o10000";
+		String graph = "50000-15";
 		String out = "software/sapper" + graph + ".txt";
 		write(graph, out);
-		ArrayList<String> queryFiles = FileOperator.getFileName("software/" + graph);
+		ArrayList<String> queryFiles = FileOperator.getFileName("software/50000");
 		BufferedWriter bw = new BufferedWriter(new FileWriter("software/s" + graph + "/q.txt"));
 		System.out.println(queryFiles.size());
 		bw.write(queryFiles.size() + "\n");

@@ -463,16 +463,16 @@ public class Sampling {
 			if (count > queriesNum)
 				break;
 			if (Math.random() < 0.4) {
-				for (int i = 2; i <= edgeNum; i++) {
+//				for (int i = 2; i <= edgeNum; i++) {
 					try {
-						this.generateDifSizeQueries(i, node);
+						this.generateDifSizeQueries(4, node);
 					} catch (FileNotFoundException
 							| UnsupportedEncodingException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
 					count++;
-				}
+//				}
 			}
 		}
 	}
@@ -774,7 +774,7 @@ public class Sampling {
 	}
 
 	public static void main(String[] args) throws ParseException, IOException {
-		String graph = "o10000";
+		String graph = "10000";
 		BigMultigraph G = new BigMultigraph(graph + "nodes-sin.graph",
 				graph + "nodes-sout.graph", false);
 //		int k = 20;
