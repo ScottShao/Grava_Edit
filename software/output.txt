@@ -4,37 +4,37 @@ Starting approximate graph matching...
 Processing query graph: 0
 there is no approximate match for query graph 0
 Processing query graph: 1
-Match #: 0
-157060 80523 184 186124 
+there is no approximate match for query graph 1
 Processing query graph: 2
-there is no approximate match for query graph 2
+Match #: 0
+231116 176949 25092 159 379476 
 Processing query graph: 3
 Match #: 0
-124067 136 99982 28683 
+175552 25396 280774 417335 29 
 Processing query graph: 4
-there is no approximate match for query graph 4
+Match #: 0
+250586 287033 145859 269053 221 
 Processing query graph: 5
 there is no approximate match for query graph 5
 Processing query graph: 6
 there is no approximate match for query graph 6
 Processing query graph: 7
-Match #: 0
-54205 25173 65304 213 
+there is no approximate match for query graph 7
 Processing query graph: 8
-there is no approximate match for query graph 8
+Match #: 0
+125 239440 365181 286388 338318 
 Processing query graph: 9
-there is no approximate match for query graph 9
+Match #: 0
+269190 25587 280559 206 
 Processing query graph: 10
-Match #: 0
-181419 63505 62883 66 67364 
+there is no approximate match for query graph 10
 Processing query graph: 11
-there is no approximate match for query graph 11
+Match #: 0
+108583 313564 3517 171496 150 
 Processing query graph: 12
-Match #: 0
-85977 122 50722 37395 
+there is no approximate match for query graph 12
 Processing query graph: 13
-Match #: 0
-38899 3980 224 152056 
+there is no approximate match for query graph 13
 Processing query graph: 14
 there is no approximate match for query graph 14
 Processing query graph: 15
@@ -42,41 +42,39 @@ there is no approximate match for query graph 15
 Processing query graph: 16
 there is no approximate match for query graph 16
 Processing query graph: 17
-Match #: 0
-177893 120274 200015 12 39947 
+there is no approximate match for query graph 17
 Processing query graph: 18
 there is no approximate match for query graph 18
 Processing query graph: 19
 there is no approximate match for query graph 19
 Processing query graph: 20
-Match #: 0
-7134 13610 66248 63095 39 
+there is no approximate match for query graph 20
 Processing query graph: 21
-there is no approximate match for query graph 21
+Match #: 0
+58723 390200 350961 68017 40 
 Processing query graph: 22
-there is no approximate match for query graph 22
+Match #: 0
+185265 370978 44 411279 
 Processing query graph: 23
 there is no approximate match for query graph 23
 Processing query graph: 24
-Match #: 0
-95 121563 
+there is no approximate match for query graph 24
 Processing query graph: 25
-Match #: 0
-152480 14689 155986 127 201897 
+there is no approximate match for query graph 25
 Processing query graph: 26
 there is no approximate match for query graph 26
 Processing query graph: 27
-Match #: 0
-31803 186267 53 33524 157203 
+there is no approximate match for query graph 27
 Processing query graph: 28
-there is no approximate match for query graph 28
-Processing query graph: 29
 Match #: 0
-201296 102960 4610 13 128556 
+170813 171 206048 233909 
+Processing query graph: 29
+there is no approximate match for query graph 29
 Processing query graph: 30
 there is no approximate match for query graph 30
 Processing query graph: 31
-there is no approximate match for query graph 31
+Match #: 0
+48868 23764 1351 205 
 Processing query graph: 32
 there is no approximate match for query graph 32
 Processing query graph: 33
@@ -84,7 +82,8 @@ there is no approximate match for query graph 33
 Processing query graph: 34
 there is no approximate match for query graph 34
 Processing query graph: 35
-there is no approximate match for query graph 35
+Match #: 0
+221796 9 150738 44737 121309 
 Processing query graph: 36
 there is no approximate match for query graph 36
 Processing query graph: 37
@@ -95,39 +94,35 @@ Processing query graph: 39
 there is no approximate match for query graph 39
 Processing query graph: 40
 Match #: 0
-110957 62422 26949 186 
+276158 254141 110 272362 373583 
 Processing query graph: 41
 there is no approximate match for query graph 41
 Processing query graph: 42
-Match #: 0
-133107 60353 198519 105 
+there is no approximate match for query graph 42
 Processing query graph: 43
 there is no approximate match for query graph 43
 Processing query graph: 44
-Match #: 0
-83228 49 174697 104835 82941 
+there is no approximate match for query graph 44
 Processing query graph: 45
-Match #: 0
-131651 209 176911 193433 
+there is no approximate match for query graph 45
 Processing query graph: 46
 there is no approximate match for query graph 46
 Processing query graph: 47
-Match #: 0
-178497 98 29911 91091 47446 
+there is no approximate match for query graph 47
 Processing query graph: 48
-there is no approximate match for query graph 48
+Match #: 0
+3157 135 294708 5663 270766 
 Processing query graph: 49
-there is no approximate match for query graph 49
+Match #: 0
+391157 89864 338146 173 200770 
 Processing query graph: 50
 there is no approximate match for query graph 50
 Processing query graph: 51
-Match #: 0
-106562 92305 37845 23521 192 
+there is no approximate match for query graph 51
 Processing query graph: 52
 there is no approximate match for query graph 52
 Processing query graph: 53
-Match #: 0
-198331 127163 119604 148880 76 
+there is no approximate match for query graph 53
 Processing query graph: 54
 there is no approximate match for query graph 54
 Processing query graph: 55
@@ -137,34 +132,23 @@ there is no approximate match for query graph 56
 Processing query graph: 57
 there is no approximate match for query graph 57
 Processing query graph: 58
-there is no approximate match for query graph 58
+Match #: 0
+81 347453 84638 
 Processing query graph: 59
-Match #: 0
-105837 62140 51955 100 181243 
+there is no approximate match for query graph 59
 Processing query graph: 60
-Match #: 0
-93192 19 78608 127608 
+there is no approximate match for query graph 60
 Processing query graph: 61
 there is no approximate match for query graph 61
 Processing query graph: 62
-Match #: 0
-29224 10494 25506 94 41916 
+there is no approximate match for query graph 62
 Processing query graph: 63
-Match #: 0
-107715 64824 76575 35 188881 
+there is no approximate match for query graph 63
 Processing query graph: 64
 there is no approximate match for query graph 64
 Processing query graph: 65
-Match #: 0
-50831 6 147490 44001 118719 
+there is no approximate match for query graph 65
 Processing query graph: 66
-Match #: 0
-29 96252 158068 95821 
-Processing query graph: 67
-there is no approximate match for query graph 67
-Processing query graph: 68
-there is no approximate match for query graph 68
-Processing query graph: 69
-there is no approximate match for query graph 69
-Indexing Time 71 seconds, -509182 microseconds
-Matching Time 31 seconds, 373242 microseconds
+there is no approximate match for query graph 66
+Indexing Time 260 seconds, 86592 microseconds
+Matching Time 65 seconds, 370647 microseconds

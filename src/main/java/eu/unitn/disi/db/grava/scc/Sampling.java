@@ -774,7 +774,7 @@ public class Sampling {
 	}
 
 	public static void main(String[] args) throws ParseException, IOException {
-		String graph = "10000";
+		String graph = "100000";
 		BigMultigraph G = new BigMultigraph(graph + "nodes-sin.graph",
 				graph + "nodes-sout.graph", false);
 //		int k = 20;
