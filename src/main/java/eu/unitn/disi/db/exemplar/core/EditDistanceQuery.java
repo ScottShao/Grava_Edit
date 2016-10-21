@@ -313,7 +313,6 @@ public class EditDistanceQuery extends RelatedQuery {
         }
         return queryGraph;
     }
-
     @Override
     public boolean equals(Object obj) {
         if (obj == null) {
@@ -322,8 +321,8 @@ public class EditDistanceQuery extends RelatedQuery {
         if (getClass() != obj.getClass()) {
             return false;
         }
-        if (obj instanceof EditDistanceQuery) {
-            final EditDistanceQuery other = (EditDistanceQuery) obj;
+        if (obj instanceof IsomorphicQuery) {
+            final IsomorphicQuery other = (IsomorphicQuery) obj;
 
             Map<Long, MappedNode> otherNodes = other.getNodesMapping();
 
@@ -341,6 +340,7 @@ public class EditDistanceQuery extends RelatedQuery {
 
             if (otherEdges.size() == this.usedEdgesIDs.size()) {
                 for (String otherEdge : otherEdges) {
+                	
                     if (!this.usedEdgesIDs.contains(otherEdge)) {
                         return false;
                     }
@@ -350,6 +350,34 @@ public class EditDistanceQuery extends RelatedQuery {
         }
         return false;
     }
+//    @Override
+//    public boolean equals(Object obj) {
+//        if (obj == null) {
+//            return false;
+//        }
+//        if (getClass() != obj.getClass()) {
+//        	System.out.println("class not same");
+//            return false;
+//        }
+//        if (obj instanceof EditDistanceQuery) {
+//            final EditDistanceQuery other = (EditDistanceQuery) obj;
+//            List<Edge> list = other.getEdgeSet();
+//            Set<Edge> crt = new HashSet<>(this.getEdgeSet());
+//            System.out.println("crt");
+//            for (Edge e : crt) {
+//            	System.out.println(e);
+//            }
+//            System.out.println("checking");
+//            for (Edge e : list) {
+//            	System.out.println(e);
+//            	if (!crt.contains(e)) {
+//            		return false;
+//            	}
+//            }
+//            return true;
+//        } 
+//        return false;
+//    }
 
     @Override
     public String toString() {
@@ -362,7 +390,8 @@ public class EditDistanceQuery extends RelatedQuery {
 
     @Override
     public int hashCode() {
-        return this.usedEdgesIDs.hashCode();
+//        return this.usedEdgesIDs.hashCode();
+    	return 0;
     }
 
 	@Override
@@ -387,6 +416,14 @@ public class EditDistanceQuery extends RelatedQuery {
 	public boolean isUsing(Long graphNode) {
 		// TODO Auto-generated method stub
 		return false;
+	}
+
+	public Map<Edge, Edge> getMappedEdges() {
+		return mappedEdges;
+	}
+
+	public void setMappedEdges(Map<Edge, Edge> mappedEdges) {
+		this.mappedEdges = mappedEdges;
 	}
 	
 	

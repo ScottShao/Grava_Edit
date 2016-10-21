@@ -462,10 +462,9 @@ public class Sampling {
 		for (Long node : nodes) {
 			if (count > queriesNum)
 				break;
-			if (Math.random() < 0.4) {
 //				for (int i = 2; i <= edgeNum; i++) {
 					try {
-						this.generateDifSizeQueries(4, node);
+						this.generateDifSizeQueries(8, node);
 					} catch (FileNotFoundException
 							| UnsupportedEncodingException e) {
 						// TODO Auto-generated catch block
@@ -473,7 +472,6 @@ public class Sampling {
 					}
 					count++;
 //				}
-			}
 		}
 	}
 
@@ -495,7 +493,7 @@ public class Sampling {
 			if (!f.exists()) {
 				f.mkdirs();
 			}
-			PrintWriter fw = new PrintWriter("./SAPPER/100000/" + "E" + edges.size() + "E"
+			PrintWriter fw = new PrintWriter("./dist/normal/low/" + "E" + edges.size() + "E"
 					+ nodes.get(0) + ".txt", "UTF-8");
 			for (Edge e : edges) {
 				fw.write(e.getSource() + " " + e.getDestination() + " "
@@ -512,10 +510,10 @@ public class Sampling {
 			int edgeSize = oes.size();
 			double prob = 1 / (double) oes.size();
 			for (Edge e : oes) {
-//				if (((BigMultigraph) G).getLabelFreq().get(e.getLabel())
-//						.getFrequency() > 100) {
-//					continue;
-//				}
+				if (((BigMultigraph) G).getLabelFreq().get(e.getLabel())
+						.getFrequency() > 150) {
+					continue;
+				}
 				double sel = ((BigMultigraph) G).getLabelFreq().get(e.getLabel()).getFrequency() / (double)G.vertexSet().size();
 				if ( !edges.contains(e) && crt + sel<= 0.05) {
 					edgeNum--;
@@ -774,9 +772,9 @@ public class Sampling {
 	}
 
 	public static void main(String[] args) throws ParseException, IOException {
-		String graph = "100000";
-		BigMultigraph G = new BigMultigraph(graph + "nodes-sin.graph",
-				graph + "nodes-sout.graph", false);
+		String graph = "normal";
+		BigMultigraph G = new BigMultigraph(graph + "-sin.graph",
+				graph + "-sout.graph", false);
 //		int k = 20;
 //		int maxNodes = 5;
 //		int maxDegree = 4;

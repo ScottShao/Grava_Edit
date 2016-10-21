@@ -152,6 +152,7 @@ public class IsomorphicQuerySearch extends RelatedQuerySearch {
         watch.stop();
 //        info("Computed related in %dms", watch.getElapsedTimeMillis());
     }
+    
 	public Long getStartingNode() {
 		return startingNode;
 	}

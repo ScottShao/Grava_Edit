@@ -85,10 +85,10 @@ public class EDMatchingRecursiveStep extends AlgorithmStep<EditDistanceQuery> {
                     }
                     EditDistanceQuerySearch.answerCount += relatedQueriesPartial.size();
 //                    relatedQueries.addAll(relatedQueriesPartial);
-//                    for (EditDistanceQuery partial : relatedQueriesPartial) {
-//                    	if(partial.getQuery().edgeSet().size() == query.edgeSet().size())
-//                    		relatedQueries.add(partial);
-//                    }
+                    for (EditDistanceQuery partial : relatedQueriesPartial) {
+                    	if(partial.getQuery().edgeSet().size() == query.edgeSet().size())
+                    		relatedQueries.add(partial);
+                    }
                     if (!warned && watch.getElapsedTimeMillis() > WARN_TIME && EditDistanceQuerySearch.answerCount > MAX_RELATED) {
                         warn("More than " + MAX_RELATED + " partial isomorphic results");
                         warned = true;

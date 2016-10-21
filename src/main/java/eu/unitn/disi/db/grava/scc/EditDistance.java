@@ -23,6 +23,8 @@ import java.util.Map.Entry;
 import java.util.Set;
 
 import eu.unitn.disi.db.command.exceptions.AlgorithmExecutionException;
+import eu.unitn.disi.db.exemplar.core.EditDistanceQuery;
+import eu.unitn.disi.db.exemplar.core.IsomorphicQuery;
 import eu.unitn.disi.db.exemplar.core.RelatedQuery;
 import eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors;
 import eu.unitn.disi.db.exemplar.core.algorithms.ComputePathGraphNeighbors;
@@ -38,6 +40,7 @@ import eu.unitn.disi.db.grava.graphs.InfoNode;
 import eu.unitn.disi.db.grava.graphs.LabelContainer;
 import eu.unitn.disi.db.grava.graphs.Multigraph;
 import eu.unitn.disi.db.grava.graphs.Selectivity;
+import eu.unitn.disi.db.grava.utils.Convertion;
 import eu.unitn.disi.db.grava.utils.FileOperator;
 import eu.unitn.disi.db.grava.utils.MethodOption;
 import eu.unitn.disi.db.grava.utils.NodeCostComparator;
@@ -254,9 +257,9 @@ public class EditDistance {
 								.getQueryGraphMapping();
 						wcCandidatesNum += queryGraphMapping.get(startingNode).size();
 //						System.out.println("before filtering:" + queryGraphMapping.get(startingNode).size());
-						pruningAlgorithm.pathFilter();
+//						pruningAlgorithm.pathFilter();
 						this.wcAfterNum += queryGraphMapping.get(startingNode).size();
-						this.wcPathOnly += pruningAlgorithm.onlyPath();
+//						this.wcPathOnly += pruningAlgorithm.onlyPath();
 //						System.out.println("after filtering:" + queryGraphMapping.get(startingNode).size());
 						// watch.getElapsedTimeMillis());
 						pruningTime += watch.getElapsedTimeMillis();
@@ -281,7 +284,7 @@ public class EditDistance {
 //						relatedQueriesUnique.addAll(relatedQueries);
 //						System.out.println(startingNode);
 						
-						QuerySel qs = new QuerySel(G, wildCardQuery, startingNode);
+//						QuerySel qs = new QuerySel(G, wildCardQuery, startingNode);
 //						
 						Cost.cost = 0;
 //						Cost.estimateMaxCost(wildCardQuery, startingNode, G, this.AVG_DEGREE, new HashSet<Edge>(), 1);
@@ -294,9 +297,9 @@ public class EditDistance {
 //						wcCost += qs.getCanNumber(startingNode, AVG_DEGREE, 2) * Cost.cost;
 //						wcCost += Cost.getCandidatesNum(wildCardQuery, startingNode, G) * Cost.cost;
 //						wcCost += qs.computeAdjNotCand(startingNode, AVG_DEGREE, this.neighbourNum) * Cost.cost;
-						this.wcAllEst += qs.getCanNumber(startingNode, this.AVG_DEGREE, this.neighbourNum) * Cost.cost;
-						this.wcAdjEdt += qs.computeAdjNotCand(startingNode, AVG_DEGREE, this.neighbourNum) * Cost.cost;
-						this.wcPathEst += qs.computePathNotCand(startingNode, AVG_DEGREE, this.neighbourNum) * Cost.cost;
+//						this.wcAllEst += qs.getCanNumber(startingNode, this.AVG_DEGREE, this.neighbourNum) * Cost.cost;
+//						this.wcAdjEdt += qs.computeAdjNotCand(startingNode, AVG_DEGREE, this.neighbourNum) * Cost.cost;
+//						this.wcPathEst += qs.computePathNotCand(startingNode, AVG_DEGREE, this.neighbourNum) * Cost.cost;
 //						System.out.println(tt + " wc " + Cost.cost);
 //						wcCost += Cost.getCandidatesNum(wildCardQuery, startingNode, G) * Cost.cost;
 //						wcCost += Cost.estimateQueryCost(wildCardQuery, startingNode, G, AVG_DEGREE);
@@ -364,10 +367,38 @@ public class EditDistance {
 //		float pruningTime = 0;
 //		float isoTime = 0;
 		Utilities.searchCount = 0;
+		HashSet<RelatedQuery> relatedQueriesUnique = null;
 		this.bfIntNum = 0;
 		this.bfIntSum = 0;
+		Q = new BigMultigraph(queryName, queryName, true);
+		if (!this.isQueryMappable(Q)) {
+			return;
+		}
+		Convertion con = new Convertion();
+		Map<Long, Integer> labelCount = new HashMap<>();
+		for (Edge e : Q.edgeSet()) {
+			if (labelCount.containsKey(e.getLabel())) {
+				labelCount.put(e.getLabel(), labelCount.get(e.getLabel()) + 1);
+			} else {
+				labelCount.put(e.getLabel(), 1);
+			}
+		}
+		System.out.println("Original query:");
+//		String temp = con.toReadable(Q.edgeSet());
+//		if (temp == null) {
+//			System.out.println("null");
+//			return;
+//		}
+//		System.out.print(temp);
+//		for (Edge e : Q.edgeSet()) {
+//			System.out.println(e.getSource() + " " + e.getLabel() + " " + e.getDestination());
+//			System.out.println(con.toReadable(e));
+//		}
+		System.out.println("==================");
+		System.out.println("Anwser Set:");
+		double start = System.nanoTime();
 		if (threshold != 0) {
-			HashSet<RelatedQuery> relatedQueriesUnique = new HashSet<RelatedQuery>();
+			relatedQueriesUnique = new HashSet<>();
 			WildCardQuery wcq = new WildCardQuery(threshold);
 			wcq.run(queryName);
 			Set<Multigraph> wildCardQueries = wcq.getWcQueries();
@@ -444,8 +475,9 @@ public class EditDistance {
 						
 						this.bfIntNum = Math.max(this.bfIntNum, IsomorphicQuerySearch.interNum);
 						this.bfIntSum += IsomorphicQuerySearch.interNum;
-		//				relatedQueries = edAlgorithm.getRelatedQueries();
-		//				relatedQueriesUnique.addAll(relatedQueries);
+						relatedQueries = edAlgorithm.getRelatedQueries();
+						relatedQueriesUnique.addAll(relatedQueries);
+						
 		//				System.out.println(startingNode);
 						
 //						QuerySel qs = new QuerySel(G, wildCardQuery, startingNode);
@@ -510,6 +542,83 @@ public class EditDistance {
 		} else {
 		
 		}
+		System.out.println(relatedQueriesUnique.size());
+		System.out.println("search takes " + (System.nanoTime() - start));
+		/*
+		int ttCount = 0;
+		Set<String> iso = new HashSet<>();
+		Set<String> ed = new HashSet<>();
+		Set<String> ed2 = new HashSet<>();
+		int isoCount = 0;
+		int ed1Count = 0;
+		int ed2Count = 0;
+		for (RelatedQuery rq : relatedQueriesUnique) {
+//			if (ttCount > 100) {
+//				break;
+//			}
+			List<Edge> edgeSet = new ArrayList<>();
+			for (Entry<Edge, Edge> en: ((IsomorphicQuery)rq).getMappedEdges().entrySet()) {
+				edgeSet.add(en.getValue());
+//				System.out.println(en.getValue());
+//				System.out.println(en.getValue().getSource() + " " + en.getValue().getLabel() + " " + en.getValue().getDestination());
+//				System.out.println(con.toReadable(en.getValue()));
+			}
+			Map<Long, Integer> ansLabelCount = new HashMap<>();
+			for (Edge e : edgeSet) {
+				if (ansLabelCount.containsKey(e.getLabel())) {
+					ansLabelCount.put(e.getLabel(), ansLabelCount.get(e.getLabel()) + 1);
+				} else {
+					ansLabelCount.put(e.getLabel(), 1);
+				}
+			}
+			String tt = "";
+//			String tt = con.toReadable(edgeSet);
+			if (tt == null) {
+				continue;
+			}
+			ttCount++;
+			int distance = 0;
+			for (Entry<Long, Integer> en : ansLabelCount.entrySet()) {
+				if (!labelCount.containsKey(en.getKey()) || labelCount.get(en.getKey()) != en.getValue()) {
+					distance++;
+				}
+			}
+			if (distance == 0) {
+//				System.out.println("iso");
+//				iso.add(tt);
+				isoCount++;
+			} else if (distance == 1){
+//				System.out.println("ed");
+//				ed.add(tt);
+				ed1Count++;
+			} else {
+//				ed2.add(tt);
+				ed2Count++;
+			}
+//			System.out.println("count :" + count);
+//			System.out.print(tt);
+//			count++;
+//			System.out.println("================");
+		}
+//		int count = 0;
+//		System.out.println("Isomorphism:" + isoCount);
+//		for (String mm : iso) {
+//			System.out.println("count:" + count);
+//			System.out.print(mm);
+//			System.out.println("===============");
+//			count++;
+//		}
+//		count = 0;
+//		System.out.println("Edit distance 1:" + ed1Count);
+//		System.out.println("Edit distance 2:" + ed2Count);
+//		for (String mm : ed) {
+//			System.out.println("count:" + count);
+//			System.out.print(mm);
+//			System.out.println("===============");
+//			count++;
+//		}
+ * 
+ */
 		//to do
 		this.bfElapsedTime = (double)(System.nanoTime() - startTime) / 1000000000.0;
 	}
@@ -541,7 +650,7 @@ public class EditDistance {
 		ArrayList<InfoNode> infoNodes = new ArrayList<>();
 		this.exCandidatesNum = 0;
 		this.exAfterNum = 0;
-		relatedQueriesUnique = new HashSet<>();
+		HashSet<EditDistanceQuery> relatedQueriesUnique = new HashSet<>();
 		this.isEdBad = false;
 		this.edIntNum = 0;
 		for (int exprimentTime = 0; exprimentTime < repititions; exprimentTime++) {
@@ -716,7 +825,7 @@ public class EditDistance {
 //		ArrayList<InfoNode> infoNodes = new ArrayList<>();
 //		this.exCandidatesNum = 0;
 //		this.exAfterNum = 0;
-		relatedQueriesUnique = new HashSet<>();
+		HashSet<EditDistanceQuery> relatedQueriesUnique = new HashSet<>();
 		EditDistanceQuerySearch.answerCount = 0;
 		this.isEdBad = false;
 		this.edIntNum = 0;
@@ -797,8 +906,22 @@ public class EditDistance {
 			edAlgorithm.compute();
 		//	this.isEdBad = EditDistanceQuerySearch.isBad;
 //			this.edIntNum = Math.max(this.edIntNum, EditDistanceQuerySearch.interNum);
-//			relatedQueries = edAlgorithm.getRelatedQueries();
+			relatedQueries = edAlgorithm.getRelatedQueries();
+			System.out.println(relatedQueries.size());
+			for (RelatedQuery rq : relatedQueries) {
+				relatedQueriesUnique.add((EditDistanceQuery)rq);
+			}
 //			relatedQueriesUnique.addAll(relatedQueries);
+			System.out.println(relatedQueriesUnique.size());
+			int count = 0;
+			for (RelatedQuery rq : relatedQueriesUnique) {
+				System.out.println("count :" + count);
+				for (Edge e : rq.getEdgeSet()) {
+					System.out.println(e);
+				}
+				count++;
+				System.out.println("================");
+			}
 		//	System.out.println("intermediate:" + this.edIntNum);
 			/**
 			QuerySel qs = new QuerySel(G, Q, startingNode);
@@ -886,10 +1009,10 @@ public class EditDistance {
 			this.runExtension();
 			break;
 		case BOTH:
-//			this.runWildCard();
-			this.runBFWildCard();
+			this.runWildCard();
+//			this.runBFWildCard();
 //			this.runExtension();
-			this.runBFExtension();
+//			this.runBFExtension();
 			break;
 		default:
 			throw new IllegalArgumentException("Wrong running arguements");
