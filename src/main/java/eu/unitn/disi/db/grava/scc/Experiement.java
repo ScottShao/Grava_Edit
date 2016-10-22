@@ -87,14 +87,18 @@ public class Experiement {
 		ed.setCandComp(candList);
 //		List<String> selList = new ArrayList<>();
 //		ed.setSelsComp(selList);
+		double start = System.nanoTime();
 		Multigraph G = new BigMultigraph(graphName + "-sin.graph", graphName
 				+ "-sout.graph");
+		
 		ComputeGraphNeighbors tableAlgorithm = new ComputeGraphNeighbors();
 		tableAlgorithm.setK(neighbourNum);
 		tableAlgorithm.setGraph(G);
 		tableAlgorithm.setNumThreads(threadsNum);
 		tableAlgorithm.compute();
-		tableAlgorithm.computePathFilter();
+		System.out.println(System.nanoTime() - start);
+//		tableAlgorithm.computePathFilter();
+		System.out.println("loading graph takes " + (System.nanoTime() - start));
 //		HashMap<Long, LabelContainer> labelFreq = G.getLabelFreq();
 //		Map<Connection, int[]> conCount = tableAlgorithm.getConCount();
 //		TreeSet<Connection> ts = new TreeSet<>(new Comparator<Connection>(){

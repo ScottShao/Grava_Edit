@@ -192,7 +192,8 @@ public class ComputeGraphNeighbors extends Algorithm {
 			return;
 		}
 		int length = sb.length();
-		boolean hasEdge = false;
+//		boolean hasEdge = false;
+		int size = labels.size();
 		for (Edge e : graph.outgoingEdgesOf(node)) {
 			Long nextNode = e.getDestination().equals(node) ? e.getSource() : e.getDestination();
 			if (!visited.contains(e) && !e.getLabel().equals(0L) && !nextNode.equals(node)) {
@@ -201,8 +202,8 @@ public class ComputeGraphNeighbors extends Algorithm {
 				labels.add(temp);
 				dfs(nextNode, visited, sb, depth + 1, bf, labels);
 				sb.setLength(length);
-				labels.remove(labels.size() - 1);
-				hasEdge = true;
+				labels.remove(size);
+//				hasEdge = true;
 			}
 		}
 		
@@ -213,9 +214,9 @@ public class ComputeGraphNeighbors extends Algorithm {
 				sb.append(temp);
 				labels.add(temp);
 				dfs(nextNode, visited, sb, depth + 1, bf, labels);
-				labels.remove(labels.size() - 1);
+				labels.remove(size);
 				sb.setLength(length);
-				hasEdge = true;
+//				hasEdge = true;
 			}
 		}
 		
