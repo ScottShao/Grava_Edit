@@ -135,7 +135,7 @@ public class Subgraph {
 	}
 	
 	public static void main(String[] args) throws ParseException, IOException {
-		Subgraph s = new Subgraph(1000, 74845748L, "normal-sin.graph", "test.graph");
+		Subgraph s = new Subgraph(1000000, 70578472568248L, "freebase-sin.graph", "1M.graph");
 	}
 
 }
