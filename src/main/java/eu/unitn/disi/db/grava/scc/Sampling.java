@@ -775,12 +775,14 @@ public class Sampling {
 	}
 
 	public static void main(String[] args) throws ParseException, IOException {
-		String graph = "normal";
+		String graph = "freebase";
 		BigMultigraph G = new BigMultigraph(graph + "-sin.graph",
 				graph + "-sout.graph", false);
 //		int k = 20;
-//		int maxNodes = 5;
-//		int maxDegree = 4;
+		int maxNodes = 1000000;
+		int maxDegree = 10000;
+		Long node = 67678472568248L;
+		Sampling s = new Sampling(G, maxNodes, maxDegree, node, "1M.txt");
 //		int size = G.vertexSet().size();
 //		Random rnd = new Random();
 //		Long[] nodes = G.vertexSet().toArray(new Long[size]);
@@ -807,8 +809,8 @@ public class Sampling {
 //				 }
 //		 	}
 //		 }
-		 Sampling s = new Sampling(G);
-		 s.generateQueries(10, 100);
+//		 Sampling s = new Sampling(G);
+//		 s.generateQueries(10, 100);
 		// s.generateClique(3, 0, new ArrayList<Long>());
 	}
 
