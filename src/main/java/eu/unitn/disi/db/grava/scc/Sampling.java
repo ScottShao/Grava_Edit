@@ -37,7 +37,7 @@ public class Sampling {
 	private int visitedNodesNum;
 	private int numberOfNodes;
 	private int count;
-	private Queue<Integer> distance;
+//	private Queue<Integer> distance;
 	private HashSet<Long> visited;
 	private int dis;
 	private int pre;
@@ -59,7 +59,7 @@ public class Sampling {
 		// IntToLong = this.constructIntToLong(vertexSet);
 		// LongToInt = this.constructLongToInt(vertexSet);
 		queue = new LinkedList<Long>();
-		distance = new LinkedList<Integer>();
+//		distance = new LinkedList<Integer>();
 		visited = new HashSet<Long>();
 		// marked = new boolean[G.numberOfNodes()];
 		this.maxDegree = maxDegree;
@@ -70,7 +70,7 @@ public class Sampling {
 		count = 0;
 		dis = 0;
 		pre = -1;
-		distance.add(dis);
+//		distance.add(dis);
 		rate = 0.1;
 		this.bfs(G, startingNode, fileName);
 	}
@@ -124,10 +124,12 @@ public class Sampling {
 		boolean flag = true;
 		double limit = 0.05;
 		double crt = 0;
-		List<String> results = new ArrayList<>();
+//		List<String> results = new ArrayList<>();
+		File out = new File(fileName);
+		BufferedWriter bw = new BufferedWriter(new FileWriter(out));
 		while (flag && !queue.isEmpty()) {
 			top = queue.poll();
-			cur = distance.poll();
+//			cur = distance.poll();
 			
 			if (visited.contains(top)) {
 				continue;
@@ -138,12 +140,12 @@ public class Sampling {
 			adjEdges = G.adjEdges(top);
 			// System.out.println(adjEdges.size());
 			degree = 0;
-			if (cur != pre) {
-				dis++;
-				pre = cur;
-				rate *= 1 / Math.exp(dis);
-				// System.out.println("distance " + cur +" rate " + rate);
-			}
+//			if (cur != pre) {
+//				dis++;
+//				pre = cur;
+//				rate *= 1 / Math.exp(dis);
+//				// System.out.println("distance " + cur +" rate " + rate);
+//			}
 			for (Edge e : adjEdges) {
 				// System.out.println("Count:" + count);
 				// System.out.println("degree:" + degree);
@@ -166,7 +168,7 @@ public class Sampling {
 				// System.out.println("new Nodes" + newNode);
 				if (!visited.contains(newNode)) {
 					queue.add(newNode);
-					distance.add(dis);
+//					distance.add(dis);
 					// System.out.println(e.getSource() + " " +
 					// e.getDestination() + " " + e.getLabel());
 					// bw.write(e.getSource() + " " + e.getDestination() + " " +
@@ -174,9 +176,9 @@ public class Sampling {
 //					System.out.println(newNode);
 //					System.out.println(e.getSource() + " " + e.getDestination()
 //							+ " " + e.getLabel());
-					results.add(e.getSource() + " " + e.getDestination() + " "
+					bw.write(e.getSource() + " " + e.getDestination() + " "
 							+ e.getLabel());
-
+					bw.newLine();
 					// if(ans <= ansNum && Math.random() <= rate){
 					//
 					// ans++;
@@ -202,16 +204,17 @@ public class Sampling {
 			// System.out.println("rate:" + rate);
 
 		}
-		if (results.size() >= 3) {
-		File out = new File(fileName);
-		BufferedWriter bw = new BufferedWriter(new FileWriter(out));
-		for (String str : results) {
-			bw.write(str);
-			bw.newLine();
-		}
 		bw.close();
-		}
-		System.out.println("crt fre:" + crt);
+//		if (results.size() >= 3) {
+//		File out = new File(fileName);
+//		BufferedWriter bw = new BufferedWriter(new FileWriter(out));
+//		for (String str : results) {
+//			bw.write(str);
+//			bw.newLine();
+//		}
+//		bw.close();
+//		}
+//		System.out.println("crt fre:" + crt);
 
 		// if(count > this.maxNodesNum){
 		// System.out.println("Exceed the maximum nodes number");
