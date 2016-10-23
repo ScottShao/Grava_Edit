@@ -64,7 +64,9 @@ public class GraphIsomorphismRecursiveStep extends AlgorithmStep<RelatedQuery> {
         int i = 0;
         this.isQuit = false;
         while (graphNodes.hasNext()) {
+        	
         	MappedNode node = graphNodes.next();
+        	System.out.println("Processing node " + node.getNodeID());
 //        	System.out.println(node);
         	i++;
             try {
@@ -82,11 +84,11 @@ public class GraphIsomorphismRecursiveStep extends AlgorithmStep<RelatedQuery> {
                         continue;
                     }
                     IsomorphicQuerySearch.answerCount += relatedQueriesPartial.size();
-                    relatedQueries.addAll(relatedQueriesPartial);
+//                    relatedQueries.addAll(relatedQueriesPartial);
 //                    for (RelatedQuery rq : relatedQueries){
 //                    	System.out.println(rq);
 //                    }
-                    if (IsomorphicQuerySearch.answerCount > MAX_RELATED) {
+                    if (watch.getElapsedTimeMillis() > WARN_TIME || IsomorphicQuerySearch.answerCount > MAX_RELATED) {
                         warn("More than " + MAX_RELATED + " partial isomorphic results");
                         warned = true;
                         if (limitComputation) {
@@ -116,7 +118,7 @@ public class GraphIsomorphismRecursiveStep extends AlgorithmStep<RelatedQuery> {
                 IsomorphicQuerySearch.isBad = true;
                 error("Memory exausted, so we are returning something but not everything.");
                 System.gc();
-                return new LinkedList<>(relatedQueries);
+                return new LinkedList<>();
             }
 
             //if (watch.getElapsedTimeMillis() > WARN_TIME) {
