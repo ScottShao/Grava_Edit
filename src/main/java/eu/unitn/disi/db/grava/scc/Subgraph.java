@@ -116,12 +116,19 @@ public class Subgraph {
 				Long src = Long.parseLong(words[0]);
 				Long des = Long.parseLong(words[1]);
 				Long label = Long.parseLong(words[2]);
-				if (visited.contains(src) || visited.contains(des)) {
-					visited.add(src);
-					visited.add(des);
-					bw.write(src + " " + des + " " + label);
-					bw.newLine();
-					if (visited.size() >= maxNode && !second) break;
+				if (second) {
+					if (visited.contains(src) && visited.contains(des)) {
+						bw.write(src + " " + des + " " + label);
+						bw.newLine();
+					}
+				} else {
+					if (visited.contains(src) || visited.contains(des)) {
+						visited.add(src);
+						visited.add(des);
+						bw.write(src + " " + des + " " + label);
+						bw.newLine();
+						if (visited.size() >= maxNode) break;
+					}
 				}
 				
 			}
