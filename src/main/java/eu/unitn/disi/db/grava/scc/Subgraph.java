@@ -55,9 +55,9 @@ public class Subgraph {
 		this.visited = new HashSet<>();
 		visited.add(startingNode);
 		while (visited.size() < maxNode) {
-			this.readFile();
+			this.readFile(false);
 		}
-		this.readFile();
+		this.readFile(true);
 //		bfs();
 	}
 	
@@ -105,7 +105,7 @@ public class Subgraph {
 		bw.close();
 		
 	}
-	private void readFile() {
+	private void readFile(boolean second) {
 		try {
 			BufferedReader bf = new BufferedReader(new FileReader(input));
 			BufferedWriter bw = new BufferedWriter(new FileWriter(output));
@@ -121,7 +121,7 @@ public class Subgraph {
 					visited.add(des);
 					bw.write(src + " " + des + " " + label);
 					bw.newLine();
-					if (visited.size() >= maxNode) break;
+					if (visited.size() >= maxNode && !second) break;
 				}
 				
 			}
