@@ -40,6 +40,7 @@ public class Subgraph {
 	private Long startingNode;
 	private String input;
 	private String output;
+	private Set<Long> visited;
 	/**
 	 * @throws IOException 
 	 * 
@@ -51,8 +52,12 @@ public class Subgraph {
 		this.output = output;
 		this.in = new HashMap<>();
 		this.out = new HashMap<>();
-		this.readFile();
-		bfs();
+		this.visited = new HashSet<>();
+		visited.add(startingNode);
+		while (visited.size() < maxNode) {
+			this.readFile();
+		}
+//		bfs();
 	}
 	
 	private void bfs() throws IOException {
@@ -102,6 +107,7 @@ public class Subgraph {
 	private void readFile() {
 		try {
 			BufferedReader bf = new BufferedReader(new FileReader(input));
+			BufferedWriter bw = new BufferedWriter(new FileWriter(output));
 			String line = null;
 			int count = 0;
 			while ((line = bf.readLine()) != null) {
@@ -109,22 +115,19 @@ public class Subgraph {
 				Long src = Long.parseLong(words[0]);
 				Long des = Long.parseLong(words[1]);
 				Long label = Long.parseLong(words[2]);
-				Tuple one = new Tuple(src, des, label);
-				Set<Tuple> set = in.get(des);
-				if (set == null) {
-					set = new HashSet<>();
-					in.put(des, set);
+				if (visited.contains(src) || visited.contains(des)) {
+					visited.add(src);
+					visited.add(des);
+					bw.write(src + " " + des + " " + label);
+					bw.newLine();
+					if (visited.size() >= maxNode) break;
 				}
-				set.add(one);
-				set = out.get(src);
-				if (set == null) {
-					set = new HashSet<>();
-					out.put(src, set);
-				}
-				set.add(one);
-				count++;
-				if (count % 100000 == 0) System.out.println("Processing " + count + "  lines");
+				
 			}
+			System.out.println("crt nodes number " + visited.size());
+			bw.flush();
+			bf.close();
+			bw.close();
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -135,7 +138,7 @@ public class Subgraph {
 	}
 	
 	public static void main(String[] args) throws ParseException, IOException {
-		Subgraph s = new Subgraph(1000000, 70578472568248L, "freebase-sin.graph", "1M.graph");
+		Subgraph s = new Subgraph(1000000, 48L, "freebase-sin.graph", "1M.graph");
 	}
 
 }
