@@ -190,7 +190,7 @@ public class GraphIsomorphismRecursiveStep extends AlgorithmStep<RelatedQuery> {
         List<Edge> sortedEdges = sortEdge(queryEdges, this.labelFreq);
         //Look if we can map all the outgoing/ingoing graphEdges of the query node
         for (Edge queryEdge : sortedEdges) {
-        	
+        	System.out.println("Processs answer number: " + relatedQueries.size());
 //        	System.out.println(queryEdge);
 //            info("Trying to map the edge " + queryEdge);
             List<IsomorphicQuery> newRelatedQueries = new ArrayList<>();
@@ -203,6 +203,7 @@ public class GraphIsomorphismRecursiveStep extends AlgorithmStep<RelatedQuery> {
                     toTestRelatedQueries.add(current);
                 }
             }
+            relatedQueries.clear();
             IsomorphicQuerySearch.interNum = Math.max(toTestRelatedQueries.size(), IsomorphicQuerySearch.interNum);
             // reset, we do not want too many duplicates
             relatedQueries = new LinkedList<>();
