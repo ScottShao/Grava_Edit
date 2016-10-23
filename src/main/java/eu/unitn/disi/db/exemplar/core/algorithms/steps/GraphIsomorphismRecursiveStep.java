@@ -86,16 +86,27 @@ public class GraphIsomorphismRecursiveStep extends AlgorithmStep<RelatedQuery> {
 //                    for (RelatedQuery rq : relatedQueries){
 //                    	System.out.println(rq);
 //                    }
-                    
-                    if ((!warned && watch.getElapsedTimeMillis() > WARN_TIME && IsomorphicQuerySearch.answerCount > MAX_RELATED)) {
+                    if (IsomorphicQuerySearch.answerCount > MAX_RELATED) {
                         warn("More than " + MAX_RELATED + " partial isomorphic results");
                         warned = true;
                         if (limitComputation) {
                             warn("Computation interrupted after " + IsomorphicQuerySearch.answerCount + " partial isomorphic results");
                             break;
                         }
+                        IsomorphicQuerySearch.answerCount = 0;
+                        relatedQueriesPartial.clear();
                         IsomorphicQuerySearch.isBad = true;
                     }
+                    
+//                    if ((!warned && watch.getElapsedTimeMillis() > WARN_TIME && IsomorphicQuerySearch.answerCount > MAX_RELATED)) {
+//                        warn("More than " + MAX_RELATED + " partial isomorphic results");
+//                        warned = true;
+//                        if (limitComputation) {
+//                            warn("Computation interrupted after " + IsomorphicQuerySearch.answerCount + " partial isomorphic results");
+//                            break;
+//                        }
+//                        IsomorphicQuerySearch.isBad = true;
+//                    }
                 }
 //                System.out.println(Utilities.searchCount);
             } catch (OutOfMemoryError E) {
