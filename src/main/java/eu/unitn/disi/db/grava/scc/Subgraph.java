@@ -57,6 +57,7 @@ public class Subgraph {
 		while (visited.size() < maxNode) {
 			this.readFile();
 		}
+		this.readFile();
 //		bfs();
 	}
 	
