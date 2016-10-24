@@ -218,7 +218,7 @@ public class EditDistance {
 						tableAlgorithm.setGraph(Q);
 						tableAlgorithm.setMaxDegree(this.MAX_DEGREE);
 						tableAlgorithm.compute();
-						
+						System.out.println("start pruninig");
 						queryTables = tableAlgorithm.getNeighborTables();
 						computingNeighborTime += watch.getElapsedTimeMillis();
 						// System.out.println(queryTables.toString());
@@ -264,7 +264,7 @@ public class EditDistance {
 						// watch.getElapsedTimeMillis());
 						pruningTime += watch.getElapsedTimeMillis();
 						watch.reset();
-
+						System.out.println("start computing");
 						List<RelatedQuery> relatedQueries;
 
 						IsomorphicQuerySearch edAlgorithm = new IsomorphicQuerySearch();

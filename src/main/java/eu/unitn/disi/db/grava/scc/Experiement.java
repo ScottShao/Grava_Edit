@@ -58,7 +58,7 @@ public class Experiement {
 	}
 	
 	public void runExperiement() throws AlgorithmExecutionException, ParseException, IOException{
-		
+		System.out.println("Run experiment");
 		EditDistance ed = new EditDistance();
 		ed.setGraphName(graphName);
 		ed.setNeighbourNum(neighbourNum);
@@ -90,7 +90,7 @@ public class Experiement {
 		double start = System.nanoTime();
 		Multigraph G = new BigMultigraph(graphName + "-sin.graph", graphName
 				+ "-sout.graph");
-		
+		System.out.println("compute neighbourhood");
 		ComputeGraphNeighbors tableAlgorithm = new ComputeGraphNeighbors();
 		tableAlgorithm.setK(neighbourNum);
 		tableAlgorithm.setGraph(G);

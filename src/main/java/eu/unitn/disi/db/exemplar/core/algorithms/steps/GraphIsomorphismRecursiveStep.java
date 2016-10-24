@@ -191,6 +191,7 @@ public class GraphIsomorphismRecursiveStep extends AlgorithmStep<RelatedQuery> {
         //Look if we can map all the outgoing/ingoing graphEdges of the query node
         for (Edge queryEdge : sortedEdges) {
         	System.out.println("Processs answer number: " + relatedQueries.size());
+        	if (relatedQueries.size() > MAX_RELATED) return relatedQueries;
 //        	System.out.println(queryEdge);
 //            info("Trying to map the edge " + queryEdge);
             List<IsomorphicQuery> newRelatedQueries = new ArrayList<>();

@@ -95,6 +95,7 @@ public class ComputeGraphNeighbors extends Algorithm {
 //			debug("[T%d] Table computation started with %d nodes to process",
 //					id, end - start);
 			for (int i = start; i < end && i < graphNodes.length; i++) {
+				if ((i - start) % 200 == 0) System.out.println("computed nodes number " + (i - start));
 				node = graphNodes[i];
 				toVisit = new HashSet<>();
 				toVisit.add(node);
@@ -234,7 +235,7 @@ public class ComputeGraphNeighbors extends Algorithm {
 		NeighborTables tables;
 		neighborTables = new MemoryNeighborTables(k);
 		// END DECLARATIONS
-
+		numThreads = 8;
 		try {
 			// Start a BFS on the whole graph
 			if (nodeProcessed != null) {
