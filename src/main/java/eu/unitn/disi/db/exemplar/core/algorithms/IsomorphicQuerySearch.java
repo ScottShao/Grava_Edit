@@ -123,7 +123,7 @@ public class IsomorphicQuerySearch extends RelatedQuerySearch {
 
         for (List<MappedNode> chunk : nodesChunks) {
             threadNum++;
-            GraphIsomorphismRecursiveStep graphI = new GraphIsomorphismRecursiveStep(threadNum, chunk.iterator(), startingNode, query, graph, true, this.getSkipSave());
+            GraphIsomorphismRecursiveStep graphI = new GraphIsomorphismRecursiveStep(threadNum, chunk.iterator(), startingNode, query, graph, true, this.getSkipSave(), chunk.size());
             graphI.setLabelFreq(this.labelFreq);
             lists.add(pool.submit(graphI));
         }

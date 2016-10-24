@@ -47,10 +47,12 @@ public class GraphIsomorphismRecursiveStep extends AlgorithmStep<RelatedQuery> {
     private int searchCount;
     private HashMap<Long, LabelContainer> labelFreq;
     private boolean isQuit;
+    private int chunkSize;
     
-    public GraphIsomorphismRecursiveStep(int threadNumber, Iterator<MappedNode> kbConcepts, Long queryConcept, Multigraph query, Multigraph targetSubgraph, boolean limitComputation, boolean skipSave) {
+    public GraphIsomorphismRecursiveStep(int threadNumber, Iterator<MappedNode> kbConcepts, Long queryConcept, Multigraph query, Multigraph targetSubgraph, boolean limitComputation, boolean skipSave, int chunkSize) {
         super(threadNumber,kbConcepts,query, targetSubgraph, limitComputation, skipSave);
         this.queryConcept = queryConcept;
+        this.chunkSize = chunkSize;
     }
 
     @Override
@@ -64,9 +66,9 @@ public class GraphIsomorphismRecursiveStep extends AlgorithmStep<RelatedQuery> {
         int i = 0;
         this.isQuit = false;
         while (graphNodes.hasNext()) {
-        	
+        	System.out.println("Thread " + threadNumber + " Finshed " + ((double)i / chunkSize) * 100 + "%");
         	MappedNode node = graphNodes.next();
-        	System.out.println("Processing node " + node.getNodeID());
+//        	System.out.println("Processing node " + node.getNodeID());
 //        	System.out.println(node);
         	i++;
             try {
@@ -190,7 +192,7 @@ public class GraphIsomorphismRecursiveStep extends AlgorithmStep<RelatedQuery> {
         List<Edge> sortedEdges = sortEdge(queryEdges, this.labelFreq);
         //Look if we can map all the outgoing/ingoing graphEdges of the query node
         for (Edge queryEdge : sortedEdges) {
-        	System.out.println("Processs answer number: " + relatedQueries.size());
+//        	System.out.println("Processs answer number: " + relatedQueries.size());
         	if (relatedQueries.size() > MAX_RELATED) return relatedQueries;
 //        	System.out.println(queryEdge);
 //            info("Trying to map the edge " + queryEdge);
@@ -242,8 +244,8 @@ public class GraphIsomorphismRecursiveStep extends AlgorithmStep<RelatedQuery> {
                     //Cycle through all the possible related queries retrieved up to now
                     //A new related query is good if it finds a match
                     for (IsomorphicQuery tempRelatedQuery : toTestRelatedQueries) {
-                    	if (watch.getElapsedTimeMillis() > QUIT_TIME) {
-                    		System.out.println("Time limit exceeded");
+                    	if (newRelatedQueries.size()  > MAX_RELATED || watch.getElapsedTimeMillis() > QUIT_TIME) {
+                    		System.out.println("Time limit exceeded or more than 10000 partial results");
                     		this.isQuit = true;
                     		return relatedQueries.size() > 0 ? relatedQueries : null;
                     	}
