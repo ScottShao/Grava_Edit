@@ -97,7 +97,7 @@ public class GraphIsomorphismRecursiveStep extends AlgorithmStep<RelatedQuery> {
                             warn("Computation interrupted after " + IsomorphicQuerySearch.answerCount + " partial isomorphic results");
                             break;
                         }
-                        IsomorphicQuerySearch.answerCount = 0;
+//                        IsomorphicQuerySearch.answerCount = 0;
                         relatedQueriesPartial.clear();
                         IsomorphicQuerySearch.isBad = true;
                     }
