@@ -492,11 +492,11 @@ public class Sampling {
 			return;
 		}
 		if (edgeNum == 0) {
-			File f = new File("./test/test/E1E/");
-			if (!f.exists()) {
-				f.mkdirs();
-			}
-			PrintWriter fw = new PrintWriter("./dist/normal/low/" + "E" + edges.size() + "E"
+//			File f = new File("./test/test/E1E/");
+//			if (!f.exists()) {
+//				f.mkdirs();
+//			}
+			PrintWriter fw = new PrintWriter("./queryFolder/500000nodes/" + "E" + edges.size() + "E"
 					+ nodes.get(0) + ".txt", "UTF-8");
 			for (Edge e : edges) {
 				fw.write(e.getSource() + " " + e.getDestination() + " "
@@ -513,10 +513,10 @@ public class Sampling {
 			int edgeSize = oes.size();
 			double prob = 1 / (double) oes.size();
 			for (Edge e : oes) {
-				if (((BigMultigraph) G).getLabelFreq().get(e.getLabel())
-						.getFrequency() > 150) {
-					continue;
-				}
+//				if (((BigMultigraph) G).getLabelFreq().get(e.getLabel())
+//						.getFrequency() > 150) {
+//					continue;
+//				}
 				double sel = ((BigMultigraph) G).getLabelFreq().get(e.getLabel()).getFrequency() / (double)G.vertexSet().size();
 				if ( !edges.contains(e) && crt + sel<= 0.05) {
 					edgeNum--;
