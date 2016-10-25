@@ -245,7 +245,7 @@ public class GraphIsomorphismRecursiveStep extends AlgorithmStep<RelatedQuery> {
                     //A new related query is good if it finds a match
                     for (IsomorphicQuery tempRelatedQuery : toTestRelatedQueries) {
                     	if (newRelatedQueries.size()  > MAX_RELATED || watch.getElapsedTimeMillis() > QUIT_TIME) {
-                    		System.out.println("Time limit exceeded or more than 10000 partial results");
+//                    		System.out.println("Time limit exceeded or more than 10000 partial results");
                     		this.isQuit = true;
                     		return relatedQueries.size() > 0 ? relatedQueries : null;
                     	}
