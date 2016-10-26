@@ -110,7 +110,8 @@ public class Subgraph {
 			BufferedReader bf = new BufferedReader(new FileReader(input));
 			BufferedWriter bw = new BufferedWriter(new FileWriter(output));
 			String line = null;
-			int count = 0;
+			int first = 0;
+			int sec = 0;
 			while ((line = bf.readLine()) != null) {
 				String[] words = line.split(" ");
 				Long src = Long.parseLong(words[0]);
@@ -120,6 +121,7 @@ public class Subgraph {
 					if (visited.contains(src) && visited.contains(des)) {
 						bw.write(src + " " + des + " " + label);
 						bw.newLine();
+						sec++;
 					}
 				} else {
 					if (visited.contains(src) || visited.contains(des)) {
@@ -127,12 +129,15 @@ public class Subgraph {
 						visited.add(des);
 						bw.write(src + " " + des + " " + label);
 						bw.newLine();
+						first++;
 						if (visited.size() >= maxNode) break;
 					}
 				}
 				
 			}
 			System.out.println("crt nodes number " + visited.size());
+			System.out.println("first " + first);
+			System.out.println("second " + sec);
 			bw.flush();
 			bf.close();
 			bw.close();
