@@ -99,8 +99,7 @@ public class Sampling {
 
 	}
 
-	private void bfs(BigMultigraph G, Long v, String fileName)
-			throws IOException {
+	private void bfs(BigMultigraph G, Long v, String fileName) {
 		// marked[v] = true;
 		// System.out.println("bfs: " + v);
 		// Long test = queue.poll();
@@ -126,7 +125,10 @@ public class Sampling {
 		double crt = 0;
 //		List<String> results = new ArrayList<>();
 		File out = new File(fileName);
-		BufferedWriter bw = new BufferedWriter(new FileWriter(out));
+		BufferedWriter bw = null;
+		try {
+			bw = new BufferedWriter(new FileWriter(out, true));
+		
 		while (flag && !queue.isEmpty()) {
 			top = queue.poll();
 //			cur = distance.poll();
@@ -204,7 +206,19 @@ public class Sampling {
 			// System.out.println("rate:" + rate);
 
 		}
-		bw.close();
+		
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		} finally {
+			try {
+				bw.flush();
+				bw.close();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
 //		if (results.size() >= 3) {
 //		File out = new File(fileName);
 //		BufferedWriter bw = new BufferedWriter(new FileWriter(out));
