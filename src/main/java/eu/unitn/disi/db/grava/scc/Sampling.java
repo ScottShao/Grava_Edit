@@ -780,7 +780,7 @@ public class Sampling {
 				graph + "-sout.graph", false);
 //		int k = 20;
 		int maxNodes = 1000000;
-		int maxDegree = 10000;
+		int maxDegree = 100000;
 		Long node = 67678472568248L;
 		Sampling s = new Sampling(G, maxNodes, maxDegree, node, "1M.txt");
 //		int size = G.vertexSet().size();
