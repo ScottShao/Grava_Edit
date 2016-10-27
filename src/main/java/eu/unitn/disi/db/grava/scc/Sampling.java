@@ -509,7 +509,7 @@ public class Sampling {
 //			if (!f.exists()) {
 //				f.mkdirs();
 //			}
-			PrintWriter fw = new PrintWriter("./queryFolder/500000nodes/" + "E" + edges.size() + "E"
+			PrintWriter fw = new PrintWriter("./queryFolder/1M/" + "E" + edges.size() + "E"
 					+ nodes.get(0) + ".txt", "UTF-8");
 			for (Edge e : edges) {
 				fw.write(e.getSource() + " " + e.getDestination() + " "
