@@ -128,7 +128,6 @@ public class Sampling {
 		BufferedWriter bw = null;
 		try {
 			bw = new BufferedWriter(new FileWriter(out, true));
-		
 		while (flag && !queue.isEmpty()) {
 			top = queue.poll();
 //			cur = distance.poll();
@@ -138,6 +137,7 @@ public class Sampling {
 			}
 			visited.add(top);
 			count++;
+			if (count % 100 == 0) System.out.println("Processed nodes " + count );
 //			System.out.println("current visiting:" + top);
 			adjEdges = G.adjEdges(top);
 			// System.out.println(adjEdges.size());
@@ -151,11 +151,11 @@ public class Sampling {
 			for (Edge e : adjEdges) {
 				// System.out.println("Count:" + count);
 				// System.out.println("degree:" + degree);
-				double sel = ((double)G.getLabelFreq().get(e.getLabel()).getFrequency()) / G.edgeSet().size();
-				if (sel + crt > limit) {
-					continue;
-				}
-				crt += sel;
+//				double sel = ((double)G.getLabelFreq().get(e.getLabel()).getFrequency()) / G.edgeSet().size();
+//				if (sel + crt > limit) {
+//					continue;
+//				}
+//				crt += sel;
 				if (count > this.maxNodesNum - 1) {
 					flag = false;
 					System.out.println("maximum nodes num");
@@ -197,7 +197,6 @@ public class Sampling {
 					// ansNum);
 					// // System.out.println("printing " + rate + " " + dis);
 					// }
-					
 					degree++; // out degree
 				}
 
