@@ -48,12 +48,14 @@ public class EDMatchingRecursiveStep extends AlgorithmStep<EditDistanceQuery> {
     private Map<Long, Set<MappedNode>> queryToGraph;
     private int cmpCount;
     private boolean isQuit;
-    public EDMatchingRecursiveStep(int threadNumber, Iterator<MappedNode> kbConcepts, Long queryConcept, Multigraph query, Multigraph targetSubgraph, boolean limitComputation, boolean skipSave, int threshold, Map<Long, Set<MappedNode>> queryToGraph) {
+    private int chunkSize;
+    public EDMatchingRecursiveStep(int threadNumber, Iterator<MappedNode> kbConcepts, Long queryConcept, Multigraph query, Multigraph targetSubgraph, boolean limitComputation, boolean skipSave, int threshold, Map<Long, Set<MappedNode>> queryToGraph, int chunkSize) {
         super(threadNumber,kbConcepts,query, targetSubgraph, limitComputation, skipSave);
         this.queryConcept = queryConcept;
         this.threshold = threshold;
         this.queryToGraph = queryToGraph;
         this.cmpCount = 0;
+        this.chunkSize = chunkSize;
         
     }
 
@@ -67,7 +69,7 @@ public class EDMatchingRecursiveStep extends AlgorithmStep<EditDistanceQuery> {
         int i = 0;
         this.isQuit = false;
         while (graphNodes.hasNext()) {
-        	
+        	System.out.println("Thread " + threadNumber + " Finshed " + ((double)i / chunkSize) * 100 + "%");
         	MappedNode node = graphNodes.next();
 //        	System.out.println("creating " + node);
             try {
@@ -76,6 +78,7 @@ public class EDMatchingRecursiveStep extends AlgorithmStep<EditDistanceQuery> {
                 relatedQuery.map(queryConcept, node);
 
                 relatedQueriesPartial = createQueries(query, queryConcept, node, relatedQuery);
+                i++;
                 if (this.isQuit) {
                 	break;
                 }
@@ -85,17 +88,18 @@ public class EDMatchingRecursiveStep extends AlgorithmStep<EditDistanceQuery> {
                     }
                     EditDistanceQuerySearch.answerCount += relatedQueriesPartial.size();
 //                    relatedQueries.addAll(relatedQueriesPartial);
-                    for (EditDistanceQuery partial : relatedQueriesPartial) {
-                    	if(partial.getQuery().edgeSet().size() == query.edgeSet().size())
-                    		relatedQueries.add(partial);
-                    }
-                    if (!warned && watch.getElapsedTimeMillis() > WARN_TIME && EditDistanceQuerySearch.answerCount > MAX_RELATED) {
+//                    for (EditDistanceQuery partial : relatedQueriesPartial) {
+//                    	if(partial.getQuery().edgeSet().size() == query.edgeSet().size())
+//                    		relatedQueries.add(partial);
+//                    }
+                    if (watch.getElapsedTimeMillis() > WARN_TIME || EditDistanceQuerySearch.answerCount > MAX_RELATED) {
                         warn("More than " + MAX_RELATED + " partial isomorphic results");
                         warned = true;
                         if (limitComputation) {
                             warn("Computation interrupted after " + EditDistanceQuerySearch.answerCount + " partial isomorphic results");
                             break;
                         }
+                        relatedQueriesPartial.clear();
                         EditDistanceQuerySearch.isBad = true;
                     }
                 }
@@ -106,6 +110,7 @@ public class EDMatchingRecursiveStep extends AlgorithmStep<EditDistanceQuery> {
                 EditDistanceQuerySearch.isBad = true;
                 error("Memory exausted, so we are returning something but not everything.");
                 System.gc();
+//                return new LinkedList<>(relatedQueries);
                 return new LinkedList<>(relatedQueries);
             }
 
@@ -179,6 +184,7 @@ public class EDMatchingRecursiveStep extends AlgorithmStep<EditDistanceQuery> {
         List<Edge> sortedEdges = sortEdge(queryEdges, graph);
         //Look if we can map all the outgoing/ingoing graphEdges of the query node
         for (Edge queryEdge : sortedEdges) {
+        	if (relatedQueries.size() > MAX_RELATED) return relatedQueries;
             //info("Trying to map the edge " + queryEdge);
             List<EditDistanceQuery> newRelatedQueries = new ArrayList<>();
             LinkedList<EditDistanceQuery> toTestRelatedQueries = new LinkedList<>();
@@ -228,11 +234,16 @@ public class EDMatchingRecursiveStep extends AlgorithmStep<EditDistanceQuery> {
                     //Cycle through all the possible related queries retrieved up to now
                     //A new related query is good if it finds a match
                     for (EditDistanceQuery tempRelatedQuery : toTestRelatedQueries) {
-                    	if (watch.getElapsedTimeMillis() > QUIT_TIME) {
-                    		System.out.println("Time limit exceeded");
+                    	if (newRelatedQueries.size()  > MAX_RELATED || watch.getElapsedTimeMillis() > QUIT_TIME) {
+//                    		System.out.println("Time limit exceeded or more than 10000 partial results");
                     		this.isQuit = true;
                     		return relatedQueries.size() > 0 ? relatedQueries : null;
                     	}
+//                    	if (watch.getElapsedTimeMillis() > QUIT_TIME) {
+//                    		System.out.println("Time limit exceeded");
+//                    		this.isQuit = true;
+//                    		return relatedQueries.size() > 0 ? relatedQueries : null;
+//                    	}
                         if (tempRelatedQuery.isUsing(graphEdge)) {
                             //Ok this option is already using this edge,
                             //not a good choice go away

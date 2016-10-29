@@ -694,7 +694,7 @@ public class EditDistance {
 			pruningAlgorithm.setGraphTables(graphTables);
 			pruningAlgorithm.setQueryTables(queryTables);
 			pruningAlgorithm.setThreshold(this.threshold);
-			pruningAlgorithm.setgPathTables(gTableAlgorithm.getPathTables());
+//			pruningAlgorithm.setgPathTables(gTableAlgorithm.getPathTables());
 			pruningAlgorithm.compute();
 			
 			
@@ -725,7 +725,7 @@ public class EditDistance {
 			edAlgorithm.setNumThreads(this.threadsNum);
 			edAlgorithm.setQueryToGraphMap(pruningAlgorithm
 					.getQueryGraphMapping());
-			edAlgorithm.setLimitedComputation(false);
+			edAlgorithm.setLimitedComputation(true);
 			edAlgorithm.setThreshold(threshold);
 			edAlgorithm.compute();
 //			this.isEdBad = EditDistanceQuerySearch.isBad;
@@ -734,7 +734,7 @@ public class EditDistance {
 //			relatedQueriesUnique.addAll(relatedQueries);
 //			System.out.println("intermediate:" + this.edIntNum);
 			
-			QuerySel qs = new QuerySel(G, Q, startingNode);
+//			QuerySel qs = new QuerySel(G, Q, startingNode);
 //			adj = qs.computeSelAdjNotCorrelated(1, startingNode, new HashSet<>(), 0, this.neighbourNum);
 //			path = qs.computeSelPathNotCorrelated(1, startingNode, new HashSet<>(), 0, this.neighbourNum);
 //			all = qs.computeSelAllNotCorrelated(Q);
@@ -745,16 +745,16 @@ public class EditDistance {
 			Cost.cost = 0;
 //			Cost.estimateMaxCost(Q, startingNode, G, this.AVG_DEGREE, new HashSet<Edge>(), 1);
 //			Cost.estimateMaxCostWithLabelMaxNum(Q, startingNode, this.AVG_DEGREE, G, new HashSet<Edge>(), 1);
-			Cost.estimateEdExactCost(Q, startingNode, AVG_DEGREE, G, new ArrayList<Edge>());
+//			Cost.estimateEdExactCost(Q, startingNode, AVG_DEGREE, G, new ArrayList<Edge>());
 //			System.out.println(Cost.cost);
 //			double tt = qs.getEdCanNumber(startingNode, AVG_DEGREE, 2);
 //			edCost = tt  * Cost.cost;
 //			edCost = qs.getEdCanNumber(startingNode, AVG_DEGREE, 2) * Cost.cost;
 //			edCost = Cost.getCandidatesNum(Q, startingNode, G) * Cost.cost;
 //			edCost = qs.computeAdjNotCand(startingNode, AVG_DEGREE, this.neighbourNum) * Cost.cost;
-			this.edAllEst = qs.getEdCanNumber(startingNode, AVG_DEGREE, this.neighbourNum) * Cost.cost;
-			this.edAdjEdt = qs.computeAdjNotCand(startingNode, AVG_DEGREE, this.neighbourNum) * Cost.cost;
-			this.edPathEst = qs.computePathNotCand(startingNode, AVG_DEGREE, this.neighbourNum) * Cost.cost;
+//			this.edAllEst = qs.getEdCanNumber(startingNode, AVG_DEGREE, this.neighbourNum) * Cost.cost;
+//			this.edAdjEdt = qs.computeAdjNotCand(startingNode, AVG_DEGREE, this.neighbourNum) * Cost.cost;
+//			this.edPathEst = qs.computePathNotCand(startingNode, AVG_DEGREE, this.neighbourNum) * Cost.cost;
 //			System.out.println(startingNode + " " + tt + " ed  " + Cost.cost);
 //			System.out.println(startingNode);
 //			System.out.println("eds:" +this.edCandidates);
@@ -1009,9 +1009,9 @@ public class EditDistance {
 			this.runExtension();
 			break;
 		case BOTH:
-			this.runWildCard();
+//			this.runWildCard();
 //			this.runBFWildCard();
-//			this.runExtension();
+			this.runExtension();
 //			this.runBFExtension();
 			break;
 		default:

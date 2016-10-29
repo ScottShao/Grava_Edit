@@ -27,7 +27,9 @@ import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Set;
+import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * This class extends the RelatedQuery class with the Isomorphic Query thus the
@@ -73,10 +75,10 @@ public class EditDistanceQuery extends RelatedQuery {
         }
 
         this.usedEdgesIDs = new HashSet<>(query.edgeSet().size() + 2, 1f);
-        this.mappedEdges = new HashMap<>(query.edgeSet().size() + 2, 1f);
+        this.mappedEdges = new ConcurrentHashMap<>(query.edgeSet().size() + 2, 1f);
 
         for (Edge e : query.edgeSet()) {
-            this.mappedEdges.put(e, null);
+            this.mappedEdges.put(e, e);
         }
         edit = 0;
     }
@@ -93,7 +95,7 @@ public class EditDistanceQuery extends RelatedQuery {
         clone.usedEdgesIDs = new HashSet<>(query.edgeSet().size() + 2, 1f);
         clone.usedEdgesIDs.addAll(this.usedEdgesIDs);
 
-        clone.mappedEdges = new HashMap<>(query.edgeSet().size() + 2, 1f);
+        clone.mappedEdges = new ConcurrentHashMap<>(query.edgeSet().size() + 2, 1f);
         clone.mappedEdges.putAll(this.mappedEdges);
 
         clone.totalWeight = this.totalWeight;
@@ -150,8 +152,12 @@ public class EditDistanceQuery extends RelatedQuery {
         }
 
         if (!this.mappedEdges.containsKey(queryEdge)) {
+        	System.out.println(Thread.currentThread().getName() + " " +"missing query edge " + queryEdge);
+        	for (Entry<Edge, Edge> en : mappedEdges.entrySet()) {
+        		System.out.println(Thread.currentThread().getName() + " " + en.getKey());
+        	}
             throw new IllegalArgumentException("Query edge " + queryEdge + " is not present in the original query");
-        } else if (mappedEdges.get(queryEdge) == null) {
+        } else if (mappedEdges.get(queryEdge) == queryEdge) {
             mappedEdges.put(queryEdge, graphEdge);
             usedEdgesIDs.add(graphEdge.getId());
         } else if (!this.mappedEdges.get(queryEdge).equals(graphEdge)) {

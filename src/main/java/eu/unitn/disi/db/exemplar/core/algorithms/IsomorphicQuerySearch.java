@@ -92,8 +92,9 @@ public class IsomorphicQuerySearch extends RelatedQuerySearch {
         List<RelatedQuery> tmp = null;
 
         //Start in parallel
-        ExecutorService pool = Executors.newFixedThreadPool(this.getNumThreads());
         int numThreads = 8;
+        ExecutorService pool = Executors.newFixedThreadPool(numThreads);
+        
 //        int chunkSize = this.getNumThreads() == 1 ? graphNodes.size() :  (int) Math.round(graphNodes.size() / this.getNumThreads() + 0.5);
         int chunkSize = (int) Math.round(graphNodes.size() / numThreads + 0.5);
         List<Future<List<RelatedQuery>>> lists = new ArrayList<>();

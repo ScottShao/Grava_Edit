@@ -95,8 +95,10 @@ public class EditDistanceQuerySearch extends RelatedQuerySearch {
         List<EditDistanceQuery> tmp = null;
 //        System.out.println("threads num:" + this.getNumThreads());
         //Start in parallel
-        ExecutorService pool = Executors.newFixedThreadPool(this.getNumThreads());
-        int chunkSize = this.getNumThreads() == 1 ? graphNodes.size() :  (int) Math.round(graphNodes.size() / this.getNumThreads() + 0.5);
+        int numThreads = 8;
+        ExecutorService pool = Executors.newFixedThreadPool(numThreads);
+        
+        int chunkSize = (int) Math.round(graphNodes.size() / numThreads + 0.5);
         List<Future<List<EditDistanceQuery>>> lists = new ArrayList<>();
         ////////////////////// USE 1 THREAD
         //chunkSize =  graphNodes.size();
@@ -123,7 +125,7 @@ public class EditDistanceQuerySearch extends RelatedQuerySearch {
 
         for (List<MappedNode> chunk : nodesChunks) {
             threadNum++;
-            EDMatchingRecursiveStep graphI = new EDMatchingRecursiveStep(threadNum, chunk.iterator(), startingNode, query, graph, true, this.getSkipSave(), threshold, this.getQueryToGraphMap());
+            EDMatchingRecursiveStep graphI = new EDMatchingRecursiveStep(threadNum, chunk.iterator(), startingNode, query, graph, true, this.getSkipSave(), threshold, this.getQueryToGraphMap(), chunkSize);
             lists.add(pool.submit(graphI));
         }
 
