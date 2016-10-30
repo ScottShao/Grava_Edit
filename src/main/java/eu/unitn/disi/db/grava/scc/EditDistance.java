@@ -1010,8 +1010,8 @@ public class EditDistance {
 			break;
 		case BOTH:
 //			this.runWildCard();
-//			this.runBFWildCard();
-			this.runExtension();
+			this.runBFWildCard();
+//			this.runExtension();
 //			this.runBFExtension();
 			break;
 		default:
