@@ -66,7 +66,7 @@ public class GenerateError {
 	
 	private void generateError(List<Edge> edges) {
 		int idx = rn.nextInt(edges.size());
-		System.out.println(edges.size() + " " + idx);
+//		System.out.println(edges.size() + " " + idx);
 		Edge e = edges.remove(idx);
 		edges.add(new Edge(e.getSource(), e.getDestination(), edgeSet[rn.nextInt(edgeSet.length)].getLabel()));
 	}
@@ -83,7 +83,7 @@ public class GenerateError {
 	}
 	
 	public static void main(String[] args) throws ParseException, IOException {
-		String graph = "500000nodes";
+		String graph = args[0];
 		BigMultigraph G = new BigMultigraph(graph + "-sin.graph",
 				graph + "-sout.graph", false);
 		GenerateError s = new GenerateError(G, "queryFolder/" + graph + "/");
