@@ -239,7 +239,6 @@ public class EditDistance {
 //						System.out.println("startingNode:" + startingNode + " degree:" + (Q.inDegreeOf(startingNode) + Q.outDegreeOf(startingNode))); 
 						// pruningAlgorithm.setGraphPathTables(graphTables);
 						// pruningAlgorithm.setQueryPathTables(queryTables);
-						
 						pruningAlgorithm.setThreshold(0);
 						pruningAlgorithm.compute();
 						
@@ -1009,9 +1008,9 @@ public class EditDistance {
 			this.runExtension();
 			break;
 		case BOTH:
-//			this.runWildCard();
-			this.runBFWildCard();
-//			this.runExtension();
+			this.runWildCard();
+//			this.runBFWildCard();
+			this.runExtension();
 //			this.runBFExtension();
 			break;
 		default:
