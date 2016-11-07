@@ -48,6 +48,7 @@ public class ReadGZFile {
 					bw.write(a[a.length - 1] + " " + words[2].split("\"")[1]);
 				}
 				if (count % 10000 == 0) System.out.println("Process " + count + " lines");
+				count++;
 			}
 		} catch (IOException e) {
 			e.printStackTrace();
