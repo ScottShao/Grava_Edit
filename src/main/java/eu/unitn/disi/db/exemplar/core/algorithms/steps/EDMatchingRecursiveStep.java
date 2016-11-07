@@ -87,7 +87,7 @@ public class EDMatchingRecursiveStep extends AlgorithmStep<EditDistanceQuery> {
                         continue;
                     }
                     EditDistanceQuerySearch.answerCount += relatedQueriesPartial.size();
-//                    relatedQueries.addAll(relatedQueriesPartial);
+                    relatedQueries.addAll(relatedQueriesPartial);
 //                    for (EditDistanceQuery partial : relatedQueriesPartial) {
 //                    	if(partial.getQuery().edgeSet().size() == query.edgeSet().size())
 //                    		relatedQueries.add(partial);

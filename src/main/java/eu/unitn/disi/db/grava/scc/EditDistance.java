@@ -453,7 +453,7 @@ public class EditDistance {
 						queryGraphMapping = pruningAlgorithm.getQueryGraphMapping();
 						
 						wcCandidatesNum += queryGraphMapping.get(startingNode).size();
-						pruningAlgorithm.pathFilter(true);
+//						pruningAlgorithm.pathFilter(true);
 						this.wcAfterNum += queryGraphMapping.get(startingNode).size();
 //						pruningTime += watch.getElapsedTimeMillis();
 						Multigraph prunedG = pruningAlgorithm.pruneGraph();
@@ -543,7 +543,7 @@ public class EditDistance {
 		}
 		System.out.println(relatedQueriesUnique.size());
 		System.out.println("search takes " + (System.nanoTime() - start));
-		/*
+		
 		int ttCount = 0;
 		Set<String> iso = new HashSet<>();
 		Set<String> ed = new HashSet<>();
@@ -558,9 +558,9 @@ public class EditDistance {
 			List<Edge> edgeSet = new ArrayList<>();
 			for (Entry<Edge, Edge> en: ((IsomorphicQuery)rq).getMappedEdges().entrySet()) {
 				edgeSet.add(en.getValue());
-//				System.out.println(en.getValue());
+				System.out.println(en.getValue());
 //				System.out.println(en.getValue().getSource() + " " + en.getValue().getLabel() + " " + en.getValue().getDestination());
-//				System.out.println(con.toReadable(en.getValue()));
+				System.out.println(con.toReadable(en.getValue()));
 			}
 			Map<Long, Integer> ansLabelCount = new HashMap<>();
 			for (Edge e : edgeSet) {
@@ -570,8 +570,8 @@ public class EditDistance {
 					ansLabelCount.put(e.getLabel(), 1);
 				}
 			}
-			String tt = "";
-//			String tt = con.toReadable(edgeSet);
+//			String tt = "";
+			String tt = con.toReadable(edgeSet);
 			if (tt == null) {
 				continue;
 			}
@@ -584,14 +584,14 @@ public class EditDistance {
 			}
 			if (distance == 0) {
 //				System.out.println("iso");
-//				iso.add(tt);
+				iso.add(tt);
 				isoCount++;
 			} else if (distance == 1){
 //				System.out.println("ed");
-//				ed.add(tt);
+				ed.add(tt);
 				ed1Count++;
 			} else {
-//				ed2.add(tt);
+				ed2.add(tt);
 				ed2Count++;
 			}
 //			System.out.println("count :" + count);
@@ -599,25 +599,24 @@ public class EditDistance {
 //			count++;
 //			System.out.println("================");
 		}
-//		int count = 0;
-//		System.out.println("Isomorphism:" + isoCount);
-//		for (String mm : iso) {
-//			System.out.println("count:" + count);
-//			System.out.print(mm);
-//			System.out.println("===============");
-//			count++;
-//		}
+		int count = 0;
+		System.out.println("Isomorphism:" + isoCount);
+		for (String mm : iso) {
+			System.out.println("count:" + count);
+			System.out.print(mm);
+			System.out.println("===============");
+			count++;
+		}
 //		count = 0;
 //		System.out.println("Edit distance 1:" + ed1Count);
 //		System.out.println("Edit distance 2:" + ed2Count);
-//		for (String mm : ed) {
-//			System.out.println("count:" + count);
-//			System.out.print(mm);
-//			System.out.println("===============");
-//			count++;
-//		}
- * 
- */
+		for (String mm : ed) {
+			System.out.println("count:" + count);
+			System.out.print(mm);
+			System.out.println("===============");
+			count++;
+		}
+
 		//to do
 		this.bfElapsedTime = (double)(System.nanoTime() - startTime) / 1000000000.0;
 	}
@@ -1008,9 +1007,9 @@ public class EditDistance {
 			this.runExtension();
 			break;
 		case BOTH:
-			this.runWildCard();
-//			this.runBFWildCard();
-			this.runExtension();
+//			this.runWildCard();
+			this.runBFWildCard();
+//			this.runExtension();
 //			this.runBFExtension();
 			break;
 		default:

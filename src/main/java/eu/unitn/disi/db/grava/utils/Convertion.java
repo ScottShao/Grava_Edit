@@ -94,8 +94,9 @@ public class Convertion {
 	      HttpTransport httpTransport = new NetHttpTransport();
 	      HttpRequestFactory requestFactory = httpTransport.createRequestFactory();
 	      JSONParser parser = new JSONParser();
-	      GenericUrl url = new GenericUrl("https://www.googleapis.com/freebase/v1/search");
-	      url.put("query", mid);
+	      GenericUrl url = new GenericUrl("https://kgsearch.googleapis.com/v1/entities:search");
+//	      mid = "/m/0dl567";
+	      url.put("ids", mid);
 //	      url.put("filter", "(all type:/music/artist created:\"The Lady Killer\")");
 //	      url.put("limit", "10");
 	      url.put("indent", "true");
@@ -103,8 +104,13 @@ public class Convertion {
 	      HttpRequest request = requestFactory.buildGetRequest(url);
 	      HttpResponse httpResponse = request.execute();
 	      JSONObject response = (JSONObject)parser.parse(httpResponse.parseAsString());
-	      JSONArray results = (JSONArray)response.get("result");
-	      re = JsonPath.read(results.iterator().next(),"$.name").toString();
+	      System.out.println(response.toString());
+	      JSONArray results = (JSONArray)response.get("itemListElement");
+//	      System.out.println(results.toString());
+//	      for (Object element : results) {
+//	          System.out.println(JsonPath.read(element, "$.result.name").toString());
+//	       }
+	      re = JsonPath.read(results.iterator().next(),"$.result.name").toString();
 //	      for (Object result : results) {
 //	        System.out.println(JsonPath.read(result,"$.name").toString());
 //	      }
@@ -127,9 +133,26 @@ public class Convertion {
 	  return "/m/" + mid.toLowerCase();
   }
   
+  public static String convertLongToMid(long decimal) throws NullPointerException, IndexOutOfBoundsException {
+      String mid = "";
+      String decimalString = decimal + "";
+
+      for (int i = 0; i < decimalString.length(); i+= 2) {
+          if(decimalString.length() < 5 ){
+              mid = decimalString;
+          } else {
+              mid = (char)Integer.parseInt(decimalString.substring(i, i + 2)) + mid;
+          }
+
+
+      }
+
+      return "/m/" + mid.toLowerCase();
+  }
+  
   public static void main(String[] args) {
 	  Convertion c = new Convertion();
-//	  System.out.println(c.long2mid(68667078826848));
-	  System.out.println(c.mid2Readable(c.long2mid(67518482884948L)));
+	  System.out.println(c.long2mid(515348L));
+	  System.out.println(c.mid2Readable(c.long2mid(51808657866848L)));
   }
 }

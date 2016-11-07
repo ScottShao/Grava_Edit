@@ -556,7 +556,7 @@ public class Sampling {
 				break;
 //				for (int i = 2; i <= edgeNum; i++) {
 					try {
-						this.generateDifSizeQueries(8, node);
+						this.generateDifSizeQueries(6, node);
 					} catch (FileNotFoundException
 							| UnsupportedEncodingException e) {
 						// TODO Auto-generated catch block
@@ -585,7 +585,7 @@ public class Sampling {
 //			if (!f.exists()) {
 //				f.mkdirs();
 //			}
-			PrintWriter fw = new PrintWriter("./queryFolder/1M/" + "E" + edges.size() + "E"
+			PrintWriter fw = new PrintWriter("./queryFolder/10000nodes/eval/" + "E" + edges.size() + "E"
 					+ nodes.get(0) + ".txt", "UTF-8");
 			for (Edge e : edges) {
 				fw.write(e.getSource() + " " + e.getDestination() + " "
@@ -899,10 +899,10 @@ public class Sampling {
 //		 	}
 //		 }
 		 Sampling s = new Sampling(G);
-		 double limit = 0.0001 / G.edgeSet().size();
-		 System.out.println(limit);
-		 s.generateQueries(limit, 20, "./queryFolder/" + graph + "/limit/");
-//		 s.generateQueries(10, 20);
+//		 double limit = 0.0001 / G.edgeSet().size();
+//		 System.out.println(limit);
+//		 s.generateQueries(limit, 20, "./queryFolder/" + graph + "/limit/");
+		 s.generateQueries(6, 100);
 		// s.generateClique(3, 0, new ArrayList<Long>());
 	}
 

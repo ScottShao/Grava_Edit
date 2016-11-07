@@ -69,6 +69,12 @@ public class GenerateError {
 //		System.out.println(edges.size() + " " + idx);
 		Edge e = edges.remove(idx);
 		edges.add(new Edge(e.getSource(), e.getDestination(), edgeSet[rn.nextInt(edgeSet.length)].getLabel()));
+		int next = idx;
+		while (next == edges.size() - 1) {
+			next = rn.nextInt(edges.size());
+			e = edges.remove(idx);
+			edges.add(new Edge(e.getSource(), e.getDestination(), edgeSet[rn.nextInt(edgeSet.length)].getLabel()));
+		}
 	}
 	
 	private List<Edge> getEdges(String fileName) throws IOException {
@@ -86,7 +92,7 @@ public class GenerateError {
 		String graph = args[0];
 		BigMultigraph G = new BigMultigraph(graph + "-sin.graph",
 				graph + "-sout.graph", false);
-		GenerateError s = new GenerateError(G, "queryFolder/" + graph + "/");
+		GenerateError s = new GenerateError(G, "queryFolder/" + graph + "/eval/");
 	}
 
 }

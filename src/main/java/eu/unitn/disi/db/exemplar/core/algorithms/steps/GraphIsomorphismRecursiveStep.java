@@ -86,7 +86,7 @@ public class GraphIsomorphismRecursiveStep extends AlgorithmStep<RelatedQuery> {
                         continue;
                     }
                     IsomorphicQuerySearch.answerCount += relatedQueriesPartial.size();
-//                    relatedQueries.addAll(relatedQueriesPartial);
+                    relatedQueries.addAll(relatedQueriesPartial);
 //                    for (RelatedQuery rq : relatedQueries){
 //                    	System.out.println(rq);
 //                    }
