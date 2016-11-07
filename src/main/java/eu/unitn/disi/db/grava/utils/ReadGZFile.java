@@ -63,8 +63,7 @@ public class ReadGZFile {
 	 * @throws IOException 
 	 */
 	public static void main(String[] args) throws IOException {
-		String test = "\"object\"@en";
-		System.out.println(test.split("\"")[1]);
+		ReadGZFile rf = new ReadGZFile("freebase.gz");
 	}
 
 }
