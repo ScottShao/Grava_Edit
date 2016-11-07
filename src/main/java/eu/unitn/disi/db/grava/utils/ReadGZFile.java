@@ -33,12 +33,13 @@ public class ReadGZFile {
 	    GZIPInputStream gzis = new GZIPInputStream(fin);
 	    InputStreamReader xover = new InputStreamReader(gzis);
 	    BufferedReader is = new BufferedReader(xover);
-	    BufferedWriter bw = new BufferedWriter(new FileWriter("entities.txt"));
+	    BufferedWriter bw = new BufferedWriter(new FileWriter("entities.txt", true));
 	    String line;
 	    // Now read lines of text: the BufferedReader puts them in lines,
 	    // the InputStreamReader does Unicode conversion, and the
 	    // GZipInputStream "gunzip"s the data from the FileInputStream.
 	    try {
+	    	int count = 0;
 			while ((line = is.readLine()) != null) {
 				String[] words = line.split(" ");
 				if (words.length < 3) continue;
@@ -46,6 +47,7 @@ public class ReadGZFile {
 					String[] a = words[0].split("/");
 					bw.write(a[a.length - 1] + " " + words[2].split("\"")[1]);
 				}
+				if (count % 10000 == 0) System.out.println("Process " + count + " lines");
 			}
 		} catch (IOException e) {
 			e.printStackTrace();
