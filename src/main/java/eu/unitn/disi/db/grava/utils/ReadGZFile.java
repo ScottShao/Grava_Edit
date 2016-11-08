@@ -43,7 +43,7 @@ public class ReadGZFile {
 			while ((line = is.readLine()) != null) {
 				if (count > 100) break;
 				
-				String[] words = line.split(" ");
+				String[] words = line.split("\\t");
 				if (words.length < 3) continue;
 				System.out.println(line);
 				System.out.println("first " + words[0]);
