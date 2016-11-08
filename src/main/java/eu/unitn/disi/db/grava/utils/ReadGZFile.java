@@ -41,21 +41,19 @@ public class ReadGZFile {
 	    try {
 	    	int count = 0;
 			while ((line = is.readLine()) != null) {
-				if (count > 100) break;
-				
 				String[] words = line.split("\\t");
 				if (words.length < 3) continue;
 //				System.out.println(line);
 
 				if (words[0].contains("/m.") && words[1].contains("name") && words[2].contains("@en")) {
 					String[] a = words[0].split("/");
-					System.out.println(a[a.length - 1].substring(0, a[a.length - 1].length() - 1) + " " + words[2].substring(1, words[2].length() - 4));
-//					bw.write(a[a.length - 1].substring(0, a[a.length - 1].length() - 1) + " " + words[2].substring(1, words[2].length() - 4));
-//					bw.newLine();
-					count++;
+//					System.out.println(a[a.length - 1].substring(0, a[a.length - 1].length() - 1) + " " + words[2].substring(1, words[2].length() - 4));
+					bw.write(a[a.length - 1].substring(0, a[a.length - 1].length() - 1) + " " + words[2].substring(1, words[2].length() - 4));
+					bw.newLine();
+					
 				}
-//				if (count % 100000 == 0) System.out.println("Process " + count + " lines");
-				
+				if (count % 100000 == 0) System.out.println("Process " + count + " lines");
+				count++;
 			}
 		} catch (IOException e) {
 			e.printStackTrace();
