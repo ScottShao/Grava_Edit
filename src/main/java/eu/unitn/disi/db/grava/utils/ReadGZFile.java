@@ -43,9 +43,9 @@ public class ReadGZFile {
 			while ((line = is.readLine()) != null) {
 				String[] words = line.split(" ");
 				if (words.length < 3) continue;
-				if (words[0].contains("m.") && words[1].contains("object.name") && words[2].contains("@en")) {
+				if (words[0].contains("m.") && words[1].contains("name")) {
 					String[] a = words[0].split("/");
-					bw.write(a[a.length - 1] + " " + words[2].split("\"")[1]);
+					bw.write(a[a.length - 1] + " " + words[2]);
 				}
 				if (count % 10000 == 0) System.out.println("Process " + count + " lines");
 				count++;
