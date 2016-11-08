@@ -74,9 +74,9 @@ public class ReadGZFile {
 	 * @throws IOException 
 	 */
 	public static void main(String[] args) throws IOException {
-		String a = "<http://rdf.freebase.com/ns/award.award_winner>";
-		System.out.println(a.split("/")[a.split("/").length-1]);
-//		ReadGZFile rf = new ReadGZFile("freebase.gz");
+//		String a = "<http://rdf.freebase.com/ns/award.award_winner>";
+//		System.out.println(a.split("/")[a.split("/").length-1]);
+		ReadGZFile rf = new ReadGZFile("freebase.gz");
 //		String a = "<http://rdf.freebase.com/ns/american_football.football_player.footballdb_id>    <http://www.w3.org/2000/01/rdf-schema#label>    \"footballdb ID\"@en      .";
 //		System.out.println(a.split(" ")[2]);
 	}
