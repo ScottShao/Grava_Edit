@@ -49,9 +49,9 @@ public class ReadGZFile {
 
 				if (words[0].contains("/m.") && words[1].contains("name") && words[2].contains("@en")) {
 					String[] a = words[0].split("/");
-					System.out.println(line);
-					bw.write(a[a.length - 1].substring(0, a[a.length - 1].length() - 1) + " " + words[2].substring(1, words[2].length() - 4));
-					bw.newLine();
+					System.out.println(a[a.length - 1].substring(0, a[a.length - 1].length() - 1) + " " + words[2].substring(1, words[2].length() - 4));
+//					bw.write(a[a.length - 1].substring(0, a[a.length - 1].length() - 1) + " " + words[2].substring(1, words[2].length() - 4));
+//					bw.newLine();
 					count++;
 				}
 //				if (count % 100000 == 0) System.out.println("Process " + count + " lines");
