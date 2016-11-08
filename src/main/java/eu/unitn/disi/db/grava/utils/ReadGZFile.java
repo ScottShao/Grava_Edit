@@ -41,20 +41,23 @@ public class ReadGZFile {
 	    try {
 	    	int count = 0;
 			while ((line = is.readLine()) != null) {
-				String[] words = line.split(" ");
-				if (words.length < 3) continue;
-				int zero = 0;
-				while (zero < words.length && words[zero].length() == 0) zero++;
-				int first = zero + 1;
-				while (first < words.length && words[first].length() == 0) first++;
-				int second = first + 1;
-				while (second < words.length && words[second].length() == 0) second++;
-				if (second >= words.length) continue;
-				if (words[zero].contains("m.") && words[first].contains("name") && words[second].contains("@en")) {
-					String[] a = words[zero].split("/");
-					bw.write(a[a.length - 1] + " " + words[second].split("\"")[1]);
-				}
-				if (count % 100000 == 0) System.out.println("Process " + count + " lines");
+				if (count > 100) break;
+				System.out.println(line);
+//				String[] words = line.split(" ");
+//				if (words.length < 3) continue;
+//				int zero = 0;
+//				while (zero < words.length && words[zero].length() == 0) zero++;
+//				int first = zero + 1;
+//				while (first < words.length && words[first].length() == 0) first++;
+//				int second = first + 1;
+//				while (second < words.length && words[second].length() == 0) second++;
+//				if (second >= words.length) continue;
+//				if (words[zero].contains("m.") && words[first].contains("name") && words[second].contains("@en")) {
+//					String[] a = words[zero].split("/");
+//					bw.write(a[a.length - 1] + " " + words[second].split("\"")[1]);
+//					bw.newLine();
+//				}
+//				if (count % 100000 == 0) System.out.println("Process " + count + " lines");
 				count++;
 			}
 		} catch (IOException e) {
@@ -74,7 +77,9 @@ public class ReadGZFile {
 	 * @throws IOException 
 	 */
 	public static void main(String[] args) throws IOException {
-		ReadGZFile rf = new ReadGZFile("freebase.gz");
+		String a = "masdas";
+		System.out.println(a.contains("m."));
+//		ReadGZFile rf = new ReadGZFile("freebase.gz");
 //		String a = "<http://rdf.freebase.com/ns/american_football.football_player.footballdb_id>    <http://www.w3.org/2000/01/rdf-schema#label>    \"footballdb ID\"@en      .";
 //		System.out.println(a.split(" ")[2]);
 	}
