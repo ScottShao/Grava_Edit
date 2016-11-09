@@ -251,7 +251,7 @@ public class PruningAlgorithm extends Algorithm {
     	Set<MappedNode> filteredSet = new HashSet<>();
     	Set<MappedNode> oldSet = queryGraphMapping.get(this.startingNode);
     	Set<String> queryPaths = new HashSet<>();
-    	dfs(startingNode, new HashSet<>(), new StringBuilder(), 0, queryPaths);
+    	dfs(startingNode, new HashSet<Edge>(), new StringBuilder(), 0, queryPaths);
     	for (MappedNode mn : oldSet) {
     		BloomFilter<String> bf = gPathTables.get(mn.getNodeID());
     		int count = 0;
@@ -279,7 +279,7 @@ public class PruningAlgorithm extends Algorithm {
     		Set<MappedNode> filteredSet = new HashSet<>();
         	Set<MappedNode> oldSet = queryGraphMapping.get(crt);
         	Set<String> queryPaths = new HashSet<>();
-        	dfs(crt, new HashSet<>(), new StringBuilder(), 0, queryPaths);
+        	dfs(crt, new HashSet<Edge>(), new StringBuilder(), 0, queryPaths);
         	for (MappedNode mn : oldSet) {
         		BloomFilter<String> bf = gPathTables.get(mn.getNodeID());
         		int count = 0;
@@ -305,7 +305,7 @@ public class PruningAlgorithm extends Algorithm {
     public int onlyPath() {
     	int number = 0;
     	Set<String> queryPaths = new HashSet<>();
-    	dfs(startingNode, new HashSet<>(), new StringBuilder(), 0, queryPaths);
+    	dfs(startingNode, new HashSet<Edge>(), new StringBuilder(), 0, queryPaths);
     	for (Long mn : graph.vertexSet()) {
     		BloomFilter<String> bf = gPathTables.get(mn);
     		int count = 0;

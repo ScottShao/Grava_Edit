@@ -1,5 +1,6 @@
 #NetBeans
-
+logs/
+google-api-java-client/
 nbproject/private/
 build/
 nbbuild/
@@ -8,8 +9,8 @@ nbdist/
 nbactions.xml
 nb-configuration.xml
 target/
-
-
+.idea/
+*.graph
 # OS.X
 
 .DS_Store
@@ -33,3 +34,9 @@ Icon
 Network Trash Folder
 Temporary Items
 .apdisk
+
+queryFolder/
+SAPPER/
+tmp/
+test/
+software/

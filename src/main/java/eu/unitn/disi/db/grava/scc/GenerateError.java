@@ -27,13 +27,15 @@ import eu.unitn.disi.db.grava.utils.FileOperator;
 public class GenerateError {
 	private Random rn;
 	private Edge[] edgeSet;
+	private String folder;
 	/**
 	 * 
 	 */
 	public GenerateError(BigMultigraph G, String folder) {
 		rn = new Random();
+		this.folder = folder;
 		edgeSet = G.edgeSet().toArray(new Edge[0]);
-		File error = new File(folder + "error/");
+		File error = new File(folder + "/error/");
 		if (!error.exists()) {
 			error.mkdir();
 		}
@@ -54,9 +56,8 @@ public class GenerateError {
 	
 	private void write(List<Edge> edges, String queryFile) throws IOException {
 		String[] des = queryFile.split("/");
-		String folder = queryFile.substring(0, queryFile.length() - des[des.length - 1].length()) + "error/";
 		String fileName = queryFile.substring(queryFile.length() - des[des.length - 1].length());
-		BufferedWriter bw = new BufferedWriter(new FileWriter(folder+fileName));
+		BufferedWriter bw = new BufferedWriter(new FileWriter(folder+ "/error/"+fileName));
 		for (Edge e : edges) {
 			bw.write(e.getSource() + " " + e.getDestination() + " " + e.getLabel());
 			bw.newLine();
@@ -69,12 +70,12 @@ public class GenerateError {
 //		System.out.println(edges.size() + " " + idx);
 		Edge e = edges.remove(idx);
 		edges.add(new Edge(e.getSource(), e.getDestination(), edgeSet[rn.nextInt(edgeSet.length)].getLabel()));
-		int next = idx;
-		while (next == edges.size() - 1) {
-			next = rn.nextInt(edges.size());
-			e = edges.remove(idx);
-			edges.add(new Edge(e.getSource(), e.getDestination(), edgeSet[rn.nextInt(edgeSet.length)].getLabel()));
-		}
+//		int next = idx;
+//		while (next == edges.size() - 1) {
+//			next = rn.nextInt(edges.size());
+//			e = edges.remove(idx);
+//			edges.add(new Edge(e.getSource(), e.getDestination(), edgeSet[rn.nextInt(edgeSet.length)].getLabel()));
+//		}
 	}
 	
 	private List<Edge> getEdges(String fileName) throws IOException {
@@ -92,7 +93,7 @@ public class GenerateError {
 		String graph = args[0];
 		BigMultigraph G = new BigMultigraph(graph + "-sin.graph",
 				graph + "-sout.graph", false);
-		GenerateError s = new GenerateError(G, "queryFolder/" + graph + "/eval/");
+		GenerateError s = new GenerateError(G, "queryFolder/" + graph);
 	}
 
 }

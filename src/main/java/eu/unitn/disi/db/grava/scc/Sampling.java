@@ -486,7 +486,7 @@ public class Sampling {
 			try {
 				List<Long> newNodes = new ArrayList<>();
 				newNodes.add(node);
-				if (this.generateQueriesWittLimits(folder, newNodes, new ArrayList<>(), 1, limit, count)) {
+				if (this.generateQueriesWittLimits(folder, newNodes, new ArrayList<Edge>(), 1, limit, count)) {
 					count++;
 				}
 			} catch (FileNotFoundException | UnsupportedEncodingException e) {
@@ -551,12 +551,17 @@ public class Sampling {
 	private void generateQueries(int edgeNum, int queriesNum) {
 		Collection<Long> nodes = G.vertexSet();
 		int count = 0;
+		Random rn = new Random();
 		for (Long node : nodes) {
 			if (count > queriesNum)
 				break;
-//				for (int i = 2; i <= edgeNum; i++) {
+				int num = 0;
+				while (num < 6 || num > edgeNum) {
+					num = rn.nextInt(9);
+				}
+//				for (int i = 6; i <= edgeNum; i++) {
 					try {
-						this.generateDifSizeQueries(6, node);
+						this.generateDifSizeQueries(num, node);
 					} catch (FileNotFoundException
 							| UnsupportedEncodingException e) {
 						// TODO Auto-generated catch block
@@ -585,7 +590,7 @@ public class Sampling {
 //			if (!f.exists()) {
 //				f.mkdirs();
 //			}
-			PrintWriter fw = new PrintWriter("./queryFolder/10000nodes/eval/" + "E" + edges.size() + "E"
+			PrintWriter fw = new PrintWriter("./queryFolder/10000nodes/" + "E" + edges.size() + "E"
 					+ nodes.get(0) + ".txt", "UTF-8");
 			for (Edge e : edges) {
 				fw.write(e.getSource() + " " + e.getDestination() + " "
@@ -902,7 +907,7 @@ public class Sampling {
 //		 double limit = 0.0001 / G.edgeSet().size();
 //		 System.out.println(limit);
 //		 s.generateQueries(limit, 20, "./queryFolder/" + graph + "/limit/");
-		 s.generateQueries(6, 100);
+		 s.generateQueries(8, 300);
 		// s.generateClique(3, 0, new ArrayList<Long>());
 	}
 

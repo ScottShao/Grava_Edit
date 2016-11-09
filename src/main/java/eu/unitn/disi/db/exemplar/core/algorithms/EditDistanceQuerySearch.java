@@ -17,15 +17,13 @@
  */
 package eu.unitn.disi.db.exemplar.core.algorithms;
 
-import eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep;
-import eu.unitn.disi.db.exemplar.core.algorithms.steps.GraphIsomorphismRecursiveStep;
 import eu.unitn.disi.db.command.exceptions.AlgorithmExecutionException;
 import eu.unitn.disi.db.command.util.StopWatch;
 import eu.unitn.disi.db.exemplar.core.EditDistanceQuery;
 import eu.unitn.disi.db.exemplar.core.RelatedQuery;
+import eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep;
 import eu.unitn.disi.db.grava.graphs.MappedNode;
 import eu.unitn.disi.db.grava.graphs.Multigraph;
-
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.LinkedList;
@@ -38,23 +36,22 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 
 /**
- * This class contains a naive - RECURSIVE - implementation for Algorithm1 thus
- * the solution obtained traversing the graph in order to find subgraphs
- * matching the pattern in the query given as input
+ * This class contains a naive - RECURSIVE - implementation for Algorithm1 thus the solution obtained traversing the
+ * graph in order to find subgraphs matching the pattern in the query given as input
  *
  * @author Matteo Lissandrini <ml at disi.unitn.eu>
  */
 public class EditDistanceQuerySearch extends RelatedQuerySearch {
-	private int threshold;
-	private Long startingNode;
-	private int searchCount;
-	public static long answerCount = 0;
-	public static boolean isBad = false;
-	public static long interNum = 0;
+
+    public static long answerCount = 0;
+    public static boolean isBad = false;
+    public static long interNum = 0;
+    private int threshold;
+    private Long startingNode;
+    private int searchCount;
+
     /**
      * Execute the algorithm
-     *
-     * @throws AlgorithmExecutionException
      */
     @Override
     public void compute() throws AlgorithmExecutionException {
@@ -91,13 +88,12 @@ public class EditDistanceQuerySearch extends RelatedQuerySearch {
             graphNodes = ((Map<Long, Set<MappedNode>>) this.getQueryToGraphMap()).get(startingNode);
         }
 
-
         List<EditDistanceQuery> tmp = null;
 //        System.out.println("threads num:" + this.getNumThreads());
         //Start in parallel
         int numThreads = 8;
-        ExecutorService pool = Executors.newFixedThreadPool(numThreads);
-        
+        ExecutorService pool = Executors.newFixedThreadPool(this.getNumThreads());
+
         int chunkSize = (int) Math.round(graphNodes.size() / numThreads + 0.5);
         List<Future<List<EditDistanceQuery>>> lists = new ArrayList<>();
         ////////////////////// USE 1 THREAD
@@ -125,7 +121,8 @@ public class EditDistanceQuerySearch extends RelatedQuerySearch {
 
         for (List<MappedNode> chunk : nodesChunks) {
             threadNum++;
-            EDMatchingRecursiveStep graphI = new EDMatchingRecursiveStep(threadNum, chunk.iterator(), startingNode, query, graph, true, this.getSkipSave(), threshold, this.getQueryToGraphMap(), chunkSize);
+            EDMatchingRecursiveStep graphI = new EDMatchingRecursiveStep(threadNum, chunk.iterator(), startingNode,
+                    query, graph, true, this.getSkipSave(), threshold, this.getQueryToGraphMap(), chunkSize);
             lists.add(pool.submit(graphI));
         }
 
@@ -142,31 +139,37 @@ public class EditDistanceQuerySearch extends RelatedQuerySearch {
                 if (tmp != null) {
                     //debug("Graph size: %d", smallGraph.vertexSet().size());
                     //                  //((List<RelatedQuery>)this.getRelatedQueries()).addAll(tmp);
-                    List<RelatedQuery> rr = this.getRelatedQueries();
-                    rr.addAll(tmp);
+                    this.getRelatedQueries().addAll(tmp);
+
+//                    List<RelatedQuery> rr = this.getRelatedQueries();
+//                    rr.addAll(tmp);
 
                 }
             }
         } catch (InterruptedException | ExecutionException ex) {
-        	ex.printStackTrace();
+            ex.printStackTrace();
             error(ex.toString());
         }
         pool.shutdown();
         watch.stop();
 //        info("Computed related in %dms", watch.getElapsedTimeMillis());
     }
-	public int getThreshold() {
-		return threshold;
-	}
-	public void setThreshold(int threshold) {
-		this.threshold = threshold;
-	}
-	public Long getStartingNode() {
-		return startingNode;
-	}
-	public void setStartingNode(Long startingNode) {
-		this.startingNode = startingNode;
-	}
-    
-    
+
+    public int getThreshold() {
+        return threshold;
+    }
+
+    public void setThreshold(int threshold) {
+        this.threshold = threshold;
+    }
+
+    public Long getStartingNode() {
+        return startingNode;
+    }
+
+    public void setStartingNode(Long startingNode) {
+        this.startingNode = startingNode;
+    }
+
+
 }

@@ -61,11 +61,11 @@ public class IsomorphicQuery extends RelatedQuery {
      * @param query the query that needs to be mapped
      */
     public IsomorphicQuery(Multigraph query) {
-        super(query);
-        this.initialize();
+//        super(query);
+        this.initialize(query);
     }
 
-    private void initialize() {
+    private void initialize(Multigraph query) {
         this.mappedNodes = new HashMap<>(query.vertexSet().size() + 2, 1f);
         this.reversedMappedNodes = new HashMap<>(query.vertexSet().size() + 2, 1f);
 
@@ -83,22 +83,22 @@ public class IsomorphicQuery extends RelatedQuery {
 
     @Override
     public IsomorphicQuery getClone() {
-        IsomorphicQuery clone = new IsomorphicQuery(this.query);
-        clone.mappedNodes = new HashMap<>(query.vertexSet().size() + 2, 1f);
+        IsomorphicQuery clone = new IsomorphicQuery();
+        clone.mappedNodes = new HashMap<>(this.mappedNodes.size() + 2, 1f);
         clone.mappedNodes.putAll(this.mappedNodes);
 
-        clone.reversedMappedNodes = new HashMap<>(query.vertexSet().size() + 2, 1f);
+        clone.reversedMappedNodes = new HashMap<>(this.reversedMappedNodes.size() + 2, 1f);
         clone.reversedMappedNodes.putAll(this.reversedMappedNodes);
 
-        clone.usedEdgesIDs = new HashSet<>(query.edgeSet().size() + 2, 1f);
+        clone.usedEdgesIDs = new HashSet<>(this.usedEdgesIDs.size() + 2, 1f);
         clone.usedEdgesIDs.addAll(this.usedEdgesIDs);
 
-        clone.mappedEdges = new HashMap<>(query.edgeSet().size() + 2, 1f);
+        clone.mappedEdges = new HashMap<>(this.mappedEdges.size() + 2, 1f);
         clone.mappedEdges.putAll(this.mappedEdges);
 
-        clone.totalWeight = this.totalWeight;
-        clone.nodeWeights = new HashMap<>();
-        clone.nodeWeights.putAll(this.nodeWeights);
+//        clone.totalWeight = this.totalWeight;
+//        clone.nodeWeights = new HashMap<>();
+//        clone.nodeWeights.putAll(this.nodeWeights);
 
         return clone;
     }
@@ -347,32 +347,33 @@ public class IsomorphicQuery extends RelatedQuery {
         }
         return false;
     }
-    public List<Edge> getEdgeSet(){
-    	PriorityQueue<Edge> edgeQueue = new PriorityQueue<Edge>(10, new Comparator<Edge>() {
-            public int compare(Edge e1, Edge e2) {
-            	if (e1.getLabel().equals(e2.getLabel())) {
-            		return e1.getDestination() > e2.getDestination()? 1 : -1;
-            	}
-            	return e1.getLabel() > e2.getLabel()? 1 : -1;
-            }
-        });
-    	edgeQueue.addAll(query.edgeSet());
-    	List<Edge> sortedEdgeSet = new ArrayList<>();
-    	while(!edgeQueue.isEmpty()) {
-    		sortedEdgeSet.add(edgeQueue.poll());
-    	}
-    	return sortedEdgeSet;
-    }
+
+//    public List<Edge> getEdgeSet(){
+//    	PriorityQueue<Edge> edgeQueue = new PriorityQueue<Edge>(10, new Comparator<Edge>() {
+//            public int compare(Edge e1, Edge e2) {
+//            	if (e1.getLabel().equals(e2.getLabel())) {
+//            		return e1.getDestination() > e2.getDestination()? 1 : -1;
+//            	}
+//            	return e1.getLabel() > e2.getLabel()? 1 : -1;
+//            }
+//        });
+//    	edgeQueue.addAll(query.edgeSet());
+//    	List<Edge> sortedEdgeSet = new ArrayList<>();
+//    	while(!edgeQueue.isEmpty()) {
+//    		sortedEdgeSet.add(edgeQueue.poll());
+//    	}
+//    	return sortedEdgeSet;
+//    }
     
-    @Override
-    public String toString() {
-    	List<Edge> sortedEdges = this.getEdgeSet();
-        String s = "";
-        for (Edge e : sortedEdges) {
-            s += e + " ";
-        }
-        return s;
-    }
+//    @Override
+//    public String toString() {
+//    	List<Edge> sortedEdges = this.getEdgeSet();
+//        String s = "";
+//        for (Edge e : sortedEdges) {
+//            s += e + " ";
+//        }
+//        return s;
+//    }
     
    
     @Override

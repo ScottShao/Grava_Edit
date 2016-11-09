@@ -69,14 +69,13 @@ public class EDMatchingRecursiveStep extends AlgorithmStep<EditDistanceQuery> {
         int i = 0;
         this.isQuit = false;
         while (graphNodes.hasNext()) {
-        	System.out.println("Thread " + threadNumber + " Finshed " + ((double)i / chunkSize) * 100 + "%");
+//        	System.out.println("Thread " + threadNumber + " Finshed " + ((double)i / chunkSize) * 100 + "%");
         	MappedNode node = graphNodes.next();
 //        	System.out.println("creating " + node);
             try {
                 relatedQuery = new EditDistanceQuery(query);
                 //Map the first node
                 relatedQuery.map(queryConcept, node);
-
                 relatedQueriesPartial = createQueries(query, queryConcept, node, relatedQuery);
                 i++;
                 if (this.isQuit) {
@@ -121,6 +120,7 @@ public class EDMatchingRecursiveStep extends AlgorithmStep<EditDistanceQuery> {
 //        System.out.println(this.cmpCount);
         watch.stop();
 //        System.out.println(this + "future finished");
+//        System.out.println(relatedQueries.size());
         return new LinkedList<>(relatedQueries);
     }
 
@@ -362,7 +362,7 @@ public class EDMatchingRecursiveStep extends AlgorithmStep<EditDistanceQuery> {
         return relatedQueries.size() > 0 ? relatedQueries : null;
     }
     
-    public static List<Edge> sortEdge(Set<Edge> edges, Multigraph graph) {
+    public static List<Edge> sortEdge(final Set<Edge> edges, final Multigraph graph) {
 		List<Edge> sortedEdges = new ArrayList<>();
     	PriorityQueue<Edge> pq = new PriorityQueue<>( new Comparator<Edge>(){
     		public int compare(Edge e1, Edge e2) {

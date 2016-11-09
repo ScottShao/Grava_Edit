@@ -95,7 +95,7 @@ public class ComputeGraphNeighbors extends Algorithm {
 //			debug("[T%d] Table computation started with %d nodes to process",
 //					id, end - start);
 			for (int i = start; i < end && i < graphNodes.length; i++) {
-				if ((i - start) % 200 == 0) System.out.println("computed nodes number " + (i - start));
+//				if ((i - start) % 200 == 0) System.out.println("computed nodes number " + (i - start));
 				node = graphNodes[i];
 				toVisit = new HashSet<>();
 				toVisit.add(node);
@@ -175,7 +175,7 @@ public class ComputeGraphNeighbors extends Algorithm {
 		Collection<Long> nodeSet = graph.vertexSet();
 		for (Long node : nodeSet) {
 			BloomFilter<String> bf = new BloomFilter<String>(0.1, 10000);
-			dfs(node, new HashSet<>(), new StringBuilder(), 0, bf, new ArrayList<>());
+			dfs(node, new HashSet<Edge>(), new StringBuilder(), 0, bf, new ArrayList<Long>());
 			this.pathTables.put(node, bf);
 		}
 	}

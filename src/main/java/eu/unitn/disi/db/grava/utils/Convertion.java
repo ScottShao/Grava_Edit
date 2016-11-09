@@ -40,6 +40,7 @@ public class Convertion {
   public Convertion() {
 	  properties = new Properties();
 	  predMap = null;
+	  map = new HashMap<>();
 	  init();
   }
   public String toReadable(Collection<Edge> edgeSet) {
@@ -73,41 +74,47 @@ public class Convertion {
   }
   
   public void init() {
-	  try {
-		properties.load(new FileInputStream("freebase.properties"));
-		predMap = new HashMap<>();
-		BufferedReader br = new BufferedReader(new FileReader("predicatesWithID.txt"));
-		String line = null;
-		while((line = br.readLine()) != null){
-			String[] words = line.split(" ");
-			String[] wws = words[0].split("\\.");
-			predMap.put(Long.valueOf(words[1]), wws[wws.length - 1]);
-		}
-		br.close();
-		loadEntities();
-	} catch (IOException e) {
-		e.printStackTrace();
-	}
+//	  try {
+////		properties.load(new FileInputStream("freebase.properties"));
+//		predMap = new HashMap<>();
+//		BufferedReader br = new BufferedReader(new FileReader("predicatesWithID.txt"));
+//		String line = null;
+//		while((line = br.readLine()) != null){
+//			String[] words = line.split(" ");
+//			String[] wws = words[0].split("\\.");
+//			predMap.put(Long.valueOf(words[1]), wws[wws.length - 1]);
+//		}
+//		br.close();
+//		loadEntities();
+//	} catch (IOException e) {
+//		e.printStackTrace();
+//	}
   }
   
   public void loadEntities() {
-		try {
-			BufferedReader br = new BufferedReader(new FileReader("entities.txt"));
-			String line = null;
-			while ((line = br.readLine()) != null) {
-				String[] words = line.split(" ");
-				String entity = line.substring(words[0].length() + 1);
-				map.put("/m/" + words[0].substring(2), entity);
-			}
-			
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
+//		try {
+//			BufferedReader br = new BufferedReader(new FileReader("entities.txt"));
+//			String line = null;
+//			int count = 0;
+//			while ((line = br.readLine()) != null) {
+//				String[] words = line.split(" ");
+//				if (words[0] == null) System.out.println("null");
+//				
+//				String entity = line.substring(words[0].length() + 1);
+//				if (entity == null) System.out.println("asd");
+//				map.put("/m/" + words[0].substring(2), entity);
+//				count++;
+////				if (count % 10000 == 0) System.out.println("/m/" + words[0].substring(2));
+//			}
+//			System.out.println("Entities loaded.");
+//		} catch (FileNotFoundException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		} catch (IOException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+//		
 	}
   public String mid2Readable(String mid) {
 	  return map.get(mid);

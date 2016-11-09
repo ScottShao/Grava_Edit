@@ -66,7 +66,7 @@ public class GraphIsomorphismRecursiveStep extends AlgorithmStep<RelatedQuery> {
         int i = 0;
         this.isQuit = false;
         while (graphNodes.hasNext()) {
-        	System.out.println("Thread " + threadNumber + " Finshed " + ((double)i / chunkSize) * 100 + "%");
+//        	System.out.println("Thread " + threadNumber + " Finshed " + ((double)i / chunkSize) * 100 + "%");
         	MappedNode node = graphNodes.next();
 //        	System.out.println("Processing node " + node.getNodeID());
 //        	System.out.println(node);
@@ -91,10 +91,10 @@ public class GraphIsomorphismRecursiveStep extends AlgorithmStep<RelatedQuery> {
 //                    	System.out.println(rq);
 //                    }
                     if (watch.getElapsedTimeMillis() > WARN_TIME || IsomorphicQuerySearch.answerCount > MAX_RELATED) {
-                        warn("More than " + MAX_RELATED + " partial isomorphic results");
+//                        warn("More than " + MAX_RELATED + " partial isomorphic results");
                         warned = true;
                         if (limitComputation) {
-                            warn("Computation interrupted after " + IsomorphicQuerySearch.answerCount + " partial isomorphic results");
+//                            warn("Computation interrupted after " + IsomorphicQuerySearch.answerCount + " partial isomorphic results");
                             break;
                         }
 //                        IsomorphicQuerySearch.answerCount = 0;
@@ -425,7 +425,7 @@ public class GraphIsomorphismRecursiveStep extends AlgorithmStep<RelatedQuery> {
         return true;
     }
     //todo: sort by frequency
-    public static List<Edge> sortEdge(Set<Edge> edges, HashMap<Long, LabelContainer> labelFreq) {
+    public static List<Edge> sortEdge(final Set<Edge> edges, final HashMap<Long, LabelContainer> labelFreq) {
 		List<Edge> sortedEdges = new ArrayList<>();
     	PriorityQueue<Edge> pq = new PriorityQueue<>( new Comparator<Edge>(){
     		public int compare(Edge e1, Edge e2) {

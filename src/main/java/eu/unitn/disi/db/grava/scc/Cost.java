@@ -65,7 +65,7 @@ public class Cost {
 		return ((BigMultigraph)graph).getLabelFreq().get(minEdge.getLabel()).getFrequency();
 	}
 	
-	public static Edge sortEdge(Set<Edge> edges, Multigraph graph) {
+	public static Edge sortEdge(final Set<Edge> edges, final Multigraph graph) {
 		List<Edge> sortedEdges = new ArrayList<>();
     	PriorityQueue<Edge> pq = new PriorityQueue<>( new Comparator<Edge>(){
     		public int compare(Edge e1, Edge e2) {
@@ -85,7 +85,7 @@ public class Cost {
     	return pq.peek();
 	}
 	
-	public static List<Edge> getSortedEdges(List<Edge> edges, Multigraph graph) {
+	public static List<Edge> getSortedEdges(final List<Edge> edges, final Multigraph graph) {
 		List<Edge> sortedEdges = new ArrayList<>();
     	PriorityQueue<Edge> pq = new PriorityQueue<>(new Comparator<Edge>(){
     		public int compare(Edge e1, Edge e2) {
@@ -108,7 +108,7 @@ public class Cost {
     	return sortedEdges;
 	}
 	
-	 public static List<Edge> getSortedEdges(Set<Edge> edges, Multigraph graph) {
+	 public static List<Edge> getSortedEdges(final Set<Edge> edges, final Multigraph graph) {
 			List<Edge> sortedEdges = new ArrayList<>();
 	    	PriorityQueue<Edge> pq = new PriorityQueue<>(new Comparator<Edge>(){
 	    		public int compare(Edge e1, Edge e2) {

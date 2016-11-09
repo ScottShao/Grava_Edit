@@ -38,17 +38,17 @@ import java.util.Set;
  * @author Matteo Lissandrini <ml at disi.unitn.eu>
  */
 
-public abstract class RelatedQuery extends LoggableObject implements Comparable {
+public abstract class RelatedQuery extends LoggableObject {
     /**
      * The query to map
      */
-    protected Multigraph query;
+//    protected Multigraph query;
 
     /**
      * Weights
      */
-    protected Map<Long, Double> nodeWeights;
-    protected double totalWeight;
+//    protected Map<Long, Double> nodeWeights;
+//    protected double totalWeight;
 
     RelatedQuery() {  } //A default constructor used for serialization
 
@@ -57,16 +57,16 @@ public abstract class RelatedQuery extends LoggableObject implements Comparable 
      *
      * @param query the query that needs to be mapped
      */
-    public RelatedQuery(Multigraph query) {
-        this.query = query;
-        this.nodeWeights = new HashMap<>();
-        this.totalWeight = 0;
+//    public RelatedQuery(Multigraph query) {
+//        this.query = query;
+////        this.nodeWeights = new HashMap<>();
+////        this.totalWeight = 0;
+//
+//    }
 
-    }
-
-    public Multigraph getQuery() {
-        return query;
-    }
+//    public Multigraph getQuery() {
+//        return query;
+//    }
 
 
 
@@ -185,46 +185,46 @@ public abstract class RelatedQuery extends LoggableObject implements Comparable 
      * @param w
      * @return the current total weight
      */
-    public double addWeight(Long c, Double w) {
-        Double old;
-        old = nodeWeights.put(c, w);
-        if (old != null) {
-            totalWeight -= old;
-            totalWeight += w;
-        } else {
-            totalWeight += w;
-        }
-
-        return totalWeight;
-    }
+//    public double addWeight(Long c, Double w) {
+//        Double old;
+//        old = nodeWeights.put(c, w);
+//        if (old != null) {
+//            totalWeight -= old;
+//            totalWeight += w;
+//        } else {
+//            totalWeight += w;
+//        }
+//
+//        return totalWeight;
+//    }
 
     /**
      *
      * @return the current total weight
      */
-    public double getTotalWeight() {
-        return totalWeight;
-    }
+//    public double getTotalWeight() {
+//        return totalWeight;
+//    }
 
-    /**
-     * Compares based on the total weight
-     * @param obj
-     * @return
-     */
-    @Override
-    public int compareTo(Object obj) {
-
-        if (obj == null) {
-            throw new NullPointerException("Null object cannot be compared");
-        }
-
-        if (getClass() != obj.getClass()) {
-            throw new ClassCastException("Only RelatedQuery objects can be compared");
-        }
-
-        RelatedQuery other = (RelatedQuery) obj;
-        return (new Double(this.totalWeight)).compareTo(other.getTotalWeight());
-    }
+//    /**
+//     * Compares based on the total weight
+//     * @param obj
+//     * @return
+//     */
+//    @Override
+//    public int compareTo(Object obj) {
+//
+//        if (obj == null) {
+//            throw new NullPointerException("Null object cannot be compared");
+//        }
+//
+//        if (getClass() != obj.getClass()) {
+//            throw new ClassCastException("Only RelatedQuery objects can be compared");
+//        }
+//
+//        RelatedQuery other = (RelatedQuery) obj;
+//        return (new Double(this.totalWeight)).compareTo(other.getTotalWeight());
+//    }
 
 
     /**
@@ -240,32 +240,32 @@ public abstract class RelatedQuery extends LoggableObject implements Comparable 
      * @return string representation
      */
     
-    public List<Edge> getEdgeSet(){
-    	PriorityQueue<Edge> edgeQueue = new PriorityQueue<Edge>(10, new Comparator<Edge>() {
-            public int compare(Edge e1, Edge e2) {
-            	if (e1.getLabel().equals(e2.getLabel())) {
-            		return e1.getDestination() > e2.getDestination()? 1 : -1;
-            	}
-            	return e1.getLabel() > e2.getLabel()? 1 : -1;
-            }
-        });
-    	edgeQueue.addAll(query.edgeSet());
-    	List<Edge> sortedEdgeSet = new ArrayList<>();
-    	while(!edgeQueue.isEmpty()) {
-    		sortedEdgeSet.add(edgeQueue.poll());
-    	}
-    	return sortedEdgeSet;
-    }
-    @Override
-    public String toString(){
-    	
-    	String result = "";
-    	List<Edge> sortedEdge = this.getEdgeSet();
-    	for (Edge e : sortedEdge) {
-    		result += e + "\n";
-    	}
-    	return result;
-    }
+//    public List<Edge> getEdgeSet(){
+//    	PriorityQueue<Edge> edgeQueue = new PriorityQueue<Edge>(10, new Comparator<Edge>() {
+//            public int compare(Edge e1, Edge e2) {
+//            	if (e1.getLabel().equals(e2.getLabel())) {
+//            		return e1.getDestination() > e2.getDestination()? 1 : -1;
+//            	}
+//            	return e1.getLabel() > e2.getLabel()? 1 : -1;
+//            }
+//        });
+//    	edgeQueue.addAll(query.edgeSet());
+//    	List<Edge> sortedEdgeSet = new ArrayList<>();
+//    	while(!edgeQueue.isEmpty()) {
+//    		sortedEdgeSet.add(edgeQueue.poll());
+//    	}
+//    	return sortedEdgeSet;
+//    }
+//    @Override
+//    public String toString(){
+//
+//    	String result = "";
+//    	List<Edge> sortedEdge = this.getEdgeSet();
+//    	for (Edge e : sortedEdge) {
+//    		result += e + "\n";
+//    	}
+//    	return result;
+//    }
 
     /**
      *
