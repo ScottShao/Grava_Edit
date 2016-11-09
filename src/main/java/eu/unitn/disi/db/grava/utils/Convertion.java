@@ -35,6 +35,7 @@ import org.json.simple.parser.JSONParser;
 public class Convertion {
   public static Properties properties;
   public static Map<Long, String> predMap;
+  public static Map<String, String> map;
   
   public Convertion() {
 	  properties = new Properties();
@@ -83,45 +84,33 @@ public class Convertion {
 			predMap.put(Long.valueOf(words[1]), wws[wws.length - 1]);
 		}
 		br.close();
+		loadEntities();
 	} catch (IOException e) {
 		e.printStackTrace();
 	}
   }
+  
+  public void loadEntities() {
+		try {
+			BufferedReader br = new BufferedReader(new FileReader("entities.txt"));
+			String line = null;
+			while ((line = br.readLine()) != null) {
+				String[] words = line.split(" ");
+				String entity = line.substring(words[0].length() + 1);
+				map.put("/m/" + words[0].substring(2), entity);
+			}
+			
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
   public String mid2Readable(String mid) {
-	  String re = null;
-	  try {
-	      
-	      HttpTransport httpTransport = new NetHttpTransport();
-	      HttpRequestFactory requestFactory = httpTransport.createRequestFactory();
-	      JSONParser parser = new JSONParser();
-	      GenericUrl url = new GenericUrl("https://kgsearch.googleapis.com/v1/entities:search");
-//	      mid = "/m/0dl567";
-	      url.put("ids", mid);
-//	      url.put("filter", "(all type:/music/artist created:\"The Lady Killer\")");
-//	      url.put("limit", "10");
-	      url.put("indent", "true");
-	      url.put("key", properties.get("API_KEY"));
-	      HttpRequest request = requestFactory.buildGetRequest(url);
-	      HttpResponse httpResponse = request.execute();
-	      JSONObject response = (JSONObject)parser.parse(httpResponse.parseAsString());
-	      System.out.println(response.toString());
-	      JSONArray results = (JSONArray)response.get("itemListElement");
-//	      System.out.println(results.toString());
-//	      for (Object element : results) {
-//	          System.out.println(JsonPath.read(element, "$.result.name").toString());
-//	       }
-	      re = JsonPath.read(results.iterator().next(),"$.result.name").toString();
-//	      for (Object result : results) {
-//	        System.out.println(JsonPath.read(result,"$.name").toString());
-//	      }
-	    } catch (Exception ex) {
-	    	re = null;
-//	      ex.printStackTrace();
-	    }
-	  if (re == null || re.length() == 0) {
-		  return null;
-	  }
-	  return re;
+	  return map.get(mid);
   }
   public String long2mid(Long num) {
 	  String mid = "";
@@ -150,9 +139,15 @@ public class Convertion {
       return "/m/" + mid.toLowerCase();
   }
   
-  public static void main(String[] args) {
+  public static Map<String, String> getMap() {
+	return map;
+}
+public static void setMap(Map<String, String> map) {
+	Convertion.map = map;
+}
+public static void main(String[] args) {
 	  Convertion c = new Convertion();
-	  System.out.println(c.long2mid(515348L));
-	  System.out.println(c.mid2Readable(c.long2mid(51808657866848L)));
+	  System.out.println("/a/".split("/")[1]);
+//	  System.out.println(c.mid2Readable(c.long2mid(51808657866848L)));
   }
 }

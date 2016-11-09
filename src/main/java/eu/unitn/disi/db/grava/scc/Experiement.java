@@ -24,6 +24,7 @@ import eu.unitn.disi.db.grava.graphs.BigMultigraph;
 import eu.unitn.disi.db.grava.graphs.Connection;
 import eu.unitn.disi.db.grava.graphs.LabelContainer;
 import eu.unitn.disi.db.grava.graphs.Multigraph;
+import eu.unitn.disi.db.grava.utils.Convertion;
 import eu.unitn.disi.db.grava.utils.FileOperator;
 import eu.unitn.disi.db.grava.utils.Utilities;
 import eu.unitn.disi.db.query.WildCardQuery;
@@ -77,6 +78,8 @@ public class Experiement {
 		ed.setMo(mo);
 		ed.setThreshold(threshold);
 		ed.setCmpBw(bw);
+		ed.setCon(new Convertion());
+//		ed.loadEntities();
 		try{
 			bw.write("avg degree: 8.97, wc cost, ed cost, bf cost,exbf cost, wc time, ed time, bf time, exbf time");
 //		bw.write("avg degree: 8.97, wc cost, ed cost, wc candidate, ed candidate, answer count, wc time, ex time, isWcBad, isEdBad, wcIntNum, wcIntSum, edIntNum");

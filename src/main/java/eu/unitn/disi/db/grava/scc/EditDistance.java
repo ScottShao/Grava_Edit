@@ -114,6 +114,8 @@ public class EditDistance {
 	private double edAllEst;
 	private double edPathEst;
 	private double edAdjEdt;
+//	private Map<String, String> mid2Read;
+	private Convertion con;
 
 	public BufferedWriter getCmpBw() {
 		return cmpBw;
@@ -373,7 +375,7 @@ public class EditDistance {
 		if (!this.isQueryMappable(Q)) {
 			return;
 		}
-		Convertion con = new Convertion();
+//		Convertion con = new Convertion();
 		Map<Long, Integer> labelCount = new HashMap<>();
 		for (Edge e : Q.edgeSet()) {
 			if (labelCount.containsKey(e.getLabel())) {
@@ -558,9 +560,9 @@ public class EditDistance {
 			List<Edge> edgeSet = new ArrayList<>();
 			for (Entry<Edge, Edge> en: ((IsomorphicQuery)rq).getMappedEdges().entrySet()) {
 				edgeSet.add(en.getValue());
-				System.out.println(en.getValue());
+//				System.out.println(en.getValue());
 //				System.out.println(en.getValue().getSource() + " " + en.getValue().getLabel() + " " + en.getValue().getDestination());
-				System.out.println(con.toReadable(en.getValue()));
+//				System.out.println(con.toReadable(en.getValue()));
 			}
 			Map<Long, Integer> ansLabelCount = new HashMap<>();
 			for (Edge e : edgeSet) {
@@ -1352,6 +1354,15 @@ public class EditDistance {
 
 	public int getThreshold() {
 		return threshold;
+	}
+	
+
+	public Convertion getCon() {
+		return con;
+	}
+
+	public void setCon(Convertion con) {
+		this.con = con;
 	}
 
 	public void setThreshold(int threshold) {
