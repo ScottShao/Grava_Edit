@@ -159,7 +159,7 @@ public class Experiement {
             ed.setgTableAlgorithm(tableAlgorithm);
             ed.setG(G);
             for (String queryFile : queryFiles) {
-                if (queryFile.contains("csv" ) || !queryFile.contains("E8E67504984819548.txt")) {
+                if (queryFile.contains("csv" ) || !queryFile.contains("E6E82838748.txt")) {
                     continue;
                 }
                 ed.setQueryName(queryFile);

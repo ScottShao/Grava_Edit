@@ -1,56 +1,0 @@
-
-Dsquid:S1481"(Remove this unused "min" local variable.(éğ8Ğë³¯Ê-
-gsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(Ó¸ÃÊ8Ğë³¯Ê-
-Csquid:S1659"'Declare "numerator" on a separate line.(ÿÏƒ‰8Ğë³¯Ê-
-hsquid:S1226"GIntroduce a new variable instead of reusing the parameter "multiplier".(©†‰¢şÿÿÿÿ8Ğë³¯Ê-
-Gsquid:S1905"&Remove this unnecessary cast to "int".(ô–şÿÿÿÿ8Ğë³¯Ê-
-ƒ"squid:ClassVariableVisibilityCheck"PMake cost a static final constant or non-public and provide accessors if needed.(õ¦õ8Ğë³¯Ê-
-nsquid:S00117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(…ıää8Ğë³¯Ê-
-lsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(Ê‚ûıüÿÿÿÿ8Ğë³¯Ê-
-[squid:S1854"?Remove this useless assignment to local variable "sortedEdges".(˜É³Œ8Ğë³¯Ê-
-t
-squid:S135"YReduce the total number of break and continue statements in this loop to use at most one.(’›Ôÿ8Ğë³¯Ê-
-ssquid:S3776"RRefactor this method to reduce its Cognitive Complexity from 33 to the 15 allowed.(öÍ¹Áüÿÿÿÿ8Ğë³¯Ê-
-t
-squid:S135"YReduce the total number of break and continue statements in this loop to use at most one.(’›Ôÿ8Ğë³¯Ê-
-gsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(½£Í8Ğë³¯Ê-
-Rsquid:UnusedPrivateMethod"(Remove this unused private "bfs" method.(•ˆöî8Ğë³¯Ê-
-lsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(™’…ıÿÿÿÿ8Ğë³¯Ê-
-Gsquid:S1905"&Remove this unnecessary cast to "int".(ô–şÿÿÿÿ8Ğë³¯Ê-
-ssquid:S00117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(›ñ‡¢ıÿÿÿÿ8Ğë³¯Ê-
-Gsquid:S1905"&Remove this unnecessary cast to "int".(ô–şÿÿÿÿ8Ğë³¯Ê-
-nsquid:S3776"RRefactor this method to reduce its Cognitive Complexity from 34 to the 15 allowed.(˜µØÀ8Ğë³¯Ê-
-t
-squid:S135"YReduce the total number of break and continue statements in this loop to use at most one.(’›Ôÿ8Ğë³¯Ê-
-gsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(…»ö‡8Ğë³¯Ê-
-lsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(Ê‚ûıüÿÿÿÿ8Ğë³¯Ê-
-Fsquid:S1444"*Make this "public static cost" field final(õ¦õ8Ğë³¯Ê-
-ssquid:S00117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ñØˆÊøÿÿÿÿ8Ğë³¯Ê-
-gsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(Ó¸ÃÊ8Ğë³¯Ê-
-gsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(‘»ô—8Ğë³¯Ê-
-lsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ûİúÿÿÿÿ8Ğë³¯Ê-
-_squid:S1226">Introduce a new variable instead of reusing the parameter "y".(ÕÔ˜ûüÿÿÿÿ8Ğë³¯Ê-
-zsquid:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(ñÀêûÿÿÿÿ8Ğë³¯Ê-
-gsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(Ó¾Ğ÷8Ğë³¯Ê-
-Lsquid:S1481"0Remove this unused "sortedEdges" local variable.(˜É³Œ8Ğë³¯Ê-
-nsquid:S3776"RRefactor this method to reduce its Cognitive Complexity from 23 to the 15 allowed.(…ıää8Ğë³¯Ê-
-zsquid:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(ñÀêûÿÿÿÿ8Ğë³¯Ê-
-t
-squid:S135"YReduce the total number of break and continue statements in this loop to use at most one.(’›Ôÿ8Ğë³¯Ê-
-gsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ñ§“ı8Ğë³¯Ê-
-Hsquid:S1172",Remove this unused method parameter "graph".(•ˆöî8Ğë³¯Ê-
-zsquid:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(ñÀêûÿÿÿÿ8Ğë³¯Ê-
-fsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(äï/8Ğë³¯Ê-
-Y
-squid:S106"9Replace this use of System.out or System.err by a logger.(Ÿìû‚øÿÿÿÿ8Ğë³¯Ê-
-lsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(Ê‚ûıüÿÿÿÿ8Ğë³¯Ê-
-fsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(äï/8Ğë³¯Ê-
-lsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ûİúÿÿÿÿ8Ğë³¯Ê-
-ssquid:S3776"RRefactor this method to reduce its Cognitive Complexity from 21 to the 15 allowed.(›ñ‡¢ıÿÿÿÿ8Ğë³¯Ê-
-hsquid:S1226"GIntroduce a new variable instead of reusing the parameter "multiplier".(©†‰¢şÿÿÿÿ8Ğë³¯Ê-
->squid:S1118"Hide this public constructor.(¢ûÁ†ÿÿÿÿÿ8Ğë³¯Ê-
-/squid:S1700"Rename field "cost"(õ¦õ8Ğë³¯Ê-
-Ssquid:S1135"2Complete the task associated to this TODO comment.(ƒŠ® úÿÿÿÿ8Ğë³¯Ê-
-gsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(Ó¸ÃÊ8Ğë³¯Ê-
-hsquid:S1226"GIntroduce a new variable instead of reusing the parameter "multiplier".(©†‰¢şÿÿÿÿ8Ğë³¯Ê-
-gsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ñ§“ı8Ğë³¯Ê-

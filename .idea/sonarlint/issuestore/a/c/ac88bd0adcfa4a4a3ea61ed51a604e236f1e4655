@@ -1,36 +1,0 @@
-
-gsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ºëÇû8Ïë³¯Ê-
-Fsquid:S1481"*Remove this unused "count" local variable.(æÕ¿¼8Ïë³¯Ê-
-lsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(´Ýþþÿÿÿÿ8Ïë³¯Ê-
-gsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(¢·‚’8Ïë³¯Ê-
-Ssquid:S1135"2Complete the task associated to this TODO comment.(ƒŠ® úÿÿÿÿ8Ïë³¯Ê-
-Ó%squid:RedundantThrowsDeclarationCheck"Remove the declaration of thrown exception 'eu.unitn.disi.db.command.exceptions.AlgorithmExecutionException', as it cannot be thrown from constructor's body.(ŠØü8Ïë³¯Ê-
-¦%squid:RedundantThrowsDeclarationCheck"qRemove the declaration of thrown exception 'java.io.IOException', as it cannot be thrown from constructor's body.(ŠØü8Ïë³¯Ê-
-lsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.( µ©Õùÿÿÿÿ8Ïë³¯Ê-
-Dsquid:S1148"#Use a logger to log this exception.(ŽÚ¸ÿÿÿÿÿ8Ïë³¯Ê-
-lsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(×§ŠÕüÿÿÿÿ8Ïë³¯Ê-
-lsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ÍÎœÞþÿÿÿÿ8Ïë³¯Ê-
-Y
-squid:S106"9Replace this use of System.out or System.err by a logger.(üÝ™°ùÿÿÿÿ8Ïë³¯Ê-
-fsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ƒÃ¤8Ïë³¯Ê-
-gsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ÀùàÊ8Ïë³¯Ê-
-lsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(þ™ÑÇüÿÿÿÿ8Ïë³¯Ê-
-^squid:S00107"AConstructor has 8 parameters, which is greater than 7 authorized.(•ç±®8Ïë³¯Ê-
-gsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(³úˆ…8Ïë³¯Ê-
-Osquid:S1068"3Remove this unused "isUsingWildCard" private field.(ðçÿÁ8Ïë³¯Ê-
-Ä%squid:RedundantThrowsDeclarationCheck"ŽRemove the declaration of thrown exception 'eu.unitn.disi.db.grava.exceptions.ParseException', as it cannot be thrown from constructor's body.(ŠØü8Ïë³¯Ê-
-lsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(…¿â”ýÿÿÿÿ8Ïë³¯Ê-
-gsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(€Ç‚©8Ïë³¯Ê-
-Y
-squid:S106"9Replace this use of System.out or System.err by a logger.(ŽÝ®ûÿÿÿÿ8Ïë³¯Ê-
-ssquid:S00117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(º¾Ýäÿÿÿÿÿ8Ïë³¯Ê-
-gsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(Í¿áæ8Ïë³¯Ê-
-Y
-squid:S106"9Replace this use of System.out or System.err by a logger.(††¾Åüÿÿÿÿ8Ïë³¯Ê-
-Y
-squid:S106"9Replace this use of System.out or System.err by a logger.(øŸ£–ûÿÿÿÿ8Ïë³¯Ê-
-gsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ç¿–Ê8Ïë³¯Ê-
-Gsquid:S1481",Remove this unused "bsCount" local variable.( ÒÙ8Ïë³¯Ê-
-Osquid:S1068".Remove this unused "answerFile" private field.(±Û‘íùÿÿÿÿ8Ïë³¯Ê-
-Nsquid:S1481"-Remove this unused "uptCount" local variable.(“´–êþÿÿÿÿ8Ïë³¯Ê-
-Nsquid:S1481"-Remove this unused "cmpCount" local variable.(×â´ûûÿÿÿÿ8Ïë³¯Ê-

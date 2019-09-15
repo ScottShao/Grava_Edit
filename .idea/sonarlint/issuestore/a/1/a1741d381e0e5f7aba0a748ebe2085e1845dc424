@@ -1,66 +1,0 @@
-
-fsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(¾×ß(8Ğë³¯Ê-
-Zsquid:S1155">Use isEmpty() to check whether the collection is empty or not.(ö†•—8Ğë³¯Ê-
-tsquid:S3776"SRefactor this method to reduce its Cognitive Complexity from 163 to the 15 allowed.(ü—ş¾ıÿÿÿÿ8Ğë³¯Ê-
-Gsquid:S1168"+Return an empty collection instead of null.(¥¹ï8Ğë³¯Ê-
-lsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(Ç‡Üûüÿÿÿÿ8Ğë³¯Ê-
-gsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ƒæØû8Ğë³¯Ê-
-Nsquid:S1068"-Remove this unused "chunkSize" private field.(ğÛ”¡øÿÿÿÿ8Ğë³¯Ê-
-Gsquid:S1481"+Remove this unused "warned" local variable.(§€½·8Ğë³¯Ê-
-gsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(¬ïØ§8Ğë³¯Ê-
-ssquid:S3776"RRefactor this method to reduce its Cognitive Complexity from 22 to the 15 allowed.(µÍ…ÿÿÿÿÿ8Ğë³¯Ê-
-wsquid:S2159"VRemove this call to "equals"; comparisons between unrelated types always return false.(íÒÊÿÿÿÿÿ8Ğë³¯Ê-
-gsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ŒİİÊ8Ğë³¯Ê-
-lsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ä›¨§üÿÿÿÿ8Ğë³¯Ê-
-gsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(İ÷¤8Ğë³¯Ê-
-lsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ÚÓ¡·üÿÿÿÿ8Ğë³¯Ê-
-Psquid:S2209"5Change this instance-reference to a static reference.(ŸşÊN8Ğë³¯Ê-
-Vsquid:S1854":Remove this useless assignment to local variable "warned".(‹Ëú­8Ğë³¯Ê-
-y
-squid:S135"YReduce the total number of break and continue statements in this loop to use at most one.(´ª¥¦ÿÿÿÿÿ8Ğë³¯Ê-
-lsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ò¥ËĞøÿÿÿÿ8Ğë³¯Ê-
-gsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(é£¨ë8Ğë³¯Ê-
-jsquid:S1854"IRemove this useless assignment to local variable "relatedQueriesPartial".(ÈÛ…¡ıÿÿÿÿ8Ğë³¯Ê-
-Rsquid:S2696"6Make the enclosing method "static" or remove this set.( ü‹8Ğë³¯Ê-
-Gsquid:S1168"+Return an empty collection instead of null.(¥¹ï8Ğë³¯Ê-
-nsquid:S3776"RRefactor this method to reduce its Cognitive Complexity from 21 to the 15 allowed.(ÜÜ‚8Ğë³¯Ê-
-gsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(®şÌˆ8Ğë³¯Ê-
-gsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(Àù8Ğë³¯Ê-
-lsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ÓÚ•ãüÿÿÿÿ8Ğë³¯Ê-
-rsquid:S2159"VRemove this call to "equals"; comparisons between unrelated types always return false.(õ¡âÀ8Ğë³¯Ê-
-gsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ÕÌÕ¹8Ğë³¯Ê-
-Qsquid:S2696"6Make the enclosing method "static" or remove this set.( œ¤'8Ğë³¯Ê-
-dsquid:S00107"BConstructor has 10 parameters, which is greater than 7 authorized.(ìÛù«úÿÿÿÿ8Ğë³¯Ê-
-Wsquid:S2696"6Make the enclosing method "static" or remove this set.(ë©È°úÿÿÿÿ8Ğë³¯Ê-
-nsquid:S3776"RRefactor this method to reduce its Cognitive Complexity from 27 to the 15 allowed.(‡ß¬Ş8Ğë³¯Ê-
-\squid:S1854"@Remove this useless assignment to local variable "queryEdgesIn".(±ú¹¤8Ğë³¯Ê-
-Zsquid:S1155">Use isEmpty() to check whether the collection is empty or not.(ö†•—8Ğë³¯Ê-
-lsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ÚÓ¡·üÿÿÿÿ8Ğë³¯Ê-
-lsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ïùÏÌıÿÿÿÿ8Ğë³¯Ê-
-fsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(öÆ‡y8Ğë³¯Ê-
-lsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(Ï¢¯×ıÿÿÿÿ8Ğë³¯Ê-
-bsquid:S1854"ARemove this useless assignment to local variable "queryEdgesOut".(û¹šûüÿÿÿÿ8Ğë³¯Ê-
-lsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ıûêşÿÿÿÿ8Ğë³¯Ê-
-Ssquid:S1135"2Complete the task associated to this TODO comment.(ÁÌŠçøÿÿÿÿ8Ğë³¯Ê-
-Gsquid:S1481"&Remove this unused "i" local variable.(ùó›Ìøÿÿÿÿ8Ğë³¯Ê-
-gsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(£øÍ¦8Ğë³¯Ê-
-Rsquid:S2696"6Make the enclosing method "static" or remove this set.( ü‹8Ğë³¯Ê-
-lsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ìÉäÿÿÿÿÿ8Ğë³¯Ê-
-Rsquid:S2696"6Make the enclosing method "static" or remove this set.(ø’ïË8Ğë³¯Ê-
-Gsquid:S1168"+Return an empty collection instead of null.(¥¹ï8Ğë³¯Ê-
-zsquid:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(Â¬µ™üÿÿÿÿ8Ğë³¯Ê-
-Ksquid:S1068"0Remove this unused "queryToGraph" private field.(®‰ùg8Ğë³¯Ê-
-lsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(¿òËæùÿÿÿÿ8Ğë³¯Ê-
-lsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(İÓßÿÿÿÿÿ8Ğë³¯Ê-
-£squid:S2681"†This line will not be executed conditionally; only the first line of this 3-line block will be. The rest will execute unconditionally.(õë‹8Ğë³¯Ê-
-Tsquid:S1854"9Remove this useless assignment to local variable "label".(Ñ©á:8Ğë³¯Ê-
-Esquid:S1481"*Remove this unused "label" local variable.(Ñ©á:8Ğë³¯Ê-
-nsquid:S00117"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Æ•ö8Ğë³¯Ê-
-gsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(­Äøˆ8Ğë³¯Ê-
-psquid:S1215"TDon't try to be smarter than the JVM, remove this call to run the garbage collector.(Ì°¬“8Ğë³¯Ê-
-Gsquid:S1905"&Remove this unnecessary cast to "int".(ô–şÿÿÿÿ8Ğë³¯Ê-
-Gsquid:S1168"+Return an empty collection instead of null.(¥¹ï8Ğë³¯Ê-
-lsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ªŸåŞşÿÿÿÿ8Ğë³¯Ê-
-_squid:S1155">Use isEmpty() to check whether the collection is empty or not.(ÁŸ–üÿÿÿÿ8Ğë³¯Ê-
-gsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(î”Ê8Ğë³¯Ê-
-Zsquid:S1155">Use isEmpty() to check whether the collection is empty or not.(Ñ¹Œ…8Ğë³¯Ê-

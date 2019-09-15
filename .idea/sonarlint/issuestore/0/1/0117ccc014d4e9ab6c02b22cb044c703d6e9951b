@@ -1,9 +1,0 @@
-
-qsquid:S2737"WAdd logic to this catch clause or eliminate it and rethrow the exception automatically.(¤­—Îşÿÿÿÿ
->squid:S1659"$Declare "source" on a separate line.(ŸåáÏøÿÿÿÿ
-;squid:S1659"!Declare "inc" on a separate line.(ŸåáÏøÿÿÿÿ
-;squid:S1659"!Declare "out" on a separate line.(ŸåáÏøÿÿÿÿ
-@squid:S2160"+Override the "equals" method in this class.(–…Å“
-Csquid:S2095".Close this "FileReader" in a "finally" clause.(ÑÌ¼‡
-Gsquid:S1135"2Complete the task associated to this TODO comment.(ÖÿÑ’
-Rsquid:UselessImportCheck"0Remove this unused import 'java.util.ArrayList'.(÷‰îƒ

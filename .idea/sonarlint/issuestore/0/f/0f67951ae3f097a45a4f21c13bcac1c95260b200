@@ -1,55 +1,0 @@
-
-csquid:S2184"BCast one of the operands of this addition operation to a "double".(³ÂÌ¥øÿÿÿÿ8Ğë³¯Ê-
-Hsquid:S1481",Remove this unused "hasEdge" local variable.(°ÔÉ8Ğë³¯Ê-
-Xsquid:S1854"<Remove this useless assignment to local variable "nextNode".(ß˜ªÛ8Ğë³¯Ê-
-Xsquid:S1854"<Remove this useless assignment to local variable "nextNode".(ß˜ªÛ8Ğë³¯Ê-
-_squid:S1155">Use isEmpty() to check whether the collection is empty or not.(•Íï—ûÿÿÿÿ8Ğë³¯Ê-
-Isquid:S1481"-Remove this unused "nextNode" local variable.(ß˜ªÛ8Ğë³¯Ê-
-nsquid:S3776"RRefactor this method to reduce its Cognitive Complexity from 17 to the 15 allowed.(Æ¡Ã–8Ğë³¯Ê-
-Jsquid:S1172".Remove this unused method parameter "baseSel".(Æ¡Ã–8Ğë³¯Ê-
-csquid:S2184"BCast one of the operands of this addition operation to a "double".(­¯Ÿøÿÿÿÿ8Ğë³¯Ê-
-asquid:S1226"@Introduce a new variable instead of reusing the parameter "crt".(æ ü¬şÿÿÿÿ8Ğë³¯Ê-
-ssquid:S3776"RRefactor this method to reduce its Cognitive Complexity from 26 to the 15 allowed.(«ÜÄÔùÿÿÿÿ8Ğë³¯Ê-
-ssquid:S3776"RRefactor this method to reduce its Cognitive Complexity from 20 to the 15 allowed.(¨¸¢ÿÿÿÿÿ8Ğë³¯Ê-
-nsquid:S3776"RRefactor this method to reduce its Cognitive Complexity from 62 to the 15 allowed.(Å¼ïû8Ğë³¯Ê-
-lsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(µ¢ıåüÿÿÿÿ8Ğë³¯Ê-
-Xsquid:S1854"<Remove this useless assignment to local variable "nextNode".(ß˜ªÛ8Ğë³¯Ê-
-Msquid:S1481",Remove this unused "nextSel" local variable.(÷šáŒøÿÿÿÿ8Ğë³¯Ê-
-ssquid:S3776"RRefactor this method to reduce its Cognitive Complexity from 19 to the 15 allowed.(¾—³äøÿÿÿÿ8Ğë³¯Ê-
-_squid:S1155">Use isEmpty() to check whether the collection is empty or not.(öû‡êşÿÿÿÿ8Ğë³¯Ê-
-Qsquid:S1068"0Remove this unused "startingNode" private field.(â÷Ş²ÿÿÿÿÿ8Ğë³¯Ê-
-Isquid:S1481"-Remove this unused "nextNode" local variable.(ß˜ªÛ8Ğë³¯Ê-
-lsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(Á¼Äûÿÿÿÿ8Ğë³¯Ê-
-Isquid:S1481"-Remove this unused "nextNode" local variable.(ß˜ªÛ8Ğë³¯Ê-
-nsquid:S3776"RRefactor this method to reduce its Cognitive Complexity from 40 to the 15 allowed.(­¨¬8Ğë³¯Ê-
-Esquid:S1172")Remove this unused method parameter "dn".(½²Ù²8Ğë³¯Ê-
-Xsquid:S1854"<Remove this useless assignment to local variable "nextNode".(ß˜ªÛ8Ğë³¯Ê-
-Isquid:S1444"-Make this "public static seedSel" field final(´ï„›8Ğë³¯Ê-
-lsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(æ÷òØüÿÿÿÿ8Ğë³¯Ê-
-asquid:S1226"@Introduce a new variable instead of reusing the parameter "min".(¢ß­¢üÿÿÿÿ8Ğë³¯Ê-
-Isquid:S1481"-Remove this unused "nextNode" local variable.(ß˜ªÛ8Ğë³¯Ê-
-Ssquid:S1854"7Remove this useless assignment to local variable "sel".(½¬‹8Ğë³¯Ê-
-Wsquid:S1854";Remove this useless assignment to local variable "hasEdge".(şÅı³8Ğë³¯Ê-
-_squid:S1155">Use isEmpty() to check whether the collection is empty or not.(öû‡êşÿÿÿÿ8Ğë³¯Ê-
-lsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(Á¼Äûÿÿÿÿ8Ğë³¯Ê-
-\squid:S1854";Remove this useless assignment to local variable "nextSel".(÷šáŒøÿÿÿÿ8Ğë³¯Ê-
-T
-squid:S106"9Replace this use of System.out or System.err by a logger.(ÚŒ¿«8Ğë³¯Ê-
-Ssquid:S1854"7Remove this useless assignment to local variable "sel".(½¬‹8Ğë³¯Ê-
-lsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(â¹®áşÿÿÿÿ8Ğë³¯Ê-
-ssquid:S3776"RRefactor this method to reduce its Cognitive Complexity from 26 to the 15 allowed.(®Õôıÿÿÿÿ8Ğë³¯Ê-
-lsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ñ‹–õøÿÿÿÿ8Ğë³¯Ê-
-csquid:S2184"BCast one of the operands of this addition operation to a "double".(­¯Ÿøÿÿÿÿ8Ğë³¯Ê-
-Wsquid:S1854";Remove this useless assignment to local variable "hasEdge".(şÅı³8Ğë³¯Ê-
-Dsquid:S1481")Remove this unused "temp" local variable.(í±8Ğë³¯Ê-
-†"squid:ClassVariableVisibilityCheck"SMake seedSel a static final constant or non-public and provide accessors if needed.(´ï„›8Ğë³¯Ê-
-Ssquid:S1854"7Remove this useless assignment to local variable "sel".(½¬‹8Ğë³¯Ê-
-Xsquid:S1854"<Remove this useless assignment to local variable "nextNode".(ß˜ªÛ8Ğë³¯Ê-
-lsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(â¹®áşÿÿÿÿ8Ğë³¯Ê-
-lsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(µ¢ıåüÿÿÿÿ8Ğë³¯Ê-
-gsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ŞøËû8Ğë³¯Ê-
-Osquid:S1172".Remove this unused method parameter "baseSel".(®Õôıÿÿÿÿ8Ğë³¯Ê-
-Isquid:S1481"-Remove this unused "nextNode" local variable.(ß˜ªÛ8Ğë³¯Ê-
-lsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(ã¼Šıÿÿÿÿ8Ğë³¯Ê-
-Ssquid:S1854"7Remove this useless assignment to local variable "sel".(½¬‹8Ğë³¯Ê-
-csquid:S2184"BCast one of the operands of this addition operation to a "double".(­¯Ÿøÿÿÿÿ8Ğë³¯Ê-

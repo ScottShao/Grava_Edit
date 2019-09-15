@@ -301,4 +301,6 @@ public abstract class RelatedQuery extends LoggableObject implements Comparable 
         return graph;
     }
 
+    public abstract Map<Edge, Edge> getMappedEdges();
+
 }
