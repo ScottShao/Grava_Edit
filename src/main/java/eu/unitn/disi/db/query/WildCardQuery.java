@@ -195,6 +195,4 @@ public class WildCardQuery {
 	public void setWcQueries(Set<Multigraph> wcQueries) {
 		this.wcQueries = wcQueries;
 	}
-	
-	
 }

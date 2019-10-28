@@ -45,3 +45,625 @@
 04 Sep 2019 21:59:29 [pool-2-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - Computation interrupted after 14196 partial isomorphic results
 04 Sep 2019 22:00:42 [pool-2-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - More than 2147483647 partial isomorphic results
 04 Sep 2019 22:00:42 [pool-2-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - Computation interrupted after 14196 partial isomorphic results
+28 Sep 2019 21:42:48 [pool-493-thread-5,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.steps.GraphIsomorphismRecursiveStep - Memory exausted, so we are returning something but not everything.
+28 Sep 2019 21:42:48 [pool-493-thread-2,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.steps.GraphIsomorphismRecursiveStep - Memory exausted, so we are returning something but not everything.
+28 Sep 2019 21:56:16 [pool-2116-thread-5,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.steps.GraphIsomorphismRecursiveStep - Memory exausted, so we are returning something but not everything.
+28 Sep 2019 21:58:45 [pool-2116-thread-3,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.steps.GraphIsomorphismRecursiveStep - Memory exausted, so we are returning something but not everything.
+28 Sep 2019 22:02:05 [pool-2116-thread-2,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.steps.GraphIsomorphismRecursiveStep - Memory exausted, so we are returning something but not everything.
+28 Sep 2019 22:05:35 [pool-2117-thread-3,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.steps.GraphIsomorphismRecursiveStep - Memory exausted, so we are returning something but not everything.
+28 Sep 2019 22:28:18 [pool-2118-thread-6,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.steps.GraphIsomorphismRecursiveStep - Memory exausted, so we are returning something but not everything.
+28 Sep 2019 22:28:18 [pool-2118-thread-4,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.steps.GraphIsomorphismRecursiveStep - Memory exausted, so we are returning something but not everything.
+28 Sep 2019 22:28:18 [pool-2118-thread-3,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.steps.GraphIsomorphismRecursiveStep - Memory exausted, so we are returning something but not everything.
+28 Sep 2019 22:28:18 [pool-2118-thread-1,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.steps.GraphIsomorphismRecursiveStep - Memory exausted, so we are returning something but not everything.
+28 Sep 2019 22:31:47 [pool-2119-thread-1,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.steps.GraphIsomorphismRecursiveStep - Memory exausted, so we are returning something but not everything.
+28 Sep 2019 22:34:14 [pool-2119-thread-2,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.steps.GraphIsomorphismRecursiveStep - Memory exausted, so we are returning something but not everything.
+28 Sep 2019 22:36:48 [pool-2119-thread-5,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.steps.GraphIsomorphismRecursiveStep - Memory exausted, so we are returning something but not everything.
+28 Sep 2019 22:40:10 [pool-2120-thread-2,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.steps.GraphIsomorphismRecursiveStep - Memory exausted, so we are returning something but not everything.
+28 Sep 2019 22:42:40 [pool-2120-thread-5,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.steps.GraphIsomorphismRecursiveStep - Memory exausted, so we are returning something but not everything.
+28 Sep 2019 22:51:24 [pool-2974-thread-1,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.steps.GraphIsomorphismRecursiveStep - Memory exausted, so we are returning something but not everything.
+28 Sep 2019 22:53:20 [pool-2974-thread-3,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.steps.GraphIsomorphismRecursiveStep - Memory exausted, so we are returning something but not everything.
+28 Sep 2019 22:55:38 [pool-2974-thread-4,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.steps.GraphIsomorphismRecursiveStep - Memory exausted, so we are returning something but not everything.
+28 Sep 2019 22:58:19 [pool-2974-thread-6,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.steps.GraphIsomorphismRecursiveStep - Memory exausted, so we are returning something but not everything.
+28 Sep 2019 23:00:22 [pool-2974-thread-5,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.steps.GraphIsomorphismRecursiveStep - Memory exausted, so we are returning something but not everything.
+28 Sep 2019 23:04:05 [pool-2974-thread-7,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.steps.GraphIsomorphismRecursiveStep - Memory exausted, so we are returning something but not everything.
+28 Sep 2019 23:15:49 [pool-5025-thread-1,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.steps.GraphIsomorphismRecursiveStep - Memory exausted, so we are returning something but not everything.
+28 Sep 2019 23:18:40 [pool-5025-thread-3,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.steps.GraphIsomorphismRecursiveStep - Memory exausted, so we are returning something but not everything.
+28 Sep 2019 23:21:53 [pool-5025-thread-2,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.steps.GraphIsomorphismRecursiveStep - Memory exausted, so we are returning something but not everything.
+29 Sep 2019 10:21:10 [pool-782-thread-3,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.steps.GraphIsomorphismRecursiveStep - Memory exausted, so we are returning something but not everything.
+29 Sep 2019 10:33:44 [pool-258-thread-1,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.steps.GraphIsomorphismRecursiveStep - Memory exausted, so we are returning something but not everything.
+29 Sep 2019 10:33:44 [pool-258-thread-3,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.steps.GraphIsomorphismRecursiveStep - Memory exausted, so we are returning something but not everything.
+29 Sep 2019 10:37:47 [pool-258-thread-5,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.steps.GraphIsomorphismRecursiveStep - Memory exausted, so we are returning something but not everything.
+29 Sep 2019 10:49:48 [pool-258-thread-1,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.steps.GraphIsomorphismRecursiveStep - Memory exausted, so we are returning something but not everything.
+29 Sep 2019 10:52:47 [pool-258-thread-5,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.steps.GraphIsomorphismRecursiveStep - Memory exausted, so we are returning something but not everything.
+29 Sep 2019 10:56:33 [pool-258-thread-2,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.steps.GraphIsomorphismRecursiveStep - Memory exausted, so we are returning something but not everything.
+29 Sep 2019 11:01:09 [pool-259-thread-3,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.steps.GraphIsomorphismRecursiveStep - Memory exausted, so we are returning something but not everything.
+29 Sep 2019 11:11:02 [pool-258-thread-1,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.steps.GraphIsomorphismRecursiveStep - Memory exausted, so we are returning something but not everything.
+04 Oct 2019 20:47:39 [pool-5-thread-1,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.steps.GraphIsomorphismRecursiveStep - Memory exausted, so we are returning something but not everything.
+04 Oct 2019 21:15:25 [pool-5-thread-1,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.steps.GraphIsomorphismRecursiveStep - Memory exausted, so we are returning something but not everything.
+05 Oct 2019 11:01:17 [pool-218-thread-1,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.steps.GraphIsomorphismRecursiveStep - Memory exausted, so we are returning something but not everything.
+05 Oct 2019 16:21:26 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - java.util.concurrent.ExecutionException: java.lang.NullPointerException
+05 Oct 2019 16:21:26 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - java.util.concurrent.ExecutionException: java.lang.NullPointerException
+05 Oct 2019 16:21:26 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - java.util.concurrent.ExecutionException: java.lang.NullPointerException
+05 Oct 2019 16:21:26 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - java.util.concurrent.ExecutionException: java.lang.NullPointerException
+05 Oct 2019 16:21:26 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - java.util.concurrent.ExecutionException: java.lang.NullPointerException
+05 Oct 2019 16:21:27 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - java.util.concurrent.ExecutionException: java.lang.NullPointerException
+05 Oct 2019 16:21:27 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - java.util.concurrent.ExecutionException: java.lang.NullPointerException
+05 Oct 2019 16:21:27 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - java.util.concurrent.ExecutionException: java.lang.NullPointerException
+05 Oct 2019 16:21:27 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - java.util.concurrent.ExecutionException: java.lang.NullPointerException
+05 Oct 2019 16:21:27 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - java.util.concurrent.ExecutionException: java.lang.NullPointerException
+05 Oct 2019 16:21:27 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - java.util.concurrent.ExecutionException: java.lang.NullPointerException
+05 Oct 2019 16:21:27 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - java.util.concurrent.ExecutionException: java.lang.NullPointerException
+05 Oct 2019 16:21:27 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - java.util.concurrent.ExecutionException: java.lang.NullPointerException
+05 Oct 2019 16:21:27 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - java.util.concurrent.ExecutionException: java.lang.NullPointerException
+05 Oct 2019 16:21:28 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - java.util.concurrent.ExecutionException: java.lang.NullPointerException
+05 Oct 2019 16:21:28 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - java.util.concurrent.ExecutionException: java.lang.NullPointerException
+05 Oct 2019 16:21:28 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - java.util.concurrent.ExecutionException: java.lang.NullPointerException
+05 Oct 2019 16:21:28 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - java.util.concurrent.ExecutionException: java.lang.NullPointerException
+05 Oct 2019 16:21:29 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - java.util.concurrent.ExecutionException: java.lang.NullPointerException
+05 Oct 2019 16:21:29 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - java.util.concurrent.ExecutionException: java.lang.NullPointerException
+05 Oct 2019 16:21:29 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - java.util.concurrent.ExecutionException: java.lang.NullPointerException
+05 Oct 2019 16:21:29 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - java.util.concurrent.ExecutionException: java.lang.NullPointerException
+05 Oct 2019 16:21:29 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - java.util.concurrent.ExecutionException: java.lang.NullPointerException
+05 Oct 2019 16:21:29 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - java.util.concurrent.ExecutionException: java.lang.NullPointerException
+05 Oct 2019 16:21:29 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - java.util.concurrent.ExecutionException: java.lang.NullPointerException
+05 Oct 2019 16:21:29 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - java.util.concurrent.ExecutionException: java.lang.NullPointerException
+05 Oct 2019 16:21:29 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - java.util.concurrent.ExecutionException: java.lang.NullPointerException
+05 Oct 2019 16:21:29 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - java.util.concurrent.ExecutionException: java.lang.NullPointerException
+05 Oct 2019 16:21:29 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - java.util.concurrent.ExecutionException: java.lang.NullPointerException
+05 Oct 2019 16:21:29 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - java.util.concurrent.ExecutionException: java.lang.NullPointerException
+05 Oct 2019 16:21:29 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - java.util.concurrent.ExecutionException: java.lang.NullPointerException
+05 Oct 2019 16:21:29 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - java.util.concurrent.ExecutionException: java.lang.NullPointerException
+05 Oct 2019 16:21:30 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - java.util.concurrent.ExecutionException: java.lang.NullPointerException
+05 Oct 2019 16:21:30 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - java.util.concurrent.ExecutionException: java.lang.NullPointerException
+05 Oct 2019 16:21:30 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - java.util.concurrent.ExecutionException: java.lang.NullPointerException
+05 Oct 2019 16:21:30 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - java.util.concurrent.ExecutionException: java.lang.NullPointerException
+05 Oct 2019 16:21:30 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - java.util.concurrent.ExecutionException: java.lang.NullPointerException
+05 Oct 2019 16:21:30 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - java.util.concurrent.ExecutionException: java.lang.NullPointerException
+05 Oct 2019 16:21:30 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - java.util.concurrent.ExecutionException: java.lang.NullPointerException
+06 Oct 2019 10:11:38 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - java.util.concurrent.ExecutionException: java.lang.NullPointerException
+06 Oct 2019 10:11:38 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - java.util.concurrent.ExecutionException: java.lang.NullPointerException
+06 Oct 2019 10:11:38 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - java.util.concurrent.ExecutionException: java.lang.NullPointerException
+06 Oct 2019 10:11:38 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - java.util.concurrent.ExecutionException: java.lang.NullPointerException
+06 Oct 2019 10:11:39 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - java.util.concurrent.ExecutionException: java.lang.NullPointerException
+06 Oct 2019 10:11:39 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - java.util.concurrent.ExecutionException: java.lang.NullPointerException
+06 Oct 2019 10:11:39 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - java.util.concurrent.ExecutionException: java.lang.NullPointerException
+06 Oct 2019 10:11:39 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - java.util.concurrent.ExecutionException: java.lang.NullPointerException
+06 Oct 2019 10:11:39 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - java.util.concurrent.ExecutionException: java.lang.NullPointerException
+06 Oct 2019 10:11:39 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - java.util.concurrent.ExecutionException: java.lang.NullPointerException
+06 Oct 2019 10:11:40 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - java.util.concurrent.ExecutionException: java.lang.NullPointerException
+06 Oct 2019 10:11:40 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - java.util.concurrent.ExecutionException: java.lang.NullPointerException
+06 Oct 2019 10:11:40 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - java.util.concurrent.ExecutionException: java.lang.NullPointerException
+06 Oct 2019 10:11:40 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - java.util.concurrent.ExecutionException: java.lang.NullPointerException
+06 Oct 2019 10:11:40 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - java.util.concurrent.ExecutionException: java.lang.NullPointerException
+06 Oct 2019 10:11:41 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - java.util.concurrent.ExecutionException: java.lang.NullPointerException
+06 Oct 2019 10:11:41 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - java.util.concurrent.ExecutionException: java.lang.NullPointerException
+06 Oct 2019 10:11:42 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - java.util.concurrent.ExecutionException: java.lang.NullPointerException
+06 Oct 2019 10:11:42 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - java.util.concurrent.ExecutionException: java.lang.NullPointerException
+06 Oct 2019 10:11:42 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - java.util.concurrent.ExecutionException: java.lang.NullPointerException
+06 Oct 2019 10:11:42 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - java.util.concurrent.ExecutionException: java.lang.NullPointerException
+06 Oct 2019 10:11:42 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - java.util.concurrent.ExecutionException: java.lang.NullPointerException
+06 Oct 2019 10:11:42 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - java.util.concurrent.ExecutionException: java.lang.NullPointerException
+06 Oct 2019 10:11:42 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - java.util.concurrent.ExecutionException: java.lang.NullPointerException
+06 Oct 2019 10:11:42 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - java.util.concurrent.ExecutionException: java.lang.NullPointerException
+06 Oct 2019 10:11:42 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - java.util.concurrent.ExecutionException: java.lang.NullPointerException
+06 Oct 2019 10:11:42 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - java.util.concurrent.ExecutionException: java.lang.NullPointerException
+06 Oct 2019 10:11:42 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - java.util.concurrent.ExecutionException: java.lang.NullPointerException
+06 Oct 2019 10:11:42 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - java.util.concurrent.ExecutionException: java.lang.NullPointerException
+06 Oct 2019 10:11:43 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - java.util.concurrent.ExecutionException: java.lang.NullPointerException
+06 Oct 2019 10:11:43 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - java.util.concurrent.ExecutionException: java.lang.NullPointerException
+06 Oct 2019 10:11:43 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - java.util.concurrent.ExecutionException: java.lang.NullPointerException
+06 Oct 2019 10:11:43 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - java.util.concurrent.ExecutionException: java.lang.NullPointerException
+06 Oct 2019 10:11:43 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - java.util.concurrent.ExecutionException: java.lang.NullPointerException
+06 Oct 2019 10:11:43 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - java.util.concurrent.ExecutionException: java.lang.NullPointerException
+06 Oct 2019 10:11:43 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - java.util.concurrent.ExecutionException: java.lang.NullPointerException
+06 Oct 2019 10:11:43 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - java.util.concurrent.ExecutionException: java.lang.NullPointerException
+06 Oct 2019 10:11:43 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - java.util.concurrent.ExecutionException: java.lang.NullPointerException
+06 Oct 2019 10:11:43 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch - java.util.concurrent.ExecutionException: java.lang.NullPointerException
+06 Oct 2019 10:21:37 [pool-57-thread-1,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.steps.GraphIsomorphismRecursiveStep - Memory exausted, so we are returning something but not everything.
+06 Oct 2019 10:31:57 [pool-57-thread-1,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.steps.GraphIsomorphismRecursiveStep - Memory exausted, so we are returning something but not everything.
+06 Oct 2019 10:35:08 [pool-58-thread-1,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.steps.GraphIsomorphismRecursiveStep - Memory exausted, so we are returning something but not everything.
+06 Oct 2019 10:56:35 [pool-174-thread-1,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.steps.GraphIsomorphismRecursiveStep - Memory exausted, so we are returning something but not everything.
+06 Oct 2019 11:00:03 [pool-175-thread-1,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.steps.GraphIsomorphismRecursiveStep - Memory exausted, so we are returning something but not everything.
+06 Oct 2019 11:16:33 [pool-176-thread-1,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.steps.GraphIsomorphismRecursiveStep - Memory exausted, so we are returning something but not everything.
+06 Oct 2019 11:20:00 [pool-177-thread-1,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.steps.GraphIsomorphismRecursiveStep - Memory exausted, so we are returning something but not everything.
+06 Oct 2019 11:25:38 [pool-178-thread-1,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.steps.GraphIsomorphismRecursiveStep - Memory exausted, so we are returning something but not everything.
+06 Oct 2019 11:29:23 [pool-179-thread-1,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.steps.GraphIsomorphismRecursiveStep - Memory exausted, so we are returning something but not everything.
+06 Oct 2019 12:02:44 [pool-129-thread-1,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.steps.GraphIsomorphismRecursiveStep - Memory exausted, so we are returning something but not everything.
+06 Oct 2019 12:05:59 [pool-130-thread-1,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.steps.GraphIsomorphismRecursiveStep - Memory exausted, so we are returning something but not everything.
+06 Oct 2019 12:43:20 [pool-550-thread-1,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.steps.GraphIsomorphismRecursiveStep - Memory exausted, so we are returning something but not everything.
+06 Oct 2019 12:51:48 [pool-733-thread-1,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.steps.GraphIsomorphismRecursiveStep - Memory exausted, so we are returning something but not everything.
+06 Oct 2019 12:58:28 [pool-1453-thread-1,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.steps.GraphIsomorphismRecursiveStep - Memory exausted, so we are returning something but not everything.
+06 Oct 2019 14:12:58 [pool-639-thread-1,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.steps.GraphIsomorphismRecursiveStep - Memory exausted, so we are returning something but not everything.
+06 Oct 2019 14:15:52 [pool-640-thread-1,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.steps.GraphIsomorphismRecursiveStep - Memory exausted, so we are returning something but not everything.
+06 Oct 2019 14:19:05 [pool-653-thread-1,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.steps.GraphIsomorphismRecursiveStep - Memory exausted, so we are returning something but not everything.
+06 Oct 2019 14:22:22 [pool-670-thread-1,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.steps.GraphIsomorphismRecursiveStep - Memory exausted, so we are returning something but not everything.
+06 Oct 2019 14:25:11 [pool-671-thread-1,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.steps.GraphIsomorphismRecursiveStep - Memory exausted, so we are returning something but not everything.
+06 Oct 2019 14:36:16 [pool-2055-thread-1,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.steps.GraphIsomorphismRecursiveStep - Memory exausted, so we are returning something but not everything.
+06 Oct 2019 14:39:20 [pool-2056-thread-1,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.steps.GraphIsomorphismRecursiveStep - Memory exausted, so we are returning something but not everything.
+06 Oct 2019 14:42:37 [pool-2057-thread-1,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.steps.GraphIsomorphismRecursiveStep - Memory exausted, so we are returning something but not everything.
+06 Oct 2019 14:45:43 [pool-2058-thread-1,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.steps.GraphIsomorphismRecursiveStep - Memory exausted, so we are returning something but not everything.
+06 Oct 2019 15:03:19 [pool-2059-thread-1,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.steps.GraphIsomorphismRecursiveStep - Memory exausted, so we are returning something but not everything.
+06 Oct 2019 15:07:57 [pool-2065-thread-1,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.steps.GraphIsomorphismRecursiveStep - Memory exausted, so we are returning something but not everything.
+06 Oct 2019 15:17:03 [pool-2066-thread-1,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.steps.GraphIsomorphismRecursiveStep - Memory exausted, so we are returning something but not everything.
+06 Oct 2019 15:20:20 [pool-2067-thread-1,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.steps.GraphIsomorphismRecursiveStep - Memory exausted, so we are returning something but not everything.
+06 Oct 2019 15:24:34 [pool-2068-thread-1,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.steps.GraphIsomorphismRecursiveStep - Memory exausted, so we are returning something but not everything.
+06 Oct 2019 15:27:50 [pool-2069-thread-1,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.steps.GraphIsomorphismRecursiveStep - Memory exausted, so we are returning something but not everything.
+06 Oct 2019 15:30:56 [pool-2071-thread-1,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.steps.GraphIsomorphismRecursiveStep - Memory exausted, so we are returning something but not everything.
+06 Oct 2019 15:49:31 [pool-2072-thread-1,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.steps.GraphIsomorphismRecursiveStep - Memory exausted, so we are returning something but not everything.
+06 Oct 2019 16:03:10 [pool-2073-thread-1,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.steps.GraphIsomorphismRecursiveStep - Memory exausted, so we are returning something but not everything.
+06 Oct 2019 16:06:09 [pool-2074-thread-1,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.steps.GraphIsomorphismRecursiveStep - Memory exausted, so we are returning something but not everything.
+06 Oct 2019 16:09:27 [pool-2090-thread-1,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.steps.GraphIsomorphismRecursiveStep - Memory exausted, so we are returning something but not everything.
+06 Oct 2019 16:13:18 [pool-2091-thread-1,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.steps.GraphIsomorphismRecursiveStep - Memory exausted, so we are returning something but not everything.
+06 Oct 2019 16:16:23 [pool-2092-thread-1,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.steps.GraphIsomorphismRecursiveStep - Memory exausted, so we are returning something but not everything.
+06 Oct 2019 18:41:22 [pool-292-thread-1,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.steps.GraphIsomorphismRecursiveStep - Memory exausted, so we are returning something but not everything.
+06 Oct 2019 22:32:10 [pool-315-thread-1,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.steps.GraphIsomorphismRecursiveStep - Memory exausted, so we are returning something but not everything.
+06 Oct 2019 22:35:19 [pool-321-thread-1,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.steps.GraphIsomorphismRecursiveStep - Memory exausted, so we are returning something but not everything.
+06 Oct 2019 22:38:32 [pool-528-thread-1,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.steps.GraphIsomorphismRecursiveStep - Memory exausted, so we are returning something but not everything.
+06 Oct 2019 22:59:46 [pool-1075-thread-1,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.steps.GraphIsomorphismRecursiveStep - Memory exausted, so we are returning something but not everything.
+06 Oct 2019 23:02:34 [pool-1076-thread-1,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.steps.GraphIsomorphismRecursiveStep - Memory exausted, so we are returning something but not everything.
+06 Oct 2019 23:13:04 [pool-1077-thread-1,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.steps.GraphIsomorphismRecursiveStep - Memory exausted, so we are returning something but not everything.
+06 Oct 2019 23:18:59 [pool-1078-thread-1,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.steps.GraphIsomorphismRecursiveStep - Memory exausted, so we are returning something but not everything.
+06 Oct 2019 23:22:35 [pool-1080-thread-1,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.steps.GraphIsomorphismRecursiveStep - Memory exausted, so we are returning something but not everything.
+06 Oct 2019 23:25:29 [pool-1081-thread-1,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.steps.GraphIsomorphismRecursiveStep - Memory exausted, so we are returning something but not everything.
+06 Oct 2019 23:28:15 [pool-1082-thread-1,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.steps.GraphIsomorphismRecursiveStep - Memory exausted, so we are returning something but not everything.
+06 Oct 2019 23:33:18 [pool-1086-thread-1,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.steps.GraphIsomorphismRecursiveStep - Memory exausted, so we are returning something but not everything.
+06 Oct 2019 23:36:07 [pool-1087-thread-1,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.steps.GraphIsomorphismRecursiveStep - Memory exausted, so we are returning something but not everything.
+06 Oct 2019 23:38:56 [pool-1088-thread-1,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.steps.GraphIsomorphismRecursiveStep - Memory exausted, so we are returning something but not everything.
+06 Oct 2019 23:41:46 [pool-1089-thread-1,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.steps.GraphIsomorphismRecursiveStep - Memory exausted, so we are returning something but not everything.
+07 Oct 2019 00:00:04 [pool-315-thread-1,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.steps.GraphIsomorphismRecursiveStep - Memory exausted, so we are returning something but not everything.
+07 Oct 2019 00:02:51 [pool-321-thread-1,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.steps.GraphIsomorphismRecursiveStep - Memory exausted, so we are returning something but not everything.
+07 Oct 2019 00:06:07 [pool-528-thread-1,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.steps.GraphIsomorphismRecursiveStep - Memory exausted, so we are returning something but not everything.
+07 Oct 2019 00:35:56 [pool-1690-thread-1,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.steps.GraphIsomorphismRecursiveStep - Memory exausted, so we are returning something but not everything.
+07 Oct 2019 00:39:12 [pool-1691-thread-1,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.steps.GraphIsomorphismRecursiveStep - Memory exausted, so we are returning something but not everything.
+07 Oct 2019 00:41:42 [pool-1693-thread-1,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.steps.GraphIsomorphismRecursiveStep - Memory exausted, so we are returning something but not everything.
+07 Oct 2019 00:44:28 [pool-1694-thread-1,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.steps.GraphIsomorphismRecursiveStep - Memory exausted, so we are returning something but not everything.
+07 Oct 2019 00:47:37 [pool-1704-thread-1,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.steps.GraphIsomorphismRecursiveStep - Memory exausted, so we are returning something but not everything.
+07 Oct 2019 00:50:33 [pool-1712-thread-1,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.steps.GraphIsomorphismRecursiveStep - Memory exausted, so we are returning something but not everything.
+07 Oct 2019 00:53:16 [pool-1713-thread-1,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.steps.GraphIsomorphismRecursiveStep - Memory exausted, so we are returning something but not everything.
+07 Oct 2019 00:59:23 [pool-1721-thread-1,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.steps.GraphIsomorphismRecursiveStep - Memory exausted, so we are returning something but not everything.
+07 Oct 2019 01:04:48 [pool-1722-thread-1,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.steps.GraphIsomorphismRecursiveStep - Memory exausted, so we are returning something but not everything.
+07 Oct 2019 01:08:48 [pool-2093-thread-1,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.steps.GraphIsomorphismRecursiveStep - Memory exausted, so we are returning something but not everything.
+07 Oct 2019 01:11:45 [pool-2094-thread-1,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.steps.GraphIsomorphismRecursiveStep - Memory exausted, so we are returning something but not everything.
+07 Oct 2019 01:14:57 [pool-2120-thread-1,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.steps.GraphIsomorphismRecursiveStep - Memory exausted, so we are returning something but not everything.
+07 Oct 2019 01:18:17 [pool-2121-thread-1,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.steps.GraphIsomorphismRecursiveStep - Memory exausted, so we are returning something but not everything.
+07 Oct 2019 13:40:08 [pool-638-thread-1,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.steps.GraphIsomorphismRecursiveStep - Memory exausted, so we are returning something but not everything.
+07 Oct 2019 13:43:14 [pool-639-thread-1,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.steps.GraphIsomorphismRecursiveStep - Memory exausted, so we are returning something but not everything.
+07 Oct 2019 13:46:24 [pool-652-thread-1,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.steps.GraphIsomorphismRecursiveStep - Memory exausted, so we are returning something but not everything.
+07 Oct 2019 13:49:45 [pool-669-thread-1,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.steps.GraphIsomorphismRecursiveStep - Memory exausted, so we are returning something but not everything.
+07 Oct 2019 14:09:14 [pool-670-thread-1,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.steps.GraphIsomorphismRecursiveStep - Memory exausted, so we are returning something but not everything.
+07 Oct 2019 16:33:23 [pool-638-thread-1,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.steps.GraphIsomorphismRecursiveStep - Memory exausted, so we are returning something but not everything.
+07 Oct 2019 16:36:06 [pool-639-thread-1,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.steps.GraphIsomorphismRecursiveStep - Memory exausted, so we are returning something but not everything.
+07 Oct 2019 16:39:26 [pool-652-thread-1,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.steps.GraphIsomorphismRecursiveStep - Memory exausted, so we are returning something but not everything.
+07 Oct 2019 16:42:27 [pool-669-thread-1,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.steps.GraphIsomorphismRecursiveStep - Memory exausted, so we are returning something but not everything.
+07 Oct 2019 16:45:38 [pool-670-thread-1,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.steps.GraphIsomorphismRecursiveStep - Memory exausted, so we are returning something but not everything.
+09 Oct 2019 18:46:14 [pool-321-thread-1,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.steps.GraphIsomorphismRecursiveStep - Memory exausted, so we are returning something but not everything.
+09 Oct 2019 19:04:57 [pool-1690-thread-1,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.steps.GraphIsomorphismRecursiveStep - Memory exausted, so we are returning something but not everything.
+09 Oct 2019 19:08:04 [pool-1691-thread-1,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.steps.GraphIsomorphismRecursiveStep - Memory exausted, so we are returning something but not everything.
+09 Oct 2019 19:12:07 [pool-1704-thread-1,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.steps.GraphIsomorphismRecursiveStep - Memory exausted, so we are returning something but not everything.
+09 Oct 2019 19:15:56 [pool-1721-thread-1,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.steps.GraphIsomorphismRecursiveStep - Memory exausted, so we are returning something but not everything.
+09 Oct 2019 19:20:08 [pool-1722-thread-1,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.steps.GraphIsomorphismRecursiveStep - Memory exausted, so we are returning something but not everything.
+09 Oct 2019 20:59:54 [pool-322-thread-1,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.steps.GraphIsomorphismRecursiveStep - Memory exausted, so we are returning something but not everything.
+09 Oct 2019 21:20:04 [pool-1692-thread-1,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.steps.GraphIsomorphismRecursiveStep - Memory exausted, so we are returning something but not everything.
+09 Oct 2019 21:23:45 [pool-1693-thread-1,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.steps.GraphIsomorphismRecursiveStep - Memory exausted, so we are returning something but not everything.
+09 Oct 2019 21:27:54 [pool-1706-thread-1,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.steps.GraphIsomorphismRecursiveStep - Memory exausted, so we are returning something but not everything.
+09 Oct 2019 21:31:30 [pool-1723-thread-1,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.steps.GraphIsomorphismRecursiveStep - Memory exausted, so we are returning something but not everything.
+09 Oct 2019 21:45:01 [pool-1724-thread-1,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.steps.GraphIsomorphismRecursiveStep - Memory exausted, so we are returning something but not everything.
+09 Oct 2019 22:34:25 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - java.util.concurrent.ExecutionException: java.lang.ClassCastException: eu.unitn.disi.db.grava.graphs.BaseMultigraph cannot be cast to eu.unitn.disi.db.grava.graphs.BigMultigraph
+09 Oct 2019 22:34:25 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - java.util.concurrent.ExecutionException: java.lang.ClassCastException: eu.unitn.disi.db.grava.graphs.BaseMultigraph cannot be cast to eu.unitn.disi.db.grava.graphs.BigMultigraph
+09 Oct 2019 22:34:26 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - java.util.concurrent.ExecutionException: java.lang.ClassCastException: eu.unitn.disi.db.grava.graphs.BaseMultigraph cannot be cast to eu.unitn.disi.db.grava.graphs.BigMultigraph
+09 Oct 2019 22:34:26 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - java.util.concurrent.ExecutionException: java.lang.ClassCastException: eu.unitn.disi.db.grava.graphs.BaseMultigraph cannot be cast to eu.unitn.disi.db.grava.graphs.BigMultigraph
+09 Oct 2019 22:34:27 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - java.util.concurrent.ExecutionException: java.lang.ClassCastException: eu.unitn.disi.db.grava.graphs.BaseMultigraph cannot be cast to eu.unitn.disi.db.grava.graphs.BigMultigraph
+09 Oct 2019 22:34:27 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - java.util.concurrent.ExecutionException: java.lang.ClassCastException: eu.unitn.disi.db.grava.graphs.BaseMultigraph cannot be cast to eu.unitn.disi.db.grava.graphs.BigMultigraph
+09 Oct 2019 22:34:27 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - java.util.concurrent.ExecutionException: java.lang.ClassCastException: eu.unitn.disi.db.grava.graphs.BaseMultigraph cannot be cast to eu.unitn.disi.db.grava.graphs.BigMultigraph
+09 Oct 2019 22:34:27 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - java.util.concurrent.ExecutionException: java.lang.ClassCastException: eu.unitn.disi.db.grava.graphs.BaseMultigraph cannot be cast to eu.unitn.disi.db.grava.graphs.BigMultigraph
+09 Oct 2019 22:34:27 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - java.util.concurrent.ExecutionException: java.lang.ClassCastException: eu.unitn.disi.db.grava.graphs.BaseMultigraph cannot be cast to eu.unitn.disi.db.grava.graphs.BigMultigraph
+09 Oct 2019 22:34:27 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - java.util.concurrent.ExecutionException: java.lang.ClassCastException: eu.unitn.disi.db.grava.graphs.BaseMultigraph cannot be cast to eu.unitn.disi.db.grava.graphs.BigMultigraph
+09 Oct 2019 22:34:27 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - java.util.concurrent.ExecutionException: java.lang.ClassCastException: eu.unitn.disi.db.grava.graphs.BaseMultigraph cannot be cast to eu.unitn.disi.db.grava.graphs.BigMultigraph
+09 Oct 2019 22:34:27 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - java.util.concurrent.ExecutionException: java.lang.ClassCastException: eu.unitn.disi.db.grava.graphs.BaseMultigraph cannot be cast to eu.unitn.disi.db.grava.graphs.BigMultigraph
+09 Oct 2019 22:34:27 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - java.util.concurrent.ExecutionException: java.lang.ClassCastException: eu.unitn.disi.db.grava.graphs.BaseMultigraph cannot be cast to eu.unitn.disi.db.grava.graphs.BigMultigraph
+09 Oct 2019 22:34:27 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - java.util.concurrent.ExecutionException: java.lang.ClassCastException: eu.unitn.disi.db.grava.graphs.BaseMultigraph cannot be cast to eu.unitn.disi.db.grava.graphs.BigMultigraph
+09 Oct 2019 22:34:27 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - java.util.concurrent.ExecutionException: java.lang.ClassCastException: eu.unitn.disi.db.grava.graphs.BaseMultigraph cannot be cast to eu.unitn.disi.db.grava.graphs.BigMultigraph
+09 Oct 2019 22:34:28 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - java.util.concurrent.ExecutionException: java.lang.ClassCastException: eu.unitn.disi.db.grava.graphs.BaseMultigraph cannot be cast to eu.unitn.disi.db.grava.graphs.BigMultigraph
+09 Oct 2019 22:34:28 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - java.util.concurrent.ExecutionException: java.lang.ClassCastException: eu.unitn.disi.db.grava.graphs.BaseMultigraph cannot be cast to eu.unitn.disi.db.grava.graphs.BigMultigraph
+09 Oct 2019 22:34:28 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - java.util.concurrent.ExecutionException: java.lang.ClassCastException: eu.unitn.disi.db.grava.graphs.BaseMultigraph cannot be cast to eu.unitn.disi.db.grava.graphs.BigMultigraph
+09 Oct 2019 22:34:28 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - java.util.concurrent.ExecutionException: java.lang.ClassCastException: eu.unitn.disi.db.grava.graphs.BaseMultigraph cannot be cast to eu.unitn.disi.db.grava.graphs.BigMultigraph
+09 Oct 2019 22:34:28 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - java.util.concurrent.ExecutionException: java.lang.ClassCastException: eu.unitn.disi.db.grava.graphs.BaseMultigraph cannot be cast to eu.unitn.disi.db.grava.graphs.BigMultigraph
+09 Oct 2019 22:34:28 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - java.util.concurrent.ExecutionException: java.lang.ClassCastException: eu.unitn.disi.db.grava.graphs.BaseMultigraph cannot be cast to eu.unitn.disi.db.grava.graphs.BigMultigraph
+09 Oct 2019 22:34:28 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - java.util.concurrent.ExecutionException: java.lang.ClassCastException: eu.unitn.disi.db.grava.graphs.BaseMultigraph cannot be cast to eu.unitn.disi.db.grava.graphs.BigMultigraph
+09 Oct 2019 22:34:28 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - java.util.concurrent.ExecutionException: java.lang.ClassCastException: eu.unitn.disi.db.grava.graphs.BaseMultigraph cannot be cast to eu.unitn.disi.db.grava.graphs.BigMultigraph
+09 Oct 2019 22:34:28 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - java.util.concurrent.ExecutionException: java.lang.ClassCastException: eu.unitn.disi.db.grava.graphs.BaseMultigraph cannot be cast to eu.unitn.disi.db.grava.graphs.BigMultigraph
+09 Oct 2019 22:34:28 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - java.util.concurrent.ExecutionException: java.lang.ClassCastException: eu.unitn.disi.db.grava.graphs.BaseMultigraph cannot be cast to eu.unitn.disi.db.grava.graphs.BigMultigraph
+09 Oct 2019 22:34:28 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - java.util.concurrent.ExecutionException: java.lang.ClassCastException: eu.unitn.disi.db.grava.graphs.BaseMultigraph cannot be cast to eu.unitn.disi.db.grava.graphs.BigMultigraph
+09 Oct 2019 22:34:28 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - java.util.concurrent.ExecutionException: java.lang.ClassCastException: eu.unitn.disi.db.grava.graphs.BaseMultigraph cannot be cast to eu.unitn.disi.db.grava.graphs.BigMultigraph
+09 Oct 2019 22:34:29 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - java.util.concurrent.ExecutionException: java.lang.ClassCastException: eu.unitn.disi.db.grava.graphs.BaseMultigraph cannot be cast to eu.unitn.disi.db.grava.graphs.BigMultigraph
+09 Oct 2019 22:34:29 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - java.util.concurrent.ExecutionException: java.lang.ClassCastException: eu.unitn.disi.db.grava.graphs.BaseMultigraph cannot be cast to eu.unitn.disi.db.grava.graphs.BigMultigraph
+09 Oct 2019 22:34:29 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - java.util.concurrent.ExecutionException: java.lang.ClassCastException: eu.unitn.disi.db.grava.graphs.BaseMultigraph cannot be cast to eu.unitn.disi.db.grava.graphs.BigMultigraph
+09 Oct 2019 22:34:29 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - java.util.concurrent.ExecutionException: java.lang.ClassCastException: eu.unitn.disi.db.grava.graphs.BaseMultigraph cannot be cast to eu.unitn.disi.db.grava.graphs.BigMultigraph
+09 Oct 2019 22:34:29 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - java.util.concurrent.ExecutionException: java.lang.ClassCastException: eu.unitn.disi.db.grava.graphs.BaseMultigraph cannot be cast to eu.unitn.disi.db.grava.graphs.BigMultigraph
+09 Oct 2019 22:34:29 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - java.util.concurrent.ExecutionException: java.lang.ClassCastException: eu.unitn.disi.db.grava.graphs.BaseMultigraph cannot be cast to eu.unitn.disi.db.grava.graphs.BigMultigraph
+09 Oct 2019 22:34:29 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - java.util.concurrent.ExecutionException: java.lang.ClassCastException: eu.unitn.disi.db.grava.graphs.BaseMultigraph cannot be cast to eu.unitn.disi.db.grava.graphs.BigMultigraph
+09 Oct 2019 22:34:29 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - java.util.concurrent.ExecutionException: java.lang.ClassCastException: eu.unitn.disi.db.grava.graphs.BaseMultigraph cannot be cast to eu.unitn.disi.db.grava.graphs.BigMultigraph
+09 Oct 2019 22:34:29 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - java.util.concurrent.ExecutionException: java.lang.ClassCastException: eu.unitn.disi.db.grava.graphs.BaseMultigraph cannot be cast to eu.unitn.disi.db.grava.graphs.BigMultigraph
+09 Oct 2019 22:34:29 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - java.util.concurrent.ExecutionException: java.lang.ClassCastException: eu.unitn.disi.db.grava.graphs.BaseMultigraph cannot be cast to eu.unitn.disi.db.grava.graphs.BigMultigraph
+09 Oct 2019 22:34:29 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - java.util.concurrent.ExecutionException: java.lang.ClassCastException: eu.unitn.disi.db.grava.graphs.BaseMultigraph cannot be cast to eu.unitn.disi.db.grava.graphs.BigMultigraph
+09 Oct 2019 23:55:15 [pool-4-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - More than 2147483647 partial isomorphic results
+09 Oct 2019 23:55:15 [pool-4-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - Computation interrupted after 64370 partial isomorphic results
+09 Oct 2019 23:57:46 [pool-5-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - More than 2147483647 partial isomorphic results
+09 Oct 2019 23:57:46 [pool-5-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - Computation interrupted after 88564 partial isomorphic results
+09 Oct 2019 23:58:49 [pool-5-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - More than 2147483647 partial isomorphic results
+09 Oct 2019 23:58:49 [pool-5-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - Computation interrupted after 101332 partial isomorphic results
+10 Oct 2019 09:18:23 [pool-7-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - More than 2147483647 partial isomorphic results
+10 Oct 2019 09:18:23 [pool-7-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - Computation interrupted after 21574 partial isomorphic results
+10 Oct 2019 09:19:03 [pool-7-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - More than 2147483647 partial isomorphic results
+10 Oct 2019 09:19:03 [pool-7-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - Computation interrupted after 33459 partial isomorphic results
+10 Oct 2019 11:58:44 [pool-7-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - More than 2147483647 partial isomorphic results
+10 Oct 2019 11:58:44 [pool-7-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - Computation interrupted after 21574 partial isomorphic results
+10 Oct 2019 11:59:17 [pool-7-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - More than 2147483647 partial isomorphic results
+10 Oct 2019 11:59:17 [pool-7-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - Computation interrupted after 34491 partial isomorphic results
+10 Oct 2019 12:27:04 [pool-18-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - More than 2147483647 partial isomorphic results
+10 Oct 2019 12:27:04 [pool-18-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - Computation interrupted after 37410 partial isomorphic results
+10 Oct 2019 14:12:16 [pool-28-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - More than 2147483647 partial isomorphic results
+10 Oct 2019 14:12:16 [pool-28-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - Computation interrupted after 409601 partial isomorphic results
+10 Oct 2019 14:14:21 [pool-30-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - More than 2147483647 partial isomorphic results
+10 Oct 2019 14:14:21 [pool-30-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - Computation interrupted after 501693 partial isomorphic results
+10 Oct 2019 14:15:43 [pool-64-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - More than 2147483647 partial isomorphic results
+10 Oct 2019 14:15:43 [pool-64-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - Computation interrupted after 117504 partial isomorphic results
+10 Oct 2019 14:16:25 [pool-66-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - More than 2147483647 partial isomorphic results
+10 Oct 2019 14:16:25 [pool-66-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - Computation interrupted after 18330 partial isomorphic results
+10 Oct 2019 14:17:36 [pool-103-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - More than 2147483647 partial isomorphic results
+10 Oct 2019 14:17:36 [pool-103-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - Computation interrupted after 117504 partial isomorphic results
+10 Oct 2019 14:18:19 [pool-105-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - More than 2147483647 partial isomorphic results
+10 Oct 2019 14:18:19 [pool-105-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - Computation interrupted after 18330 partial isomorphic results
+10 Oct 2019 14:19:01 [pool-113-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - More than 2147483647 partial isomorphic results
+10 Oct 2019 14:19:01 [pool-113-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - Computation interrupted after 20982 partial isomorphic results
+10 Oct 2019 15:03:32 [pool-5-thread-1,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - Memory exausted, so we are returning something but not everything.
+10 Oct 2019 16:03:38 [pool-43-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - More than 100000 partial isomorphic results
+10 Oct 2019 16:03:38 [pool-43-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - Computation interrupted after 69751 partial isomorphic results
+10 Oct 2019 16:10:24 [pool-43-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - More than 100000 partial isomorphic results
+10 Oct 2019 16:10:24 [pool-43-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - Computation interrupted after 94553 partial isomorphic results
+10 Oct 2019 16:12:28 [pool-30-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - More than 50000 partial isomorphic results
+10 Oct 2019 16:12:28 [pool-30-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - Computation interrupted after 50056 partial isomorphic results
+10 Oct 2019 16:12:28 [pool-31-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - More than 50000 partial isomorphic results
+10 Oct 2019 16:12:28 [pool-31-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - Computation interrupted after 51614 partial isomorphic results
+10 Oct 2019 16:12:28 [pool-32-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - More than 50000 partial isomorphic results
+10 Oct 2019 16:12:28 [pool-32-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - Computation interrupted after 52002 partial isomorphic results
+10 Oct 2019 16:12:28 [pool-33-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - More than 50000 partial isomorphic results
+10 Oct 2019 16:12:28 [pool-33-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - Computation interrupted after 52026 partial isomorphic results
+10 Oct 2019 16:12:28 [pool-34-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - More than 50000 partial isomorphic results
+10 Oct 2019 16:12:28 [pool-34-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - Computation interrupted after 52055 partial isomorphic results
+10 Oct 2019 16:12:28 [pool-35-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - More than 50000 partial isomorphic results
+10 Oct 2019 16:12:28 [pool-35-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - Computation interrupted after 52063 partial isomorphic results
+10 Oct 2019 16:12:29 [pool-35-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - More than 50000 partial isomorphic results
+10 Oct 2019 16:12:29 [pool-35-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - Computation interrupted after 52867 partial isomorphic results
+10 Oct 2019 16:12:29 [pool-35-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - More than 50000 partial isomorphic results
+10 Oct 2019 16:12:29 [pool-35-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - Computation interrupted after 52923 partial isomorphic results
+10 Oct 2019 16:12:29 [pool-35-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - More than 50000 partial isomorphic results
+10 Oct 2019 16:12:29 [pool-35-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - Computation interrupted after 53313 partial isomorphic results
+10 Oct 2019 16:12:29 [pool-36-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - More than 50000 partial isomorphic results
+10 Oct 2019 16:12:29 [pool-36-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - Computation interrupted after 54705 partial isomorphic results
+10 Oct 2019 16:12:29 [pool-37-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - More than 50000 partial isomorphic results
+10 Oct 2019 16:12:29 [pool-37-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - Computation interrupted after 55027 partial isomorphic results
+10 Oct 2019 16:12:29 [pool-38-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - More than 50000 partial isomorphic results
+10 Oct 2019 16:12:29 [pool-38-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - Computation interrupted after 55210 partial isomorphic results
+10 Oct 2019 16:12:29 [pool-38-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - More than 50000 partial isomorphic results
+10 Oct 2019 16:12:29 [pool-38-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - Computation interrupted after 55213 partial isomorphic results
+10 Oct 2019 16:12:32 [pool-39-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - More than 50000 partial isomorphic results
+10 Oct 2019 16:12:32 [pool-39-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - Computation interrupted after 59917 partial isomorphic results
+10 Oct 2019 16:12:33 [pool-42-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - More than 50000 partial isomorphic results
+10 Oct 2019 16:12:33 [pool-42-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - Computation interrupted after 60223 partial isomorphic results
+10 Oct 2019 16:12:39 [pool-43-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - More than 50000 partial isomorphic results
+10 Oct 2019 16:12:39 [pool-43-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - Computation interrupted after 60263 partial isomorphic results
+10 Oct 2019 16:12:40 [pool-43-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - More than 50000 partial isomorphic results
+10 Oct 2019 16:12:40 [pool-43-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - Computation interrupted after 60297 partial isomorphic results
+10 Oct 2019 16:19:17 [pool-43-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - More than 100000 partial isomorphic results
+10 Oct 2019 16:19:17 [pool-43-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - Computation interrupted after 69751 partial isomorphic results
+10 Oct 2019 16:27:16 [pool-43-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - More than 100000 partial isomorphic results
+10 Oct 2019 16:27:16 [pool-43-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - Computation interrupted after 86617 partial isomorphic results
+10 Oct 2019 16:35:34 [pool-48-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - More than 100000 partial isomorphic results
+10 Oct 2019 16:35:34 [pool-48-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - Computation interrupted after 133749 partial isomorphic results
+10 Oct 2019 16:35:34 [pool-49-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - More than 100000 partial isomorphic results
+10 Oct 2019 16:35:34 [pool-49-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - Computation interrupted after 133753 partial isomorphic results
+10 Oct 2019 16:35:37 [pool-50-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - More than 100000 partial isomorphic results
+10 Oct 2019 16:35:37 [pool-50-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - Computation interrupted after 134573 partial isomorphic results
+10 Oct 2019 16:35:38 [pool-51-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - More than 100000 partial isomorphic results
+10 Oct 2019 16:35:38 [pool-51-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - Computation interrupted after 141415 partial isomorphic results
+10 Oct 2019 16:35:40 [pool-52-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - More than 100000 partial isomorphic results
+10 Oct 2019 16:35:40 [pool-52-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - Computation interrupted after 145239 partial isomorphic results
+10 Oct 2019 16:35:40 [pool-53-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - More than 100000 partial isomorphic results
+10 Oct 2019 16:35:40 [pool-53-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - Computation interrupted after 145263 partial isomorphic results
+10 Oct 2019 16:35:41 [pool-54-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - More than 100000 partial isomorphic results
+10 Oct 2019 16:35:41 [pool-54-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - Computation interrupted after 145307 partial isomorphic results
+10 Oct 2019 16:35:41 [pool-54-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - More than 100000 partial isomorphic results
+10 Oct 2019 16:35:41 [pool-54-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - Computation interrupted after 145308 partial isomorphic results
+10 Oct 2019 16:35:41 [pool-55-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - More than 100000 partial isomorphic results
+10 Oct 2019 16:35:41 [pool-55-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - Computation interrupted after 145372 partial isomorphic results
+10 Oct 2019 16:35:47 [pool-55-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - More than 100000 partial isomorphic results
+10 Oct 2019 16:35:47 [pool-55-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - Computation interrupted after 148154 partial isomorphic results
+10 Oct 2019 16:35:48 [pool-55-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - More than 100000 partial isomorphic results
+10 Oct 2019 16:35:48 [pool-55-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - Computation interrupted after 148388 partial isomorphic results
+10 Oct 2019 16:35:50 [pool-55-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - More than 100000 partial isomorphic results
+10 Oct 2019 16:35:50 [pool-55-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - Computation interrupted after 150798 partial isomorphic results
+10 Oct 2019 16:35:50 [pool-56-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - More than 100000 partial isomorphic results
+10 Oct 2019 16:35:50 [pool-56-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - Computation interrupted after 153678 partial isomorphic results
+10 Oct 2019 16:35:50 [pool-57-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - More than 100000 partial isomorphic results
+10 Oct 2019 16:35:50 [pool-57-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - Computation interrupted after 153682 partial isomorphic results
+10 Oct 2019 16:35:51 [pool-57-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - More than 100000 partial isomorphic results
+10 Oct 2019 16:35:51 [pool-57-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - Computation interrupted after 155144 partial isomorphic results
+10 Oct 2019 16:35:51 [pool-58-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - More than 100000 partial isomorphic results
+10 Oct 2019 16:35:51 [pool-58-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - Computation interrupted after 156061 partial isomorphic results
+10 Oct 2019 16:35:55 [pool-58-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - More than 100000 partial isomorphic results
+10 Oct 2019 16:35:55 [pool-58-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - Computation interrupted after 158813 partial isomorphic results
+10 Oct 2019 16:37:44 [pool-59-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - More than 100000 partial isomorphic results
+10 Oct 2019 16:37:44 [pool-59-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - Computation interrupted after 212161 partial isomorphic results
+10 Oct 2019 16:43:48 [pool-100-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - More than 100000 partial isomorphic results
+10 Oct 2019 16:43:48 [pool-100-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - Computation interrupted after 9528 partial isomorphic results
+10 Oct 2019 16:50:09 [pool-100-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - More than 100000 partial isomorphic results
+10 Oct 2019 16:50:09 [pool-100-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - Computation interrupted after 34330 partial isomorphic results
+10 Oct 2019 16:58:53 [pool-105-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - More than 100000 partial isomorphic results
+10 Oct 2019 16:58:53 [pool-105-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - Computation interrupted after 47100 partial isomorphic results
+10 Oct 2019 17:23:17 [pool-24-thread-1,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - Memory exausted, so we are returning something but not everything.
+10 Oct 2019 18:36:35 [pool-26-thread-1,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - Memory exausted, so we are returning something but not everything.
+10 Oct 2019 18:52:12 [pool-2-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - More than 100000 partial isomorphic results
+10 Oct 2019 18:52:12 [pool-2-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - Computation interrupted after 19110 partial isomorphic results
+10 Oct 2019 18:53:38 [pool-2-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - More than 100000 partial isomorphic results
+10 Oct 2019 18:53:38 [pool-2-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - Computation interrupted after 31878 partial isomorphic results
+10 Oct 2019 19:19:45 [pool-2-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - More than 100000 partial isomorphic results
+10 Oct 2019 19:19:45 [pool-2-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - Computation interrupted after 86731 partial isomorphic results
+10 Oct 2019 19:20:48 [pool-2-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - More than 100000 partial isomorphic results
+10 Oct 2019 19:20:48 [pool-2-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - Computation interrupted after 97931 partial isomorphic results
+10 Oct 2019 19:48:41 [pool-2-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - More than 100000 partial isomorphic results
+10 Oct 2019 19:48:41 [pool-2-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - Computation interrupted after 150797 partial isomorphic results
+10 Oct 2019 19:48:47 [pool-3-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - More than 100000 partial isomorphic results
+10 Oct 2019 19:48:47 [pool-3-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - Computation interrupted after 154405 partial isomorphic results
+10 Oct 2019 19:50:31 [pool-3-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - More than 100000 partial isomorphic results
+10 Oct 2019 19:50:31 [pool-3-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - Computation interrupted after 190725 partial isomorphic results
+10 Oct 2019 19:50:34 [pool-4-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - More than 100000 partial isomorphic results
+10 Oct 2019 19:50:34 [pool-4-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - Computation interrupted after 198925 partial isomorphic results
+10 Oct 2019 19:50:34 [pool-4-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - More than 100000 partial isomorphic results
+10 Oct 2019 19:50:34 [pool-4-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - Computation interrupted after 200845 partial isomorphic results
+10 Oct 2019 19:50:52 [pool-4-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - More than 100000 partial isomorphic results
+10 Oct 2019 19:50:52 [pool-4-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - Computation interrupted after 223245 partial isomorphic results
+10 Oct 2019 19:53:09 [pool-2-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - More than 100000 partial isomorphic results
+10 Oct 2019 19:53:09 [pool-2-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - Computation interrupted after 39928 partial isomorphic results
+10 Oct 2019 19:54:47 [pool-5-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - More than 100000 partial isomorphic results
+10 Oct 2019 19:54:47 [pool-5-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - Computation interrupted after 127504 partial isomorphic results
+10 Oct 2019 19:54:50 [pool-5-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - More than 100000 partial isomorphic results
+10 Oct 2019 19:54:50 [pool-5-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - Computation interrupted after 134632 partial isomorphic results
+10 Oct 2019 19:54:52 [pool-6-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - More than 100000 partial isomorphic results
+10 Oct 2019 19:54:52 [pool-6-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - Computation interrupted after 141112 partial isomorphic results
+10 Oct 2019 19:55:26 [pool-6-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - More than 100000 partial isomorphic results
+10 Oct 2019 19:55:26 [pool-6-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - Computation interrupted after 183112 partial isomorphic results
+10 Oct 2019 19:56:12 [pool-6-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - More than 100000 partial isomorphic results
+10 Oct 2019 19:56:12 [pool-6-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - Computation interrupted after 247952 partial isomorphic results
+10 Oct 2019 19:56:21 [pool-8-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - More than 100000 partial isomorphic results
+10 Oct 2019 19:56:21 [pool-8-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - Computation interrupted after 253992 partial isomorphic results
+10 Oct 2019 19:57:46 [pool-9-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - More than 100000 partial isomorphic results
+10 Oct 2019 19:57:46 [pool-9-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - Computation interrupted after 333912 partial isomorphic results
+10 Oct 2019 19:58:05 [pool-9-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - More than 100000 partial isomorphic results
+10 Oct 2019 19:58:05 [pool-9-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - Computation interrupted after 372792 partial isomorphic results
+10 Oct 2019 20:00:48 [pool-2-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - More than 200000 partial isomorphic results
+10 Oct 2019 20:00:48 [pool-2-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - Computation interrupted after 39928 partial isomorphic results
+10 Oct 2019 20:03:47 [pool-6-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - More than 200000 partial isomorphic results
+10 Oct 2019 20:03:47 [pool-6-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - Computation interrupted after 202252 partial isomorphic results
+10 Oct 2019 20:06:29 [pool-6-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - More than 200000 partial isomorphic results
+10 Oct 2019 20:06:29 [pool-6-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - Computation interrupted after 351052 partial isomorphic results
+10 Oct 2019 20:14:14 [pool-6-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - More than 200000 partial isomorphic results
+10 Oct 2019 20:14:14 [pool-6-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - Computation interrupted after 501972 partial isomorphic results
+10 Oct 2019 20:15:56 [pool-6-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - More than 200000 partial isomorphic results
+10 Oct 2019 20:15:56 [pool-6-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - Computation interrupted after 566812 partial isomorphic results
+10 Oct 2019 21:00:50 [pool-3-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - More than 200000 partial isomorphic results
+10 Oct 2019 21:00:50 [pool-3-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - Computation interrupted after 151364 partial isomorphic results
+10 Oct 2019 21:03:06 [pool-3-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - More than 200000 partial isomorphic results
+10 Oct 2019 21:03:06 [pool-3-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - Computation interrupted after 300164 partial isomorphic results
+10 Oct 2019 21:07:06 [pool-3-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - More than 200000 partial isomorphic results
+10 Oct 2019 21:07:06 [pool-3-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - Computation interrupted after 451084 partial isomorphic results
+10 Oct 2019 21:07:48 [pool-3-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - More than 200000 partial isomorphic results
+10 Oct 2019 21:07:48 [pool-3-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - Computation interrupted after 515924 partial isomorphic results
+10 Oct 2019 21:10:09 [pool-3-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - More than 200000 partial isomorphic results
+10 Oct 2019 21:10:09 [pool-3-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - Computation interrupted after 654524 partial isomorphic results
+10 Oct 2019 21:10:18 [pool-5-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - More than 200000 partial isomorphic results
+10 Oct 2019 21:10:18 [pool-5-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - Computation interrupted after 660564 partial isomorphic results
+10 Oct 2019 21:13:44 [pool-5-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - More than 200000 partial isomorphic results
+10 Oct 2019 21:13:44 [pool-5-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - Computation interrupted after 730284 partial isomorphic results
+10 Oct 2019 21:15:34 [pool-6-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - More than 200000 partial isomorphic results
+10 Oct 2019 21:15:34 [pool-6-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - Computation interrupted after 833244 partial isomorphic results
+10 Oct 2019 21:16:53 [pool-6-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - More than 200000 partial isomorphic results
+10 Oct 2019 21:16:53 [pool-6-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - Computation interrupted after 913164 partial isomorphic results
+10 Oct 2019 21:17:18 [pool-6-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - More than 200000 partial isomorphic results
+10 Oct 2019 21:17:18 [pool-6-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - Computation interrupted after 952044 partial isomorphic results
+10 Oct 2019 21:25:44 [pool-7-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - More than 200000 partial isomorphic results
+10 Oct 2019 21:25:44 [pool-7-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - Computation interrupted after 98784 partial isomorphic results
+10 Oct 2019 21:33:07 [pool-9-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - More than 200000 partial isomorphic results
+10 Oct 2019 21:33:07 [pool-9-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - Computation interrupted after 96144 partial isomorphic results
+10 Oct 2019 21:41:44 [pool-9-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - More than 200000 partial isomorphic results
+10 Oct 2019 21:41:44 [pool-9-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - Computation interrupted after 215792 partial isomorphic results
+10 Oct 2019 21:41:44 [pool-9-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - More than 200000 partial isomorphic results
+10 Oct 2019 21:41:44 [pool-9-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - Computation interrupted after 215864 partial isomorphic results
+10 Oct 2019 21:47:42 [pool-10-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - More than 200000 partial isomorphic results
+10 Oct 2019 21:47:42 [pool-10-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - Computation interrupted after 331440 partial isomorphic results
+10 Oct 2019 21:47:44 [pool-10-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - More than 200000 partial isomorphic results
+10 Oct 2019 21:47:44 [pool-10-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - Computation interrupted after 345552 partial isomorphic results
+10 Oct 2019 21:48:19 [pool-10-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - More than 200000 partial isomorphic results
+10 Oct 2019 21:48:19 [pool-10-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - Computation interrupted after 446352 partial isomorphic results
+10 Oct 2019 21:48:20 [pool-10-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - More than 200000 partial isomorphic results
+10 Oct 2019 21:48:20 [pool-10-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - Computation interrupted after 453912 partial isomorphic results
+10 Oct 2019 21:59:34 [pool-14-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - More than 200000 partial isomorphic results
+10 Oct 2019 21:59:34 [pool-14-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - Computation interrupted after 98784 partial isomorphic results
+10 Oct 2019 22:07:13 [pool-17-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - More than 200000 partial isomorphic results
+10 Oct 2019 22:07:13 [pool-17-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - Computation interrupted after 96144 partial isomorphic results
+10 Oct 2019 22:15:38 [pool-17-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - More than 200000 partial isomorphic results
+10 Oct 2019 22:15:38 [pool-17-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - Computation interrupted after 215792 partial isomorphic results
+10 Oct 2019 22:15:38 [pool-17-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - More than 200000 partial isomorphic results
+10 Oct 2019 22:15:38 [pool-17-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - Computation interrupted after 215864 partial isomorphic results
+10 Oct 2019 22:15:40 [pool-17-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - More than 200000 partial isomorphic results
+10 Oct 2019 22:15:40 [pool-17-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - Computation interrupted after 216080 partial isomorphic results
+10 Oct 2019 22:21:05 [pool-18-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - More than 200000 partial isomorphic results
+10 Oct 2019 22:21:05 [pool-18-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - Computation interrupted after 331440 partial isomorphic results
+10 Oct 2019 22:21:07 [pool-18-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - More than 200000 partial isomorphic results
+10 Oct 2019 22:21:07 [pool-18-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - Computation interrupted after 345552 partial isomorphic results
+10 Oct 2019 22:21:36 [pool-18-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - More than 200000 partial isomorphic results
+10 Oct 2019 22:21:36 [pool-18-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - Computation interrupted after 446352 partial isomorphic results
+10 Oct 2019 22:21:37 [pool-18-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - More than 200000 partial isomorphic results
+10 Oct 2019 22:21:37 [pool-18-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - Computation interrupted after 453912 partial isomorphic results
+10 Oct 2019 22:52:45 [pool-42-thread-1,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - Memory exausted, so we are returning something but not everything.
+10 Oct 2019 23:08:12 [pool-42-thread-1,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - Memory exausted, so we are returning something but not everything.
+10 Oct 2019 23:28:06 [pool-32-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - More than 200000 partial isomorphic results
+10 Oct 2019 23:28:06 [pool-32-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - Computation interrupted after 103657 partial isomorphic results
+10 Oct 2019 23:31:43 [pool-37-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - More than 200000 partial isomorphic results
+10 Oct 2019 23:31:43 [pool-37-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - Computation interrupted after 210902 partial isomorphic results
+10 Oct 2019 23:31:48 [pool-37-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - More than 200000 partial isomorphic results
+10 Oct 2019 23:31:48 [pool-37-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - Computation interrupted after 243698 partial isomorphic results
+10 Oct 2019 23:31:49 [pool-38-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - More than 200000 partial isomorphic results
+10 Oct 2019 23:31:49 [pool-38-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - Computation interrupted after 246130 partial isomorphic results
+10 Oct 2019 23:31:50 [pool-39-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - More than 200000 partial isomorphic results
+10 Oct 2019 23:31:50 [pool-39-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - Computation interrupted after 246717 partial isomorphic results
+10 Oct 2019 23:31:50 [pool-39-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - More than 200000 partial isomorphic results
+10 Oct 2019 23:31:50 [pool-39-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - Computation interrupted after 246861 partial isomorphic results
+10 Oct 2019 23:31:50 [pool-39-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - More than 200000 partial isomorphic results
+10 Oct 2019 23:31:50 [pool-39-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - Computation interrupted after 247398 partial isomorphic results
+10 Oct 2019 23:31:50 [pool-39-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - More than 200000 partial isomorphic results
+10 Oct 2019 23:31:50 [pool-39-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - Computation interrupted after 248048 partial isomorphic results
+10 Oct 2019 23:31:51 [pool-39-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - More than 200000 partial isomorphic results
+10 Oct 2019 23:31:51 [pool-39-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - Computation interrupted after 248695 partial isomorphic results
+10 Oct 2019 23:31:51 [pool-40-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - More than 200000 partial isomorphic results
+10 Oct 2019 23:31:51 [pool-40-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - Computation interrupted after 249607 partial isomorphic results
+10 Oct 2019 23:31:51 [pool-41-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - More than 200000 partial isomorphic results
+10 Oct 2019 23:31:51 [pool-41-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - Computation interrupted after 249609 partial isomorphic results
+10 Oct 2019 23:31:51 [pool-41-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - More than 200000 partial isomorphic results
+10 Oct 2019 23:31:51 [pool-41-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - Computation interrupted after 249638 partial isomorphic results
+10 Oct 2019 23:31:56 [pool-42-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - More than 200000 partial isomorphic results
+10 Oct 2019 23:31:56 [pool-42-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - Computation interrupted after 260050 partial isomorphic results
+10 Oct 2019 23:31:58 [pool-43-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - More than 200000 partial isomorphic results
+10 Oct 2019 23:31:58 [pool-43-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - Computation interrupted after 262052 partial isomorphic results
+10 Oct 2019 23:31:59 [pool-43-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - More than 200000 partial isomorphic results
+10 Oct 2019 23:31:59 [pool-43-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - Computation interrupted after 262403 partial isomorphic results
+10 Oct 2019 23:32:24 [pool-43-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - More than 200000 partial isomorphic results
+10 Oct 2019 23:32:24 [pool-43-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - Computation interrupted after 271340 partial isomorphic results
+10 Oct 2019 23:32:27 [pool-43-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - More than 200000 partial isomorphic results
+10 Oct 2019 23:32:27 [pool-43-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - Computation interrupted after 273955 partial isomorphic results
+10 Oct 2019 23:32:29 [pool-43-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - More than 200000 partial isomorphic results
+10 Oct 2019 23:32:29 [pool-43-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - Computation interrupted after 274271 partial isomorphic results
+10 Oct 2019 23:34:38 [pool-44-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - More than 200000 partial isomorphic results
+10 Oct 2019 23:34:38 [pool-44-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - Computation interrupted after 362597 partial isomorphic results
+10 Oct 2019 23:34:38 [pool-44-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - More than 200000 partial isomorphic results
+10 Oct 2019 23:34:38 [pool-44-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - Computation interrupted after 363137 partial isomorphic results
+10 Oct 2019 23:34:41 [pool-45-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - More than 200000 partial isomorphic results
+10 Oct 2019 23:34:41 [pool-45-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - Computation interrupted after 376071 partial isomorphic results
+10 Oct 2019 23:34:42 [pool-45-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - More than 200000 partial isomorphic results
+10 Oct 2019 23:34:42 [pool-45-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - Computation interrupted after 378501 partial isomorphic results
+10 Oct 2019 23:34:44 [pool-46-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - More than 200000 partial isomorphic results
+10 Oct 2019 23:34:44 [pool-46-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - Computation interrupted after 381669 partial isomorphic results
+10 Oct 2019 23:34:45 [pool-47-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - More than 200000 partial isomorphic results
+10 Oct 2019 23:34:45 [pool-47-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - Computation interrupted after 385133 partial isomorphic results
+10 Oct 2019 23:34:45 [pool-48-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - More than 200000 partial isomorphic results
+10 Oct 2019 23:34:45 [pool-48-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - Computation interrupted after 385294 partial isomorphic results
+11 Oct 2019 00:07:51 [pool-49-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - More than 200000 partial isomorphic results
+11 Oct 2019 00:07:51 [pool-49-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - Computation interrupted after 503596 partial isomorphic results
+11 Oct 2019 00:07:58 [pool-49-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - More than 200000 partial isomorphic results
+11 Oct 2019 00:07:58 [pool-49-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - Computation interrupted after 509536 partial isomorphic results
+11 Oct 2019 00:08:05 [pool-49-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - More than 200000 partial isomorphic results
+11 Oct 2019 00:08:05 [pool-49-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - Computation interrupted after 514936 partial isomorphic results
+11 Oct 2019 00:08:12 [pool-51-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - More than 200000 partial isomorphic results
+11 Oct 2019 00:08:12 [pool-51-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - Computation interrupted after 516136 partial isomorphic results
+11 Oct 2019 01:27:19 [pool-6-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - More than 200000 partial isomorphic results
+11 Oct 2019 01:27:19 [pool-6-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - Computation interrupted after 100618 partial isomorphic results
+11 Oct 2019 01:28:26 [pool-10-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - More than 200000 partial isomorphic results
+11 Oct 2019 01:28:26 [pool-10-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - Computation interrupted after 113689 partial isomorphic results
+11 Oct 2019 01:51:59 [pool-18-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - More than 200000 partial isomorphic results
+11 Oct 2019 01:51:59 [pool-18-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - Computation interrupted after 201074 partial isomorphic results
+11 Oct 2019 01:51:59 [pool-18-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - More than 200000 partial isomorphic results
+11 Oct 2019 01:51:59 [pool-18-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - Computation interrupted after 201177 partial isomorphic results
+11 Oct 2019 02:04:48 [pool-42-thread-1,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - Memory exausted, so we are returning something but not everything.
+11 Oct 2019 02:13:20 [pool-18-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - More than 200000 partial isomorphic results
+11 Oct 2019 02:13:20 [pool-18-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - Computation interrupted after 259731 partial isomorphic results
+11 Oct 2019 02:13:20 [pool-19-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - More than 200000 partial isomorphic results
+11 Oct 2019 02:13:20 [pool-19-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - Computation interrupted after 259762 partial isomorphic results
+11 Oct 2019 02:13:27 [pool-20-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - More than 200000 partial isomorphic results
+11 Oct 2019 02:13:27 [pool-20-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - Computation interrupted after 259817 partial isomorphic results
+11 Oct 2019 02:13:36 [pool-20-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - More than 200000 partial isomorphic results
+11 Oct 2019 02:13:36 [pool-20-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - Computation interrupted after 259823 partial isomorphic results
+11 Oct 2019 02:14:31 [pool-20-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - More than 200000 partial isomorphic results
+11 Oct 2019 02:14:31 [pool-20-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - Computation interrupted after 259956 partial isomorphic results
+11 Oct 2019 02:15:42 [pool-20-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - More than 200000 partial isomorphic results
+11 Oct 2019 02:15:42 [pool-20-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - Computation interrupted after 259996 partial isomorphic results
+11 Oct 2019 02:15:46 [pool-20-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - More than 200000 partial isomorphic results
+11 Oct 2019 02:15:46 [pool-20-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - Computation interrupted after 260001 partial isomorphic results
+11 Oct 2019 02:16:05 [pool-20-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - More than 200000 partial isomorphic results
+11 Oct 2019 02:16:05 [pool-20-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - Computation interrupted after 260076 partial isomorphic results
+11 Oct 2019 02:16:05 [pool-21-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - More than 200000 partial isomorphic results
+11 Oct 2019 02:16:05 [pool-21-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - Computation interrupted after 261254 partial isomorphic results
+11 Oct 2019 02:16:31 [pool-21-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - More than 200000 partial isomorphic results
+11 Oct 2019 02:16:31 [pool-21-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - Computation interrupted after 270506 partial isomorphic results
+11 Oct 2019 02:16:31 [pool-21-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - More than 200000 partial isomorphic results
+11 Oct 2019 02:16:31 [pool-21-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - Computation interrupted after 270566 partial isomorphic results
+11 Oct 2019 02:16:31 [pool-21-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - More than 200000 partial isomorphic results
+11 Oct 2019 02:16:31 [pool-21-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - Computation interrupted after 271090 partial isomorphic results
+11 Oct 2019 02:16:32 [pool-21-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - More than 200000 partial isomorphic results
+11 Oct 2019 02:16:32 [pool-21-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - Computation interrupted after 272258 partial isomorphic results
+11 Oct 2019 02:16:48 [pool-22-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - More than 200000 partial isomorphic results
+11 Oct 2019 02:16:48 [pool-22-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - Computation interrupted after 280898 partial isomorphic results
+11 Oct 2019 02:16:54 [pool-22-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - More than 200000 partial isomorphic results
+11 Oct 2019 02:16:54 [pool-22-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - Computation interrupted after 285758 partial isomorphic results
+11 Oct 2019 02:16:54 [pool-22-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - More than 200000 partial isomorphic results
+11 Oct 2019 02:16:54 [pool-22-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - Computation interrupted after 286766 partial isomorphic results
+11 Oct 2019 02:17:10 [pool-22-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - More than 200000 partial isomorphic results
+11 Oct 2019 02:17:10 [pool-22-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - Computation interrupted after 294830 partial isomorphic results
+11 Oct 2019 02:17:11 [pool-23-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - More than 200000 partial isomorphic results
+11 Oct 2019 02:17:11 [pool-23-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - Computation interrupted after 295082 partial isomorphic results
+11 Oct 2019 02:17:11 [pool-23-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - More than 200000 partial isomorphic results
+11 Oct 2019 02:17:11 [pool-23-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - Computation interrupted after 295152 partial isomorphic results
+11 Oct 2019 02:17:13 [pool-23-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - More than 200000 partial isomorphic results
+11 Oct 2019 02:17:13 [pool-23-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - Computation interrupted after 298783 partial isomorphic results
+11 Oct 2019 02:17:37 [pool-24-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - More than 200000 partial isomorphic results
+11 Oct 2019 02:17:37 [pool-24-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - Computation interrupted after 315403 partial isomorphic results
+11 Oct 2019 02:17:37 [pool-24-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - More than 200000 partial isomorphic results
+11 Oct 2019 02:17:37 [pool-24-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - Computation interrupted after 315439 partial isomorphic results
+11 Oct 2019 02:38:18 [pool-29-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - More than 200000 partial isomorphic results
+11 Oct 2019 02:38:18 [pool-29-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - Computation interrupted after 69864 partial isomorphic results
+11 Oct 2019 02:42:36 [pool-39-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - More than 200000 partial isomorphic results
+11 Oct 2019 02:42:36 [pool-39-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - Computation interrupted after 28836 partial isomorphic results
+11 Oct 2019 02:43:53 [pool-39-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - More than 200000 partial isomorphic results
+11 Oct 2019 02:43:53 [pool-39-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - Computation interrupted after 47484 partial isomorphic results
+11 Oct 2019 02:46:29 [pool-39-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - More than 200000 partial isomorphic results
+11 Oct 2019 02:46:29 [pool-39-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - Computation interrupted after 73848 partial isomorphic results
+11 Oct 2019 03:13:02 [pool-51-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - More than 200000 partial isomorphic results
+11 Oct 2019 03:13:02 [pool-51-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - Computation interrupted after 69864 partial isomorphic results
+11 Oct 2019 03:28:40 [pool-63-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - More than 200000 partial isomorphic results
+11 Oct 2019 03:28:40 [pool-63-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - Computation interrupted after 50985 partial isomorphic results
+11 Oct 2019 03:35:36 [pool-63-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - More than 200000 partial isomorphic results
+11 Oct 2019 03:35:36 [pool-63-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - Computation interrupted after 87858 partial isomorphic results
+11 Oct 2019 03:47:28 [pool-63-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - More than 200000 partial isomorphic results
+11 Oct 2019 03:47:28 [pool-63-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - Computation interrupted after 135358 partial isomorphic results
+11 Oct 2019 03:49:10 [pool-65-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - More than 200000 partial isomorphic results
+11 Oct 2019 03:49:10 [pool-65-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - Computation interrupted after 209 partial isomorphic results
+12 Oct 2019 19:04:44 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - java.util.concurrent.ExecutionException: java.lang.NullPointerException
+12 Oct 2019 19:04:46 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - java.util.concurrent.ExecutionException: java.lang.NullPointerException
+12 Oct 2019 19:04:47 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - java.util.concurrent.ExecutionException: java.lang.NullPointerException
+12 Oct 2019 19:04:54 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - java.util.concurrent.ExecutionException: java.lang.NullPointerException
+12 Oct 2019 19:05:00 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - java.util.concurrent.ExecutionException: java.lang.NullPointerException
+12 Oct 2019 19:05:06 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - java.util.concurrent.ExecutionException: java.lang.NullPointerException
+12 Oct 2019 19:05:12 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - java.util.concurrent.ExecutionException: java.lang.NullPointerException
+12 Oct 2019 19:05:18 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - java.util.concurrent.ExecutionException: java.lang.NullPointerException
+12 Oct 2019 19:05:25 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - java.util.concurrent.ExecutionException: java.lang.NullPointerException
+12 Oct 2019 19:49:27 [pool-4-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - More than 200000 partial isomorphic results
+12 Oct 2019 19:49:27 [pool-4-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - Computation interrupted after 29568 partial isomorphic results
+12 Oct 2019 20:07:53 [pool-6-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - More than 200000 partial isomorphic results
+12 Oct 2019 20:07:53 [pool-6-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - Computation interrupted after 104860 partial isomorphic results
+12 Oct 2019 20:22:37 [pool-6-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - More than 200000 partial isomorphic results
+12 Oct 2019 20:22:37 [pool-6-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - Computation interrupted after 163517 partial isomorphic results
+12 Oct 2019 20:25:32 [pool-9-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - More than 200000 partial isomorphic results
+12 Oct 2019 20:25:32 [pool-9-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - Computation interrupted after 28836 partial isomorphic results
+12 Oct 2019 20:28:18 [pool-9-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - More than 200000 partial isomorphic results
+12 Oct 2019 20:28:18 [pool-9-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - Computation interrupted after 73848 partial isomorphic results
+12 Oct 2019 20:39:14 [pool-15-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - More than 200000 partial isomorphic results
+12 Oct 2019 20:39:14 [pool-15-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - Computation interrupted after 50985 partial isomorphic results
+12 Oct 2019 20:44:19 [pool-15-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - More than 200000 partial isomorphic results
+12 Oct 2019 20:44:19 [pool-15-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - Computation interrupted after 87858 partial isomorphic results
+12 Oct 2019 20:52:49 [pool-15-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - More than 200000 partial isomorphic results
+12 Oct 2019 20:52:49 [pool-15-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - Computation interrupted after 135358 partial isomorphic results
+23 Oct 2019 21:18:15 [pool-6-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - More than 200000 partial isomorphic results
+23 Oct 2019 21:18:15 [pool-6-thread-1,89] WARN  eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep - Computation interrupted after 45603 partial isomorphic results
+27 Oct 2019 16:59:37 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - java.util.concurrent.ExecutionException: java.lang.NullPointerException
+27 Oct 2019 17:15:54 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - java.util.concurrent.ExecutionException: java.lang.NullPointerException
+27 Oct 2019 17:16:04 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - java.util.concurrent.ExecutionException: java.lang.NullPointerException
+27 Oct 2019 17:18:47 [main,89] ERROR eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch - java.util.concurrent.ExecutionException: java.lang.NullPointerException

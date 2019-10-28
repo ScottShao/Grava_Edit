@@ -21,7 +21,6 @@ import eu.unitn.disi.db.command.algorithmic.Algorithm;
 import eu.unitn.disi.db.command.algorithmic.AlgorithmInput;
 import eu.unitn.disi.db.command.algorithmic.AlgorithmOutput;
 import eu.unitn.disi.db.command.exceptions.AlgorithmExecutionException;
-import eu.unitn.disi.db.mutilities.StopWatch;
 import eu.unitn.disi.db.grava.exceptions.DataException;
 import eu.unitn.disi.db.grava.graphs.BaseMultigraph;
 import eu.unitn.disi.db.grava.graphs.BigMultigraph;
@@ -29,14 +28,12 @@ import eu.unitn.disi.db.grava.graphs.Edge;
 import eu.unitn.disi.db.grava.graphs.LabelContainer;
 import eu.unitn.disi.db.grava.graphs.MappedNode;
 import eu.unitn.disi.db.grava.graphs.Multigraph;
-import eu.unitn.disi.db.grava.graphs.Path;
-import eu.unitn.disi.db.grava.graphs.PathNeighbor;
 import eu.unitn.disi.db.grava.graphs.StructureMapping;
 import eu.unitn.disi.db.grava.utils.BloomFilter;
 import eu.unitn.disi.db.grava.utils.Utilities;
 import eu.unitn.disi.db.grava.vectorization.NeighborTables;
 import eu.unitn.disi.db.grava.vectorization.PathNeighborTables;
-
+import eu.unitn.disi.db.mutilities.StopWatch;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
@@ -47,14 +44,16 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
-
 import javafx.util.Pair;
+import org.json.simple.JSONObject;
 
 /**
  * Pruning algorithm using neighborhood information for each node.
+ *
  * @author Davide Mottin <mottin@disi.unitn.eu>
  */
 public class PruningAlgorithm extends Algorithm {
+
     @AlgorithmInput
     private Multigraph query;
     @AlgorithmInput
@@ -86,28 +85,27 @@ public class PruningAlgorithm extends Algorithm {
     private int uptCount;
     private int k;
     private ArrayList<Long> visitSeq;
-    private HashMap<Pair<Long,Long>, Set<StructureMapping>> gNodesNextEdgeMapping;
-    private HashMap<Pair<Long,Long>, Set<StructureMapping>> gNodesPrevEdgeMapping;
-    
+    private HashMap<Pair<Long, Long>, Set<StructureMapping>> gNodesNextEdgeMapping;
+    private HashMap<Pair<Long, Long>, Set<StructureMapping>> gNodesPrevEdgeMapping;
+
     @AlgorithmOutput
-    private Map<Long,Set<MappedNode>> queryGraphMapping;
+    private Map<Long, Set<MappedNode>> queryGraphMapping;
     @AlgorithmOutput
     private int numberOfComparison;
     private HashMap<Long, HashSet<Edge>> paths;
 
     @Override
     public void compute()
-            throws AlgorithmExecutionException
-    {
+            throws AlgorithmExecutionException {
         //Initialize the output.
-        bsCount  = 0;
+        bsCount = 0;
         cmpNbLabel = 0;
         uptCount = 0;
-    	queryGraphMapping = new HashMap<>();
+        queryGraphMapping = new HashMap<>();
         prefixSelectivities = new HashMap<Long, Double>();
         edgeNum = graph.edgeSet().size();
         //Map<Long,Integer> nodeFrequency;
-        Map<Long,Integer> labelFrequency = new HashMap<>();
+        Map<Long, Integer> labelFrequency = new HashMap<>();
         Map<Long, Set<MappedNode>> candidateNextLevel = new HashMap<>();
         labelFreq = graph.getLabelFreq();
         nodeSelectivities = new HashMap<Long, Double>();
@@ -115,7 +113,7 @@ public class PruningAlgorithm extends Algorithm {
         visitSeq = new ArrayList<Long>();
         paths = new HashMap<Long, HashSet<Edge>>();
         candidates = new HashMap<Long, Integer>();
-        
+
         //Long label;
         Long candidate, currentQueryNode;
         MappedNode graphCandidate;
@@ -154,7 +152,7 @@ public class PruningAlgorithm extends Algorithm {
 
         //Initialize the candidate qnode -> gnode
         for (Long node : queryNodes) {
-           candidateNextLevel.put(node, new HashSet<MappedNode>());
+            candidateNextLevel.put(node, new HashSet<MappedNode>());
         }
         prefixSelectivities.put(startingNode, (double) 1);
         candidateNextLevel.put(candidate, Utilities.nodesToMappedNodes(graph.vertexSet()));
@@ -162,7 +160,7 @@ public class PruningAlgorithm extends Algorithm {
 //        long medium;
         try {
             while (!queryNodeToVisit.isEmpty()) {
-            	
+
                 currentQueryNode = queryNodeToVisit.poll();
 //                System.out.println(currentQueryNode);
 //                if(currentQueryNode.equals(77815786887248L)){
@@ -176,21 +174,17 @@ public class PruningAlgorithm extends Algorithm {
                 outQueryEdges = computeAdjacentNodes(currentQueryNode, visitedQueryNodes, queryNodeToVisit, false);
 //                System.out.println(medium + " " + Utilities.bsCount);
                 if (candidateNextLevel.containsKey(currentQueryNode)) {
-                	
-                	nodesToVisit = new ArrayList<MappedNode>();
+
+                    nodesToVisit = new ArrayList<MappedNode>();
                     nodesToVisit.addAll(candidateNextLevel.get(currentQueryNode));
-                    assert mappedNodes == null : String.format("The current query node %d, has already been explored", currentQueryNode);
+                    assert mappedNodes == null : String
+                            .format("The current query node %d, has already been explored", currentQueryNode);
                     mappedNodes = new HashSet<>();
-                    
+
                     //countNodes = 0;
                     //We should check if ALL the query nodes matches and then add the node
                     for (i = 0; i < nodesToVisit.size(); i++) {
-                    	if (i == 500) {
-                    		System.out.print("");
-                    	} else if (i == 1000) {
-                    		System.out.print("");
-                    	}
-                    	int testSize = nodesToVisit.size();
+                        int testSize = nodesToVisit.size();
                         graphCandidate = nodesToVisit.get(i);
 //                        if (this.matchesWithPathNeighbor(graphCandidate, currentQueryNode)) {
                         if (this.matches(graphCandidate, currentQueryNode)) {
@@ -201,11 +195,13 @@ public class PruningAlgorithm extends Algorithm {
                             mappedNodes.add(graphCandidate);
 //                            medium = Utilities.bsCount;
                             //check if the outgoing-incoming edges matches, if yes add to the next level
-                            mapNodes(graphCandidate, graph.incomingEdgesOf(graphCandidate.getNodeID()), inQueryEdges, candidateNextLevel, true);
-                            mapNodes(graphCandidate, graph.outgoingEdgesOf(graphCandidate.getNodeID()), outQueryEdges, candidateNextLevel, false);
+                            mapNodes(graphCandidate, graph.incomingEdgesOf(graphCandidate.getNodeID()), inQueryEdges,
+                                    candidateNextLevel, true);
+                            mapNodes(graphCandidate, graph.outgoingEdgesOf(graphCandidate.getNodeID()), outQueryEdges,
+                                    candidateNextLevel, false);
 //                            System.out.println(medium + " " + Utilities.bsCount);
                             if (testSize != nodesToVisit.size()) {
-                            	System.out.print("");
+                                System.out.print("");
                             }
                         }
                     }
@@ -219,7 +215,7 @@ public class PruningAlgorithm extends Algorithm {
 //	                    	System.out.println("candidate:" + tt.getNodeID());
 //	                    }
 //                    }
-                    
+
                     //add the out edges to the visited ones
                     visitedQueryNodes.add(currentQueryNode);
                 } else { //No map is possible anymore
@@ -239,141 +235,298 @@ public class PruningAlgorithm extends Algorithm {
         } catch (Exception ex) {
             //fatal("Some problem occurred", ex);
             ex.printStackTrace();
-        	throw new AlgorithmExecutionException("Some other problem occurred", ex);
+            throw new AlgorithmExecutionException("Some other problem occurred", ex);
         }
-        
 //        this.computeTimeCost();
         //Choose the node with the least frequency.
     }
-    
-    
-    public void pathFilter() {
-    	Set<MappedNode> filteredSet = new HashSet<>();
-    	Set<MappedNode> oldSet = queryGraphMapping.get(this.startingNode);
-    	Set<String> queryPaths = new HashSet<>();
-    	dfs(startingNode, new HashSet<Edge>(), new StringBuilder(), 0, queryPaths);
-    	for (MappedNode mn : oldSet) {
-    		BloomFilter<String> bf = gPathTables.get(mn.getNodeID());
-    		int count = 0;
-    		boolean isGood = true;
-    		for (String path : queryPaths) {
-    			if (!bf.contains(path)) {
-    				count++;
-    				if (count > this.threshold) {
-    					isGood = false;
-    					break;
-    				}
-    			}
-    		}
-    		if (isGood) {
-    			filteredSet.add(mn);
-    		}
-    	}
-    	queryGraphMapping.put(startingNode, filteredSet);
-    }
-    
-    public void pathFilter(boolean filterAll) {
-    	
-    	for (Entry<Long, Set<MappedNode>> en : queryGraphMapping.entrySet()) {
-    		Long crt = en.getKey();
-    		Set<MappedNode> filteredSet = new HashSet<>();
-        	Set<MappedNode> oldSet = queryGraphMapping.get(crt);
-        	Set<String> queryPaths = new HashSet<>();
-        	dfs(crt, new HashSet<Edge>(), new StringBuilder(), 0, queryPaths);
-        	for (MappedNode mn : oldSet) {
-        		BloomFilter<String> bf = gPathTables.get(mn.getNodeID());
-        		int count = 0;
-        		boolean isGood = true;
-        		for (String path : queryPaths) {
-        			if (!bf.contains(path)) {
-        				count++;
-        				if (count > this.threshold) {
-        					isGood = false;
-        					break;
-        				}
-        			}
-        		}
-        		if (isGood) {
-        			filteredSet.add(mn);
-        		}
-        	}
-        	queryGraphMapping.put(crt, filteredSet);
-    	}
-    	
-    }
-    
-    public int onlyPath() {
-    	int number = 0;
-    	Set<String> queryPaths = new HashSet<>();
-    	dfs(startingNode, new HashSet<Edge>(), new StringBuilder(), 0, queryPaths);
-    	for (Long mn : graph.vertexSet()) {
-    		BloomFilter<String> bf = gPathTables.get(mn);
-    		int count = 0;
-    		boolean isGood = true;
-    		for (String path : queryPaths) {
-    			if (!bf.contains(path)) {
-    				count++;
-    				if (count > this.threshold) {
-    					isGood = false;
-    					break;
-    				}
-    			}
-    		}
-    		if (isGood) {
-    			number++;
-    		}
-    	}
-    	return number;
-    }
-    
-    
-    public void dfs(Long node, Set<Edge> visited, StringBuilder sb, int depth, Set<String> paths) {
-		if (depth >= k) {
-			paths.add(sb.toString());
-			return;
-		}
-		int length = sb.length();
-		for (Edge e : query.outgoingEdgesOf(node)) {
-			Long nextNode = e.getDestination().equals(node) ? e.getSource() : e.getDestination();
-			if (!visited.contains(e) && !e.getLabel().equals(0L) && !nextNode.equals(node)) {
-				Long temp = e.getLabel();
-				sb.append(temp);
-				dfs(nextNode, visited, sb, depth + 1, paths);
-				sb.setLength(length);
-			}
-		}
-		
-		for (Edge e : query.incomingEdgesOf(node)) {
-			Long nextNode = e.getDestination().equals(node) ? e.getSource() : e.getDestination();
-			if (!visited.contains(e) && !e.getLabel().equals(0L) && !nextNode.equals(node)) {
-				Long temp = -e.getLabel();
-				sb.append(temp);
-				dfs(nextNode, visited, sb, depth + 1, paths);
-				sb.setLength(length);
-			}
-		}
-	}
-    public void fastCompute()
-            throws AlgorithmExecutionException
-    {
+
+
+    public void computeWithPath()
+            throws AlgorithmExecutionException {
         //Initialize the output.
-        bsCount  = 0;
+        bsCount = 0;
         cmpNbLabel = 0;
         uptCount = 0;
-    	queryGraphMapping = new HashMap<>();
+        queryGraphMapping = new HashMap<>();
         prefixSelectivities = new HashMap<Long, Double>();
         edgeNum = graph.edgeSet().size();
         //Map<Long,Integer> nodeFrequency;
-        Map<Long,Integer> labelFrequency = new HashMap<>();
+        Map<Long, Integer> labelFrequency = new HashMap<>();
         Map<Long, Set<MappedNode>> candidateNextLevel = new HashMap<>();
-        labelFreq = ((BigMultigraph)graph).getLabelFreq();
+        labelFreq = graph.getLabelFreq();
         nodeSelectivities = new HashMap<Long, Double>();
         neighborLabels = new HashMap<Long, Integer>();
         visitSeq = new ArrayList<Long>();
         paths = new HashMap<Long, HashSet<Edge>>();
         candidates = new HashMap<Long, Integer>();
-        gNodesNextEdgeMapping = new HashMap<Pair<Long,Long>, Set<StructureMapping>>();
-        gNodesPrevEdgeMapping = new HashMap<Pair<Long,Long>, Set<StructureMapping>>();
+
+        //Long label;
+        Long candidate, currentQueryNode;
+        MappedNode graphCandidate;
+        numberOfComparison = 0;
+        boolean first = true;
+        Integer frequency;
+        LinkedList<Long> queryNodeToVisit = new LinkedList<>();
+        List<MappedNode> nodesToVisit;
+        Collection<Edge> graphEdges = graph.edgeSet();
+        Collection<Edge> queryEdges;
+
+        Map<Long, List<Long>> inQueryEdges;
+        Map<Long, List<Long>> outQueryEdges;
+        Collection<Long> queryNodes = query.vertexSet();
+        Set<MappedNode> mappedNodes;
+        Set<Long> visitedQueryNodes = new HashSet<>();
+        int i;
+        for (Edge e : graphEdges) {
+            frequency = labelFrequency.get(e.getLabel());
+            if (frequency == null) {
+                frequency = 0;
+            }
+            frequency++;
+            labelFrequency.put(e.getLabel(), frequency);
+        }
+        //Just to try - Candidate is the first
+        if (startingNode == null) {
+            candidate = queryNodes.iterator().next();
+            startingNode = candidate;
+        } else {
+            candidate = startingNode;
+        }
+        queryNodeToVisit.add(candidate);
+        Map<Long, Map<String, Integer>> queryPaths = queryPaths();
+        //Initialize the candidate qnode -> gnode
+        for (Long node : queryNodes) {
+            candidateNextLevel.put(node, new HashSet<MappedNode>());
+        }
+        prefixSelectivities.put(startingNode, (double) 1);
+        candidateNextLevel.put(candidate, Utilities.nodesToMappedNodes(graph.vertexSet()));
+        Utilities.bsCount = 0;
+        try {
+            while (!queryNodeToVisit.isEmpty()) {
+
+                currentQueryNode = queryNodeToVisit.poll();
+                visitSeq.add(currentQueryNode);
+                mappedNodes = queryGraphMapping.get(currentQueryNode);
+                //Compute the valid edges to explore and update the nodes to visit
+//                medium = Utilities.bsCount;
+                inQueryEdges = computeAdjacentNodes(currentQueryNode, visitedQueryNodes, queryNodeToVisit, true);
+                outQueryEdges = computeAdjacentNodes(currentQueryNode, visitedQueryNodes, queryNodeToVisit, false);
+//                System.out.println(medium + " " + Utilities.bsCount);
+                if (candidateNextLevel.containsKey(currentQueryNode)) {
+
+                    nodesToVisit = new ArrayList<MappedNode>();
+                    nodesToVisit.addAll(candidateNextLevel.get(currentQueryNode));
+                    assert mappedNodes == null : String
+                            .format("The current query node %d, has already been explored", currentQueryNode);
+                    mappedNodes = new HashSet<>();
+
+                    //countNodes = 0;
+                    //We should check if ALL the query nodes matches and then add the node
+                    for (i = 0; i < nodesToVisit.size(); i++) {
+                        int testSize = nodesToVisit.size();
+                        graphCandidate = nodesToVisit.get(i);
+                        if (this.matchesWithPathNeighbor(graphCandidate, currentQueryNode, queryPaths)) {
+                            numberOfComparison++;
+                            mappedNodes.add(graphCandidate);
+//                            medium = Utilities.bsCount;
+                            //check if the outgoing-incoming edges matches, if yes add to the next level
+                            mapNodes(graphCandidate, graph.incomingEdgesOf(graphCandidate.getNodeID()), inQueryEdges,
+                                    candidateNextLevel, true);
+                            mapNodes(graphCandidate, graph.outgoingEdgesOf(graphCandidate.getNodeID()), outQueryEdges,
+                                    candidateNextLevel, false);
+//                            System.out.println(medium + " " + Utilities.bsCount);
+                            if (testSize != nodesToVisit.size()) {
+                                System.out.print("");
+                            }
+                        }
+                    }
+
+                    queryGraphMapping.put(currentQueryNode, mappedNodes);
+                    candidates.put(currentQueryNode, mappedNodes.size());
+
+                    //add the out edges to the visited ones
+                    visitedQueryNodes.add(currentQueryNode);
+                } else { //No map is possible anymore
+                    break;
+                }
+            }
+            bsCount = Utilities.bsCount;
+        } catch (DataException ex) {
+            //fatal("Some problems with the data occurred", ex);
+            throw new AlgorithmExecutionException("Some problem with the data occurrred", ex);
+        } catch (Exception ex) {
+            //fatal("Some problem occurred", ex);
+            ex.printStackTrace();
+            throw new AlgorithmExecutionException("Some other problem occurred", ex);
+        }
+//        this.computeTimeCost();
+        //Choose the node with the least frequency.
+    }
+
+    private Map<Long, Map<String, Integer>> queryPaths() {
+        Map<Long, Map<String, Integer>> queryPathMap = new HashMap<>();
+        for (Long queryNode : query.vertexSet()) {
+            Map<String, Integer> pathMap = new HashMap<>();
+            dfs(queryNode, new HashSet<>(), new HashSet<>(), new StringBuilder(), 0, pathMap);
+            queryPathMap.put(queryNode, pathMap);
+        }
+//        queryPathMap.forEach(
+//                (k, v) -> {
+//                    System.out.println("node:" + k);
+//                    System.out.println("paths:" + v);
+//                }
+//        );
+        return queryPathMap;
+    }
+
+    public void pathFilter() {
+        Set<MappedNode> filteredSet = new HashSet<>();
+        Set<MappedNode> oldSet = queryGraphMapping.get(this.startingNode);
+        Map<String, Integer> queryPaths = new HashMap<>();
+        dfs(startingNode, new HashSet<>(), new HashSet<>(), new StringBuilder(), 0, queryPaths);
+        for (MappedNode mn : oldSet) {
+            BloomFilter<String> bf = gPathTables.get(mn.getNodeID());
+            int count = 0;
+            boolean isGood = true;
+            for (Entry<String, Integer> path : queryPaths.entrySet()) {
+                String temp = path.getKey() + "|" + path.getValue();
+                if (!bf.contains(temp)) {
+                    count += path.getValue();
+                    if (count > this.threshold) {
+                        isGood = false;
+                        break;
+                    }
+                }
+            }
+            if (isGood) {
+                filteredSet.add(mn);
+            }
+        }
+        queryGraphMapping.put(startingNode, filteredSet);
+    }
+
+    public void pathFilter(boolean filterAll) {
+        Map<Long, Map<String, Integer>> queryPaths = queryPaths();
+        for (Entry<Long, Set<MappedNode>> en : queryGraphMapping.entrySet()) {
+            Long crt = en.getKey();
+            Set<MappedNode> filteredSet = new HashSet<>();
+            Set<MappedNode> oldSet = queryGraphMapping.get(crt);
+            for (MappedNode mn : oldSet) {
+                BloomFilter<String> bf = gPathTables.get(mn.getNodeID());
+                int count = 0;
+                boolean isGood = true;
+                for (Entry<String, Integer> path : queryPaths.get(crt).entrySet()) {
+                    String temp = path.getKey() + "|" + path.getValue();
+                    if (!bf.contains(temp)) {
+                        count += path.getValue();
+                        if (count > this.threshold) {
+                            isGood = false;
+                            break;
+                        }
+                    }
+                }
+                if (isGood) {
+                    filteredSet.add(mn);
+                }
+            }
+            queryGraphMapping.put(crt, filteredSet);
+        }
+    }
+
+    public int onlyPath() {
+        int number = 0;
+        Map<String, Integer> queryPaths = new HashMap<>();
+        dfs(startingNode, new HashSet<>(), new HashSet<>(), new StringBuilder(), 0, queryPaths);
+        for (Long mn : graph.vertexSet()) {
+            BloomFilter<String> bf = gPathTables.get(mn);
+            int count = 0;
+            boolean isGood = true;
+            for (Entry<String, Integer> path : queryPaths.entrySet()) {
+                String temp = path.getKey() + "|" + path.getValue();
+                if (!bf.contains(temp)) {
+                    count += path.getValue();
+                    if (count > this.threshold) {
+                        isGood = false;
+                        break;
+                    }
+                }
+            }
+            if (isGood) {
+                number++;
+            }
+        }
+        return number;
+    }
+
+
+    public void dfs(Long node, Set<Edge> visited, Set<Long> visitedNodes, StringBuilder sb, int depth, Map<String, Integer> pathMap) {
+        if (depth >= k) {
+            String path = sb.toString();
+            if (!visitedNodes.contains(0L) && visitedNodes.contains(node)) {
+                path = path + "L";
+            }
+            Integer count = pathMap.getOrDefault(path, 0);
+            count++;
+            pathMap.put(path, count);
+            return;
+        }
+        int length = sb.length();
+        visitedNodes.add(node);
+        boolean hasEdges = false;
+        for (Edge e : query.outgoingEdgesOf(node)) {
+            Long nextNode = e.getDestination().equals(node) ? e.getSource() : e.getDestination();
+            if (!visited.contains(e) && !nextNode.equals(node)) {
+                hasEdges = true;
+                Long temp = e.getLabel();
+                sb.append(temp);
+                visited.add(e);
+                dfs(nextNode, visited, visitedNodes, sb, depth + 1, pathMap);
+                visited.remove(e);
+                sb.setLength(length);
+            }
+        }
+
+        for (Edge e : query.incomingEdgesOf(node)) {
+            Long nextNode = e.getDestination().equals(node) ? e.getSource() : e.getDestination();
+            if (!visited.contains(e) && !nextNode.equals(node)) {
+                hasEdges = true;
+                Long temp = e.getLabel().equals(0L) ? 0L : -e.getLabel();
+                sb.append(temp);
+                visited.add(e);
+                dfs(nextNode, visited, visitedNodes, sb, depth + 1, pathMap);
+                visited.remove(e);
+                sb.setLength(length);
+            }
+        }
+        visitedNodes.remove(node);
+        if (!hasEdges && sb.toString().length() > 0) {
+            Integer count = pathMap.getOrDefault(sb.toString(), 0);
+            count++;
+            pathMap.put(sb.toString(), count);
+        }
+    }
+
+    public void fastCompute()
+            throws AlgorithmExecutionException {
+        //Initialize the output.
+        bsCount = 0;
+        cmpNbLabel = 0;
+        uptCount = 0;
+        queryGraphMapping = new HashMap<>();
+        prefixSelectivities = new HashMap<Long, Double>();
+        edgeNum = graph.edgeSet().size();
+        //Map<Long,Integer> nodeFrequency;
+        Map<Long, Integer> labelFrequency = new HashMap<>();
+        Map<Long, Set<MappedNode>> candidateNextLevel = new HashMap<>();
+        labelFreq = ((BigMultigraph) graph).getLabelFreq();
+        nodeSelectivities = new HashMap<Long, Double>();
+        neighborLabels = new HashMap<Long, Integer>();
+        visitSeq = new ArrayList<Long>();
+        paths = new HashMap<Long, HashSet<Edge>>();
+        candidates = new HashMap<Long, Integer>();
+        gNodesNextEdgeMapping = new HashMap<Pair<Long, Long>, Set<StructureMapping>>();
+        gNodesPrevEdgeMapping = new HashMap<Pair<Long, Long>, Set<StructureMapping>>();
         //Long label;
         Long candidate, currentQueryNode;
         MappedNode graphCandidate;
@@ -412,7 +565,7 @@ public class PruningAlgorithm extends Algorithm {
 
         //Initialize the candidate qnode -> gnode
         for (Long node : queryNodes) {
-           candidateNextLevel.put(node, new HashSet<MappedNode>());
+            candidateNextLevel.put(node, new HashSet<MappedNode>());
         }
         prefixSelectivities.put(startingNode, (double) 1);
         candidateNextLevel.put(candidate, Utilities.nodesToMappedNodes(graph.vertexSet()));
@@ -420,7 +573,7 @@ public class PruningAlgorithm extends Algorithm {
 //        long medium;
         try {
             while (!queryNodeToVisit.isEmpty()) {
-            	
+
                 currentQueryNode = queryNodeToVisit.poll();
 //                System.out.println("current query node :" + currentQueryNode);
 //                if(currentQueryNode.equals(77815786887248L)){
@@ -434,12 +587,13 @@ public class PruningAlgorithm extends Algorithm {
                 outQueryEdges = computeAdjacentNodes(currentQueryNode, visitedQueryNodes, queryNodeToVisit, false);
 //                System.out.println(medium + " " + Utilities.bsCount);
                 if (candidateNextLevel.containsKey(currentQueryNode)) {
-                	
-                	nodesToVisit = new ArrayList<MappedNode>();
+
+                    nodesToVisit = new ArrayList<MappedNode>();
                     nodesToVisit.addAll(candidateNextLevel.get(currentQueryNode));
-                    assert mappedNodes == null : String.format("The current query node %d, has already been explored", currentQueryNode);
+                    assert mappedNodes == null : String
+                            .format("The current query node %d, has already been explored", currentQueryNode);
                     mappedNodes = new HashSet<>();
-                    
+
                     //countNodes = 0;
                     //We should check if ALL the query nodes matches and then add the node
                     for (i = 0; i < nodesToVisit.size(); i++) {
@@ -453,11 +607,15 @@ public class PruningAlgorithm extends Algorithm {
                             mappedNodes.add(graphCandidate);
 //                            medium = Utilities.bsCount;
                             //check if the outgoing-incoming edges matches, if yes add to the next level
-                            fastMapNodes(graphCandidate, currentQueryNode, graph.incomingEdgesOf(graphCandidate.getNodeID()), inQueryEdges, candidateNextLevel, true);
-                            fastMapNodes(graphCandidate, currentQueryNode, graph.outgoingEdgesOf(graphCandidate.getNodeID()), outQueryEdges, candidateNextLevel, false);
+                            fastMapNodes(graphCandidate, currentQueryNode,
+                                    graph.incomingEdgesOf(graphCandidate.getNodeID()), inQueryEdges, candidateNextLevel,
+                                    true);
+                            fastMapNodes(graphCandidate, currentQueryNode,
+                                    graph.outgoingEdgesOf(graphCandidate.getNodeID()), outQueryEdges,
+                                    candidateNextLevel, false);
 //                            System.out.println(medium + " " + Utilities.bsCount);
-                        }else{
-                        	removeCandidates(graphCandidate.getNodeID(), currentQueryNode,0);
+                        } else {
+                            removeCandidates(graphCandidate.getNodeID(), currentQueryNode, 0);
                         }
                     }
 //                    if(currentQueryNode.equals(startingNode)){
@@ -489,110 +647,114 @@ public class PruningAlgorithm extends Algorithm {
         } catch (Exception ex) {
             //fatal("Some problem occurred", ex);
             ex.printStackTrace();
-        	throw new AlgorithmExecutionException("Some other problem occurred", ex);
+            throw new AlgorithmExecutionException("Some other problem occurred", ex);
         }
 //        this.computeTimeCost();
         //Choose the node with the least frequency.
     }
-    
-    private void removeCandidates(Long gNodeID, Long qNodeID, int depth){
-    	HashSet<StructureMapping> prevStrts = (HashSet<StructureMapping>) gNodesPrevEdgeMapping.get(new Pair<Long,Long>(qNodeID, gNodeID));
-    	HashSet<StructureMapping> nextStrts = null;
-    	Iterator<StructureMapping> iter = null;
+
+    private void removeCandidates(Long gNodeID, Long qNodeID, int depth) {
+        HashSet<StructureMapping> prevStrts = (HashSet<StructureMapping>) gNodesPrevEdgeMapping
+                .get(new Pair<Long, Long>(qNodeID, gNodeID));
+        HashSet<StructureMapping> nextStrts = null;
+        Iterator<StructureMapping> iter = null;
 //    	System.out.println("current removing query node :" + qNodeID);
-    	if(prevStrts == null || prevStrts.size() == 0){
-    		return;
-    	}
-    	Iterator<StructureMapping> prevIter = prevStrts.iterator();
-    	StructureMapping prevStrt = null;
-    	StructureMapping next = null;
-    	Long qNodeTemp = null;
-    	Set<MappedNode> mns = null;
-    	Edge tempEdge = null;
-    	
-    	
-    	Long prevNode = null;
-    	Long nextNode = null;
-    	while(prevIter.hasNext()){
-    		prevStrt = prevIter.next();
-    		prevNode = prevStrt.getgEdge().getSource();
-    		if(prevNode.equals(gNodeID)){
-    			prevNode = prevStrt.getgEdge().getDestination();
-    		}
-    		nextStrts = (HashSet<StructureMapping>) gNodesNextEdgeMapping.get(new Pair<Long,Long>(prevStrt.getqNode(),prevNode));
-    		if(nextStrts == null){
-    			continue;
-    		}
-    		iter = nextStrts.iterator();
-    		
-    			int count = 0;
-    			while(iter.hasNext()){
-    				next = iter.next();
-    				
-    				nextNode = gNodeID;
-    				
+        if (prevStrts == null || prevStrts.size() == 0) {
+            return;
+        }
+        Iterator<StructureMapping> prevIter = prevStrts.iterator();
+        StructureMapping prevStrt = null;
+        StructureMapping next = null;
+        Long qNodeTemp = null;
+        Set<MappedNode> mns = null;
+        Edge tempEdge = null;
+
+        Long prevNode = null;
+        Long nextNode = null;
+        while (prevIter.hasNext()) {
+            prevStrt = prevIter.next();
+            prevNode = prevStrt.getgEdge().getSource();
+            if (prevNode.equals(gNodeID)) {
+                prevNode = prevStrt.getgEdge().getDestination();
+            }
+            nextStrts = (HashSet<StructureMapping>) gNodesNextEdgeMapping
+                    .get(new Pair<Long, Long>(prevStrt.getqNode(), prevNode));
+            if (nextStrts == null) {
+                continue;
+            }
+            iter = nextStrts.iterator();
+
+            int count = 0;
+            while (iter.hasNext()) {
+                next = iter.next();
+
+                nextNode = gNodeID;
+
 //    	    		if(nextNode.equals(gNodeID)){
 //    	    			nextNode = next.getgEdge().getDestination();
 //    	    		}
-    				if(next.getqNode().equals(qNodeID) && next.getgEdge().equals(prevStrt.getgEdge())){
-    					iter.remove();
-    				}else if(next.getgEdge().getLabel().equals(prevStrt.getgEdge().getLabel())){
-    					count++;
-    				}
-    			}
-    			
-    			long tempQNode = prevStrt.getqNode();
-    			
+                if (next.getqNode().equals(qNodeID) && next.getgEdge().equals(prevStrt.getgEdge())) {
+                    iter.remove();
+                } else if (next.getgEdge().getLabel().equals(prevStrt.getgEdge().getLabel())) {
+                    count++;
+                }
+            }
+
+            long tempQNode = prevStrt.getqNode();
+
 //    			System.out.println("count:" + count);
-    			if(count == 0){
-    				gNodesNextEdgeMapping.remove(new Pair<Long,Long>(prevStrt.getqNode(),prevNode));
-    				Set<MappedNode> nodes = queryGraphMapping.get(tempQNode);
-    				
+            if (count == 0) {
+                gNodesNextEdgeMapping.remove(new Pair<Long, Long>(prevStrt.getqNode(), prevNode));
+                Set<MappedNode> nodes = queryGraphMapping.get(tempQNode);
+
 //    				System.out.println(tempQNode);
-    				Iterator<MappedNode> imn = nodes.iterator();
-    				while(imn.hasNext()){
-    					MappedNode node = imn.next();
+                Iterator<MappedNode> imn = nodes.iterator();
+                while (imn.hasNext()) {
+                    MappedNode node = imn.next();
 //    					System.out.println(node + " " + prevStrt.getqNode() + " " +prevNode);
-    					if(prevNode.equals(node.getNodeID())){//TODO: may have bug with edit distance
+                    if (prevNode.equals(node.getNodeID())) {//TODO: may have bug with edit distance
 //    						System.out.println(node + " " +tempQNode + " " + prevNode);
-    						imn.remove();
-    					}
-    				}
+                        imn.remove();
+                    }
+                }
 //    				System.out.println(gNodeID + " " + qNodeID);
-    				removeCandidates(prevNode, tempQNode, depth+1);
-    			}
-    			prevIter.remove();
+                removeCandidates(prevNode, tempQNode, depth + 1);
+            }
+            prevIter.remove();
 //    		}
-    	}
+        }
 
 
     }
-    
+
     public PathNeighborTables getGraphPathTables() {
-		return graphPathTables;
-	}
+        return graphPathTables;
+    }
 
-	public void setGraphPathTables(PathNeighborTables graphPathTables) {
-		this.graphPathTables = graphPathTables;
-	}
+    public void setGraphPathTables(PathNeighborTables graphPathTables) {
+        this.graphPathTables = graphPathTables;
+    }
 
-	public PathNeighborTables getQueryPathTables() {
-		return queryPathTables;
-	}
+    public PathNeighborTables getQueryPathTables() {
+        return queryPathTables;
+    }
 
-	public void setQueryPathTables(PathNeighborTables queryPathTables) {
-		this.queryPathTables = queryPathTables;
-	}
-	
-	private void print(){
-		for(Entry<Long, HashSet<Edge>> en : paths.entrySet()){
-			System.out.println("node : " + en.getKey() + "edges:");
-			for(Edge e : en.getValue()){
-				System.out.println(e);
-			}
-		}
-	}
-	private void fastMapNodes(MappedNode currentNode, Long currentQueryNode, Collection<Edge> graphEdges, Map<Long, List<Long>> queryEdges, Map<Long, Set<MappedNode>> nextLevel, boolean incoming) {
+    public void setQueryPathTables(PathNeighborTables queryPathTables) {
+        this.queryPathTables = queryPathTables;
+    }
+
+    private void print() {
+        for (Entry<Long, HashSet<Edge>> en : paths.entrySet()) {
+            System.out.println("node : " + en.getKey() + "edges:");
+            for (Edge e : en.getValue()) {
+                System.out.println(e);
+            }
+        }
+    }
+
+    private void fastMapNodes(MappedNode currentNode, Long currentQueryNode, Collection<Edge> graphEdges,
+                              Map<Long, List<Long>> queryEdges, Map<Long, Set<MappedNode>> nextLevel,
+                              boolean incoming) {
         MappedNode nodeToAdd = null;
         List<Long> labeledNodes;
         List<Long> omniNodes;
@@ -601,74 +763,76 @@ public class PruningAlgorithm extends Algorithm {
         boolean canHaveMoreDif = true;
         Long cn = currentNode.getNodeID();
         omniNodes = queryEdges.get(0L);
-        
-        if(currentNode.getDist() == threshold){
-        	canHaveMoreDif = false;
+
+        if (currentNode.getDist() == threshold) {
+            canHaveMoreDif = false;
         }
         HashSet<StructureMapping> preEdges = null;
         HashSet<StructureMapping> nextEdges = null;
         boolean shouldPutNext = false;
         boolean shouldPutPrev = false;
-        nextEdges = (HashSet<StructureMapping>) gNodesNextEdgeMapping.get(new Pair<Long,Long>(currentQueryNode, cn));
-    	
-    	
+        nextEdges = (HashSet<StructureMapping>) gNodesNextEdgeMapping.get(new Pair<Long, Long>(currentQueryNode, cn));
+
         for (Edge gEdge : graphEdges) {
-        	uptCount ++;
-        	shouldPutNext = false;
-        	shouldPutPrev = false;
-            nodeID = incoming? gEdge.getSource() : gEdge.getDestination();
+            uptCount++;
+            shouldPutNext = false;
+            shouldPutPrev = false;
+            nodeID = incoming ? gEdge.getSource() : gEdge.getDestination();
             labeledNodes = queryEdges.get(gEdge.getLabel());
-            if(omniNodes != null){
-            	if(labeledNodes == null){
-            		labeledNodes = new ArrayList<Long>();
-            	}
-            	for(Long omniNode: omniNodes){
-            		labeledNodes.add(omniNode);
-            	}
+            if (omniNodes != null) {
+                if (labeledNodes == null) {
+                    labeledNodes = new ArrayList<Long>();
+                }
+                for (Long omniNode : omniNodes) {
+                    labeledNodes.add(omniNode);
+                }
             }
-            
+
             Long tempLabel = gEdge.getLabel();
             if (labeledNodes != null) {
-            	if(nextEdges == null){
-            		nextEdges = new HashSet<StructureMapping>();
-            		shouldPutNext = true;
-            	}
-            	nodeToAdd = new MappedNode(nodeID, gEdge, currentNode.getDist(), !incoming, false);
+                if (nextEdges == null) {
+                    nextEdges = new HashSet<StructureMapping>();
+                    shouldPutNext = true;
+                }
+                nodeToAdd = new MappedNode(nodeID, gEdge, currentNode.getDist(), !incoming, false);
                 for (i = 0; i < labeledNodes.size(); i++) {
                     nextLevel.get(labeledNodes.get(i)).add(nodeToAdd);
-                    preEdges = (HashSet<StructureMapping>) gNodesPrevEdgeMapping.get(new Pair<Long,Long>(labeledNodes.get(i),nodeID));
-                    if(preEdges == null){
-                		preEdges = new HashSet<StructureMapping>();
-                		shouldPutPrev = true;
-                	}
+                    preEdges = (HashSet<StructureMapping>) gNodesPrevEdgeMapping
+                            .get(new Pair<Long, Long>(labeledNodes.get(i), nodeID));
+                    if (preEdges == null) {
+                        preEdges = new HashSet<StructureMapping>();
+                        shouldPutPrev = true;
+                    }
                     nextEdges.add(new StructureMapping(labeledNodes.get(i), gEdge));
                     preEdges.add(new StructureMapping(currentQueryNode, gEdge));
-                    if(shouldPutPrev){
-                		gNodesPrevEdgeMapping.put(new Pair<Long,Long>(labeledNodes.get(i),nodeID), preEdges);
-                	}
+                    if (shouldPutPrev) {
+                        gNodesPrevEdgeMapping.put(new Pair<Long, Long>(labeledNodes.get(i), nodeID), preEdges);
+                    }
                 }
 
-            	
+
             }
-            if(canHaveMoreDif){
-            	for(Entry<Long, List<Long>> entry : queryEdges.entrySet()){
-            		for(Long oneNode : entry.getValue()){
-           				nextLevel.get(oneNode).add(new MappedNode(nodeID, gEdge, currentNode.getDist()+1, !incoming, true));
-           				nextEdges.add(new StructureMapping(oneNode, gEdge));
+            if (canHaveMoreDif) {
+                for (Entry<Long, List<Long>> entry : queryEdges.entrySet()) {
+                    for (Long oneNode : entry.getValue()) {
+                        nextLevel.get(oneNode)
+                                .add(new MappedNode(nodeID, gEdge, currentNode.getDist() + 1, !incoming, true));
+                        nextEdges.add(new StructureMapping(oneNode, gEdge));
                         preEdges.add(new StructureMapping(currentQueryNode, gEdge));
-            		}
-           		}
-           	}
-            
-        	
+                    }
+                }
+            }
+
+
         }
 //        System.out.println(nextEdges.size());
-        if(shouldPutNext){
-    		gNodesNextEdgeMapping.put(new Pair<Long,Long>(currentQueryNode, cn), nextEdges);
-    	}
+        if (shouldPutNext) {
+            gNodesNextEdgeMapping.put(new Pair<Long, Long>(currentQueryNode, cn), nextEdges);
+        }
     }
-	
-	private void mapNodes(MappedNode currentNode, Collection<Edge> graphEdges, Map<Long, List<Long>> queryEdges, Map<Long, Set<MappedNode>> nextLevel, boolean incoming) {
+
+    private void mapNodes(MappedNode currentNode, Collection<Edge> graphEdges, Map<Long, List<Long>> queryEdges,
+                          Map<Long, Set<MappedNode>> nextLevel, boolean incoming) {
         MappedNode nodeToAdd = null;
         List<Long> labeledNodes = null;
         List<Long> omniNodes;
@@ -676,52 +840,55 @@ public class PruningAlgorithm extends Algorithm {
         int i;
         boolean canHaveMoreDif = true;
         omniNodes = queryEdges.get(0L);
-        
-        if(currentNode.getDist() == threshold){
-        	canHaveMoreDif = false;
+
+        if (currentNode.getDist() == threshold) {
+            canHaveMoreDif = false;
         }
         for (Edge gEdge : graphEdges) {
-        	labeledNodes = null;
-        	uptCount ++;
-            nodeID = incoming? gEdge.getSource() : gEdge.getDestination();
+            labeledNodes = null;
+            uptCount++;
+            nodeID = incoming ? gEdge.getSource() : gEdge.getDestination();
             labeledNodes = queryEdges.get(gEdge.getLabel());
-            if(omniNodes != null){
-            	if(labeledNodes == null){
-            		labeledNodes = new ArrayList<Long>();
-            	}
-            	for(Long omniNode: omniNodes){
-            		if (!labeledNodes.contains(omniNode)) labeledNodes.add(omniNode);
-            	}
+            if (omniNodes != null) {
+                if (labeledNodes == null) {
+                    labeledNodes = new ArrayList<Long>();
+                }
+                for (Long omniNode : omniNodes) {
+                    if (!labeledNodes.contains(omniNode)) {
+                        labeledNodes.add(omniNode);
+                    }
+                }
             }
             if (labeledNodes != null) {
-            	nodeToAdd = new MappedNode(nodeID, gEdge, currentNode.getDist(), !incoming, false);
+                nodeToAdd = new MappedNode(nodeID, gEdge, currentNode.getDist(), !incoming, false);
 //            	uptCount--;
-            	for (i = 0; i < labeledNodes.size(); i++) {
-                	uptCount ++;
+                for (i = 0; i < labeledNodes.size(); i++) {
+                    uptCount++;
                     nextLevel.get(labeledNodes.get(i)).add(nodeToAdd);
                 }
             }
-            if(canHaveMoreDif){
+            if (canHaveMoreDif) {
 //            	uptCount--;
-            	for(Entry<Long, List<Long>> entry : queryEdges.entrySet()){
-            		if(!entry.getKey().equals(gEdge.getLabel())){
+                for (Entry<Long, List<Long>> entry : queryEdges.entrySet()) {
+                    if (!entry.getKey().equals(gEdge.getLabel())) {
 //            			uptCount --;
-	            		for(Long oneNode : entry.getValue()){
-	            			uptCount ++;
-	           				nextLevel.get(oneNode).add(new MappedNode(nodeID, gEdge, currentNode.getDist()+1, !incoming, true));
-	           			}
-            		}
-           		}
-           	}
+                        for (Long oneNode : entry.getValue()) {
+                            uptCount++;
+                            nextLevel.get(oneNode)
+                                    .add(new MappedNode(nodeID, gEdge, currentNode.getDist() + 1, !incoming, true));
+                        }
+                    }
+                }
+            }
         }
     }
 
     //label -> nextNodes
-    private Map<Long, List<Long>> computeAdjacentNodes(long node, Set<Long> visitedQueryNodes, List<Long> queryNodeToVisit, boolean incoming)
-    {
+    private Map<Long, List<Long>> computeAdjacentNodes(long node, Set<Long> visitedQueryNodes,
+                                                       List<Long> queryNodeToVisit, boolean incoming) {
         Collection<Edge> queryEdges =
-                incoming? query.incomingEdgesOf(node) : query.outgoingEdgesOf(node);
-        
+                incoming ? query.incomingEdgesOf(node) : query.outgoingEdgesOf(node);
+
         List<Long> nodes;
         Map<Long, List<Long>> outMapping = new HashMap<>();
         Set<Long> toVisit = new HashSet<>();
@@ -729,23 +896,23 @@ public class PruningAlgorithm extends Algorithm {
 //        double preSel = prefixSelectivities.get(node);
         double sel;
         HashSet<Edge> ps;
-        if(paths.containsKey(node)){
-        	ps = paths.get(node);
-        }else{
-        	ps = new HashSet<Edge>();
+        if (paths.containsKey(node)) {
+            ps = paths.get(node);
+        } else {
+            ps = new HashSet<Edge>();
         }
         for (Edge edge : queryEdges) {
             nodes = outMapping.get(edge.getLabel());
             if (nodes == null) {
                 nodes = new ArrayList<>();
             }
-            nodeToAdd = incoming? edge.getSource() : edge.getDestination();
+            nodeToAdd = incoming ? edge.getSource() : edge.getDestination();
             if (!visitedQueryNodes.contains(nodeToAdd)) {
                 nodes.add(nodeToAdd);
                 toVisit.add(nodeToAdd);
                 ps.add(edge);
             }
-            
+
 //            if(!prefixSelectivities.containsKey(nodeToAdd)){
 //            	prefixSelectivities.put(nodeToAdd, preSel*this.computeSel(labelFreq.get(edge.getLabel()).getFrequency()));
 //            }else{
@@ -759,135 +926,115 @@ public class PruningAlgorithm extends Algorithm {
         queryNodeToVisit.addAll(toVisit);
         return outMapping;
     }
-    
-    private boolean matchesWithPathNeighbor(MappedNode mappedGNode, long qNode) throws DataException {
-        Map<PathNeighbor,Integer>[] gNodeTable = graphPathTables.getNodeMap(mappedGNode.getNodeID());
-        Map<PathNeighbor,Integer>[] qNodeTable = queryPathTables.getNodeMap(qNode);
-        Map<PathNeighbor, Integer> qNodeLevel, gNodeLevel;
-        Set<PathNeighbor> qSet;
-        
-//        if(mappedGNode.getNodeID() == 765448){
-//        	System.out.println();
-//        }
-        for (int i = 0; i < qNodeTable.length && i < gNodeTable.length; i++) {
-            qNodeLevel = qNodeTable[i];
-            gNodeLevel = gNodeTable[i];
-            qSet = qNodeLevel.keySet();
-            int dif = 0;
-            
-            for (PathNeighbor pn : qSet) {
-//            	if(label.equals(0L)){
-//            		continue;
-//            	}
-                if (gNodeLevel.containsKey(pn)) {
-                	int count = qNodeLevel.get(pn) - gNodeLevel.get(pn); 
-                    if (!isBinary && count > threshold - dif) {
-                        return false;
-                    }else{
-                    	dif += count;
-                    }
-                } else {
 
-                    dif += qNodeLevel.get(pn);
-                    if(dif > threshold){
-                    	return false;
-                    }
+    private boolean matchesWithPathNeighbor(MappedNode mappedGNode, long qNode, Map<Long, Map<String, Integer>> queryPaths) throws DataException {
+        BloomFilter<String> bf = gPathTables.get(mappedGNode.getNodeID());
+        int count = 0;
+        boolean isGood = true;
+        for (Entry<String, Integer> path : queryPaths.get(qNode).entrySet()) {
+            String temp = path.getKey() + "|" + path.getValue();
+            if (!bf.contains(temp)) {
+                count += path.getValue();
+                if (count > this.threshold) {
+                    isGood = false;
+                    break;
                 }
             }
         }
-        return true;
+        return isGood;
     }
-    
-    public void computeTimeCost(){
-    	int Vg = graph.vertexSet().size();
-    	int Vq = graph.vertexSet().size();
-    	long Dg = ((BigMultigraph)graph).getMaxDegree();
-    	long Dq = ((BigMultigraph)query).getMaxDegree();
-    	double pt = 0;
-    	double ut = 0;
-    	double st = Dg;
-    	double sel = 0;
-    	double tempPt;
-    	double tempUt;
-    	for(long node : query.vertexSet()){
-    		sel = prefixSelectivities.get(node)*nodeSelectivities.get(node);
-    		tempPt = Vg*prefixSelectivities.get(node);
-    		pt += tempPt*neighborLabels.get(node);
-    		tempUt = Vg*sel;
-    		ut += Dg*Dq*tempUt;
+
+    public void computeTimeCost() {
+        int Vg = graph.vertexSet().size();
+        int Vq = graph.vertexSet().size();
+        long Dg = ((BigMultigraph) graph).getMaxDegree();
+        long Dq = ((BigMultigraph) query).getMaxDegree();
+        double pt = 0;
+        double ut = 0;
+        double st = Dg;
+        double sel = 0;
+        double tempPt;
+        double tempUt;
+        for (long node : query.vertexSet()) {
+            sel = prefixSelectivities.get(node) * nodeSelectivities.get(node);
+            tempPt = Vg * prefixSelectivities.get(node);
+            pt += tempPt * neighborLabels.get(node);
+            tempUt = Vg * sel;
+            ut += Dg * Dq * tempUt;
 //    		System.out.println("node: " + node + " before pruning sel:" + tempPt + " after pruning sel:" + tempUt);
-    		st *= Vg*sel;
+            st *= Vg * sel;
 //    		System.out.println(st);
-    	}
-    	
+        }
+
 //    	System.out.println("pruning time + update time is " + (pt+ut));
 //    	System.out.println("search time is " + st);
     }
-    
+
     public ArrayList<Long> getVisitSeq() {
-		return visitSeq;
-	}
+        return visitSeq;
+    }
 
-	public void setVisitSeq(ArrayList<Long> visitSeq) {
-		this.visitSeq = visitSeq;
-	}
+    public void setVisitSeq(ArrayList<Long> visitSeq) {
+        this.visitSeq = visitSeq;
+    }
 
-	private void computeSelectivity(){
-		Map<Long,Integer>[] qNodeTable = null;
-		Set<Long> qSet = null;
-		Map<Long, Integer> qNodeLevel;
-		double selectivity;
-		int count;
-		for(Long node : query.vertexSet()){
-			selectivity = 1;
-			count = 0;
-			qNodeTable = queryTables.getNodeMap(node);
-			for(int i = 0; i < qNodeTable.length; i++){
-				qNodeLevel = qNodeTable[i];
-				qSet = qNodeLevel.keySet();
-				count += qSet.size();
-				for(Long label : qSet){
-					selectivity *= (Math.pow(this.computeSel(labelFreq.get(label).getFrequency()),qNodeLevel.get(label))*(i+1));
-				}
-			}
-			neighborLabels.put(node, count);
-			nodeSelectivities.put(node, selectivity);
-		}
-		
-	}
-    
+    private void computeSelectivity() {
+        Map<Long, Integer>[] qNodeTable = null;
+        Set<Long> qSet = null;
+        Map<Long, Integer> qNodeLevel;
+        double selectivity;
+        int count;
+        for (Long node : query.vertexSet()) {
+            selectivity = 1;
+            count = 0;
+            qNodeTable = queryTables.getNodeMap(node);
+            for (int i = 0; i < qNodeTable.length; i++) {
+                qNodeLevel = qNodeTable[i];
+                qSet = qNodeLevel.keySet();
+                count += qSet.size();
+                for (Long label : qSet) {
+                    selectivity *= (
+                            Math.pow(this.computeSel(labelFreq.get(label).getFrequency()), qNodeLevel.get(label)) * (i
+                                    + 1));
+                }
+            }
+            neighborLabels.put(node, count);
+            nodeSelectivities.put(node, selectivity);
+        }
+
+    }
+
     private boolean matches(MappedNode mappedGNode, long qNode) throws DataException {
-
-        Map<Long,Integer>[] gNodeTable = graphTables.getNodeMap(mappedGNode.getNodeID());
-        Map<Long,Integer>[] qNodeTable = queryTables.getNodeMap(qNode);
+        Map<Long, Integer>[] gNodeTable = graphTables.getNodeMap(mappedGNode.getNodeID());
+        Map<Long, Integer>[] qNodeTable = queryTables.getNodeMap(qNode);
         Map<Long, Integer> qNodeLevel, gNodeLevel;
         Set<Long> qSet;
         int dif = 0;
-        
+
         for (int i = 0; i < qNodeTable.length && i < gNodeTable.length; i++) {
             qNodeLevel = qNodeTable[i];
             gNodeLevel = gNodeTable[i];
             qSet = qNodeLevel.keySet();
 
             for (Long label : qSet) {
-            	cmpNbLabel++;
-            	if(label.equals(0L)){
-            		continue;
-            	}
+                cmpNbLabel++;
+                if (label.equals(0L)) {
+                    continue;
+                }
                 if (gNodeLevel.containsKey(label)) {
-                	int count = qNodeLevel.get(label) - gNodeLevel.get(label);
-                	
+                    int count = qNodeLevel.get(label) - gNodeLevel.get(label);
+
                     if (!isBinary && count > threshold - dif) {
                         return false;
-                    }else{
-                    	if(count > 0){
-                    		dif += count;
-                    	}
+                    } else {
+                        if (count > 0) {
+                            dif += count;
+                        }
                     }
                 } else {
                     dif += qNodeLevel.get(label);
-                    if(dif > threshold){
-                    	return false;
+                    if (dif > threshold) {
+                        return false;
                     }
                 }
             }
@@ -897,9 +1044,7 @@ public class PruningAlgorithm extends Algorithm {
 
 
     /**
-     *
      * @return a pruned graph exploiting the Query To Graph Map
-     * @throws AlgorithmExecutionException
      */
     public Multigraph pruneGraph() throws AlgorithmExecutionException {
         StopWatch watch = new StopWatch();
@@ -916,7 +1061,6 @@ public class PruningAlgorithm extends Algorithm {
         int removed = 0;
 
         for (Long node : queryNodes) {
-
             if (!queryGraphMapping.containsKey(node) || queryGraphMapping.get(node).isEmpty()) {
 //            	System.out.println(queryGraphMapping.containsKey(node));
                 //TODO Long should be converted to redable
@@ -926,7 +1070,7 @@ public class PruningAlgorithm extends Algorithm {
 //            goodNodes.addAll(queryGraphMapping.get(node));
         }
 
-        for (Iterator<Edge> it = graphEdges.iterator(); it.hasNext();) {
+        for (Iterator<Edge> it = graphEdges.iterator(); it.hasNext(); ) {
             tmpEdge = it.next();
             if (goodNodes.contains(tmpEdge.getDestination()) && goodNodes.contains(tmpEdge.getSource())) {
                 restricted.addVertex(tmpEdge.getSource());
@@ -936,15 +1080,13 @@ public class PruningAlgorithm extends Algorithm {
                 removed++;
             }
         }
-//        debug("kept %d, removed %d over %d edges non mapping edges in %dms", restricted.edgeSet().size(), removed, graphEdges.size(), watch.getElapsedTimeMillis());
-
         return restricted;
     }
-    
+
     private void addAll(Set<Long> goodNodes, Set<MappedNode> mns) {
-    	for (MappedNode n : mns) {
-    		goodNodes.add(n.getNodeID());
-    	}
+        for (MappedNode n : mns) {
+            goodNodes.add(n.getNodeID());
+        }
     }
 
 
@@ -954,10 +1096,6 @@ public class PruningAlgorithm extends Algorithm {
 
     public void setGraph(Multigraph graph) {
         this.graph = graph;
-    }
-
-    public void setGraphTables(NeighborTables graphTables) {
-        this.graphTables = graphTables;
     }
 
     public void setQueryTables(NeighborTables queryTables) {
@@ -981,104 +1119,99 @@ public class PruningAlgorithm extends Algorithm {
     }
 
     /**
-     * When Binary is set to true the tables will be used to check for presence of arcs but not number of archs
-     * this is used for simulation instead of isomorphism
-     * @param isBinary
+     * When Binary is set to true the tables will be used to check for presence of arcs but not number of archs this is
+     * used for simulation instead of isomorphism
      */
     public void setBinary(boolean isBinary) {
         this.isBinary = isBinary;
     }
 
-	public int getThreshold() {
-		return threshold;
-	}
-
-	public void setThreshold(int threshold) {
-		this.threshold = threshold;
-	}
-
-    private double computeSel(int freq){
-    	return ((double)freq)/edgeNum;
+    public int getThreshold() {
+        return threshold;
     }
 
-	
+    public void setThreshold(int threshold) {
+        this.threshold = threshold;
+    }
 
-	public long getBsCount() {
-		return bsCount;
-	}
+    private double computeSel(int freq) {
+        return ((double) freq) / edgeNum;
+    }
 
-	public void setBsCount(long bsCount) {
-		this.bsCount = bsCount;
-	}
+    public long getBsCount() {
+        return bsCount;
+    }
 
-	
+    public void setBsCount(long bsCount) {
+        this.bsCount = bsCount;
+    }
 
-	public int getCmpNbLabel() {
-		return cmpNbLabel;
-	}
+    public int getCmpNbLabel() {
+        return cmpNbLabel;
+    }
 
-	public void setCmpNbLabel(int cmpNbLabel) {
-		this.cmpNbLabel = cmpNbLabel;
-	}
+    public void setCmpNbLabel(int cmpNbLabel) {
+        this.cmpNbLabel = cmpNbLabel;
+    }
 
-	public int getUptCount() {
-		return uptCount;
-	}
+    public int getUptCount() {
+        return uptCount;
+    }
 
-	public void setUptCount(int uptCount) {
-		this.uptCount = uptCount;
-	}
+    public void setUptCount(int uptCount) {
+        this.uptCount = uptCount;
+    }
 
-	public HashMap<Long, HashSet<Edge>> getPaths() {
-		return paths;
-	}
+    public HashMap<Long, HashSet<Edge>> getPaths() {
+        return paths;
+    }
 
-	public void setPaths(HashMap<Long, HashSet<Edge>> paths) {
-		this.paths = paths;
-	}
+    public void setPaths(HashMap<Long, HashSet<Edge>> paths) {
+        this.paths = paths;
+    }
 
-	public HashMap<Long, Integer> getCandidates() {
-		return candidates;
-	}
+    public HashMap<Long, Integer> getCandidates() {
+        return candidates;
+    }
 
-	public void setCandidates(HashMap<Long, Integer> candidates) {
-		this.candidates = candidates;
-	}
+    public void setCandidates(HashMap<Long, Integer> candidates) {
+        this.candidates = candidates;
+    }
 
-	public NeighborTables getGraphTables() {
-		return graphTables;
-	}
+    public NeighborTables getGraphTables() {
+        return graphTables;
+    }
 
+    public void setGraphTables(NeighborTables graphTables) {
+        this.graphTables = graphTables;
+    }
 
-	public Map<Long, BloomFilter<String>> getgPathTables() {
-		return gPathTables;
-	}
-
-
-	public void setgPathTables(Map<Long, BloomFilter<String>> gPathTables) {
-		this.gPathTables = gPathTables;
-	}
-
-
-	public Map<Long, BloomFilter<String>> getqPathTables() {
-		return qPathTables;
-	}
+    public Map<Long, BloomFilter<String>> getgPathTables() {
+        return gPathTables;
+    }
 
 
-	public void setqPathTables(Map<Long, BloomFilter<String>> qPathTables) {
-		this.qPathTables = qPathTables;
-	}
+    public void setgPathTables(Map<Long, BloomFilter<String>> gPathTables) {
+        this.gPathTables = gPathTables;
+    }
 
 
-	public int getK() {
-		return k;
-	}
+    public Map<Long, BloomFilter<String>> getqPathTables() {
+        return qPathTables;
+    }
 
 
-	public void setK(int k) {
-		this.k = k;
-	}
-    
-    
+    public void setqPathTables(Map<Long, BloomFilter<String>> qPathTables) {
+        this.qPathTables = qPathTables;
+    }
 
+
+    public int getK() {
+        return k;
+    }
+
+
+    public void setK(int k) {
+        this.k = k;
+    }
 }

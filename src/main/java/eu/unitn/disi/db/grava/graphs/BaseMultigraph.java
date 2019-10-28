@@ -424,20 +424,20 @@ public class BaseMultigraph implements Multigraph {
 		tableAlgorithm.setNumThreads(1);
 		tableAlgorithm.setK(2);
 		tableAlgorithm.setGraph(bm);
-		try {
-			tableAlgorithm.compute();
-		} catch (AlgorithmExecutionException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+//		try {
+//			tableAlgorithm.compute();
+//		} catch (AlgorithmExecutionException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
 		NeighborTables graphTables = tableAlgorithm.getNeighborTables();
 		tableAlgorithm.setGraph(this);
-		try {
-			tableAlgorithm.compute();
-		} catch (AlgorithmExecutionException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+//		try {
+//			tableAlgorithm.compute();
+//		} catch (AlgorithmExecutionException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
 		NeighborTables queryTables = tableAlgorithm.getNeighborTables();
 		Long startingNode = null;
 		try {
@@ -461,12 +461,12 @@ public class BaseMultigraph implements Multigraph {
 		// pruningAlgorithm.setQueryPathTables(queryTables);
 		
 		pruningAlgorithm.setThreshold(0);
-		try {
-			pruningAlgorithm.compute();
-		} catch (AlgorithmExecutionException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+//		try {
+//			pruningAlgorithm.compute();
+//		} catch (AlgorithmExecutionException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
 		
 		
 		// pruningAlgorithm.fastCompute();
@@ -498,12 +498,12 @@ public class BaseMultigraph implements Multigraph {
 		edAlgorithm.setQueryToGraphMap(pruningAlgorithm
 				.getQueryGraphMapping());
 		edAlgorithm.setLimitedComputation(false);
-		try {
-			edAlgorithm.compute();
-		} catch (AlgorithmExecutionException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+//		try {
+//			edAlgorithm.compute();
+//		} catch (AlgorithmExecutionException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
 		if (IsomorphicQuerySearch.answerCount > 0) {
 			return true;
 		} else {

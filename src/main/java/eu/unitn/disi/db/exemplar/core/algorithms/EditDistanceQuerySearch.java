@@ -91,7 +91,7 @@ public class EditDistanceQuerySearch extends RelatedQuerySearch {
         List<EditDistanceQuery> tmp = null;
 //        System.out.println("threads num:" + this.getNumThreads());
         //Start in parallel
-        int numThreads = 8;
+        int numThreads = 1;
         ExecutorService pool = Executors.newFixedThreadPool(this.getNumThreads());
 
         int chunkSize = (int) Math.round(graphNodes.size() / numThreads + 0.5);

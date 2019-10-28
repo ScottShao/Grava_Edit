@@ -1,11 +1,13 @@
 package eu.unitn.disi.db.grava.scc;
 
 import eu.unitn.disi.db.command.exceptions.AlgorithmExecutionException;
+import eu.unitn.disi.db.command.util.StopWatch;
 import eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors;
 import eu.unitn.disi.db.grava.exceptions.ParseException;
 import eu.unitn.disi.db.grava.graphs.BigMultigraph;
 import eu.unitn.disi.db.grava.graphs.Multigraph;
 import eu.unitn.disi.db.grava.utils.FileOperator;
+import eu.unitn.disi.db.grava.utils.Filter;
 import eu.unitn.disi.db.grava.utils.MethodOption;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -43,8 +45,10 @@ public class Experiement {
 //		this.answerFile = answerFile;
     }
 
-    public void runExperiement() throws AlgorithmExecutionException, ParseException, IOException {
-        System.out.println("Run experiment" );
+    public void runExperiement(Filter filter) throws AlgorithmExecutionException, ParseException, IOException {
+        System.out.println("Run experiment"  );
+        StopWatch stopWatch = new StopWatch();
+        stopWatch.start();
         EditDistance ed = new EditDistance();
         ed.setGraphName(graphName);
         ed.setNeighbourNum(neighbourNum);
@@ -75,7 +79,8 @@ public class Experiement {
             ed.setCandComp(candList);
 //		List<String> selList = new ArrayList<>();
 //		ed.setSelsComp(selList);
-            double start = System.nanoTime();
+            StopWatch load = new StopWatch();
+            load.start();
             Multigraph G = new BigMultigraph(graphName + "-sin.graph", graphName
                     + "-sout.graph" );
             System.out.println("compute neighbourhood" );
@@ -83,10 +88,13 @@ public class Experiement {
             tableAlgorithm.setK(neighbourNum);
             tableAlgorithm.setGraph(G);
             tableAlgorithm.setNumThreads(threadsNum);
-            tableAlgorithm.compute();
-            System.out.println(System.nanoTime() - start);
-//		tableAlgorithm.computePathFilter();
-            System.out.println("loading graph takes " + (System.nanoTime() - start));
+            if (Filter.NEIGHBOUR == filter || Filter.BOTH == filter) {
+                tableAlgorithm.compute();
+            }
+            if (Filter.PATH == filter || Filter.BOTH == filter) {
+                tableAlgorithm.computePathFilter();
+            }
+            System.out.println("loading graph takes " + load.getElapsedTimeMillis());
 //		HashMap<Long, LabelContainer> labelFreq = G.getLabelFreq();
 //		Map<Connection, int[]> conCount = tableAlgorithm.getConCount();
 //		TreeSet<Connection> ts = new TreeSet<>(new Comparator<Connection>(){
@@ -159,11 +167,8 @@ public class Experiement {
             ed.setgTableAlgorithm(tableAlgorithm);
             ed.setG(G);
             for (String queryFile : queryFiles) {
-                if (queryFile.contains("csv" ) || !queryFile.contains("E6E82838748.txt")) {
-                    continue;
-                }
                 ed.setQueryName(queryFile);
-                ed.runEditDistance();
+                ed.runEditDistance(filter);
             }
 //		ed.write(queryFolder+"/c.csv");
 //		ed.writeCand(queryFolder +"/cand.csv");
@@ -173,6 +178,8 @@ public class Experiement {
         } finally {
 //			bw.close();
         }
+        System.out.println("threashold: " + threshold);
+        System.out.println("total time: " + (double)stopWatch.getElapsedTimeSecs() / queryFiles.size());
 
 //		for(int i = 0; i < 50; i++){
 //			bsCount = 0;

@@ -50,8 +50,6 @@ public class EditDistanceQuery extends RelatedQuery {
     protected Map<Edge, Edge> mappedEdges;
     protected Set<String> usedEdgesIDs; // TODO: This is not a very good idea
     protected int edit;
-    
-    
 
 	EditDistanceQuery() {
     } //A default constructor used for serialization
@@ -69,7 +67,6 @@ public class EditDistanceQuery extends RelatedQuery {
     private void initialize() {
         this.mappedNodes = new HashMap<>(query.vertexSet().size() + 2, 1f);
         this.reversedMappedNodes = new HashMap<>(query.vertexSet().size() + 2, 1f);
-
         for (Long n : query.vertexSet()) {
             this.mappedNodes.put(n, null);
         }
@@ -101,7 +98,7 @@ public class EditDistanceQuery extends RelatedQuery {
         clone.totalWeight = this.totalWeight;
         clone.nodeWeights = new HashMap<>();
         clone.nodeWeights.putAll(this.nodeWeights);
-        
+
         clone.setEdit(this.edit);
         return clone;
     }
@@ -202,8 +199,9 @@ public class EditDistanceQuery extends RelatedQuery {
      * @return true if the graphNode has been mapped to a queryNode
      */
     public boolean isUsing(MappedNode graphNode) {
-        return this.reversedMappedNodes.containsKey(graphNode) && this.reversedMappedNodes.get(graphNode) != null;
+        return reversedMappedNodes.get(graphNode) != null;
     }
+
 
     /**
      * check whether the queryEdge has been mapped to a graph Edge

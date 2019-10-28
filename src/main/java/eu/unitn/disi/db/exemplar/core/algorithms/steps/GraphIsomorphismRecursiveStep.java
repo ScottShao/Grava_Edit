@@ -75,8 +75,9 @@ public class GraphIsomorphismRecursiveStep extends AlgorithmStep<RelatedQuery> {
                 relatedQuery = new IsomorphicQuery(query);
                 //Map the first node
                 relatedQuery.map(queryConcept, node);
-
-                relatedQueriesPartial = createQueries(query, queryConcept, node, relatedQuery);
+                Set<Long> visited = new HashSet<>();
+                visited.add(queryConcept);
+                relatedQueriesPartial = createQueries(query, queryConcept, node, relatedQuery, 0, visited);
 //                System.out.println(Utilities.searchCount);
                 if (this.isQuit) {
                 	break;
@@ -142,7 +143,7 @@ public class GraphIsomorphismRecursiveStep extends AlgorithmStep<RelatedQuery> {
      * @param graphNode
      * @return
      */
-    public List<IsomorphicQuery> createQueries(Multigraph query, Long queryNode, MappedNode graphNode, IsomorphicQuery relatedQuery) {
+    public List<IsomorphicQuery> createQueries(Multigraph query, Long queryNode, MappedNode graphNode, IsomorphicQuery relatedQuery, int depth, Set<Long> visited) {
         // Initialize the queries set
         //Given the current situation we expect to build more than one possible related query
     	List<IsomorphicQuery> relatedQueries = new ArrayList<>();
@@ -191,8 +192,10 @@ public class GraphIsomorphismRecursiveStep extends AlgorithmStep<RelatedQuery> {
         queryEdgesOut = null;
         List<Edge> sortedEdges = sortEdge(queryEdges, this.labelFreq);
         //Look if we can map all the outgoing/ingoing graphEdges of the query node
+//        System.out.println("=====================");
+//        System.out.println("query node:" + queryNode + " graph node:" + graphNode + " depth:" + depth);
         for (Edge queryEdge : sortedEdges) {
-//        	System.out.println("Processs answer number: " + relatedQueries.size());
+//        	System.out.println("Processs query edge: " + queryEdge);
         	if (relatedQueries.size() > MAX_RELATED) return relatedQueries;
 //        	System.out.println(queryEdge);
 //            info("Trying to map the edge " + queryEdge);
@@ -317,13 +320,20 @@ public class GraphIsomorphismRecursiveStep extends AlgorithmStep<RelatedQuery> {
                                 }
                             }
 
+                            if (visited.contains(queryNextNode)) {
+                                needExpansion = false;
+                            }
+
                             //Lookout! We need to check the outgoing part, if we did not already
                             if (needExpansion) {
                                 // Possible outgoing branches
                                 List<IsomorphicQuery> tmpRelatedQueries;
                                 //Go find them!
                                 //log("Go find mapping for: " + queryNextNode + " // " + graphNextNode);
-                                tmpRelatedQueries = createQueries(query, queryNextNode, graphNextNode, newRelatedQuery);
+                                visited.add(queryNextNode);
+                                tmpRelatedQueries = createQueries(query, queryNextNode, graphNextNode, newRelatedQuery, depth + 1, visited);
+//                                System.out.println("to test size: " + toTestRelatedQueries.size() + " depth:" + depth);
+//                                System.out.println("queryEdge: " + queryEdge + " graphEdge:" + graphEdge + " size: " + (tmpRelatedQueries == null ? 0 : tmpRelatedQueries.size()));
                                 //Did we find any?
                                 if (tmpRelatedQueries != null) {
                                     //Ok so we found some, they are all good to me
@@ -474,6 +484,4 @@ public class GraphIsomorphismRecursiveStep extends AlgorithmStep<RelatedQuery> {
 	public void setLabelFreq(HashMap<Long, LabelContainer> labelFreq) {
 		this.labelFreq = labelFreq;
 	}
-
-    
 }
