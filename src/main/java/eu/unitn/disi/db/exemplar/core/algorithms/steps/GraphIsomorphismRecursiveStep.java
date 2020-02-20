@@ -15,6 +15,8 @@
  */
 package eu.unitn.disi.db.exemplar.core.algorithms.steps;
 
+import com.google.common.base.Stopwatch;
+import eu.unitn.disi.db.command.util.StopWatch;
 import eu.unitn.disi.db.exemplar.core.IsomorphicQuery;
 import eu.unitn.disi.db.exemplar.core.RelatedQuery;
 import eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch;
@@ -25,6 +27,7 @@ import eu.unitn.disi.db.grava.graphs.MappedNode;
 import eu.unitn.disi.db.grava.graphs.Multigraph;
 import eu.unitn.disi.db.grava.utils.Utilities;
 
+import eu.unitn.disi.db.tool.AnswerManagement;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Comparator;
@@ -33,8 +36,11 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
 import java.util.PriorityQueue;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 /**
  *
@@ -46,13 +52,20 @@ public class GraphIsomorphismRecursiveStep extends AlgorithmStep<RelatedQuery> {
     private final Long queryConcept;
     private int searchCount;
     private HashMap<Long, LabelContainer> labelFreq;
+    private Map<Long, Set<MappedNode>> queryToGraphMap;
+    private Map<Long, Set<Long>> queryToRawGraphNodes;
     private boolean isQuit;
     private int chunkSize;
     
-    public GraphIsomorphismRecursiveStep(int threadNumber, Iterator<MappedNode> kbConcepts, Long queryConcept, Multigraph query, Multigraph targetSubgraph, boolean limitComputation, boolean skipSave, int chunkSize) {
+    public GraphIsomorphismRecursiveStep(int threadNumber, Iterator<MappedNode> kbConcepts, Long queryConcept, Multigraph query, Multigraph targetSubgraph, boolean limitComputation, boolean skipSave, int chunkSize, Map<Long, Set<MappedNode>> queryToGraphMap) {
         super(threadNumber,kbConcepts,query, targetSubgraph, limitComputation, skipSave);
         this.queryConcept = queryConcept;
         this.chunkSize = chunkSize;
+        this.queryToGraphMap = queryToGraphMap;
+        this.queryToRawGraphNodes = queryToGraphMap.entrySet()
+                .stream()
+                .collect(Collectors.toMap(Entry::getKey, entry -> entry.getValue().stream().map(MappedNode::getNodeID).collect(
+                        Collectors.toSet())));
     }
 
     @Override
@@ -65,6 +78,8 @@ public class GraphIsomorphismRecursiveStep extends AlgorithmStep<RelatedQuery> {
         watch.start();
         int i = 0;
         this.isQuit = false;
+        StopWatch stopWatch = new StopWatch();
+        stopWatch.start();
         while (graphNodes.hasNext()) {
 //        	System.out.println("Thread " + threadNumber + " Finshed " + ((double)i / chunkSize) * 100 + "%");
         	MappedNode node = graphNodes.next();
@@ -127,6 +142,8 @@ public class GraphIsomorphismRecursiveStep extends AlgorithmStep<RelatedQuery> {
             //if (watch.getElapsedTimeMillis() > WARN_TIME) {
             //    info("Computation %d [%d] took %d ms", threadNumber, Thread.currentThread().getId(), watch.getElapsedTimeMillis());
             //}
+            System.out.println(node + " takes " + stopWatch.getElapsedTimeSecs());
+            System.out.println("Answer size:" + relatedQueries.size());
         }
         watch.stop();
 //        System.out.println("search count:" + this.searchCount);
@@ -196,7 +213,10 @@ public class GraphIsomorphismRecursiveStep extends AlgorithmStep<RelatedQuery> {
 //        System.out.println("query node:" + queryNode + " graph node:" + graphNode + " depth:" + depth);
         for (Edge queryEdge : sortedEdges) {
 //        	System.out.println("Processs query edge: " + queryEdge);
-        	if (relatedQueries.size() > MAX_RELATED) return relatedQueries;
+            if (relatedQueries.size() > MAX_RELATED) {
+        	    System.out.println("More than " + MAX_RELATED);
+        	    return relatedQueries;
+            }
 //        	System.out.println(queryEdge);
 //            info("Trying to map the edge " + queryEdge);
             List<IsomorphicQuery> newRelatedQueries = new ArrayList<>();
@@ -243,16 +263,37 @@ public class GraphIsomorphismRecursiveStep extends AlgorithmStep<RelatedQuery> {
                 //Cycle through all the possible graphEdges options,
                 //they would be possibly different related queries
                 for (Edge graphEdge : graphEdges) {
-                	
+//                	System.out.println("query edge:" + queryEdge + " graph edge: " + graphEdge);
                     //Cycle through all the possible related queries retrieved up to now
                     //A new related query is good if it finds a match
+                    Long queryNextNode;
+                    MappedNode graphNextNode;
+                    if (isIncoming) {
+                        queryNextNode = queryEdge.getSource();
+                    } else {
+                        queryNextNode = queryEdge.getDestination();
+                    }
+
+                    boolean graphEdgeIsIncoming = graphEdge.getDestination().equals(graphNode.getNodeID());
+                    Long graphNextNodeLong = graphEdge.getSource().equals(graphNode.getNodeID()) ? graphEdge.getDestination() : graphEdge.getSource();
+                    if (isIncoming ^ graphEdgeIsIncoming) {
+                        continue;
+                    }
+                    if (!queryToRawGraphNodes.get(queryNextNode).contains(graphNextNodeLong)) {
+                        continue;
+                    }
+                    graphNextNode =  new MappedNode(graphNextNodeLong, graphEdge, 0, graphEdgeIsIncoming, false);
+
                     for (IsomorphicQuery tempRelatedQuery : toTestRelatedQueries) {
                     	if (newRelatedQueries.size()  > MAX_RELATED || watch.getElapsedTimeMillis() > QUIT_TIME) {
-//                    		System.out.println("Time limit exceeded or more than 10000 partial results");
+                    		if (newRelatedQueries.size()  > MAX_RELATED)
+                    	        System.out.println("more than  partial results" + MAX_RELATED);
+                    		else
+                                System.out.println("time exceeds" + QUIT_TIME);
                     		this.isQuit = true;
                     		return relatedQueries.size() > 0 ? relatedQueries : null;
                     	}
-                        if (tempRelatedQuery.isUsing(graphEdge)) {
+                        if (tempRelatedQuery.isUsing(graphEdge) || tempRelatedQuery.isMappedAsDifferentNode(queryNextNode, graphNextNode)) {
                             //Ok this option is already using this edge,
                             //not a good choice go away
                             //it means that this query didn't found his match in this edge
@@ -272,17 +313,6 @@ public class GraphIsomorphismRecursiveStep extends AlgorithmStep<RelatedQuery> {
                         //If the found edge peudo-destination is similar to the query edge pseudo-destination
                         //if (nodeSimilarity > RelatedQuerySearch.MIN_SIMILARITY) {
                         //The destination if outgoing the source if isIncoming
-                        Long queryNextNode;
-                        MappedNode graphNextNode;
-                        if (isIncoming) {
-                            queryNextNode = queryEdge.getSource();
-//                            graphNextNode = graphEdge.getSource();
-                            graphNextNode = new MappedNode(graphEdge.getSource(), graphEdge, 0,isIncoming, false);
-                        } else {
-                            queryNextNode = queryEdge.getDestination();
-//                            graphNextNode = graphEdge.getDestination();
-                            graphNextNode = new MappedNode(graphEdge.getDestination(), graphEdge, 0,isIncoming, false);
-                        }
 
                         //Is this node coeherent with the structure?
                         if (edgeMatch(queryEdge, graphEdge, newRelatedQuery)) {
@@ -332,8 +362,7 @@ public class GraphIsomorphismRecursiveStep extends AlgorithmStep<RelatedQuery> {
                                 //log("Go find mapping for: " + queryNextNode + " // " + graphNextNode);
                                 visited.add(queryNextNode);
                                 tmpRelatedQueries = createQueries(query, queryNextNode, graphNextNode, newRelatedQuery, depth + 1, visited);
-//                                System.out.println("to test size: " + toTestRelatedQueries.size() + " depth:" + depth);
-//                                System.out.println("queryEdge: " + queryEdge + " graphEdge:" + graphEdge + " size: " + (tmpRelatedQueries == null ? 0 : tmpRelatedQueries.size()));
+                                visited.remove(queryNextNode);
                                 //Did we find any?
                                 if (tmpRelatedQueries != null) {
                                     //Ok so we found some, they are all good to me

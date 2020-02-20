@@ -17,6 +17,7 @@ import eu.unitn.disi.db.grava.graphs.Selectivity;
 import eu.unitn.disi.db.grava.utils.Utilities;
 import eu.unitn.disi.db.grava.vectorization.NeighborTables;
 import eu.unitn.disi.db.query.WildCardQuery;
+import eu.unitn.disi.db.tool.AnswerManagement;
 import java.io.BufferedWriter;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -27,6 +28,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 public class WildCardAlgorithm {
     private static final int AVG_DEGREE = 9;
@@ -104,6 +107,7 @@ public class WildCardAlgorithm {
         int wcPathEst = 0;
         StopWatch total = new StopWatch();
         total.start();
+        Set<RelatedQuery> relatedQueries = new HashSet<>();
         if (threshold != 0) {
             HashSet<RelatedQuery> relatedQueriesUnique = new HashSet<>();
             WildCardQuery wcq = new WildCardQuery(threshold);
@@ -115,7 +119,7 @@ public class WildCardAlgorithm {
                 for (Multigraph wildCardQuery : wildCardQueries) {
 //					System.out.println("wc query");
 //					int match = 0;
-                    System.out.println("===========");
+                    System.out.println("-------------------------");
 					for (Edge e : wildCardQuery.edgeSet()){
                         System.out.println(e.getSource() + " " + e.getDestination() + " " + e.getLabel());
 					}
@@ -136,7 +140,6 @@ public class WildCardAlgorithm {
                         loadingTime += watch.getElapsedTimeMillis();
 
                         tableAlgorithm = new ComputeGraphNeighbors();
-                        watch.reset();
                         tableAlgorithm.setNumThreads(threadsNum);
                         tableAlgorithm.setK(neighbourNum);
                         tableAlgorithm.setMaxDegree(MAX_DEGREE);
@@ -149,6 +152,7 @@ public class WildCardAlgorithm {
                         tableAlgorithm.setGraph(wildCardQuery);
                         tableAlgorithm.setMaxDegree(this.MAX_DEGREE);
                         tableAlgorithm.compute();
+                        System.out.println(queryName + "Compute neighbour takes " + watch.getElapsedTimeMillis());
 //                        System.out.println("start pruninig");
                         queryTables = tableAlgorithm.getNeighborTables();
                         computingNeighborTime += watch.getElapsedTimeMillis();
@@ -172,6 +176,7 @@ public class WildCardAlgorithm {
                         // pruningAlgorithm.setQueryPathTables(queryTables);
                         pruningAlgorithm.setThreshold(0);
                         pruningAlgorithm.compute();
+                        System.out.println(queryName + "pruning takes " + watch.getElapsedTimeMillis());
 
                         // pruningAlgorithm.fastCompute();
 //						this.wcBsCount += pruningAlgorithm.getBsCount();
@@ -184,8 +189,9 @@ public class WildCardAlgorithm {
 //						infoNodes.add(info);
                         queryGraphMapping = pruningAlgorithm
                                 .getQueryGraphMapping();
+
                         queryGraphMapping.entrySet().forEach(en -> {
-                            System.out.println(en.getKey() + ":");
+                            System.out.println(en.getKey() + ": " + en.getValue().size());
                             en.getValue().forEach(val -> System.out.print(val.getNodeID() + ","));
                             System.out.println();
                         });
@@ -199,7 +205,7 @@ public class WildCardAlgorithm {
                         pruningTime += watch.getElapsedTimeMillis();
                         watch.reset();
 //                        System.out.println("start computing");
-                        List<RelatedQuery> relatedQueries;
+
 
                         IsomorphicQuerySearch edAlgorithm = new IsomorphicQuerySearch();
                         edAlgorithm.setStartingNode(startingNode);
@@ -210,11 +216,15 @@ public class WildCardAlgorithm {
                         edAlgorithm.setQueryToGraphMap(pruningAlgorithm
                                 .getQueryGraphMapping());
                         edAlgorithm.setLimitedComputation(false);
-//                        edAlgorithm.compute();
+                        edAlgorithm.setExecutionPool(Executors.newFixedThreadPool(this.threadsNum));
+                        edAlgorithm.compute();
+
+//                        System.out.println(queryName + " ed algorithm takes " + watch.getElapsedTimeMillis());
 //						this.isWcBad = this.isWcBad || IsomorphicQuerySearch.isBad;
                         wcIntNum = Math.max(wcIntNum, IsomorphicQuerySearch.interNum);
                         wcIntSum = wcIntSum + IsomorphicQuerySearch.interNum;
-                        relatedQueries = edAlgorithm.getRelatedQueries();
+                        relatedQueries.addAll(edAlgorithm.getRelatedQueries());
+//                        AnswerManagement.printAnswer(edAlgorithm.getRelatedQueries());
 //                        relatedQueriesUnique.addAll(relatedQueries);
 //                        this.printAnswer(relatedQueriesUnique);
 //						System.out.println(startingNode);
@@ -281,7 +291,9 @@ public class WildCardAlgorithm {
 
         }
 
-        System.out.println(queryName + " takes " + total.getElapsedTimeMillis());
+        System.out.println(queryName + " total takes " + total.getElapsedTimeMillis()
+        + " answer size:" + relatedQueries.size());
+        AnswerManagement.printAnswer(relatedQueries);
 
 //        wcElapsedTime = (double) (System.nanoTime() - startTime) / 1000000000.0;
     }
@@ -312,26 +324,9 @@ public class WildCardAlgorithm {
 
         for (Long concept : nodes) {
             tempFreq = this.Q.inDegreeOf(concept) + this.Q.outDegreeOf(concept);
-
-            edgesIn = this.Q.incomingEdgesOf(concept);
-
-            for (Edge Edge : edgesIn) {
-                if (Edge.getLabel().equals(bestLabel)) {
-                    if (tempFreq > maxFreq) {
-                        goodNode = concept;
-                        maxFreq = tempFreq;
-                    }
-                }
-            }
-
-            edgesOut = this.Q.outgoingEdgesOf(concept);
-            for (Edge Edge : edgesOut) {
-                if (Edge.getLabel().equals(bestLabel)) {
-                    if (tempFreq > maxFreq) {
-                        goodNode = concept;
-                        maxFreq = tempFreq;
-                    }
-                }
+            if (tempFreq > maxFreq) {
+                goodNode = concept;
+                maxFreq = tempFreq;
             }
         }
 
@@ -350,59 +345,6 @@ public class WildCardAlgorithm {
             }
         }
         return candidate;
-    }
-
-    private void printAnswer(Collection<RelatedQuery> queries) {
-        System.out.println("printing answers");
-        int num = 1;
-//		System.out.println(queries.get(0));
-        System.out.println("========================================");
-        for (RelatedQuery rq : queries) {
-//			System.out.println("printing answer " + num);
-//			EditDistanceQuery eq = (EditDistanceQuery) rq;
-            Map<Edge, Edge> mappedEdges = rq.getMappedEdges();
-            Map<Long, Long> answerNodes = new HashMap<>();
-            boolean right = true;
-            for (Entry<Edge, Edge> en : mappedEdges.entrySet()) {
-                Edge queryEdge = en.getKey();
-                Edge graphEdge = en.getValue();
-                if (queryEdge.getSource() < 0) {
-                    if (!queryEdge.getSource().equals(-graphEdge.getSource())) {
-                        right = false;
-                        break;
-                    }
-                } else {
-                    answerNodes.put(queryEdge.getSource(), graphEdge.getSource());
-                }
-                if (queryEdge.getDestination() < 0) {
-                    if (!queryEdge.getDestination().equals(-graphEdge.getDestination())) {
-                        right = false;
-                        break;
-                    }
-                } else {
-                    answerNodes.put(queryEdge.getDestination(), graphEdge.getDestination());
-                }
-            }
-            if (right) {
-                System.out.println("Printing answer " + num++);
-//				for (Entry<Long, Long> en : answerNodes.entrySet()) {
-//					System.out.println(this.id2Entity.get(en.getKey()).trim() + "=>" + this.id2Entity.get(en.getValue()).trim());
-//					System.out.println(en.getKey() + "=>" + en.getValue());
-//				}
-
-                for (Edge e : mappedEdges.values()) {
-//					System.out.println(this.id2Entity.get(e.getSource()).trim() + " " + this.id2Predicate.get(e.getLabel()).trim() + " " + this.id2Entity.get(e.getDestination()).trim());
-                    System.out.println(e.getSource() + " " + e.getDestination() + " " + e.getLabel());
-                }
-                System.out.println("========================================");
-            }
-//			answers.add(this.id2Entity.get(eq.getNodesMapping().get(this.nodeToSearch).getNodeID()).trim());
-        }
-//		System.out.println("querying " + this.id2Entity.get(this.nodeToSearch));
-//		for (String answer : answers) {
-//			System.out.println(answer);
-//		}
-//		System.out.println("answer number:" + answers.size());
     }
 
     public void setQ(final Multigraph q) {

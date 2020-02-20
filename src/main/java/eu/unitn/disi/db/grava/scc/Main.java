@@ -19,17 +19,38 @@ public class Main {
 			String queryFolder = args[5];
 			String outputFile = args[6];
 			boolean isUsingWildCard = Boolean.parseBoolean(args[7]);
-			for (int i = 2; i <= 2; i++) {
-				Experiement exp = new Experiement(repititions, i, threadsNum, neighbourNum, graphName,
-						queryFolder, outputFile, isUsingWildCard);
-				exp.runExperiement(Filter.NEIGHBOUR);
-			}
-
 //			for (int i = 1; i <= 3; i++) {
 //				Experiement exp = new Experiement(repititions, i, threadsNum, neighbourNum, graphName,
 //						queryFolder, outputFile, isUsingWildCard);
-//				exp.runExperiement(Filter.PATH);
+//				exp.runExperiement(Filter.NEIGHBOUR);
 //			}
+
+			for (int i = 1; i <= 1; i++) {
+				Experiement exp = new Experiement(repititions, i, threadsNum, neighbourNum, graphName,
+						queryFolder, outputFile, isUsingWildCard);
+				exp.runExperiement(Filter.PATH);
+			}
+
+//            for (int i = 1; i <= 3; i++) {
+//                Experiement exp = new Experiement(repititions, i, threadsNum, neighbourNum, graphName,
+//                        queryFolder, outputFile, isUsingWildCard);
+//                exp.runExperiement(Filter.PATH);
+//            }
+
+//			for (int i = 3; i <= 3; i++) {
+//				Experiement exp = new Experiement(repititions, i, threadsNum, neighbourNum, graphName,
+//						queryFolder, outputFile, isUsingWildCard);
+//				exp.runExperiement(Filter.NEIGHBOUR);
+//			}
+
+
+
+//            for (int i = 3; i <= 3; i++) {
+//                Experiement exp = new Experiement(repititions, i, threadsNum, neighbourNum, graphName,
+//                        queryFolder, outputFile, isUsingWildCard);
+//                exp.runExperiement(Filter.NEIGHBOUR);
+//            }
+
 //
 //			for (int i = 1; i <= 3; i++) {
 //				Experiement exp = new Experiement(repititions, i, threadsNum, neighbourNum, graphName,

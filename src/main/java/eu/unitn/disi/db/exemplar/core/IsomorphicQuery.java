@@ -51,6 +51,7 @@ public class IsomorphicQuery extends RelatedQuery {
      */
     protected Map<Edge, Edge> mappedEdges;
     protected Set<String> usedEdgesIDs; // TODO: This is not a very good idea
+    protected Map<Long, Long> rawGraphNodeToQueryNode;
 
     IsomorphicQuery() {
     } //A default constructor used for serialization
@@ -68,7 +69,7 @@ public class IsomorphicQuery extends RelatedQuery {
     private void initialize() {
         this.mappedNodes = new HashMap<>(query.vertexSet().size() + 2, 1f);
         this.reversedMappedNodes = new HashMap<>(query.vertexSet().size() + 2, 1f);
-
+        this.rawGraphNodeToQueryNode = new HashMap<>(query.vertexSet().size() + 2, 1f);
         for (Long n : query.vertexSet()) {
             this.mappedNodes.put(n, null);
         }
@@ -89,6 +90,9 @@ public class IsomorphicQuery extends RelatedQuery {
 
         clone.reversedMappedNodes = new HashMap<>(query.vertexSet().size() + 2, 1f);
         clone.reversedMappedNodes.putAll(this.reversedMappedNodes);
+
+        clone.rawGraphNodeToQueryNode = new HashMap<>(query.vertexSet().size() + 2, 1f);
+        clone.rawGraphNodeToQueryNode.putAll(this.rawGraphNodeToQueryNode);
 
         clone.usedEdgesIDs = new HashSet<>(query.edgeSet().size() + 2, 1f);
         clone.usedEdgesIDs.addAll(this.usedEdgesIDs);
@@ -123,6 +127,7 @@ public class IsomorphicQuery extends RelatedQuery {
         } else if (mappedNodes.get(queryNode) == null) {
             mappedNodes.put(queryNode, graphNode);
             reversedMappedNodes.put(graphNode, queryNode);
+            rawGraphNodeToQueryNode.put(graphNode.getNodeID(), queryNode);
         } else if (this.mappedNodes.get(queryNode).getNodeID() != graphNode.getNodeID()) {
             throw new IllegalArgumentException("Trying to change map of query node " + queryNode + " a different map is already present");
         }
@@ -198,6 +203,9 @@ public class IsomorphicQuery extends RelatedQuery {
         return this.reversedMappedNodes.containsKey(graphNode) && this.reversedMappedNodes.get(graphNode) != null;
     }
 
+    public boolean isMappedAsDifferentNode(Long queryNode, MappedNode graphNode) {
+        return rawGraphNodeToQueryNode.get(graphNode.getNodeID()) != null && !queryNode.equals(rawGraphNodeToQueryNode.get(graphNode.getNodeID()));
+    }
     /**
      * check whether the queryEdge has been mapped to a graph Edge
      *
@@ -332,7 +340,19 @@ public class IsomorphicQuery extends RelatedQuery {
 //                    return false;
 //                }
 //            }
+            if (this.getNodesMapping().size() != otherNodes.size()) {
+                return false;
+            }
 
+            for (Entry<Long, MappedNode> thisEntry : this.getNodesMapping().entrySet()) {
+                Long queryNode = thisEntry.getKey();
+                if (otherNodes.get(queryNode) == null
+                        || otherNodes.get(queryNode).getNodeID() != thisEntry.getValue().getNodeID()) {
+                    return false;
+                }
+            }
+            return true;
+            /*
             Set<String> otherEdges = other.getUsedEdgesIDs();
 
             if (otherEdges.size() == this.usedEdgesIDs.size()) {
@@ -343,36 +363,11 @@ public class IsomorphicQuery extends RelatedQuery {
                     }
                 }
                 return true;
-            }
+            }*/
         }
         return false;
     }
-    public List<Edge> getEdgeSet(){
-    	PriorityQueue<Edge> edgeQueue = new PriorityQueue<Edge>(10, new Comparator<Edge>() {
-            public int compare(Edge e1, Edge e2) {
-            	if (e1.getLabel().equals(e2.getLabel())) {
-            		return e1.getDestination() > e2.getDestination()? 1 : -1;
-            	}
-            	return e1.getLabel() > e2.getLabel()? 1 : -1;
-            }
-        });
-    	edgeQueue.addAll(query.edgeSet());
-    	List<Edge> sortedEdgeSet = new ArrayList<>();
-    	while(!edgeQueue.isEmpty()) {
-    		sortedEdgeSet.add(edgeQueue.poll());
-    	}
-    	return sortedEdgeSet;
-    }
-    
-    @Override
-    public String toString() {
-    	List<Edge> sortedEdges = this.getEdgeSet();
-        String s = "";
-        for (Edge e : sortedEdges) {
-            s += e + " ";
-        }
-        return s;
-    }
+
     
    
     @Override
@@ -393,6 +388,4 @@ public class IsomorphicQuery extends RelatedQuery {
 	public void setMappedEdges(Map<Edge, Edge> mappedEdges) {
 		this.mappedEdges = mappedEdges;
 	}
-
-	
 }

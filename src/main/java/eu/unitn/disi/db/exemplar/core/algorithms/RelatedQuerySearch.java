@@ -66,7 +66,7 @@ public abstract class RelatedQuerySearch extends Algorithm {
     private Map<Long, Set<MappedNode>> queryToGraphMap;
 
     @AlgorithmOutput
-    private List<RelatedQuery> relatedQueries;
+    private Set<RelatedQuery> relatedQueries;
 
     /**
      * traverse the portion of the graph selected in order to find subgraphs
@@ -113,7 +113,7 @@ public abstract class RelatedQuerySearch extends Algorithm {
      *
      * @return the related queries we have found
      */
-    public List<RelatedQuery> getRelatedQueries() {
+    public Set<RelatedQuery> getRelatedQueries() {
         return relatedQueries;
     }
 
@@ -121,7 +121,7 @@ public abstract class RelatedQuerySearch extends Algorithm {
      *
      * @param related the related queries we have found
      */
-    protected void setRelatedQueries( List<RelatedQuery> related) {
+    protected void setRelatedQueries( Set<RelatedQuery> related) {
         this.relatedQueries = related;
     }
 

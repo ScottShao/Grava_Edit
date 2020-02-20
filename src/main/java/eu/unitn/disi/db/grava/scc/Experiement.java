@@ -48,7 +48,7 @@ public class Experiement {
     public void runExperiement(Filter filter) throws AlgorithmExecutionException, ParseException, IOException {
         System.out.println("Run experiment"  );
         StopWatch stopWatch = new StopWatch();
-        stopWatch.start();
+
         EditDistance ed = new EditDistance();
         ed.setGraphName(graphName);
         ed.setNeighbourNum(neighbourNum);
@@ -164,6 +164,7 @@ public class Experiement {
              }
              freqBW.close();
              **/
+            stopWatch.start();
             ed.setgTableAlgorithm(tableAlgorithm);
             ed.setG(G);
             for (String queryFile : queryFiles) {

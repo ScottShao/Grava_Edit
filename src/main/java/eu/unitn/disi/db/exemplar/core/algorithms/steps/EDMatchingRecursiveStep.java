@@ -33,8 +33,10 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.PriorityQueue;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 /**
  *
@@ -42,10 +44,10 @@ import java.util.Set;
  */
 public class EDMatchingRecursiveStep extends AlgorithmStep<EditDistanceQuery> {
 
-
     private final Long queryConcept;
     private final int threshold;
     private Map<Long, Set<MappedNode>> queryToGraph;
+    private Map<Long, Set<Long>> queryToRawGraphNodes;
     private int cmpCount;
     private boolean isQuit;
     private int chunkSize;
@@ -54,9 +56,12 @@ public class EDMatchingRecursiveStep extends AlgorithmStep<EditDistanceQuery> {
         this.queryConcept = queryConcept;
         this.threshold = threshold;
         this.queryToGraph = queryToGraph;
+        this.queryToRawGraphNodes = queryToGraph.entrySet()
+                .stream()
+                .collect(Collectors.toMap(Entry::getKey, entry -> entry.getValue().stream().map(MappedNode::getNodeID).collect(
+                        Collectors.toSet())));
         this.cmpCount = 0;
         this.chunkSize = chunkSize;
-        
     }
 
     public List<EditDistanceQuery> call() throws Exception {
@@ -69,7 +74,6 @@ public class EDMatchingRecursiveStep extends AlgorithmStep<EditDistanceQuery> {
         int i = 0;
         this.isQuit = false;
         while (graphNodes.hasNext()) {
-//        	System.out.println("Thread " + threadNumber + " Finshed " + ((double)i / chunkSize) * 100 + "%");
         	MappedNode node = graphNodes.next();
             try {
                 relatedQuery = new EditDistanceQuery(query);
@@ -81,16 +85,14 @@ public class EDMatchingRecursiveStep extends AlgorithmStep<EditDistanceQuery> {
                 	break;
                 }
                 if (relatedQueriesPartial != null) {
-                    if(skipSave){
-                        continue;
-                    }
                     EditDistanceQuerySearch.answerCount += relatedQueriesPartial.size();
+                    System.out.println("node:" + node + " size:" + relatedQueriesPartial.size());
                     relatedQueries.addAll(relatedQueriesPartial);
 //                    for (EditDistanceQuery partial : relatedQueriesPartial) {
 //                    	if(partial.getQuery().edgeSet().size() == query.edgeSet().size())
 //                    		relatedQueries.add(partial);
 //                    }
-                    if (watch.getElapsedTimeMillis() > WARN_TIME || EditDistanceQuerySearch.answerCount > MAX_RELATED) {
+                    if (watch.getElapsedTimeMillis() > WARN_TIME) {
                         warn("More than " + MAX_RELATED + " partial isomorphic results");
                         warned = true;
                         if (limitComputation) {
@@ -119,7 +121,7 @@ public class EDMatchingRecursiveStep extends AlgorithmStep<EditDistanceQuery> {
         watch.stop();
 //        System.out.println(this + "future finished");
 //        System.out.println(relatedQueries.size());
-        System.out.println("Answer size:" + relatedQueries.size());
+        System.out.println( "Answer size:" + relatedQueries.size());
         return new LinkedList<>(relatedQueries);
     }
 
@@ -180,16 +182,26 @@ public class EDMatchingRecursiveStep extends AlgorithmStep<EditDistanceQuery> {
 
         queryEdgesIn = null;
         queryEdgesOut = null;
-        
+
         List<Edge> sortedEdges = sortEdge(queryEdges, query, queryNode);
         int currentSize = 0;
+
+        if (queryNode.equals(graphNode.getNodeID())) {
+            System.out.print("");
+        }
         //Look if we can map all the outgoing/ingoing graphEdges of the query node
         for (Edge queryEdge : sortedEdges) {
-            System.out.println("1. depth:" + depth  + " query node:" + queryNode +  " graph node:" + graphNode + " query edge:" + queryEdge + " related size:" + relatedQueries.size());
-        	System.out.println(" 1. Answer size increases " + (relatedQueries.size() - currentSize));
+//            if (queryNode.equals(5080955348L) && queryEdge.toString().equals("5080955348-[1000008074]->817683565648")) {
+//                System.out.println("");
+//            }
+//        	System.out.println(" 1. Answer size increases " + (relatedQueries.size() - currentSize));
 
         	currentSize = relatedQueries.size();
-            if (relatedQueries.size() > MAX_RELATED) return relatedQueries;
+            if (relatedQueries.size() > MAX_RELATED) {
+                System.out.println(String.format("More than %d partial results", MAX_RELATED));
+                isQuit = true;
+                return relatedQueries;
+            }
             //info("Trying to map the edge " + queryEdge);
             List<EditDistanceQuery> newRelatedQueries = new ArrayList<>();
             LinkedList<EditDistanceQuery> toTestRelatedQueries = new LinkedList<>();
@@ -235,9 +247,13 @@ public class EDMatchingRecursiveStep extends AlgorithmStep<EditDistanceQuery> {
                 //Cycle through all the possible graphEdges options,
                 //they would be possibly different related queries
                 int newCurrentSize = newRelatedQueries.size();
-                System.out.println("2 depth:" + depth  + "Test for related queries:" + toTestRelatedQueries.size());
+//                System.out.println("2 depth:" + depth  + "Test for related queries:" + toTestRelatedQueries.size());
                 for (Edge graphEdge : graphEdges) {
-                	System.out.println(" 2.1 depth:" + depth +  " Query edge:" + queryEdge + " Test graph edge:" + graphEdge);
+                    if (queryEdge.toString().equals("5080955348-[1000008074]->817683565648") && graphEdge.toString().equals("8048756648-[1000008074]->525383745048")) {
+                        System.out.println("");
+                    }
+//                    System.out.println("edit: " +  graphNode.getDist() +" query node:" + queryNode +  " graph node:" + graphNode.getNodeID() + " query edge:" + queryEdge + " graph edge:" + graphEdge);
+//                	System.out.println(" 2.1 depth:" + depth +  " Query edge:" + queryEdge + " Test graph edge:" + graphEdge);
                     //Cycle through all the possible related queries retrieved up to now
                     //A new related query is good if it finds a match
                     Long queryNextNode;
@@ -254,21 +270,25 @@ public class EDMatchingRecursiveStep extends AlgorithmStep<EditDistanceQuery> {
                     if (isIncoming ^ graphEdgeIsIncoming) {
                         dis = 1;
                     }
+
                     graphNextNode =  new MappedNode(graphNextNodeLong, graphEdge, relatedQuery.getEdit() + dis, graphEdgeIsIncoming, isLabelDif);
+
 
                     for (EditDistanceQuery tempRelatedQuery : toTestRelatedQueries) {
 
-                    	if (newRelatedQueries.size()  > MAX_RELATED || watch.getElapsedTimeMillis() > QUIT_TIME) {
-//                    		System.out.println("Time limit exceeded or more than 10000 partial results");
+                    	if (newRelatedQueries.size()  > MAX_RELATED) {
+                    		System.out.println(String.format("More than %d partial results", MAX_RELATED));
                     		this.isQuit = true;
                     		return relatedQueries.size() > 0 ? relatedQueries : null;
                     	}
-//                    	if (watch.getElapsedTimeMillis() > QUIT_TIME) {
-//                    		System.out.println("Time limit exceeded");
-//                    		this.isQuit = true;
-//                    		return relatedQueries.size() > 0 ? relatedQueries : null;
-//                    	}
-                        if (tempRelatedQuery.isUsing(graphEdge)) {
+                        if (watch.getElapsedTimeMillis() > QUIT_TIME) {
+                            System.out.println(String.format("Time limit exceeded %d", QUIT_TIME));
+                            this.isQuit = true;
+                            return relatedQueries.size() > 0 ? relatedQueries : null;
+                        }
+
+
+                        if (tempRelatedQuery.isUsing(graphEdge) || tempRelatedQuery.isMappedAsDifferentNode(queryNextNode, graphNextNode)) {
                             //Ok this option is already using this edge,
                             //not a good choice go away
                             //it means that this query didn't found his match in this edge
@@ -289,7 +309,7 @@ public class EDMatchingRecursiveStep extends AlgorithmStep<EditDistanceQuery> {
                         //if (nodeSimilarity > RelatedQuerySearch.MIN_SIMILARITY) {
                         //The destination if outgoing the source if isIncoming
 
-                        
+
                         //Is this node coeherent with the structure?
                         if (edgeMatch(queryEdge, graphEdge, graphNode, graphNextNode, newRelatedQuery, this.threshold)) {
                             //That's a good edge!! Add it to this related query
@@ -339,16 +359,16 @@ public class EDMatchingRecursiveStep extends AlgorithmStep<EditDistanceQuery> {
                                 tmpRelatedQueries = createQueries(query, queryNextNode, graphNextNode, newRelatedQuery, depth + 1);
 
 
-                                System.out.println("    3. depth:" + depth  + " query next node:" + queryNextNode + " graph next node:" + graphNextNode
-                                        + " query edge:" + queryEdge + " graph edge:" + graphEdge +
-                                        " related size:" + (tmpRelatedQueries == null? 0 :tmpRelatedQueries.size()));
+//                                System.out.println("    3. depth:" + depth  + " query next node:" + queryNextNode + " graph next node:" + graphNextNode
+//                                        + " query edge:" + queryEdge + " graph edge:" + graphEdge +
+//                                        " related size:" + (tmpRelatedQueries == null? 0 :tmpRelatedQueries.size()));
 
                                 //Did we find any?
                                 if (tmpRelatedQueries != null) {
                                     //Ok so we found some, they are all good to me
                                     //More possible related queries
                                     //They already contain the root
-                                    System.out.println("     3.1 current size:" + newRelatedQueries.size() + " increases size:" + tmpRelatedQueries.size());
+//                                    System.out.println("     3.1 current size:" + newRelatedQueries.size() + " increases size:" + tmpRelatedQueries.size());
                                     for (EditDistanceQuery branch : tmpRelatedQueries) {
                                         //All these related queries have found in this edge their match
                                         newRelatedQueries.add(branch);
@@ -366,11 +386,8 @@ public class EDMatchingRecursiveStep extends AlgorithmStep<EditDistanceQuery> {
                                 newRelatedQueries.add(newRelatedQuery);
                             }
                         }
-                        //else {
-                        //info("Edge does not match  %s   -  for %s  : %d", graphEdge.getId(), FreebaseConstants.convertLongToMid(graphNode), graphNode);
-                        //}
                     }
-                    System.out.println(" 2.2 depth:" + depth + " increase size to:" +newRelatedQueries.size()  + " increased: " + (newRelatedQueries.size() - newCurrentSize) + " with graph edge " + graphEdge);
+//                    System.out.println(" 2.2 depth:" + depth + " increase size to:" +newRelatedQueries.size()  + " increased: " + (newRelatedQueries.size() - newCurrentSize) + " with graph edge " + graphEdge);
                     newCurrentSize = newRelatedQueries.size();
                 }
             }

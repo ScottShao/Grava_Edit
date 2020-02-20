@@ -26,6 +26,7 @@ import eu.unitn.disi.db.grava.graphs.MappedNode;
 import eu.unitn.disi.db.grava.graphs.Multigraph;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
@@ -72,7 +73,7 @@ public class EditDistanceQuerySearch extends RelatedQuerySearch {
         if (this.getQuery().edgeSet().isEmpty()) {
             throw new AlgorithmExecutionException("NO Query Edges to find a root node!");
         }
-        this.setRelatedQueries(new LinkedList<RelatedQuery>());
+        this.setRelatedQueries(new HashSet<>());
 
         Multigraph graph = this.getGraph();
         Multigraph query = this.getQuery();
@@ -91,7 +92,7 @@ public class EditDistanceQuerySearch extends RelatedQuerySearch {
         List<EditDistanceQuery> tmp = null;
 //        System.out.println("threads num:" + this.getNumThreads());
         //Start in parallel
-        int numThreads = 1;
+        int numThreads = 8;
         ExecutorService pool = Executors.newFixedThreadPool(this.getNumThreads());
 
         int chunkSize = (int) Math.round(graphNodes.size() / numThreads + 0.5);
@@ -108,7 +109,6 @@ public class EditDistanceQuerySearch extends RelatedQuerySearch {
             if (count % chunkSize == 0) {
                 tmpChunk = new LinkedList<>();
                 nodesChunks.add(tmpChunk);
-
             }
 
             tmpChunk.add(node);

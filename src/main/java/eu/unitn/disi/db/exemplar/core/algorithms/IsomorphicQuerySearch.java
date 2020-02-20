@@ -28,6 +28,7 @@ import eu.unitn.disi.db.grava.graphs.Multigraph;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
@@ -50,6 +51,7 @@ public class IsomorphicQuerySearch extends RelatedQuerySearch {
 	public static boolean isBad = false;
 	public static long interNum = 0;
 	private HashMap<Long, LabelContainer> labelFreq;
+	private ExecutorService pool;
     /**
      * Execute the algorithm
      *
@@ -72,7 +74,7 @@ public class IsomorphicQuerySearch extends RelatedQuerySearch {
         if (this.getQuery().edgeSet().isEmpty()) {
             throw new AlgorithmExecutionException("NO Query Edges to find a root node!");
         }
-        this.setRelatedQueries(new LinkedList<RelatedQuery>());
+        this.setRelatedQueries(new HashSet<>());
 
         Multigraph graph = this.getGraph();
         Multigraph query = this.getQuery();
@@ -90,11 +92,7 @@ public class IsomorphicQuerySearch extends RelatedQuerySearch {
 
 
         List<RelatedQuery> tmp = null;
-
-        //Start in parallel
-        int numThreads = 1;
-        ExecutorService pool = Executors.newFixedThreadPool(numThreads);
-        
+        int numThreads = 8;
 //        int chunkSize = this.getNumThreads() == 1 ? graphNodes.size() :  (int) Math.round(graphNodes.size() / this.getNumThreads() + 0.5);
         int chunkSize = (int) Math.round(graphNodes.size() / numThreads + 0.5);
         List<Future<List<RelatedQuery>>> lists = new ArrayList<>();
@@ -111,7 +109,6 @@ public class IsomorphicQuerySearch extends RelatedQuerySearch {
             if (count % chunkSize == 0) {
                 tmpChunk = new LinkedList<>();
                 nodesChunks.add(tmpChunk);
-
             }
 
             tmpChunk.add(node);
@@ -124,7 +121,7 @@ public class IsomorphicQuerySearch extends RelatedQuerySearch {
 
         for (List<MappedNode> chunk : nodesChunks) {
             threadNum++;
-            GraphIsomorphismRecursiveStep graphI = new GraphIsomorphismRecursiveStep(threadNum, chunk.iterator(), startingNode, query, graph, true, this.getSkipSave(), chunk.size());
+            GraphIsomorphismRecursiveStep graphI = new GraphIsomorphismRecursiveStep(threadNum, chunk.iterator(), startingNode, query, graph, true, this.getSkipSave(), chunk.size(), this.getQueryToGraphMap());
             graphI.setLabelFreq(this.labelFreq);
             lists.add(pool.submit(graphI));
         }
@@ -142,8 +139,7 @@ public class IsomorphicQuerySearch extends RelatedQuerySearch {
                 if (tmp != null) {
                     //debug("Graph size: %d", smallGraph.vertexSet().size());
                     //                  //((List<RelatedQuery>)this.getRelatedQueries()).addAll(tmp);
-                    List<RelatedQuery> rr = this.getRelatedQueries();
-                    rr.addAll(tmp);
+                    this.getRelatedQueries().addAll(tmp);
 
                 }
             }
@@ -154,6 +150,10 @@ public class IsomorphicQuerySearch extends RelatedQuerySearch {
         pool.shutdown();
         watch.stop();
 //        info("Computed related in %dms", watch.getElapsedTimeMillis());
+    }
+
+    public void setExecutionPool(final ExecutorService pool) {
+        this.pool = pool;
     }
     
 	public Long getStartingNode() {

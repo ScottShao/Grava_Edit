@@ -243,13 +243,10 @@ public abstract class RelatedQuery extends LoggableObject implements Comparable 
     public List<Edge> getEdgeSet(){
     	PriorityQueue<Edge> edgeQueue = new PriorityQueue<Edge>(10, new Comparator<Edge>() {
             public int compare(Edge e1, Edge e2) {
-            	if (e1.getLabel().equals(e2.getLabel())) {
-            		return e1.getDestination() > e2.getDestination()? 1 : -1;
-            	}
-            	return e1.getLabel() > e2.getLabel()? 1 : -1;
+                return e1.toString().compareTo(e2.toString());
             }
         });
-    	edgeQueue.addAll(query.edgeSet());
+    	edgeQueue.addAll(getMappedEdges().values());
     	List<Edge> sortedEdgeSet = new ArrayList<>();
     	while(!edgeQueue.isEmpty()) {
     		sortedEdgeSet.add(edgeQueue.poll());

@@ -55,11 +55,18 @@ public class ComputeGraphNeighbors extends Algorithm {
     @AlgorithmInput
     private Collection<Long> nodeProcessed = null;
     private Map<Long, BloomFilter<String>> pathTables;
+    private Map<String, Integer> pathFreqMap;
+    private int totalNumOfPath;
     @AlgorithmOutput
     private NeighborTables neighborTables;
     private int maxDegree;
     private boolean debugThreads = false;
     private Map<Connection, int[]> conCount;
+
+    public ComputeGraphNeighbors() {
+        pathFreqMap = new HashMap<>();
+        totalNumOfPath = 0;
+    }
 
     // private int tid;
 
@@ -70,7 +77,7 @@ public class ComputeGraphNeighbors extends Algorithm {
         for (Long node : nodeSet) {
             BloomFilter<String> bf = new BloomFilter<>(0.1, 10000);
             Map<String, Integer> countMap = new HashMap<>();
-            dfs(node, new HashSet<>(), new HashSet<>(), countMap, new StringBuilder(), 0, bf, new ArrayList<Long>());
+            dfs(node, new HashSet<>(), new HashSet<>(), countMap, new StringBuilder(), 0, bf, new ArrayList<>());
             this.pathTables.put(node, bf);
         }
     }
@@ -78,14 +85,22 @@ public class ComputeGraphNeighbors extends Algorithm {
     public void dfs(Long node, Set<Edge> visited, Set<Long> visitedNodes,
 					Map<String, Integer> countMap,
 					StringBuilder sb, int depth,
-                    BloomFilter<String> bf, List<Long> labels) {
+                    BloomFilter<String> bf, List<String> labels) {
 
         if (depth >= k) {
             String path = visitedNodes.contains(node) ? sb.toString() + "L" : sb.toString();
+            String l1 = labels.get(0).contains("-") ? "-0" : "0";
+            String l2 = labels.get(1).contains("-") ? "-0" : "0";
 			addPath(countMap, path, bf);
-			addPath(countMap, labels.get(0) + "0", bf);
-			addPath(countMap, "0" + labels.get(1), bf);
-			addPath(countMap, "00", bf);
+			if (!visitedNodes.contains(node)) {
+                addPath(countMap, labels.get(0) + l2, bf);
+                addPath(countMap, l1 + labels.get(1), bf);
+                addPath(countMap, l1 + l2, bf);
+            } else {
+                addPath(countMap, labels.get(0) + l2 + "L", bf);
+                addPath(countMap,  l1 + labels.get(1) + "L", bf);
+                addPath(countMap, l1 + l2 + "L", bf);
+            }
 //			Connection con = new Connection(labels.get(0), labels.get(1));
 //			int[] count = conCount.get(con);
 //			if (count == null) {
@@ -94,11 +109,11 @@ public class ComputeGraphNeighbors extends Algorithm {
 //			}
 //			count[0]++;
 
-            if (visitedNodes.contains(node)) {
-				addPath(countMap, labels.get(0) + "0L", bf);
-				addPath(countMap, "0" + labels.get(1) + "L", bf);
-				addPath(countMap, "00L", bf);
-            }
+//            if (visitedNodes.contains(node)) {
+//				addPath(countMap, labels.get(0) + "0L", bf);
+//				addPath(countMap, "0" + labels.get(1) + "L", bf);
+//				addPath(countMap, "00L", bf);
+//            }
             return;
         }
         int length = sb.length();
@@ -109,7 +124,7 @@ public class ComputeGraphNeighbors extends Algorithm {
             if (!visited.contains(e) && !nextNode.equals(node)) {
                 Long temp = e.getLabel();
                 sb.append(temp);
-                labels.add(temp);
+                labels.add(String.valueOf(temp));
                 visited.add(e);
                 dfs(nextNode, visited, visitedNodes, countMap, sb, depth + 1, bf, labels);
                 visited.remove(e);
@@ -121,7 +136,7 @@ public class ComputeGraphNeighbors extends Algorithm {
         for (Edge e : graph.incomingEdgesOf(node)) {
             Long nextNode = e.getDestination().equals(node) ? e.getSource() : e.getDestination();
             if (!visited.contains(e) && !nextNode.equals(node)) {
-                Long temp = e.getLabel().equals(0L) ? 0L : -e.getLabel();
+                String temp = "-" + e.getLabel();
                 sb.append(temp);
                 labels.add(temp);
                 visited.add(e);
@@ -134,7 +149,8 @@ public class ComputeGraphNeighbors extends Algorithm {
         visitedNodes.remove(node);
         if (labels.size() == 1) {
             addPath(countMap, String.valueOf(labels.get(0)), bf);
-            addPath(countMap, "0", bf);
+            String l1 = labels.get(0).contains("-") ? "-0" : "0";
+            addPath(countMap, l1, bf);
         }
     }
 
@@ -142,8 +158,21 @@ public class ComputeGraphNeighbors extends Algorithm {
     	Integer count = countMap.getOrDefault(path, 0);
     	count++;
     	bf.add(path + "|" + count);
+//    	System.out.println(path + "|" + count);
     	countMap.put(path, count);
+    	int pathFreq = pathFreqMap.getOrDefault(path, 0);
+    	pathFreq++;
+    	pathFreqMap.put(path, pathFreq);
+    	totalNumOfPath++;
 	}
+
+    public Map<String, Integer> getPathFreqMap() {
+        return pathFreqMap;
+    }
+
+    public int getTotalNumOfPath() {
+        return totalNumOfPath;
+    }
 
     @Override
     public void compute() throws AlgorithmExecutionException {
@@ -290,9 +319,6 @@ public class ComputeGraphNeighbors extends Algorithm {
                     levelTable = new HashMap<>();
                     nextLevelToSee = new HashSet<>();
                     for (Long current : toVisit) {
-                        if (current == 55548848L) {
-                            System.out.print("");
-                        }
                         // current = toVisit.poll();
                         if (current == null) {
                             warn("[T%d] NodeToExplore is null for level %d and node %d",

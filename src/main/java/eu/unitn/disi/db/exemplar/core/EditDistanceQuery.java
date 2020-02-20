@@ -44,6 +44,7 @@ public class EditDistanceQuery extends RelatedQuery {
      */
     protected Map<Long, MappedNode> mappedNodes;
     protected Map<MappedNode, Long> reversedMappedNodes;
+    protected Map<Long, Long> rawGraphNodeToQueryNode;
     /**
      * Query edge to Graph edge map
      */
@@ -67,6 +68,7 @@ public class EditDistanceQuery extends RelatedQuery {
     private void initialize() {
         this.mappedNodes = new HashMap<>(query.vertexSet().size() + 2, 1f);
         this.reversedMappedNodes = new HashMap<>(query.vertexSet().size() + 2, 1f);
+        this.rawGraphNodeToQueryNode = new HashMap<>(query.vertexSet().size() + 2, 1f);
         for (Long n : query.vertexSet()) {
             this.mappedNodes.put(n, null);
         }
@@ -88,6 +90,9 @@ public class EditDistanceQuery extends RelatedQuery {
 
         clone.reversedMappedNodes = new HashMap<>(query.vertexSet().size() + 2, 1f);
         clone.reversedMappedNodes.putAll(this.reversedMappedNodes);
+
+        clone.rawGraphNodeToQueryNode = new HashMap<>(query.vertexSet().size() + 2, 1f);
+        clone.rawGraphNodeToQueryNode.putAll(this.rawGraphNodeToQueryNode);
 
         clone.usedEdgesIDs = new HashSet<>(query.edgeSet().size() + 2, 1f);
         clone.usedEdgesIDs.addAll(this.usedEdgesIDs);
@@ -124,6 +129,7 @@ public class EditDistanceQuery extends RelatedQuery {
         } else if (mappedNodes.get(queryNode) == null) {
             mappedNodes.put(queryNode, graphNode);
             reversedMappedNodes.put(graphNode, queryNode);
+            rawGraphNodeToQueryNode.put(graphNode.getNodeID(), queryNode);
         } else if (this.mappedNodes.get(queryNode).getNodeID() != graphNode.getNodeID()) {
 //        	System.out.println(this.mappedNodes.get(queryNode));
 //        	System.out.println(graphNode);
@@ -225,6 +231,9 @@ public class EditDistanceQuery extends RelatedQuery {
         return this.usedEdgesIDs.contains(graphEdge.getId());
     }
 
+    public boolean isMappedAsDifferentNode(Long queryNode, MappedNode graphNode) {
+        return rawGraphNodeToQueryNode.get(graphNode.getNodeID()) != null && !queryNode.equals(rawGraphNodeToQueryNode.get(graphNode.getNodeID()));
+    }
     /**
      *
      * @return a copy of the list of graph edges in use
@@ -329,29 +338,32 @@ public class EditDistanceQuery extends RelatedQuery {
         if (obj instanceof EditDistanceQuery) {
             final EditDistanceQuery other = (EditDistanceQuery) obj;
 
-            Map<Long, MappedNode> otherNodes = other.getNodesMapping();
+            Map<Long, MappedNode> otherNodes = other.mappedNodes;
 
-//            for (Long toCheck : this.mappedNodes.keySet()) {
-//                if (!otherNodes.containsKey(toCheck)) {
-//                    return false;
-//                }
-//
-//                if (!otherNodes.get(toCheck).equals(this.mappedNodes.get(toCheck))) {
-//                    return false;
-//                }
-//            }
+            if (this.getNodesMapping().size() != otherNodes.size()) {
+                return false;
+            }
 
+            for (Entry<Long, MappedNode> thisEntry : this.getNodesMapping().entrySet()) {
+                Long queryNode = thisEntry.getKey();
+                if (otherNodes.get(queryNode) == null
+                        || otherNodes.get(queryNode).getNodeID() != thisEntry.getValue().getNodeID()) {
+                    return false;
+                }
+            }
+            return true;
+            /*
             Set<String> otherEdges = other.getUsedEdgesIDs();
 
             if (otherEdges.size() == this.usedEdgesIDs.size()) {
                 for (String otherEdge : otherEdges) {
-//                	System.out.println(otherEdge + " "  + usedEdgesIDs.contains(otherEdge));
+
                     if (!this.usedEdgesIDs.contains(otherEdge)) {
                         return false;
                     }
                 }
                 return true;
-            }
+            }*/
         }
 //        System.out.println("not this");
         return false;
@@ -385,22 +397,10 @@ public class EditDistanceQuery extends RelatedQuery {
 //        return false;
 //    }
 
-    @Override
-    public String toString() {
-        String s = "";
-        for (Entry<Edge, Edge> en : this.mappedEdges.entrySet()) {
-        	s += en.getValue() + " \n";
-        }
-//        for (String e : usedEdgesIDs) {
-//            s += e + " \n";
-//        }
-        return s;
-    }
 
     @Override
     public int hashCode() {
-//        return this.usedEdgesIDs.hashCode();
-    	return 0;
+        return this.usedEdgesIDs.hashCode();
     }
 
 	@Override
@@ -434,6 +434,4 @@ public class EditDistanceQuery extends RelatedQuery {
 	public void setMappedEdges(Map<Edge, Edge> mappedEdges) {
 		this.mappedEdges = mappedEdges;
 	}
-	
-	
 }

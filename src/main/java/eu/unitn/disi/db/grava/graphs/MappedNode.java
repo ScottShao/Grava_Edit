@@ -68,14 +68,14 @@ public class MappedNode {
 	
 	public boolean equals(Object o){// TODO: to better represent a mapped node
 		MappedNode mn = (MappedNode)o;
-		if(mn.mappedEdge == null && this.mappedEdge == null){
+		if(mn.mappedEdge == null && this.mappedEdge == null && mn.getDist() == this.getDist()){
 			return true;
 		}
 		if(mn.mappedEdge == null || this.mappedEdge == null)
 		{
 			return false;
 		}
-		if(mn.mappedEdge.equals(this.mappedEdge) && mn.isIncoming() == this.incoming){
+		if(mn.mappedEdge.equals(this.mappedEdge) && mn.isIncoming() == this.incoming && mn.getDist() == this.getDist()){
 			return true;
 		}else{
 			return false;

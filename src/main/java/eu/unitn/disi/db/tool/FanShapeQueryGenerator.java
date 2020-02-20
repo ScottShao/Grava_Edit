@@ -1,7 +1,5 @@
 package eu.unitn.disi.db.tool;
 
-import eu.unitn.disi.db.grava.exceptions.ParseException;
-import eu.unitn.disi.db.grava.graphs.BigMultigraph;
 import eu.unitn.disi.db.grava.graphs.Edge;
 import eu.unitn.disi.db.grava.graphs.Multigraph;
 import java.io.BufferedWriter;
@@ -15,22 +13,10 @@ import java.util.List;
 import java.util.Random;
 import java.util.Set;
 
-public class QueryGenerator {
-
+public class FanShapeQueryGenerator {
     private static final Random RANDOM = new Random();
 
-    public static void main(String[] args) throws IOException, ParseException {
-        String graphName = "graph/10000nodes";
-
-        Multigraph G = new BigMultigraph(graphName + "-sin.graph", graphName
-                + "-sout.graph");
-        RandomQueryGenerator queryGenerator = new RandomQueryGenerator();
-        for (int i = 0; i < 50000; i++) {
-            queryGenerator.generateQuery(G);
-        }
-    }
-
-    private static void generateQuery(Multigraph G) {
+    public void generateQuery(Multigraph G) {
         int maxEdgeNum = 8;
         int current = 0;
         G.vertexSet();
@@ -86,7 +72,7 @@ public class QueryGenerator {
             }
         }
         if (edgeNum >= maxEdgeNum) {
-            writeToFile(query, String.valueOf(startingNode + "_freq_" + currentFreq));
+            writeToFile(query, startingNode + "_freq_" + currentFreq);
         }
     }
 

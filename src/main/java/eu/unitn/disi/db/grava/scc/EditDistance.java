@@ -4,6 +4,8 @@ import eu.unitn.disi.db.command.exceptions.AlgorithmExecutionException;
 import eu.unitn.disi.db.exemplar.core.EditDistanceQuery;
 import eu.unitn.disi.db.exemplar.core.IsomorphicQuery;
 import eu.unitn.disi.db.exemplar.core.RelatedQuery;
+import eu.unitn.disi.db.exemplar.core.StartingNodeAlgorithm;
+import eu.unitn.disi.db.exemplar.core.StartingNodePathFreqAlgorithm;
 import eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors;
 import eu.unitn.disi.db.exemplar.core.algorithms.EditDistanceQuerySearch;
 import eu.unitn.disi.db.exemplar.core.algorithms.IsomorphicQuerySearch;
@@ -24,6 +26,7 @@ import eu.unitn.disi.db.grava.utils.Utilities;
 import eu.unitn.disi.db.grava.vectorization.NeighborTables;
 import eu.unitn.disi.db.mutilities.StopWatch;
 import eu.unitn.disi.db.query.WildCardQuery;
+import eu.unitn.disi.db.tool.AnswerManagement;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileNotFoundException;
@@ -40,6 +43,7 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.PriorityQueue;
 import java.util.Set;
+import java.util.concurrent.Executors;
 
 public class EditDistance {
 
@@ -170,19 +174,10 @@ public class EditDistance {
                 labelCount.put(e.getLabel(), 1);
             }
         }
-//		System.out.println("Original query:");
-//		String temp = con.toReadable(Q.edgeSet());
-//		if (temp == null) {
-//			System.out.println("null");
-//			return;
-//		}
-//		System.out.print(temp);
-//		for (Edge e : Q.edgeSet()) {
-////			System.out.println(e.getSource() + " " + e.getLabel() + " " + e.getDestination());
-//			System.out.println(con.toReadable(e));
-//		}
+        Set<RelatedQuery> relatedQueries = new HashSet<>();
         StopWatch total = new StopWatch();
         total.start();
+        IsomorphicQuerySearch edAlgorithm = null;
         if (threshold != 0) {
             relatedQueriesUnique = new HashSet<>();
             WildCardQuery wcq = new WildCardQuery(threshold);
@@ -192,9 +187,13 @@ public class EditDistance {
             for (int exprimentTime = 0; exprimentTime < repititions; exprimentTime++) {
                 // ed.setThreshold(0);
                 for (Multigraph wildCardQuery : wildCardQueries) {
+                    boolean toTest = false;
                     System.out.println("===========");
                     for (Edge e : wildCardQuery.edgeSet()){
                         System.out.println(e.getSource() + " " + e.getDestination() + " " + e.getLabel());
+                        if (e.toString().equals("72524950898048-[0]->6854705148")) {
+                            System.out.print("");
+                        }
                     }
                     this.setQ(wildCardQuery);
                     Long startingNode;
@@ -205,22 +204,24 @@ public class EditDistance {
 
 //						loadingTime += watch.getElapsedTimeMillis();
 
-                        tableAlgorithm = new ComputeGraphNeighbors();
-                        watch.reset();
-                        tableAlgorithm.setNumThreads(threadsNum);
-                        tableAlgorithm.setK(neighbourNum);
-                        tableAlgorithm.setMaxDegree(this.MAX_DEGREE);
-
-                        graphTables = gTableAlgorithm.getNeighborTables();
-                        tableAlgorithm.setGraph(Q);
-                        tableAlgorithm.setMaxDegree(this.MAX_DEGREE);
-                        tableAlgorithm.compute();
-
-                        queryTables = tableAlgorithm.getNeighborTables();
+//                        tableAlgorithm = new ComputeGraphNeighbors();
+//                        tableAlgorithm.setNumThreads(threadsNum);
+//                        tableAlgorithm.setK(neighbourNum);
+//                        tableAlgorithm.setMaxDegree(this.MAX_DEGREE);
+//
+//                        graphTables = gTableAlgorithm.getNeighborTables();
+//                        tableAlgorithm.setGraph(Q);
+//                        tableAlgorithm.setMaxDegree(this.MAX_DEGREE);
+//                        tableAlgorithm.computePathFilter();
+                        System.out.println(queryName + "Compute neighbour takes " + watch.getElapsedTimeMillis());
 //						computingNeighborTime += watch.getElapsedTimeMillis();
                         // System.out.println(queryTables.toString());
                         watch.reset();
-                        startingNode = this.getRootNode(true);
+                        StartingNodeAlgorithm startingNodeAlgorithm = new StartingNodePathFreqAlgorithm(
+                                this.getgTableAlgorithm().getPathFreqMap(),
+                                this.getgTableAlgorithm().getTotalNumOfPath(),
+                                neighbourNum);
+                        startingNode = startingNodeAlgorithm.getStartingNode(Q);
                          System.out.println("starting node:" + startingNode);
                         pruningAlgorithm = new PruningAlgorithm();
                         // Set starting node according to sels of nodes.
@@ -234,12 +235,13 @@ public class EditDistance {
 
                         pruningAlgorithm.setThreshold(0);
                         pruningAlgorithm.computeWithPath();
+                        System.out.println(queryName + "pruning takes " + watch.getElapsedTimeMillis());
                         queryGraphMapping = pruningAlgorithm.getQueryGraphMapping();
-//                        queryGraphMapping.entrySet().forEach(en -> {
-//                            System.out.println(en.getKey() + ":");
-//                            en.getValue().forEach(val -> System.out.print(val.getNodeID() + ","));
-//                            System.out.println();
-//                        });
+                        queryGraphMapping.entrySet().forEach(en -> {
+                            System.out.println(en.getKey() + ": " + en.getValue().size());
+                            en.getValue().forEach(val -> System.out.print(val.getNodeID() + ","));
+                            System.out.println();
+                        });
                         wcCandidatesNum += queryGraphMapping.get(startingNode).size();
 //						pruningAlgorithm.pathFilter(true);
                         this.wcAfterNum += queryGraphMapping.get(startingNode).size();
@@ -247,9 +249,7 @@ public class EditDistance {
                         Multigraph prunedG = pruningAlgorithm.pruneGraph();
                         watch.reset();
 
-                        List<RelatedQuery> relatedQueries;
-
-                        IsomorphicQuerySearch edAlgorithm = new IsomorphicQuerySearch();
+                        edAlgorithm = new IsomorphicQuerySearch();
                         edAlgorithm.setStartingNode(startingNode);
                         edAlgorithm.setLabelFreq(((BigMultigraph) G).getLabelFreq());
                         edAlgorithm.setQuery(Q);
@@ -257,8 +257,11 @@ public class EditDistance {
                         edAlgorithm.setNumThreads(this.threadsNum);
                         edAlgorithm.setQueryToGraphMap(pruningAlgorithm
                                 .getQueryGraphMapping());
-                        edAlgorithm.setLimitedComputation(true);
+                        edAlgorithm.setLimitedComputation(false);
+                        edAlgorithm.setExecutionPool(Executors.newFixedThreadPool(this.threadsNum));
                         edAlgorithm.compute();
+                        relatedQueries.addAll(edAlgorithm.getRelatedQueries());
+
 //
 //                        this.bfIntNum = Math.max(this.bfIntNum, IsomorphicQuerySearch.interNum);
 //                        this.bfIntSum += IsomorphicQuerySearch.interNum;
@@ -291,6 +294,7 @@ public class EditDistance {
                         //				answerNum += IsomorphicQuerySearch.answerCount;
                         //				System.out.println(answerNum);
 //						isoTime += watch.getElapsedTimeMillis();
+//                        System.out.println(queryName + " ed algorithm takes " + watch.getElapsedTimeMillis());
                     }
 
                     //			comBw.close();
@@ -305,6 +309,7 @@ public class EditDistance {
                     // bsCount += this.getBsCount();
                     // cmpCount += this.getCmpCount();
                     // uptCount += this.getUptCount();
+
                 }
                 //		System.out.println("asd:" + wcCost);
 //				int queriesCount = 0;
@@ -328,7 +333,9 @@ public class EditDistance {
         } else {
 
         }
-        System.out.println(queryName + " takes " + total.getElapsedTimeMillis());
+        System.out.println(queryName + " takes " + total.getElapsedTimeMillis()
+                + " answer size:" + relatedQueries.size());
+//        AnswerManagement.printAnswer(relatedQueries);
 //
 //        int ttCount = 0;
 //        Set<String> iso = new HashSet<>();
@@ -446,6 +453,7 @@ public class EditDistance {
         this.edIntNum = 0;
         StopWatch total = new StopWatch();
         total.start();
+        EditDistanceQuerySearch edAlgorithm = new EditDistanceQuerySearch();
         for (int exprimentTime = 0; exprimentTime < repititions; exprimentTime++) {
             StopWatch watch = new StopWatch();
             watch.start();
@@ -475,7 +483,7 @@ public class EditDistance {
 //			computingNeighborTime += watch.getElapsedTimeMillis();
             watch.reset();
 //			startingNode = this.getRootNode(true);
-            startingNode = this.getRootNodeWithMaxEdges();
+            startingNode = this.getRootNode(true);
             System.out.println("Starting: " + startingNode);
 //			InfoNode info = new InfoNode(startingNode);
             // System.out.println("starting node:" + startingNode);
@@ -499,6 +507,11 @@ public class EditDistance {
 //			info.setUptCount(pruningAlgorithm.getUptCount());
 //			infoNodes.add(info);
             queryGraphMapping = pruningAlgorithm.getQueryGraphMapping();
+            queryGraphMapping.entrySet().forEach(en -> {
+                System.out.println(en.getKey() + ": " + en.getValue().size());
+                en.getValue().forEach(val -> System.out.print(val.getNodeID() + ","));
+                System.out.println();
+            });
 //			this.exCandidatesNum = queryGraphMapping.get(startingNode).size();
 //			System.out.println("ex before:" + exCandidatesNum);
 //			pruningAlgorithm.pathFilter();
@@ -510,7 +523,7 @@ public class EditDistance {
 
             List<RelatedQuery> relatedQueries;
 
-            EditDistanceQuerySearch edAlgorithm = new EditDistanceQuerySearch();
+
             edAlgorithm.setStartingNode(startingNode);
 
             edAlgorithm.setQuery(Q);
@@ -573,7 +586,9 @@ public class EditDistance {
 //			isoTime += watch.getElapsedTimeMillis();
 
         }
-        System.out.println(queryName + " takes " + total.getElapsedTimeMillis());
+        System.out.println(queryName + " takes " + total.getElapsedTimeMillis()
+                + " answer size:" + edAlgorithm.getRelatedQueries().size());
+//        AnswerManagement.printAnswer(edAlgorithm.getRelatedQueries());
 //		comBw.close();
 //		Q = null;
 //		loadingTime = loadingTime / repititions;
@@ -591,59 +606,6 @@ public class EditDistance {
 //		System.out.println(exCmpCount);
 //		System.out.println(exUptCount);
 //		System.out.println(exSearchCount);
-    }
-
-    private void printAnswer(Collection<RelatedQuery> queries) {
-        System.out.println("printing answers");
-        int num = 1;
-//		System.out.println(queries.get(0));
-        System.out.println("========================================");
-        for (RelatedQuery rq : queries) {
-//			System.out.println("printing answer " + num);
-//			EditDistanceQuery eq = (EditDistanceQuery) rq;
-            Map<Edge, Edge> mappedEdges = rq.getMappedEdges();
-            Map<Long, Long> answerNodes = new HashMap<>();
-            boolean right = true;
-            for (Entry<Edge, Edge> en : mappedEdges.entrySet()) {
-                Edge queryEdge = en.getKey();
-                Edge graphEdge = en.getValue();
-                if (queryEdge.getSource() < 0) {
-                    if (!queryEdge.getSource().equals(-graphEdge.getSource())) {
-                        right = false;
-                        break;
-                    }
-                } else {
-                    answerNodes.put(queryEdge.getSource(), graphEdge.getSource());
-                }
-                if (queryEdge.getDestination() < 0) {
-                    if (!queryEdge.getDestination().equals(-graphEdge.getDestination())) {
-                        right = false;
-                        break;
-                    }
-                } else {
-                    answerNodes.put(queryEdge.getDestination(), graphEdge.getDestination());
-                }
-            }
-            if (right) {
-                System.out.println("Printing answer " + num++);
-//				for (Entry<Long, Long> en : answerNodes.entrySet()) {
-//					System.out.println(this.id2Entity.get(en.getKey()).trim() + "=>" + this.id2Entity.get(en.getValue()).trim());
-//					System.out.println(en.getKey() + "=>" + en.getValue());
-//				}
-
-                for (Edge e : mappedEdges.values()) {
-//					System.out.println(this.id2Entity.get(e.getSource()).trim() + " " + this.id2Predicate.get(e.getLabel()).trim() + " " + this.id2Entity.get(e.getDestination()).trim());
-                    System.out.println(e.getSource() + " " + e.getDestination() + " " + e.getLabel());
-                }
-                System.out.println("========================================");
-            }
-//			answers.add(this.id2Entity.get(eq.getNodesMapping().get(this.nodeToSearch).getNodeID()).trim());
-        }
-//		System.out.println("querying " + this.id2Entity.get(this.nodeToSearch));
-//		for (String answer : answers) {
-//			System.out.println(answer);
-//		}
-//		System.out.println("answer number:" + answers.size());
     }
 
 //	private void printAnswer(HashSet<RelatedQuery> queries) {
@@ -688,6 +650,7 @@ public class EditDistance {
         this.edIntNum = 0;
         StopWatch total = new StopWatch();
         total.start();
+        EditDistanceQuerySearch edAlgorithm = new EditDistanceQuerySearch();
         for (int exprimentTime = 0; exprimentTime < repititions; exprimentTime++) {
             StopWatch watch = new StopWatch();
             watch.start();
@@ -717,7 +680,12 @@ public class EditDistance {
             //	computingNeighborTime += watch.getElapsedTimeMillis();
             watch.reset();
             //	startingNode = this.getRootNode(true);
-            startingNode = this.getRootNode(true);
+            StartingNodeAlgorithm startingNodeAlgorithm = new StartingNodePathFreqAlgorithm(
+                    this.getgTableAlgorithm().getPathFreqMap(),
+                    this.getgTableAlgorithm().getTotalNumOfPath(),
+                    neighbourNum);
+            startingNode = startingNodeAlgorithm.getStartingNode(Q);
+            System.out.println("Starting node:" + startingNode);
             //	InfoNode info = new InfoNode(startingNode);
             // System.out.println("starting node:" + startingNode);
             pruningAlgorithm = new PruningAlgorithm();
@@ -731,6 +699,13 @@ public class EditDistance {
             pruningAlgorithm.setThreshold(this.threshold);
             pruningAlgorithm.setgPathTables(gTableAlgorithm.getPathTables());
             pruningAlgorithm.computeWithPath();
+
+            queryGraphMapping = pruningAlgorithm.getQueryGraphMapping();
+            queryGraphMapping.entrySet().forEach(en -> {
+                System.out.println(en.getKey() + ": " + en.getValue().size());
+                en.getValue().forEach(val -> System.out.print(val.getNodeID() + ","));
+                System.out.println();
+            });
 
             //	this.exBsCount = pruningAlgorithm.getBsCount();
             //	this.exCmpCount = pruningAlgorithm.getCmpNbLabel();
@@ -751,7 +726,7 @@ public class EditDistance {
 
             List<RelatedQuery> relatedQueries;
 
-            EditDistanceQuerySearch edAlgorithm = new EditDistanceQuerySearch();
+
             edAlgorithm.setStartingNode(startingNode);
 
             edAlgorithm.setQuery(Q);
@@ -820,8 +795,9 @@ public class EditDistance {
 
         }
 
-        System.out.println(queryName + " takes " + total.getElapsedTimeMillis());
-
+        System.out.println(queryName + " takes " + total.getElapsedTimeMillis()
+                + " answer size:" + edAlgorithm.getRelatedQueries().size());
+        AnswerManagement.printAnswer(edAlgorithm.getRelatedQueries());
         //comBw.close();
         //Q = null;
         //loadingTime = loadingTime / repititions;
@@ -878,7 +854,7 @@ public class EditDistance {
             //	computingNeighborTime += watch.getElapsedTimeMillis();
             watch.reset();
             //	startingNode = this.getRootNode(true);
-            startingNode = this.getRootNode(true);
+            startingNode = this.getRootNodeWithMaxEdges();
             //	InfoNode info = new InfoNode(startingNode);
             // System.out.println("starting node:" + startingNode);
             pruningAlgorithm = new PruningAlgorithm();
@@ -934,10 +910,12 @@ public class EditDistance {
 
         switch (filter) {
             case NEIGHBOUR:
-                this.runExtension();
+//                this.runExtension();
+                this.runWildCard();
                 break;
             case PATH:
-                this.runBFExtension();
+//                this.runBFExtension();
+                this.runBFWildCard();
                 break;
             case BOTH:
 			this.runBothExtension();
@@ -1293,27 +1271,39 @@ public class EditDistance {
 
         for (Long concept : nodes) {
             tempFreq = this.Q.inDegreeOf(concept) + this.Q.outDegreeOf(concept);
-
-            edgesIn = this.Q.incomingEdgesOf(concept);
-
-            for (Edge Edge : edgesIn) {
-                if (Edge.getLabel().equals(bestLabel)) {
-                    if (tempFreq > maxFreq) {
-                        goodNode = concept;
-                        maxFreq = tempFreq;
-                    }
-                }
+            for (Edge e: Q.incomingEdgesOf(concept)) {
+                Long nextNode = e.getDestination().equals(concept) ? e.getSource() : e.getDestination();
+                tempFreq += Q.inDegreeOf(nextNode) + this.Q.outDegreeOf(nextNode);
+            }
+            for (Edge e: Q.outgoingEdgesOf(concept)) {
+                Long nextNode = e.getDestination().equals(concept) ? e.getSource() : e.getDestination();
+                tempFreq += Q.inDegreeOf(nextNode) + this.Q.outDegreeOf(nextNode);
+            }
+            if (tempFreq > maxFreq) {
+                goodNode = concept;
+                maxFreq = tempFreq;
             }
 
-            edgesOut = this.Q.outgoingEdgesOf(concept);
-            for (Edge Edge : edgesOut) {
-                if (Edge.getLabel().equals(bestLabel)) {
-                    if (tempFreq > maxFreq) {
-                        goodNode = concept;
-                        maxFreq = tempFreq;
-                    }
-                }
-            }
+//            edgesIn = this.Q.incomingEdgesOf(concept);
+//
+//            for (Edge Edge : edgesIn) {
+//                if (Edge.getLabel().equals(bestLabel)) {
+//                    if (tempFreq > maxFreq) {
+//                        goodNode = concept;
+//                        maxFreq = tempFreq;
+//                    }
+//                }
+//            }
+//
+//            edgesOut = this.Q.outgoingEdgesOf(concept);
+//            for (Edge Edge : edgesOut) {
+//                if (Edge.getLabel().equals(bestLabel)) {
+//                    if (tempFreq > maxFreq) {
+//                        goodNode = concept;
+//                        maxFreq = tempFreq;
+//                    }
+//                }
+//            }
         }
 
         return goodNode;

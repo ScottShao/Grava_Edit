@@ -183,7 +183,7 @@ public class BothWildCardAlgorithm {
                         pruningTime += watch.getElapsedTimeMillis();
                         watch.reset();
 //                        System.out.println("start computing");
-                        List<RelatedQuery> relatedQueries;
+                        Set<RelatedQuery> relatedQueries;
 
                         IsomorphicQuerySearch edAlgorithm = new IsomorphicQuerySearch();
                         edAlgorithm.setStartingNode(startingNode);
