@@ -161,7 +161,7 @@ public class BothWildCardAlgorithm {
                         // pruningAlgorithm.setQueryPathTables(queryTables);
                         pruningAlgorithm.setThreshold(0);
                         pruningAlgorithm.compute();
-                        pruningAlgorithm.pathFilter(true);
+//                        pruningAlgorithm.pathFilter(true);
 
                         // pruningAlgorithm.fastCompute();
 //						this.wcBsCount += pruningAlgorithm.getBsCount();

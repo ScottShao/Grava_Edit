@@ -84,7 +84,7 @@ public class BigMultigraph implements Multigraph, Iterable<Long>  {
         nodeNumber = -1;
         lastInBounds = new int[2];
         lastOutBounds = new int[2];
-        edgeSet = null;
+
         calLabelFreq = true;
         labelFreq = new HashMap<Long, LabelContainer>();
         nodeDegree = new HashMap<Long, Long>();
@@ -101,17 +101,28 @@ public class BigMultigraph implements Multigraph, Iterable<Long>  {
         loadEdges(inFile, true);
         loadEdges(outFile, false);
         computeMaximumDegree();
-        
+
+        edgeSet = new HashSet<>();
+        for (int i = 0; i < outEdges.length; i++) {
+            edgeSet.add(new Edge(outEdges[i][0], outEdges[i][1], outEdges[i][2]));
+        }
+
         if (sort) {
             Utilities.binaryTableSort(inEdges);
             Utilities.binaryTableSort(outEdges);
         }
+
+        vertexes = new HashSet<>();
+        try{
+            for (int i = 0; i < inEdges.length; i++) {
+                vertexes.add(inEdges[i][0]);
+                vertexes.add(inEdges[i][1]);
+            }
+        }catch(Exception e){
+            System.out.println(vertexes==null);
+            System.out.println(inEdges==null);
+        }
         this.findLabelMax();
-        vertexes = null;
-//        System.out.println(labelMax.size() + "size");
-//        for (Entry<Long, Integer> en : labelMax.entrySet()) {
-//        	System.out.println(en.getKey() + " " + en.getValue());
-//        }
     }
     
     private void findLabelMax() {
@@ -297,18 +308,6 @@ public class BigMultigraph implements Multigraph, Iterable<Long>  {
 
     @Override
     public Collection<Long> vertexSet() {
-    	if (vertexes == null) {
-    		vertexes = new HashSet<>();
-	        try{
-		        for (int i = 0; i < inEdges.length; i++) {
-		        	vertexes.add(inEdges[i][0]);
-		        	vertexes.add(inEdges[i][1]);
-		        }
-	        }catch(Exception e){
-	        	System.out.println(vertexes==null);
-	        	System.out.println(inEdges==null);
-	        }
-    	}
         return vertexes;
     }
 
@@ -334,12 +333,6 @@ public class BigMultigraph implements Multigraph, Iterable<Long>  {
 
     @Override
     public Collection<Edge> edgeSet() {
-        if (edgeSet == null) {
-            edgeSet = new HashSet<>();
-            for (int i = 0; i < outEdges.length; i++) {
-                edgeSet.add(new Edge(outEdges[i][0], outEdges[i][1], outEdges[i][2]));
-            }
-        }
         return edgeSet;
     }
 
@@ -360,59 +353,59 @@ public class BigMultigraph implements Multigraph, Iterable<Long>  {
     @Override
     public Collection<Edge> incomingEdgesOf(Long vertex) throws NullPointerException {
         Collection<Edge> edges = new ArrayList<Edge>();
-        long[][] aEdges = incomingArrayEdgesOf(vertex);
+        int[] bounds = incomingArrayEdgesOf(vertex);
     
-        if (aEdges != null) {
-            for (int i = 0; i < aEdges.length; i++) {
-                edges.add(new Edge(aEdges[i][1],vertex,aEdges[i][2]));
+        if (bounds[0] != -1) {
+            for (int i = bounds[0]; i < bounds[1]; i++) {
+                edges.add(new Edge(inEdges[i][1],vertex,inEdges[i][2]));
             }
         }
         return edges;
     }
     
-    public Collection<Long> adj(Long vertex){
-    	Collection<Long> adjacentNodes = new HashSet<Long>();
-    	long[][] aEdges = outgoingArrayEdgesOf(vertex);
-    	if(aEdges != null){
-    		for(int i=0; i < aEdges.length; i++){
-    			adjacentNodes.add(aEdges[i][1]);
-    		}
-    	}
-    	long[][] edges = this.incomingArrayEdgesOf(vertex);
-    	if(edges != null){
-    		for(int i=0; i < edges.length; i++){
-    			adjacentNodes.add(edges[i][1]);
-    		}
-    	}
-    	return adjacentNodes;
-    }
-    
-    public Collection<Edge> adjEdges(Long vertex){
-    	Collection<Edge> adjacentNodes = new HashSet<Edge>();
-    	long[][] aEdges = outgoingArrayEdgesOf(vertex);
-    	if(aEdges != null){
-    		for(int i=0; i < aEdges.length; i++){
-//    			System.out.println("out edges " +aEdges[i][0] + " " + aEdges[i][1] + " " + aEdges[i][2]);
-    			adjacentNodes.add(new Edge(aEdges[i][0], aEdges[i][1], aEdges[i][2]));
-    		}
-    	}
-    	long[][] edges = this.incomingArrayEdgesOf(vertex);
-    	if(edges != null){
-    		for(int i=0; i < edges.length; i++){
-//    			System.out.println("in edges " + edges[i][0] + " " + edges[i][1] + " " + edges[i][2]);
-    			adjacentNodes.add(new Edge(edges[i][1], edges[i][0], edges[i][2]));
-    		}
-    	}
-    	return adjacentNodes;
-    }
+//    public Collection<Long> adj(Long vertex){
+//    	Collection<Long> adjacentNodes = new HashSet<Long>();
+//    	long[][] aEdges = outgoingArrayEdgesOf(vertex);
+//    	if(aEdges != null){
+//    		for(int i=0; i < aEdges.length; i++){
+//    			adjacentNodes.add(aEdges[i][1]);
+//    		}
+//    	}
+//    	long[][] edges = this.incomingArrayEdgesOf(vertex);
+//    	if(edges != null){
+//    		for(int i=0; i < edges.length; i++){
+//    			adjacentNodes.add(edges[i][1]);
+//    		}
+//    	}
+//    	return adjacentNodes;
+//    }
+//
+//    public Collection<Edge> adjEdges(Long vertex){
+//    	Collection<Edge> adjacentNodes = new HashSet<Edge>();
+//    	long[][] aEdges = outgoingArrayEdgesOf(vertex);
+//    	if(aEdges != null){
+//    		for(int i=0; i < aEdges.length; i++){
+////    			System.out.println("out edges " +aEdges[i][0] + " " + aEdges[i][1] + " " + aEdges[i][2]);
+//    			adjacentNodes.add(new Edge(aEdges[i][0], aEdges[i][1], aEdges[i][2]));
+//    		}
+//    	}
+//    	long[][] edges = this.incomingArrayEdgesOf(vertex);
+//    	if(edges != null){
+//    		for(int i=0; i < edges.length; i++){
+////    			System.out.println("in edges " + edges[i][0] + " " + edges[i][1] + " " + edges[i][2]);
+//    			adjacentNodes.add(new Edge(edges[i][1], edges[i][0], edges[i][2]));
+//    		}
+//    	}
+//    	return adjacentNodes;
+//    }
 
     @Override
     public Collection<Edge> outgoingEdgesOf(Long vertex) throws NullPointerException {
         Collection<Edge> edges = new ArrayList<>();
-        long[][] aEdges = outgoingArrayEdgesOf(vertex);
-        if (aEdges != null) {
-            for (int i = 0; i < aEdges.length; i++) {
-                edges.add(new Edge(vertex, aEdges[i][1],aEdges[i][2]));
+        int[] bounds = outgoingArrayEdgesOf(vertex);
+        if (bounds[0] != -1) {
+            for (int i = bounds[0]; i < bounds[1]; i++) {
+                edges.add(new Edge(vertex, outEdges[i][1],outEdges[i][2]));
             }
         }
         return edges;
@@ -423,10 +416,12 @@ public class BigMultigraph implements Multigraph, Iterable<Long>  {
      * @param vertex The vertex to find the incoming edges
      * @return An array of dest,source,label arrays
      */
-    public long[][] incomingArrayEdgesOf(long vertex) {
-        long[][] edges = edgesOf(inEdges, lastInBounds, vertex, lastInVertex);
+    public int[] incomingArrayEdgesOf(long vertex) {
+//        long[][] edges = edgesOf(inEdges, lastInBounds, vertex, lastInVertex);
         lastInVertex = vertex;
-        return edges;
+        int[] bounds = new int[2];
+        boundsOf(inEdges, bounds, vertex);
+        return bounds;
     }
 
     /**
@@ -435,10 +430,11 @@ public class BigMultigraph implements Multigraph, Iterable<Long>  {
      * @return An array of source,dest,label arrays
      */
 
-    public long[][] outgoingArrayEdgesOf(long vertex) {
-        long[][] edges = edgesOf(outEdges, lastOutBounds, vertex, lastOutVertex);
+    public int[] outgoingArrayEdgesOf(long vertex) {
+        int[] bounds = new int[2];
+        boundsOf(outEdges, bounds, vertex);
         lastOutVertex = vertex;
-        return edges;
+        return bounds;
     }
 
     private void computeMaximumDegree(){
@@ -450,12 +446,11 @@ public class BigMultigraph implements Multigraph, Iterable<Long>  {
     	}
     }
     
-    private synchronized static long[][] edgesOf(long[][] edges, int[] bounds, long vertex, long lastVertex) {
+    private synchronized long[][] edgesOf(long[][] edges, int[] bounds, long vertex, long lastVertex) {
 //    	System.out.println(vertex + " " + lastVertex);
         
     	if (vertex != lastVertex) {
             boundsOf(edges, bounds, vertex);
-            
         }
         if (bounds == null || bounds[0] == -1) {
             return null;
@@ -464,11 +459,10 @@ public class BigMultigraph implements Multigraph, Iterable<Long>  {
         int length = bounds[1] - bounds[0];
         long[][] sublist = new long[length][3];
         try{
-        System.arraycopy(edges, bounds[0], sublist, 0, length);
+            System.arraycopy(edges, bounds[0], sublist, 0, length);
         }catch(Exception e){
         	System.out.println(edges.length  + " " + bounds[0] + " " + bounds[1] +  " " +sublist.length );
         	System.out.println(bounds[0] == -1);
-//        	System.out.println(length);
         	
         	e.printStackTrace();
         
@@ -477,7 +471,7 @@ public class BigMultigraph implements Multigraph, Iterable<Long>  {
         return sublist;
     }
 
-    private static int degreeOf(long[][] edges, int[] bounds, long vertex, long lastVertex) {
+    private int degreeOf(long[][] edges, int[] bounds, long vertex, long lastVertex) {
         if (vertex != lastVertex) {
             boundsOf(edges, bounds, vertex);
         }
@@ -487,7 +481,7 @@ public class BigMultigraph implements Multigraph, Iterable<Long>  {
         return bounds[1] - bounds[0];
     }
 
-    private static void boundsOf(long[][] edges, int[] bounds, long vertex) {
+    private void boundsOf(long[][] edges, int[] bounds, long vertex) {
         int i;
         int startingIndex = Utilities.binaryTableSearch(edges, vertex);
         if (startingIndex >= 0) {

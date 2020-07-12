@@ -10,6 +10,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 public class StartingNodePathFreqAlgorithm implements StartingNodeAlgorithm {
 
@@ -40,6 +41,21 @@ public class StartingNodePathFreqAlgorithm implements StartingNodeAlgorithm {
             }
         }
         return startingNode;
+    }
+
+    @Override
+    public List<Long> getStartingNodes(final Multigraph query) {
+        double min = 1;
+        Map<Long, Double> selectivityMap = new HashMap<>();
+        for (Long node : query.vertexSet()) {
+            Map<String, Integer> countMap = new HashMap<>();
+            dfs(query, node, new HashSet<>(), new HashSet<>(), countMap, new StringBuilder(), 0, new ArrayList<>());
+            double selectivity = getSelectivity(countMap);
+            selectivityMap.put(node, selectivity);
+        }
+        List<Long> results = selectivityMap.entrySet().stream().sorted(Map.Entry.comparingByValue()).map(Entry::getKey).collect(
+                Collectors.toList());
+        return results;
     }
 
     private double getSelectivity(final Map<String, Integer> countMap) {

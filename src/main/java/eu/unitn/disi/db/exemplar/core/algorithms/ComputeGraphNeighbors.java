@@ -62,6 +62,7 @@ public class ComputeGraphNeighbors extends Algorithm {
     private int maxDegree;
     private boolean debugThreads = false;
     private Map<Connection, int[]> conCount;
+    private ExecutorService nodePool;
 
     public ComputeGraphNeighbors() {
         pathFreqMap = new HashMap<>();
@@ -177,14 +178,12 @@ public class ComputeGraphNeighbors extends Algorithm {
     @Override
     public void compute() throws AlgorithmExecutionException {
         // DECLARATIONS
-        ExecutorService nodePool = null;
         int chunkSize;
         List<Future<NeighborTables>> tableNodeFuture;
         Long[] graphNodes;
         NeighborTables tables;
         neighborTables = new MemoryNeighborTables(k);
         // END DECLARATIONS
-        numThreads = 8;
         try {
             // Start a BFS on the whole graph
             if (nodeProcessed != null) {
@@ -194,9 +193,7 @@ public class ComputeGraphNeighbors extends Algorithm {
                 graphNodes = graph.vertexSet().toArray(
                         new Long[graph.vertexSet().size()]);
             }
-//			debug("Computed the vertex set");
             if (graphNodes.length > numThreads * 2) {
-                nodePool = Executors.newFixedThreadPool(numThreads);
                 tableNodeFuture = new ArrayList<>();
                 chunkSize = (int) Math.round(graphNodes.length / numThreads
                         + 0.5);
@@ -212,7 +209,6 @@ public class ComputeGraphNeighbors extends Algorithm {
                     Future<NeighborTables> future = tableNodeFuture.get(i);
                     tables = future.get();
                     neighborTables.merge(tables);
-//					System.out.println(m + "done");
                     m++;
                 }
             } else {
@@ -223,10 +219,6 @@ public class ComputeGraphNeighbors extends Algorithm {
             ex.printStackTrace();
             throw new AlgorithmExecutionException(
                     "A generic error occurred, complete message follows", ex);
-        } finally {
-            if (nodePool != null) {
-                nodePool.shutdown();
-            }
         }
     }
 
@@ -381,5 +373,9 @@ public class ComputeGraphNeighbors extends Algorithm {
             }
             return tables;
         }
+    }
+
+    public void setNodePool(final ExecutorService nodePool) {
+        this.nodePool = nodePool;
     }
 }

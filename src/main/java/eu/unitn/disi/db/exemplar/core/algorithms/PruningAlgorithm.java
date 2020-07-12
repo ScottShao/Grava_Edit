@@ -46,7 +46,6 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 import javafx.util.Pair;
-import org.json.simple.JSONObject;
 
 /**
  * Pruning algorithm using neighborhood information for each node.
@@ -106,7 +105,6 @@ public class PruningAlgorithm extends Algorithm {
         prefixSelectivities = new HashMap<Long, Double>();
         edgeNum = graph.edgeSet().size();
         //Map<Long,Integer> nodeFrequency;
-        Map<Long, Integer> labelFrequency = new HashMap<>();
         Map<Long, Set<MappedNode>> candidateNextLevel = new HashMap<>();
         labelFreq = graph.getLabelFreq();
         nodeSelectivities = new HashMap<Long, Double>();
@@ -133,14 +131,6 @@ public class PruningAlgorithm extends Algorithm {
         Set<Long> visitedQueryNodes = new HashSet<>();
         int i;
 //        this.computeSelectivity();
-        for (Edge e : graphEdges) {
-            frequency = labelFrequency.get(e.getLabel());
-            if (frequency == null) {
-                frequency = 0;
-            }
-            frequency++;
-            labelFrequency.put(e.getLabel(), frequency);
-        }
         //Just to try - Candidate is the first
 //        startingNode = 5048L;
         if (startingNode == null) {
@@ -291,11 +281,11 @@ public class PruningAlgorithm extends Algorithm {
             candidate = startingNode;
         }
         queryNodeToVisit.add(candidate);
-        Map<Long, Map<String, Edge>> pathPrefix = new HashMap<>();
+        Map<Long, Map<Edge, Set<String>>> pathPrefix = new HashMap<>();
         Map<Long, Map<String, Integer>> queryPaths = queryPaths(pathPrefix);
         //Initialize the candidate qnode -> gnode
         for (Long node : queryNodes) {
-            candidateNextLevel.put(node, new HashSet<MappedNode>());
+            candidateNextLevel.put(node, new HashSet<>());
         }
         prefixSelectivities.put(startingNode, (double) 1);
         candidateNextLevel.put(candidate, Utilities.nodesToMappedNodes(graph.vertexSet()));
@@ -304,13 +294,9 @@ public class PruningAlgorithm extends Algorithm {
             while (!queryNodeToVisit.isEmpty()) {
 
                 currentQueryNode = queryNodeToVisit.poll();
-                System.out.println("Current node: " + currentQueryNode);
                 visitSeq.add(currentQueryNode);
                 mappedNodes = queryGraphMapping.get(currentQueryNode);
 
-                if (currentQueryNode == 72524950898048L) {
-                    System.out.print("");
-                }
 
                 //Compute the valid edges to explore and update the nodes to visit
 //                medium = Utilities.bsCount;
@@ -331,9 +317,6 @@ public class PruningAlgorithm extends Algorithm {
                         int testSize = nodesToVisit.size();
                         graphCandidate = nodesToVisit.get(i);
 
-                        if (graphCandidate.getNodeID() == 90788348545048L) {
-                            System.out.print("");
-                        }
 
                         if (this.matchesWithPathNeighbor(graphCandidate, currentQueryNode, queryPaths, pathPrefix)) {
                             numberOfComparison++;
@@ -373,11 +356,12 @@ public class PruningAlgorithm extends Algorithm {
         //Choose the node with the least frequency.
     }
 
-    private Map<Long, Map<String, Integer>> queryPaths(final Map<Long, Map<String, Edge>> pathPrefixMap) {
+    private Map<Long, Map<String, Integer>> queryPaths(final Map<Long, Map<Edge, Set<String>>> pathPrefixMap) {
+
         Map<Long, Map<String, Integer>> queryPathMap = new HashMap<>();
         for (Long queryNode : query.vertexSet()) {
             Map<String, Integer> pathMap = new HashMap<>();
-            Map<String, Edge> prefix = new HashMap<>();
+            Map<Edge, Set<String>> prefix = new HashMap<>();
             dfs(queryNode, new LinkedHashSet<>(), new HashSet<>(), new StringBuilder(), 0, pathMap, prefix);
             queryPathMap.put(queryNode, pathMap);
             pathPrefixMap.put(queryNode, prefix);
@@ -417,34 +401,34 @@ public class PruningAlgorithm extends Algorithm {
 //        queryGraphMapping.put(startingNode, filteredSet);
 //    }
 
-    public void pathFilter(boolean filterAll) {
-        Map<Long, Map<String, Edge>> pathPrefixMap = new HashMap<>();
-        Map<Long, Map<String, Integer>> queryPaths = queryPaths(pathPrefixMap);
-        for (Entry<Long, Set<MappedNode>> en : queryGraphMapping.entrySet()) {
-            Long crt = en.getKey();
-            Set<MappedNode> filteredSet = new HashSet<>();
-            Set<MappedNode> oldSet = queryGraphMapping.get(crt);
-            for (MappedNode mn : oldSet) {
-                BloomFilter<String> bf = gPathTables.get(mn.getNodeID());
-                int count = 0;
-                boolean isGood = true;
-                for (Entry<String, Integer> path : queryPaths.get(crt).entrySet()) {
-                    String temp = path.getKey() + "|" + path.getValue();
-                    if (!bf.contains(temp)) {
-                        count += path.getValue();
-                        if (count > this.threshold) {
-                            isGood = false;
-                            break;
-                        }
-                    }
-                }
-                if (isGood) {
-                    filteredSet.add(mn);
-                }
-            }
-            queryGraphMapping.put(crt, filteredSet);
-        }
-    }
+//    public void pathFilter(boolean filterAll) {
+//        Map<Long, Map<String, Edge>> pathPrefixMap = new HashMap<>();
+//        Map<Long, Map<String, Integer>> queryPaths = queryPaths(pathPrefixMap);
+//        for (Entry<Long, Set<MappedNode>> en : queryGraphMapping.entrySet()) {
+//            Long crt = en.getKey();
+//            Set<MappedNode> filteredSet = new HashSet<>();
+//            Set<MappedNode> oldSet = queryGraphMapping.get(crt);
+//            for (MappedNode mn : oldSet) {
+//                BloomFilter<String> bf = gPathTables.get(mn.getNodeID());
+//                int count = 0;
+//                boolean isGood = true;
+//                for (Entry<String, Integer> path : queryPaths.get(crt).entrySet()) {
+//                    String temp = path.getKey() + "|" + path.getValue();
+//                    if (!bf.contains(temp)) {
+//                        count += path.getValue();
+//                        if (count > this.threshold) {
+//                            isGood = false;
+//                            break;
+//                        }
+//                    }
+//                }
+//                if (isGood) {
+//                    filteredSet.add(mn);
+//                }
+//            }
+//            queryGraphMapping.put(crt, filteredSet);
+//        }
+//    }
 //
 //    public int onlyPath() {
 //        int number = 0;
@@ -472,7 +456,9 @@ public class PruningAlgorithm extends Algorithm {
 //    }
 
 
-    public void dfs(Long node, LinkedHashSet<Edge> visited, Set<Long> visitedNodes, StringBuilder sb, int depth, Map<String, Integer> pathMap, Map<String, Edge> prefix) {
+    public void dfs(Long node, LinkedHashSet<Edge> visited, Set<Long> visitedNodes, StringBuilder sb, int depth,
+                    Map<String, Integer> pathMap,
+                    Map<Edge, Set<String>> prefix) {
         if (depth >= k) {
             String path = sb.toString();
             if (!visitedNodes.contains(0L) && visitedNodes.contains(node)) {
@@ -481,7 +467,11 @@ public class PruningAlgorithm extends Algorithm {
             Integer count = pathMap.getOrDefault(path, 0);
             count++;
             pathMap.put(path, count);
-            prefix.put(path, visited.iterator().next());
+            Iterator<Edge> iterator = visited.iterator();
+            Edge edge = iterator.next();
+            Set<String> paths = prefix.getOrDefault(edge, new HashSet<>());
+            paths.add(path);
+            prefix.put(edge, paths);
             return;
         }
         int length = sb.length();
@@ -517,7 +507,11 @@ public class PruningAlgorithm extends Algorithm {
             Integer count = pathMap.getOrDefault(sb.toString(), 0);
             count++;
             pathMap.put(sb.toString(), count);
-            prefix.put(sb.toString(), visited.iterator().next());
+            Iterator<Edge> iterator = visited.iterator();
+            Edge edge = iterator.next();
+            Set<String> paths = prefix.getOrDefault(edge, new HashSet<>());
+            paths.add(sb.toString());
+            prefix.put(edge, paths);
         }
     }
 
@@ -531,7 +525,6 @@ public class PruningAlgorithm extends Algorithm {
         prefixSelectivities = new HashMap<Long, Double>();
         edgeNum = graph.edgeSet().size();
         //Map<Long,Integer> nodeFrequency;
-        Map<Long, Integer> labelFrequency = new HashMap<>();
         Map<Long, Set<MappedNode>> candidateNextLevel = new HashMap<>();
         labelFreq = ((BigMultigraph) graph).getLabelFreq();
         nodeSelectivities = new HashMap<Long, Double>();
@@ -558,15 +551,6 @@ public class PruningAlgorithm extends Algorithm {
         Set<MappedNode> mappedNodes;
         Set<Long> visitedQueryNodes = new HashSet<>();
         int i;
-        this.computeSelectivity();
-        for (Edge e : graphEdges) {
-            frequency = labelFrequency.get(e.getLabel());
-            if (frequency == null) {
-                frequency = 0;
-            }
-            frequency++;
-            labelFrequency.put(e.getLabel(), frequency);
-        }
         //Just to try - Candidate is the first
 //        startingNode = 5048L;
         if (startingNode == null) {
@@ -589,10 +573,6 @@ public class PruningAlgorithm extends Algorithm {
             while (!queryNodeToVisit.isEmpty()) {
 
                 currentQueryNode = queryNodeToVisit.poll();
-//                System.out.println("current query node :" + currentQueryNode);
-//                if(currentQueryNode.equals(77815786887248L)){
-//                	System.out.print("");
-//                }
                 visitSeq.add(currentQueryNode);
                 mappedNodes = queryGraphMapping.get(currentQueryNode);
                 //Compute the valid edges to explore and update the nodes to visit
@@ -608,7 +588,6 @@ public class PruningAlgorithm extends Algorithm {
                             .format("The current query node %d, has already been explored", currentQueryNode);
                     mappedNodes = new HashSet<>();
 
-                    //countNodes = 0;
                     //We should check if ALL the query nodes matches and then add the node
                     for (i = 0; i < nodesToVisit.size(); i++) {
                         graphCandidate = nodesToVisit.get(i);
@@ -650,11 +629,6 @@ public class PruningAlgorithm extends Algorithm {
                 }
             }
             bsCount = Utilities.bsCount;
-//            System.out.println("binarySearch count:" + bsCount);
-//            System.out.println("cmp neighbour labels count:" + this.cmpNbLabel);
-//            System.out.println("update count:" + this.uptCount);
-//            this.print();
-//            debug("The number of comparison is %d", numberOfComparison);
         } catch (DataException ex) {
             //fatal("Some problems with the data occurred", ex);
             throw new AlgorithmExecutionException("Some problem with the data occurrred", ex);
@@ -942,47 +916,57 @@ public class PruningAlgorithm extends Algorithm {
     }
 
     private boolean matchesWithPathNeighbor(MappedNode mappedGNode, long qNode, Map<Long, Map<String, Integer>> queryPaths,
-                                            Map<Long, Map<String, Edge>> pathPrefix) throws DataException {
+                                            Map<Long, Map<Edge, Set<String>>> pathPrefix) throws DataException {
+
         BloomFilter<String> bf = gPathTables.get(mappedGNode.getNodeID());
         int count = 0;
         boolean isGood = true;
         if (queryPaths.get(qNode).size() - bf.count() > this.threshold) {
             return false;
         }
-        Map<String, Edge> prefixMap = pathPrefix.get(qNode);
+        Map<Edge, Set<String>> prefixMap = pathPrefix.get(qNode);
         Map<String, Integer> wildcardPaths = new HashMap<>();
-        Set<Edge> differentPrefix = new HashSet<>();
-        for (Entry<String, Integer> path : queryPaths.get(qNode).entrySet()) {
-            Edge prefix = prefixMap.get(path.getKey());
-            if (!differentPrefix.contains(prefix)) {
-                String prefixTemp = (prefix.getSource().equals(qNode) ? "" : "-") + prefix.getLabel()  + "|1";
-                if (!bf.contains(prefixTemp)) {
-                    count ++;
-                    differentPrefix.add(prefix);
-                } else {
-                    count += checkDiff(bf, path.getKey(), path.getValue());
+        Map<String, Integer> prefixEdges = new HashMap<>();
+        Map<String, Integer> pathCount = queryPaths.get(qNode);
+        Set<String> visitedPaths = new HashSet<>();
+        for (Edge prefixEdge: prefixMap.keySet()) {
+            Set<String> paths = prefixMap.get(prefixEdge);
+            String prefixEdgePath = (prefixEdge.getSource().equals(qNode) ? "" : "-") + prefixEdge.getLabel();
+            if (!bf.contains(prefixEdgePath + "|1")) {
+                for (final String path : paths) {
+                    if (!visitedPaths.contains(path)) {
+                        String wcPath = path.replaceFirst(String.valueOf(prefixEdge.getLabel()), "0");
+                        int wcPathCount = wildcardPaths.getOrDefault(wcPath, 0);
+                        wcPathCount += pathCount.get(path);
+                        wildcardPaths.put(wcPath, wcPathCount);
+                        visitedPaths.add(path);
+                    }
                 }
             } else {
-                String wcPath = path.getKey().replaceFirst(String.valueOf(prefix.getLabel()), "0");
-                int wcPathCount = wildcardPaths.getOrDefault(wcPath, 0);
-                wcPathCount += path.getValue();
-                wildcardPaths.put(wcPath, wcPathCount);
+                for (final String path : paths) {
+                    if (!visitedPaths.contains(path)) {
+                        count += checkDiff(bf, path, pathCount.get(path));
+                    }
+                    visitedPaths.add(path);
+                }
+                if (count > threshold) {
+                    return false;
+                }
             }
+            int prefixEdgeCount = prefixEdges.getOrDefault(prefixEdgePath, 0);
+            prefixEdgeCount++;
+            prefixEdges.put(prefixEdgePath, prefixEdgeCount);
+        }
 
+        for (Entry<String, Integer> wcPathCount : wildcardPaths.entrySet()) {
+            count += checkDiff(bf, wcPathCount.getKey(), wcPathCount.getValue());
             if (count > this.threshold) {
-                isGood = false;
-                break;
+                return false;
             }
         }
 
-        for (Entry<String, Integer> pathCount : wildcardPaths.entrySet()) {
-            count += checkDiff(bf, pathCount.getKey(), pathCount.getValue());
-            if (count > this.threshold) {
-                isGood = false;
-                break;
-            }
-        }
-        return isGood;
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++`    -`
+        return true;
     }
 
     private int checkDiff(BloomFilter<String> bf, String path, int count) {

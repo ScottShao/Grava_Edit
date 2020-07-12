@@ -24,6 +24,7 @@ import eu.unitn.disi.db.exemplar.core.RelatedQuery;
 import eu.unitn.disi.db.exemplar.core.algorithms.steps.EDMatchingRecursiveStep;
 import eu.unitn.disi.db.grava.graphs.MappedNode;
 import eu.unitn.disi.db.grava.graphs.Multigraph;
+import eu.unitn.disi.db.tool.ThreadPoolFactory;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashSet;
@@ -35,6 +36,7 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
+import java.util.concurrent.ThreadPoolExecutor;
 
 /**
  * This class contains a naive - RECURSIVE - implementation for Algorithm1 thus the solution obtained traversing the
@@ -92,8 +94,9 @@ public class EditDistanceQuerySearch extends RelatedQuerySearch {
         List<EditDistanceQuery> tmp = null;
 //        System.out.println("threads num:" + this.getNumThreads());
         //Start in parallel
-        int numThreads = 8;
-        ExecutorService pool = Executors.newFixedThreadPool(this.getNumThreads());
+
+        ExecutorService pool = ThreadPoolFactory.getSearchThreadPool();
+        int numThreads = ((ThreadPoolExecutor)pool).getMaximumPoolSize();
 
         int chunkSize = (int) Math.round(graphNodes.size() / numThreads + 0.5);
         List<Future<List<EditDistanceQuery>>> lists = new ArrayList<>();
@@ -110,15 +113,9 @@ public class EditDistanceQuerySearch extends RelatedQuerySearch {
                 tmpChunk = new LinkedList<>();
                 nodesChunks.add(tmpChunk);
             }
-
             tmpChunk.add(node);
             count++;
-
-            //} else {
-            //     loggable.error("Similarity not satisfied..");
-            //}
         }
-
         for (List<MappedNode> chunk : nodesChunks) {
             threadNum++;
             EDMatchingRecursiveStep graphI = new EDMatchingRecursiveStep(threadNum, chunk.iterator(), startingNode,
@@ -140,19 +137,14 @@ public class EditDistanceQuerySearch extends RelatedQuerySearch {
                     //debug("Graph size: %d", smallGraph.vertexSet().size());
                     //                  //((List<RelatedQuery>)this.getRelatedQueries()).addAll(tmp);
                     this.getRelatedQueries().addAll(tmp);
-
-//                    List<RelatedQuery> rr = this.getRelatedQueries();
-//                    rr.addAll(tmp);
-
                 }
             }
         } catch (InterruptedException | ExecutionException ex) {
             ex.printStackTrace();
             error(ex.toString());
         }
-        pool.shutdown();
         watch.stop();
-//        info("Computed related in %dms", watch.getElapsedTimeMillis());
+
     }
 
     public int getThreshold() {

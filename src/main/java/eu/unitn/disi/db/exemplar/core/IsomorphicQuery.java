@@ -331,15 +331,6 @@ public class IsomorphicQuery extends RelatedQuery {
 
             Map<Long, MappedNode> otherNodes = other.getNodesMapping();
 
-//            for (Long toCheck : this.mappedNodes.keySet()) {
-//                if (!otherNodes.containsKey(toCheck)) {
-//                    return false;
-//                }
-//
-//                if (!otherNodes.get(toCheck).equals(this.mappedNodes.get(toCheck))) {
-//                    return false;
-//                }
-//            }
             if (this.getNodesMapping().size() != otherNodes.size()) {
                 return false;
             }
@@ -352,18 +343,6 @@ public class IsomorphicQuery extends RelatedQuery {
                 }
             }
             return true;
-            /*
-            Set<String> otherEdges = other.getUsedEdgesIDs();
-
-            if (otherEdges.size() == this.usedEdgesIDs.size()) {
-                for (String otherEdge : otherEdges) {
-                	
-                    if (!this.usedEdgesIDs.contains(otherEdge)) {
-                        return false;
-                    }
-                }
-                return true;
-            }*/
         }
         return false;
     }

@@ -582,5 +582,12 @@ public class BaseMultigraph implements Multigraph {
 		this.labelFreq = labelFreq;
 	}
 	
-	
+	public String toString() {
+        StringBuilder sb = new StringBuilder();
+        for (final Edge edge : this.edgeSet()) {
+            sb.append(edge.toString());
+            sb.append(System.lineSeparator());
+        }
+        return sb.toString();
+    }
 }

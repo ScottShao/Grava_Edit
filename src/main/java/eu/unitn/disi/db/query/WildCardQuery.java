@@ -38,7 +38,6 @@ public class WildCardQuery {
 	
 	public void run(String fileName) throws IOException{
 		this.readQuery(fileName);
-//		this.createWildCardQueryDir();
 		this.choose(threshold, 0);
 	}
 	

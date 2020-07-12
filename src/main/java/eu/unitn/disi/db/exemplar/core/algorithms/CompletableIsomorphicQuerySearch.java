@@ -32,6 +32,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Future;
@@ -43,7 +44,7 @@ import java.util.concurrent.ThreadPoolExecutor;
  *
  * @author Matteo Lissandrini <ml at disi.unitn.eu>
  */
-public class IsomorphicQuerySearch extends RelatedQuerySearch {
+public class CompletableIsomorphicQuerySearch extends RelatedQuerySearch {
 
     public static long answerCount = 0;
     public static boolean isBad = false;
@@ -51,20 +52,17 @@ public class IsomorphicQuerySearch extends RelatedQuerySearch {
     private Long startingNode;//TODO: set the best starting node
     private HashMap<Long, LabelContainer> labelFreq;
     private ExecutorService pool;
+    private List<Callable<List<RelatedQuery>>> callables;
 
     /**
      * Execute the algorithm
      */
     @Override
     public void compute() throws AlgorithmExecutionException {
-//        Long startingNode = this.getRootNode(true);
-//        debug("Starting node is %s",startingNode );
         if (startingNode == null) {
             throw new AlgorithmExecutionException("no root node has been found, and this is plain WR0NG!");
         }
         interNum = 0;
-        // FreebaseConstants.convertLongToMid(
-        // debug("Root node %s ", startingNode);
         if (this.getGraph().edgeSet().isEmpty()) {
             throw new AlgorithmExecutionException("NO KB Edges to find a root node!");
         }
@@ -88,21 +86,13 @@ public class IsomorphicQuerySearch extends RelatedQuerySearch {
             graphNodes = ((Map<Long, Set<MappedNode>>) this.getQueryToGraphMap()).get(startingNode);
         }
 
-        List<RelatedQuery> tmp = null;
-        int numThreads = ((ThreadPoolExecutor) pool).getMaximumPoolSize();
-//        int chunkSize = this.getNumThreads() == 1 ? graphNodes.size() :  (int) Math.round(graphNodes.size() / this.getNumThreads() + 0.5);
-        int chunkSize = (int) Math.round(graphNodes.size() / numThreads + 0.5);
-        List<Future<List<RelatedQuery>>> lists = new ArrayList<>();
-        ////////////////////// USE 1 THREAD
-        //chunkSize =  graphNodes.size();
-        ////////////////////// USE 1 THREAD
+        int chunkSize = (int) Math.round(graphNodes.size() / getNumThreads() + 0.5);
+        callables = new ArrayList<>();
 
         List<List<MappedNode>> nodesChunks = new LinkedList<>();
         List<MappedNode> tmpChunk = new LinkedList<>(); // NETBEANS!
         int count = 0, threadNum = 0;
-//        System.out.println(graphNodes.size());
         for (MappedNode node : graphNodes) {
-            //if (nodesSimilarity(queryConcept, node) > MIN_SIMILARITY) {
             if (count % chunkSize == 0) {
                 tmpChunk = new LinkedList<>();
                 nodesChunks.add(tmpChunk);
@@ -114,34 +104,14 @@ public class IsomorphicQuerySearch extends RelatedQuerySearch {
 
         for (List<MappedNode> chunk : nodesChunks) {
             threadNum++;
-            GraphIsomorphismRecursiveStep graphI = new GraphIsomorphismRecursiveStep(threadNum, chunk.iterator(),
-                    startingNode, query, graph, true, this.getSkipSave(), chunk.size(), this.getQueryToGraphMap(), this.labelFreq);
-            lists.add(pool.submit(graphI));
+            Callable<List<RelatedQuery>> graphI = new GraphIsomorphismRecursiveStep(threadNum, chunk.iterator(),
+                    startingNode, query, graph, true, this.getSkipSave(), chunk.size(), this.getQueryToGraphMap(), labelFreq);
+            callables.add(graphI);
         }
-
-//        info("Number of Threads: %d/%d chunk size: %d Number of nodes %d", threadNum, this.getNumThreads(), chunkSize, graphNodes.size());
-        //        if(graphNodes.size()==1){
-        //            Long i = graphNodes.iterator().next();
-        //            debug("The lucky node is %s ", i);
-        //        }
-
-        //Merge partial results
-        try {
-            for (Future<List<RelatedQuery>> list : lists) {
-                tmp = list.get();
-                if (tmp != null) {
-                    this.getRelatedQueries().addAll(tmp);
-                }
-            }
-        } catch (InterruptedException | ExecutionException ex) {
-            ex.printStackTrace();
-            error(ex.toString());
-        }
-        watch.stop();
     }
 
-    public void setExecutionPool(final ExecutorService pool) {
-        this.pool = pool;
+    public List<Callable<List<RelatedQuery>>> getCallables() {
+        return callables;
     }
 
     public Long getStartingNode() {
@@ -159,5 +129,4 @@ public class IsomorphicQuerySearch extends RelatedQuerySearch {
     public void setLabelFreq(HashMap<Long, LabelContainer> labelFreq) {
         this.labelFreq = labelFreq;
     }
-
 }

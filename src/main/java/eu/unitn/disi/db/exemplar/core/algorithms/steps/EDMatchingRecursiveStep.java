@@ -67,10 +67,9 @@ public class EDMatchingRecursiveStep extends AlgorithmStep<EditDistanceQuery> {
     public List<EditDistanceQuery> call() throws Exception {
         EditDistanceQuery relatedQuery;
         List<EditDistanceQuery> relatedQueriesPartial = new LinkedList<>();
-        Set<EditDistanceQuery> relatedQueries = new HashSet<>();
-
-        boolean warned = false;
+        List<EditDistanceQuery> relatedQueries = new LinkedList<>();
         watch.start();
+        boolean warned = false;
         int i = 0;
         this.isQuit = false;
         while (graphNodes.hasNext()) {
@@ -86,7 +85,7 @@ public class EDMatchingRecursiveStep extends AlgorithmStep<EditDistanceQuery> {
                 }
                 if (relatedQueriesPartial != null) {
                     EditDistanceQuerySearch.answerCount += relatedQueriesPartial.size();
-                    System.out.println("node:" + node + " size:" + relatedQueriesPartial.size());
+//                    System.out.println("node:" + node + " size:" + relatedQueriesPartial.size());
                     relatedQueries.addAll(relatedQueriesPartial);
 //                    for (EditDistanceQuery partial : relatedQueriesPartial) {
 //                    	if(partial.getQuery().edgeSet().size() == query.edgeSet().size())
@@ -109,20 +108,17 @@ public class EDMatchingRecursiveStep extends AlgorithmStep<EditDistanceQuery> {
                 }
                 EditDistanceQuerySearch.isBad = true;
                 error("Memory exausted, so we are returning something but not everything.");
-                System.gc();
+//                System.gc();
                 return new LinkedList<>(relatedQueries);
             }
-
-            //if (watch.getElapsedTimeMillis() > WARN_TIME) {
-            //    info("Computation %d [%d] took %d ms", threadNumber, Thread.currentThread().getId(), watch.getElapsedTimeMillis());
-            //}
+//            if (watch.getElapsedTimeMillis() > 1) {
+//                System.out.println(node + " node takes " + watch.getElapsedTimeMillis());
+//            }
         }
 //        System.out.println(this.cmpCount);
         watch.stop();
-//        System.out.println(this + "future finished");
-//        System.out.println(relatedQueries.size());
-        System.out.println( "Answer size:" + relatedQueries.size());
-        return new LinkedList<>(relatedQueries);
+//        System.out.println( "Answer size:" + relatedQueries.size());
+        return relatedQueries;
     }
 
     /**
@@ -313,7 +309,19 @@ public class EDMatchingRecursiveStep extends AlgorithmStep<EditDistanceQuery> {
                         //Is this node coeherent with the structure?
                         if (edgeMatch(queryEdge, graphEdge, graphNode, graphNextNode, newRelatedQuery, this.threshold)) {
                             //That's a good edge!! Add it to this related query
-                            newRelatedQuery.map(queryEdge, graphEdge);
+                            try {
+                                newRelatedQuery.map(queryEdge, graphEdge);
+                            } catch (IllegalArgumentException e) {
+                                for (Edge eeee : sortedEdges) {
+                                    System.out.println(eeee + " vs");
+                                }
+                                System.out.println("======================");
+                                for (Edge eeee : this.query.edgeSet()) {
+                                    System.out.println(eeee + " vs");
+                                }
+
+                                throw e;
+                            }
 
                             //Map also the node
 //                            System.out.println("next" + queryNextNode + " " + graphNextNode);
@@ -403,7 +411,7 @@ public class EDMatchingRecursiveStep extends AlgorithmStep<EditDistanceQuery> {
         return relatedQueries.size() > 0 ? relatedQueries : null;
     }
     
-    public static List<Edge> sortEdge(final Set<Edge> edges, final Multigraph query, Long queryNode) {
+    public List<Edge> sortEdge(final Set<Edge> edges, final Multigraph query, Long queryNode) {
 		List<Edge> sortedEdges = new ArrayList<>();
     	PriorityQueue<Edge> pq = new PriorityQueue<>( new Comparator<Edge>(){
     		public int compare(Edge e1, Edge e2) {
@@ -566,7 +574,7 @@ public class EDMatchingRecursiveStep extends AlgorithmStep<EditDistanceQuery> {
      * @param graphEdges the knoweldgebase graphEdges
      * @return labeled graphEdges, can be empty
      */
-    public static List<Edge> findEdges(Long label, Collection<Edge> graphEdges) {
+    public List<Edge> findEdges(Long label, Collection<Edge> graphEdges) {
 
         // Compare to the graphEdges in the KB exiting from the mapped node passed
         List<Edge> edges = new ArrayList<>();

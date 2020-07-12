@@ -6,12 +6,15 @@ import eu.unitn.disi.db.exemplar.core.algorithms.ComputeGraphNeighbors;
 import eu.unitn.disi.db.grava.exceptions.ParseException;
 import eu.unitn.disi.db.grava.graphs.BigMultigraph;
 import eu.unitn.disi.db.grava.graphs.Multigraph;
+import eu.unitn.disi.db.grava.utils.AlgorithmName;
 import eu.unitn.disi.db.grava.utils.FileOperator;
 import eu.unitn.disi.db.grava.utils.Filter;
 import eu.unitn.disi.db.grava.utils.MethodOption;
+import eu.unitn.disi.db.tool.ThreadPoolFactory;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.ExecutorService;
 
 
 public class Experiement {
@@ -42,10 +45,9 @@ public class Experiement {
         this.queryFolder = queryFolder;
         this.outputFile = outputFile;
         this.isUsingWildCard = isUsingWildCard;
-//		this.answerFile = answerFile;
     }
 
-    public void runExperiement(Filter filter) throws AlgorithmExecutionException, ParseException, IOException {
+    public void runExperiement(AlgorithmName algorithmName, Filter filter) throws AlgorithmExecutionException, ParseException, IOException {
         System.out.println("Run experiment"  );
         StopWatch stopWatch = new StopWatch();
 
@@ -88,6 +90,7 @@ public class Experiement {
             tableAlgorithm.setK(neighbourNum);
             tableAlgorithm.setGraph(G);
             tableAlgorithm.setNumThreads(threadsNum);
+            tableAlgorithm.setNodePool(ThreadPoolFactory.getTableComputeThreadPool());
             if (Filter.NEIGHBOUR == filter || Filter.BOTH == filter) {
                 tableAlgorithm.compute();
             }
@@ -95,85 +98,14 @@ public class Experiement {
                 tableAlgorithm.computePathFilter();
             }
             System.out.println("loading graph takes " + load.getElapsedTimeMillis());
-//		HashMap<Long, LabelContainer> labelFreq = G.getLabelFreq();
-//		Map<Connection, int[]> conCount = tableAlgorithm.getConCount();
-//		TreeSet<Connection> ts = new TreeSet<>(new Comparator<Connection>(){
-//
-//			@Override
-//			public int compare(Connection o1, Connection o2) {
-//				double t1 = o1.getFreq() / (double)o1.getFirstFreq();
-//				double t2 = o2.getFreq() / (double)o2.getFirstFreq();
-//				if (t2 > t1) {
-//					return -1;
-//				} else {
-//					return 1;
-//				}
-//			}
-//			
-//		});
-//		for (Entry<Connection, int[]> cc : conCount.entrySet()) {
-//			Connection temp = cc.getKey();
-//			temp.setFreq(cc.getValue()[0]);
-//			long first = temp.getFirst();
-//			first = first > 0 ? first : -first;
-//			temp.setFirstFreq(labelFreq.get(first).getFrequency());
-//			ts.add(temp);
-//		}
-//		char qc = 'a';
-//		int lvl = 1;
-//		String fn = "a";
-//		BufferedWriter freqBW = new BufferedWriter(new FileWriter(new File("./test/test/freq.txt"), true));
-//		Random rn = new Random();
-            /**
-             while (!ts.isEmpty()) {
-             Connection c = ts.pollFirst();
-             if (rn.nextDouble() < 0.015) {
-             BufferedWriter queryBW = new BufferedWriter(new FileWriter(new File("./test/test/" + fn + ".txt")));
-             queryBW.write("1 2 " + 1000008979);
-             queryBW.newLine();
-             queryBW.write("3 2 " + 1000009041);
-             queryBW.newLine();
-             if (c.getFirst() > 0) {
-             queryBW.write("1 4 " + c.getFirst());
-             } else {
-             queryBW.write("4 1 " + (-c.getFirst()));
-             }
-             queryBW.newLine();
-             if (c.getSecond() > 0) {
-             queryBW.write("4 5 " + c.getSecond());
-             } else {
-             queryBW.write("5 4 " + (-c.getSecond()));
-             }
-             queryBW.newLine();
-             freqBW.write(fn + "," + 418 + "," + c.getFreq() /(double)c.getFirstFreq());
-             freqBW.newLine();
-             freqBW.flush();
-             queryBW.flush();
-             queryBW.close();
-             lvl++;
-             if (lvl > 20) {
-             lvl = 1;
-             qc++;
-             }
-             fn = "";
-             for (int i = 0; i < lvl; i++) {
-             fn += qc;
-             }
-             }
-             //			System.out.println(c.getFirst() + "==" + c.getSecond() + ":" + c.getFreq() /(double)c.getFirstFreq()) ;
-             }
-             freqBW.close();
-             **/
+
             stopWatch.start();
             ed.setgTableAlgorithm(tableAlgorithm);
             ed.setG(G);
             for (String queryFile : queryFiles) {
                 ed.setQueryName(queryFile);
-                ed.runEditDistance(filter);
+                ed.runEditDistance(algorithmName, filter);
             }
-//		ed.write(queryFolder+"/c.csv");
-//		ed.writeCand(queryFolder +"/cand.csv");
-//		ed.writeSels(queryFolder + "/sels.csv");
         } catch (IOException ioe) {
             ioe.printStackTrace();
         } finally {
